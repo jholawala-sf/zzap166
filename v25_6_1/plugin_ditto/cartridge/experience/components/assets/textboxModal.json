@@ -1,0 +1,44 @@
+{
+    "name": "Textbox with Modal",
+    "description": "Textbox with Modal Link",
+    "group": "Components",
+    "attribute_definition_groups": [
+      {
+        "id": "textContent",
+        "name": "Text Content",
+        "description": "The content to show in this component",
+        "attribute_definitions": [
+          {
+            "id": "richText",
+            "name": "Content",
+            "description": "This is the rich text content area",
+            "type": "markup",
+            "required": true
+          },
+          {
+            "id": "modalLinkText",
+            "name": "Modal Link Text",
+            "description": "This is the text for the modal link",
+            "type": "string",
+            "required": false,
+            "default_value": "Learn More"
+          },
+          {
+            "id": "modalLinkContent",
+            "name": "Modal Content",
+            "description": "This is the rich text content area for the modal popup",
+            "type": "markup",
+            "required": false
+          },
+          {
+            "id": "customCss",
+            "name": "Custom CSS",
+            "description": "Customize CSS for this container",
+            "type": "text",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

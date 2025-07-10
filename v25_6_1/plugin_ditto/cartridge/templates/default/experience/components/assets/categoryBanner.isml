@@ -1,0 +1,41 @@
+<div class="category-banner" style="${pdict.backgroundColor || ''}">
+    <div class="category-banner-image-wrapper align-self-start">
+        <isif condition="${pdict.categoryImage}">
+            <picture>
+                <img src="${pdict.categoryImage.src}" class="category-banner-image img-fluid"
+                    ${pdict.categoryImage.alt ? 'alt="' + pdict.categoryImage.alt + '" title="' + pdict.categoryImage.alt + '"' : ''} />
+            </picture>
+        <iselseif condition="${pdict.image}">
+            <picture>
+                <source srcset="${pdict.image.src.desktop}" media="(min-width: 48rem)" />
+                <source srcset="${pdict.image.src.mobile}" media="(min-width: 20rem)" />
+                <img src="${pdict.image.src.mobile}" class="category-banner-image img-fluid"
+                    style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                    ${pdict.image.alt ? 'alt="' + pdict.image.alt + '" title="' + pdict.image.alt + '"' : ''} />
+            </picture>
+        </isif>
+    </div>
+    <div class="category-banner-overlay-wrapper">
+        <div class="category-banner-overlay container d-flex ${pdict.overlayPosition}">
+            <div class="category-banner-overlay-inner ${pdict.overlayAlignment}">
+                <isif condition="${pdict.heading}">
+                    <div class="banner-heading h1 font-weight-bold pb-2" style="${pdict.headingStyles}">
+                        <isprint value="${pdict.heading}" encoding="off" />
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.subheading}">
+                    <div class="banner-subheading h4 pb-2" style="${pdict.subheadingStyles}">
+                        <isprint value="${pdict.subheading}" encoding="off" />
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.buttonText && pdict.buttonLink}">
+                    <a href="${pdict.buttonLink}" class="${pdict.buttonType} btn-lg">
+                        <isprint value="${pdict.buttonText}" encoding="off" />
+                    </a>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+.decorated {
+    overflow: hidden;
+    text-align: center;
+}
+
+.decorated > span {
+    position: relative;
+    display: inline-block;
+}
+
+.decorated > span::before,
+.decorated > span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    border-bottom: 1px solid;
+    width: 591px; /* half of limiter */
+    margin: 0 20px;
+}
+
+.decorated > span::before {
+    right: 100%;
+}
+
+.decorated > span::after {
+    left: 100%;
+}
+
+#pwdless-token-form {
+    .card {
+        border: none;
+    }
+}
+
+#request-passwordless-login-modal {
+    .modal-dialog {
+        min-width: 550px;
+    }
+
+    input.form-control,
+    input[type="text"],
+    [type="text"].form-control,
+    [type="tel"].form-control {
+        &:focus {
+            box-shadow: inset 0 -2px 0 $primary;
+        }
+    }
+}

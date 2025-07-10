@@ -1,0 +1,6 @@
+<isif condition="${product.specifications}">
+    <div class="specifications">
+        <div class="description-label">${Resource.msg('label.specifications', 'product', null)}</div>
+        <isprint value="${product.specifications}" encoding="off" />
+    </div>
+</isif>

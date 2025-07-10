@@ -1,0 +1,54 @@
+.banner-carousel-wrapper {
+    .banner-carousel {
+        .slick-prev,
+        .slick-next {
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            height: 3rem;
+
+            width: 3rem;
+
+            &:active,
+            &:hover {
+                background: transparent;
+                color: $carousel-controls;
+            }
+
+            &::before {
+                color: $carousel-controls;
+                font-size: 3rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                display: none !important;
+            }
+        }
+
+        .slick-prev {
+            left: 10px;
+        }
+
+        .slick-next {
+            right: 10px;
+        }
+
+        &:hover {
+            .slick-prev,
+            .slick-next {
+                opacity: 1;
+            }
+        }
+
+        .slick-dots {
+            bottom: calculate-rem(30px);
+            left: calculate-rem(20px);
+            text-align: initial;
+        }
+    }
+
+    .slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+}

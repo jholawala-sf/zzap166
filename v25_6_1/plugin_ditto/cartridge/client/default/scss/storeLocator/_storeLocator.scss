@@ -1,0 +1,57 @@
+.store-name {
+    .close {
+        display: none;
+    }
+}
+
+.store-locator-container {
+    .detect-location {
+        margin-bottom: 1em;
+    }
+
+    .store-name {
+        font-weight: $font-weight-bold;
+    }
+
+    .store-details {
+        display: block;
+        @include media-breakpoint-up(md) {
+            @include ml(1);
+        }
+    }
+
+    .striped {
+        > div:nth-of-type(even) {
+            background-color: $store-locator-striped;
+        }
+    }
+
+    .search-form {
+        margin-bottom: 4rem;
+        width: 100%;
+    }
+
+    .select-store {
+        @include media-breakpoint-up(sm) {
+            margin-top: -3rem;
+        }
+    }
+
+    .custom-radio {
+        .store-details {
+            margin-left: 1.125em;
+        }
+    }
+
+    .store-locator-no-results {
+        display: none;
+    }
+
+    .results {
+        @include media-breakpoint-up(md) {
+            max-height: 21.875em;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+}

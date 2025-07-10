@@ -1,0 +1,46 @@
+{
+    "name": "Shop Product Now",
+    "description": "Quick shop in one click. Only works if product has NO variations",
+    "group": "Components",
+    "attribute_definition_groups": [
+      {
+        "id": "product_detail",
+        "name": "Product Details",
+        "attribute_definitions": [
+          {
+            "id": "product1",
+            "name": "Choose Product",
+            "type": "product",
+            "required": true,
+            "description": "Must choose a product without variation options"
+        }
+        ]
+      },
+      {
+        "id": "button_detail",
+        "name": "Button Details",
+        "attribute_definitions": [
+          {
+            "id": "btn_colour",
+            "name": "Background colour",
+            "type": "custom",
+            "required": false,
+            "editor_definition": {
+              "type": "styling.colorPicker"
+            }
+        },
+        {
+          "id": "btn_border",
+          "name": "Border colour",
+          "type": "custom",
+          "required": false,
+          "editor_definition": {
+            "type": "styling.colorPicker"
+          }
+      }
+        ]
+      }
+    ],
+    "region_definitions": []
+}
+  

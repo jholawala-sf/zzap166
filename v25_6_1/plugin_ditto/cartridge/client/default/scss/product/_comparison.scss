@@ -1,0 +1,112 @@
+$border-radius: 3px;
+
+.compare-bar-wrapper {
+    background-color: $compare-bar-wrapper-background;
+    border-top: 1px solid $compare-bar-wrapper-border;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    transition: transform 0.2s linear;
+    width: 100%;
+    z-index: 10;
+
+    &.minimized {
+        transform: translateY(calculate-rem(133px));
+
+        .minimize-compare {
+            .fa-angle-down {
+                transform: rotateX(180deg);
+            }
+            .hide {
+                display: none;
+            }
+            .show {
+                display: inline;
+            }
+        }
+    }
+
+    .minimize-compare {
+        background-color: $white;
+        border-left: 1px solid $compare-bar-wrapper-border;
+        border-right: 1px solid $compare-bar-wrapper-border;
+        border-top: 1px solid $compare-bar-wrapper-border;
+        height: 2.5rem;
+        position: absolute;
+        right: 1rem;
+        text-align: center;
+        top: -2.5rem;
+        width: 8rem;
+
+        .hide {
+            display: inline;
+        }
+        .show {
+            display: none;
+        }
+    }
+
+    .compare-bar {
+        @include py(3);
+    }
+
+    .slot {
+        height: calculate-rem(100px);
+        margin: 0 auto;
+        position: relative;
+        width: 6.788em;
+
+        &:not([data-pid]) {
+            border: 1px dashed $compare-bar-wrapper-border;
+        }
+
+        img {
+            border-radius: $border-radius 0 0 $border-radius;
+            float: left;
+            height: 100%;
+            position: static;
+        }
+
+        .close {
+            position: absolute;
+            @include font-size(16px);
+        }
+
+        .action {
+            text-align: center;
+        }
+    }
+}
+
+.product-comparison {
+    .back-to-results {
+        margin: 1em 0;
+    }
+
+    .product-header > .col {
+        padding: 0;
+    }
+
+    .product-header {
+        .product {
+            margin: 0 auto;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+
+    thead th,
+    thead td {
+        border-top: 0;
+    }
+}
+
+.continue-shopping-link {
+    @include font-size(13px);
+
+    color: $gray-900;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}

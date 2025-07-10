@@ -1,0 +1,40 @@
+<div class="ambassador-content">
+    <div class="ambassador-content_top">
+        <div class="container">
+            <div class="row flex-fill no-gutters">
+                <div class="col-12 col-md-6">
+                    <picture>
+                        <source srcset="${pdict.image.src.desktop}" media="(min-width: 48rem)" />
+                        <source srcset="${pdict.image.src.mobile}" media="(min-width: 20rem)" />
+                        <img src="${pdict.image.src.mobile}" class="img-fluid object-fit_none"
+                            style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                            alt="${dw.util.SecureEncoder.forHtmlInDoubleQuoteAttribute(pdict.image.alt)}"
+                            title="${dw.util.SecureEncoder.forHtmlInDoubleQuoteAttribute(pdict.image.alt)}" />
+                    </picture>
+                </div>
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center my-3 my-md-0 p-3 pl-4">
+                    <h2 class="ambassador-name">${pdict.name}</h2>
+                    <h4 class="ambassador-activity mb-3">${pdict.activity}</h4>
+                    <div class="ambassador-text p-3">
+                        <isprint value="${pdict.about}" encoding="off" />
+                    </div>
+                   <div class="row w-100">
+                        <div class="col-12 col-md-6">
+                            <h5><span class="text-uppercase font-weight-bold">${Resource.msg('section.label.hometown', 'ambassadors', null)}</span>: <isprint value="${pdict.hometown}" encoding="off" /></h5>
+
+                        </div>
+                        <div class="col-12 col-md-6 text-md-right">
+                            <h5><span class="text-uppercase font-weight-bold">${Resource.msg('section.label.resides', 'ambassadors', null)}</span>: <isprint value="${pdict.resides}" encoding="off" /></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ambassador-content_bottom row flex-fill flex-column align-items-center mt-3 mt-md-5 mb-md-3 p-3">
+        <h2 class="mb-3">${Resource.msg('heading.career', 'ambassadors', null)}</h2>
+        <div class="ambassador-text px-3 px-md-0">
+            <isprint value="${pdict.career}" encoding="off" />
+        </div>
+    </div>
+</div>

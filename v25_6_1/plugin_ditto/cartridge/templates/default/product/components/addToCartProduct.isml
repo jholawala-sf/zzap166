@@ -1,0 +1,38 @@
+<isset name="isPdpTestSegment" value="${!!pdict.isPdpTestSegment}" scope="page" />
+
+<div class="cart-and-ipay commercepayments">
+    <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />
+    <div class="pdp-checkout-button ${isPdpTestSegment ? '' : 'd-flex'}">
+        <button class="add-to-cart btn ${isPdpTestSegment ? 'btn-dark' : 'btn-primary'} flex-grow-1" data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            <i class="fa fa-shopping-bag"></i>
+            <span class="ml-1">
+                ${Resource.msg('button.addtocart', 'common', null)}
+            </span>
+        </button>
+        <isif condition="${pdict.enabledPlugins.Wishlist}">
+            <isinclude template="wishlist/components/addToWishListButton" />
+        </isif>
+        <isif condition="${isPdpTestSegment && !isQuickView && pdict.enabledPlugins.InStorePickup}">
+            <button class="btn btn-outline-secondary btn-get-in-store-inventory ml-1"
+                    data-action-url="${pdict.pickUpInStore.actionUrl}" data-ats-action-url="${pdict.pickUpInStore.atsActionUrl}"
+                    data-modal-close-text=${Resource.msg('label.modal.close.text', 'instorePickup', null)} type="submit"
+                ${!product.readyToOrder || !product.available || !product.availableForInStorePickup ? "disabled" : ""}>
+                ${Resource.msg('button.pdp.availability.select.store', 'instorePickup', null)}
+            </button>
+        </isif>
+    </div>
+
+    <isif condition="${pdict.commercePaymentsConfiguration && pdict.commercePaymentsConfiguration.expressCheckoutEnabled}">
+        <div class="mt-sm-1 add-cart-button-extension">
+            <isinclude template="product/components/addToCartButtonExtension"/>
+        </div>
+    </isif>
+</div>
+<div class="my-2">
+    <isinclude template="product/components/instorePickup" />
+</div>
+<div class="text-center my-2">
+    <isif condition="${!isQuickView && pdict.enabledPlugins.GiftRegistry}">
+        <isinclude template="giftRegistry/components/addToRegistryButton" />
+    </isif>
+</div>

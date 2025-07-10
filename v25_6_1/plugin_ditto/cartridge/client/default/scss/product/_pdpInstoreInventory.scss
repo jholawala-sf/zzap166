@@ -1,0 +1,41 @@
+@import "../variables";
+@import "../storeLocator/storeLocator";
+
+.product-detail {
+    .selected-store-with-inventory {
+        .store-name {
+            .close {
+                display: block;
+            }
+        }
+    }
+}
+
+.selected-store-with-inventory {
+    .card-header {
+        background-color: $white;
+    }
+
+    .store-name {
+        .close {
+            display: block;
+        }
+    }
+}
+
+.instore-pickup-header {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    .fa-map-marker-alt {
+        color: $primary;
+    }
+}
+
+.store-name {
+    font-weight: 600;
+}
+
+.display-none {
+    display: none;
+}

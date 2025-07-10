@@ -1,0 +1,28 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<isif condition="${pdict.isEditMode}">
+    <div style="margin: 20px auto; width: 600px">
+</isif>
+
+<isif condition="${pdict.isEditMode}">
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/global.css')}" />
+</isif>
+
+<isprint value="${pdict.regions.content.render()}" encoding="off" />
+<div class="documentation-workflow-options">
+    <form action="${URLUtils.abs('Cart-AddDocumentationSubmit')}" method="post" enctype="multipart/form-data">
+        <isprint value="${pdict.regions.options.render()}" encoding="off" />
+        <div class="form-group" style="margin: 20px">
+            <button type="submit" class="btn btn-primary">Add Documentation</button>
+        </div>
+        <input type="hidden" name="lineItemUUID" value="" />
+    </form>
+</div>
+
+<isif condition="${pdict.isEditMode}">
+    <isinclude sf-toolkit="off" template="/common/scripts" />
+</isif>
+
+<isif condition="${pdict.isEditMode}">
+    </div>
+</isif>

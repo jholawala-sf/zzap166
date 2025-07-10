@@ -1,0 +1,29 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isif condition="${pdict.css}">
+    <isprint value="${pdict.regions.main.render()}" encoding="off" />
+<iselseif condition="${pdict.logo}"/>
+    <isprint value="${pdict.regions.logo.render()}" encoding="off" />
+<iselseif condition="${pdict.mobileLogo}"/>
+    <isprint value="${pdict.regions.mobileLogo.render()}" encoding="off" />
+<iselseif condition="${pdict.footerLogo}"/>
+    <isprint value="${pdict.regions.footerLogo.render()}" encoding="off" />
+<iselse/>
+    <isdecorate template="${pdict.decorator}">
+        <div class="ditto-theme-editor-container" style="display: flex; justify-content: center;">
+            <div class="theme-container" style="width: 800px">
+                <h1>Ditto Theme</h1>
+                <h2>Main Logo</h2>
+                Drag a <code>Theme Logo</code> component into the logo regions
+                <isprint value="${pdict.regions.logo.render()}" encoding="off" />
+                <h2>Mobile Logo</h2>
+                <isprint value="${pdict.regions.mobileLogo.render()}" encoding="off" />
+                <h2>Theme Styling</h2>
+                Drag a <code>Theme</code> component into the styling region below
+                <isprint value="${pdict.regions.main.render()}" encoding="off" />
+                <h2>Footer Logo</h2>
+                <isprint value="${pdict.regions.footerLogo.render()}" encoding="off" />
+            </div>
+        </div>
+    </isdecorate>
+</isif>
+

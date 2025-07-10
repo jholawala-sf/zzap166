@@ -1,0 +1,102 @@
+<isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
+<isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
+<isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+
+<div
+    class="product-info ${lineItem.giftRegistryItem ? 'gift-registry-item' : ''} ${bonusproductlineitem} uuid-${lineItem.UUID} p-2 p-md-4">
+    <div class="row ${bonuslineitemrow}">
+        <div class="col-12 col-md-7">
+            <div class="d-flex flex-row">
+                <div class="item-image">
+                    <a href="${lineItem.url}">
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" />
+                    </a>
+                </div>
+                <div class="product-details">
+                    <isinclude template="cart/productCard/cartProductCardHeader" />
+                    <div class="d-block d-md-none">
+                        <isinclude template="cart/productCard/cartProductCardProductPrice" />
+                    </div>
+                    <div class="item-attributes d-flex flex-column">
+                        <isloop items="${lineItem.variationAttributes}" var="attribute">
+                            <div class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
+                                <span class="font-weight-bold">${attribute.displayName}</span>:
+                                <span class="line-item-attribute-value">${attribute.displayValue}</span>
+                            </div>
+                        </isloop>
+                        <isloop items="${lineItem.options}" var="option">
+                            <isif condition="${!!option}">
+                                <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                                    data-value-id="${option.selectedValueId}">
+                                    <p class="line-item-attributes">${option.displayName}</p>
+                                </div>
+                            </isif>
+                        </isloop>
+                        <isif condition="${lineItem.productType === 'bundle'}">
+                            <div class="bundle-includes">
+                                ${Resource.msg('msg.bundle.includes', 'cart', null)}
+                            </div>
+                            <isloop items="${lineItem.bundledProductLineItems}" var="bundledLineItem">
+                                <div class="" style="font-style: italic">
+                                    <span>
+                                        ${bundledLineItem.productName} x
+                                        <isprint value="${bundledLineItem.quantity}" formatter="##" />
+                                    </span>
+                                </div>
+                            </isloop>
+                        </isif>
+                        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+
+                        <isinclude template="cart/productCard/cartProductCardAvailability" /> 
+                        <div class="gift-registry-item-tag ${lineItem.giftRegistryItem ? '' : 'd-none'}">
+                            <p class="line-item-attributes">${lineItem.giftRegistryItem ?
+                                                            lineItem.giftRegistryItemTag : ''}</p>
+                        </div>
+                    </div>
+                    <isif condition="${!lineItem.isBonusProductLineItem}">
+                        <!--- promotions --->
+                        <div class="line-item-promo item-${lineItem.UUID} d-block d-md-none">
+                            <isinclude template="checkout/productCard/productCardProductPromotions" />
+                        </div>
+                    </isif>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 d-flex flex-column justify-content-between align-items-end product-card-footer">
+            <div class="d-none d-md-block">
+                <isinclude template="cart/productCard/cartProductCardProductPrice" />
+
+                <isif condition="${!lineItem.isBonusProductLineItem}">
+                    <!--- promotions --->
+                    <div class="line-item-promo item-${lineItem.UUID}">
+                        <isinclude template="checkout/productCard/productCardProductPromotions" />
+                    </div>
+                </isif>
+            </div>
+
+            <isif condition="${!lineItem.isBonusProductLineItem}">
+                <isinclude template="cart/productCard/cartProductCardEdit" />
+            </isif>
+        </div>
+    </div>
+
+    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
+    </isif>
+    <!--- In Store Pickup --->
+    <isif condition="${pdict.enabledPlugins.InStorePickup}">
+        <isif condition="${lineItem.fromStoreId}">
+            <div class="row">
+                <div class="col-12">
+                    <hr class="line-item-divider line-dotted" />
+                </div>
+                <div class="col-12">
+                    <span class="line-item-name">${Resource.msg('label.instore.pickup.from', 'instorePickup', null)}
+                    </span>
+                    <isinclude url="${URLUtils.url('Stores-GetStoreById', 'storeId', lineItem.fromStoreId)}" />
+                </div>
+            </div>
+        </isif>
+    </isif>
+</div>

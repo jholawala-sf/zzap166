@@ -1,0 +1,42 @@
+<div class="gr-search-results-header align-items-center d-none">
+    <h3>${Resource.msg('heading.search.gr.results', 'giftRegistry', null)}</h3>
+    <div class="gr-search-results-count">
+        <span class="gr-search-results-number d-none"></span>
+        <span class="gr-search-results-text d-none">${Resource.msg('heading.search.gr.results.text', 'giftRegistry',
+                                                    null)}</span>
+        <span class="gr-search-result-text d-none">${Resource.msg('heading.search.gr.result.text', 'giftRegistry',
+                                                   null)}</span>
+    </div>
+</div>
+
+<div class="gr-search-results"></div>
+<div class="no-results-div text-center">
+    <p class="no-results-msg d-none">${Resource.msg('txt.search.no.results', 'giftRegistry', null)}</p>
+    <a href="${'#'}" class="d-none btn btn-outline-primary mt-5">${Resource.msg('link.search.try.again',
+                                                                 'giftRegistry',
+                                                                 null)}
+    </a>
+</div>
+<div class="gr-result-template col-12 search-result d-none">
+    <div class="row">
+        <div class="col-4 registrants">
+            <span class="registrant">
+                <span class="text"></span>
+            </span>
+            <span class="co-registrant">
+                <span class="text"></span>
+            </span>
+        </div>
+        <div class="col-4 event-location">
+            <span class="text"></span>
+        </div>
+        <div class="col-2 event-date">
+            <span class="text"></span>
+        </div>
+        <div class="col-2 view-gr">
+            <a href="#" class="view-gr" data-url="">${Resource.msg('link.view.registry.txt', 'giftRegistry', null)}
+            </a>
+        </div>
+    </div>
+</div>
+<isinclude template="giftRegistry/components/moreResultsButton" />

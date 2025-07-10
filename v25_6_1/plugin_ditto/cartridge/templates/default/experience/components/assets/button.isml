@@ -1,0 +1,10 @@
+<div class="button-cmpt ${pdict.btnAlign}">
+    <isif condition="${pdict.btnText && pdict.btnLink}">
+        <a href="${pdict.btnLink}" class="${pdict.buttonType} btn-lg">
+            <isprint value="${pdict.btnText}" encoding="off" />
+            <isif condition="${pdict.iconCode}">
+                <i class="far ${pdict.iconCode} pl-2"></i>
+            </isif>
+        </a>
+    </isif>
+</div>

@@ -1,0 +1,11 @@
+<isset name="purchaseOrderApplied" value="${pdict.order && pdict.order.totals ? pdict.order.totals.purchaseOrderApplied : pdict.totals.purchaseOrderApplied}" scope="page" />
+<div class="row purchase-order-applied ${purchaseOrderApplied.value >= 0 ? 'hide-purchase-order-applied': ''}">
+    <div class="col-6">
+        <span><isprint value="${pdict.purchaseOrderDetails.labels.methodName}" encoding="off" /></span>
+    </div>
+    <div class="col-6">
+        <div class="text-right">
+            <span class="purchase-order-applied-total">${purchaseOrderApplied.formatted}</span>
+        </div>
+    </div>
+</div>

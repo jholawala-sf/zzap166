@@ -1,0 +1,52 @@
+<div class="row mb-2">
+    <div class="col-8">
+        <div>${Resource.msg('label.shipping.cost', 'cart', null)}</div>
+    </div>
+    <div class="col-4">
+        <div class="text-right shipping-cost">${pdict.totals.totalShippingCost}</div>
+    </div>
+</div>
+
+<!--- Shipping Discount --->
+<div class="row shipping-discount ${pdict.totals.shippingLevelDiscountTotal.value === 0 ? 'd-none' : ''} mb-2">
+    <div class="col-8">
+        <div>${Resource.msg('label.shipping.discount', 'common', null)}</div>
+    </div>
+    <div class="col-4">
+        <div class="text-right shipping-discount-total">- ${pdict.totals.shippingLevelDiscountTotal.formatted}</div>
+    </div>
+</div>
+
+<!-- Sales Tax -->
+<div class="row mb-2">
+    <div class="col-8">
+        <div>${Resource.msg('label.sales.tax', 'cart', null)}</div>
+    </div>
+    <div class="col-4">
+        <div class="text-right tax-total">${pdict.totals.totalTax}</div>
+    </div>
+</div>
+
+<!--- Order Discount --->
+<div class="row order-discount ${pdict.totals.orderLevelDiscountTotal.value === 0 ? 'd-none' : ''} mb-2">
+    <div class="col-8">
+        <div>${Resource.msg('label.order.discount', 'common', null)}</div>
+    </div>
+    <div class="col-4">
+        <div class="text-right order-discount-total"> - ${pdict.totals.orderLevelDiscountTotal.formatted}</div>
+    </div>
+</div>
+
+<isinclude template="checkout/orderTotalGiftCertificateSummary" />
+
+<div class="row mb-2">
+    <div class="col-8">
+        <strong>${Resource.msg('label.estimatedtotal', 'cart', null)}</strong>
+    </div>
+    <div class="col-4">
+        <div class="text-right grand-total">${pdict.totals.grandTotal}</div>
+    </div>
+</div>
+
+<isinclude template="checkout/orderTotalPurchaseOrderSummary" />
+<isinclude template="checkout/remainingTotalSummary" />

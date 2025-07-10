@@ -1,0 +1,96 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/cart.css');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="container">
+        <div class="hidden-xs-down my-4">
+            <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
+                title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                &lt; ${Resource.msg('link.continue.shopping', 'cart', null)}
+            </a>
+        </div>
+        <h3 class="page-title cart-header">
+            ${Resource.msg('title.cart', 'cart', null)}
+            <isif condition="${pdict.numItems > 0}">
+                (<span class="number-of-items">${Resource.msgf('label.number.items.in.cart', 'cart', null,
+                                               pdict.numItems)}</span>)
+            </isif>
+        </h3>
+    </div>
+
+    <div class="container">
+        <isslot id="cart-promo-m" description="Cart Promotions" context="global" />
+    </div>
+
+    <div class="cart-error-messaging cart-error">
+        <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+            <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                ${pdict.valid.message}
+            </div>
+        </isif>
+    </div>
+
+    <isif condition="${pdict.items.length === 0}">
+        <div class="container cart-empty">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3>${Resource.msg('info.cart.empty.msg', 'cart', null)}</h3>
+                </div>
+            </div>
+        </div>
+    <iselse/>
+        <div class="container cart cart-page">
+            <div class="row">
+                <div class="col-sm-7 col-md-8">
+                    <isinclude template="cart/cartApproachingDiscount" />
+                    <div class="cart-products">
+                        <!---product cards--->
+                        <isloop items="${pdict.items}" var="lineItem">
+                            <isif condition="${lineItem.productType === 'bundle'}">
+                                <isinclude template="cart/productCard/cartBundleCard" />
+                            <iselse/>
+                                <isif condition="${lineItem.noProduct === true}">
+                                    <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                                <iselse/>
+                                    <isinclude template="cart/productCard/cartProductCard" />
+                                </isif>
+                            </isif>
+                        </isloop>
+                    </div>
+                </div>
+                <!---totals, and checkout actions--->
+                <div class="col-sm-5 col-md-4">
+                    <div class="totals p-3">
+                        <h4 class="text-center">${Resource.msg('header.order.summary', 'cart', null)}</h4>
+                        <isinclude template="cart/cartPromoCode" />
+                        <div class="coupons-and-promos" data-action="${pdict.actionUrls.removeCouponLineItem}">
+                            <isinclude template="cart/cartCouponDisplay" />
+                        </div>
+                        <div class="row">
+                            <isinclude template="cart/cartShippingMethodSelection" />
+                        </div>
+                        <isinclude template="cart/cartTotals" />
+                        <div class="row">
+                            <div class="col-12 checkout-continue">
+                                <isinclude template="cart/checkoutButtons" />
+                            </div>
+                        </div>
+                    </div>
+                    <iscontentasset aid="cart-help-content" />
+                </div>
+            </div>
+        </div>
+    </isif>
+    <div class="container mt-5">
+        <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
+    </div>
+</isdecorate>

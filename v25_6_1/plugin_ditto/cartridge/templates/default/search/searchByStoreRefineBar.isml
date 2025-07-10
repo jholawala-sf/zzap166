@@ -1,0 +1,12 @@
+<isset name="showStore" value="${pdict.currentStore && pdict.currentStore.ID && pdict.currentStore.name}" scope="page" />
+<ul class="values content">
+    <li class="attribute">
+        <div class="refinement-link custom-control custom-checkbox store-refine-button ${!showStore ? 'disabled d-none' : ''}" data-href="${pdict.storeRefineUrl}">
+            <input type="checkbox" id="store-refine-check" class="custom-control-input" ${pdict.isStoreFilterApplied && pdict.currentStoreIsSelected ? 'checked' : ''} />
+            <isif condition="${showStore}">
+                <label class="custom-control-label" for="store-refine-check">${pdict.currentStore.name}</label>
+            </isif>
+        </div>
+    </li>
+</ul>
+<isinclude template="store/changeStoreButton" />

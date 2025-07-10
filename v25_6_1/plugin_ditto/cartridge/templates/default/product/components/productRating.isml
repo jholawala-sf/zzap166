@@ -1,0 +1,12 @@
+<isloop items="${[1, 2, 3, 4, 5]}" var="star">
+    <isif condition="${product.rating >= star}">
+        <i class="fas fa-star fa-lg" aria-hidden="true"></i>
+    <iselseif condition="${(product.rating % 1 > 0) && (Math.ceil(product.rating) >= star)}"/>
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-star fa-stack-1x fa-inverse" aria-hidden="true"></i>
+            <i class="fas fa-star-half fa-stack-1x" aria-hidden="true"></i>
+        </span>
+    <iselse/>
+        <i class="fas fa-star fa-lg fa-inverse" aria-hidden="true"></i>
+    </isif>
+</isloop>

@@ -1,0 +1,86 @@
+@include media-breakpoint-up(lg) {
+    .level-1 > .nav-item {
+        border-bottom: 4px solid transparent;
+        padding: 0 1rem;
+
+        &:hover {
+            border-bottom: 4px solid $site-menu-item-header;
+        }
+    }
+
+    .minify-header {
+        .level-1 > .nav-item {
+            padding: 0 0.5rem;
+        }
+    }
+
+    .mega-menu_open {
+        border-bottom: 4px solid $site-menu-item-header;
+    }
+
+    .navbar-nav > li {
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    .mega-menu__item {
+        border-bottom: 4px solid transparent;
+        cursor: pointer;
+
+        .mega-menu__sub-wrapper {
+            background: $site-mobile-nav-bg;
+            border-bottom: 1px solid $site-main-menu-border;
+            box-shadow: $default-box-shadow;
+            left: 0;
+            margin-top: 1px;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            text-align: left;
+            top: 100%;
+            transition: opacity 0.2s $default-cubic-bezier 0.2s,
+                $default-cubic-bezier 0.2s $default-cubic-bezier 0.2s,
+                border-bottom 0.2s $default-cubic-bezier 0.2s;
+            visibility: hidden;
+            z-index: 2;
+        }
+    }
+
+    .mega-menu_open > .mega-menu__sub-wrapper {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mega-menu__sub {
+        max-height: 350px;
+    }
+
+    .mega-menu__block {
+        width: 200px;
+    }
+
+    .mega-menu__block-header {
+        color: $site-menu-item-header !important;
+        font-size: 1rem;
+        font-weight: $font-weight-bold !important;
+    }
+
+    .mega-menu__block-item {
+        .nav-link {
+            color: $site-menu-item-text;
+            font-weight: 400;
+            padding: 0;
+            text-transform: none;
+        }
+    }
+
+    .mega-menu-slot {
+        &.category-menu-left {
+            @include pr(5);
+        }
+
+        &.category-menu-right {
+            @include pl(5);
+        }
+    }
+}

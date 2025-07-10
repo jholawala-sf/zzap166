@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field formid="paymentMethod" type="string" mandatory="true" />
+    <field formid="purchaseOrderNumber" label="label.input.purchaseOrderNumber"
+           type="string"
+           mandatory="true"
+           min-length="5"
+           max-length="10"
+           regexp="^\d{5,10}$"
+           binding="purchaseOrderNumber"
+           range-error="purchaseOrderNumber.rangeError"
+           missing-error="purchaseOrderNumber.missingError"
+           parse-error="purchaseOrderNumber.parseError" />
+</form>

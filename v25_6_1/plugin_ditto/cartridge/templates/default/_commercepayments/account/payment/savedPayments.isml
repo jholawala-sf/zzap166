@@ -1,0 +1,28 @@
+<isloop items="${pdict.paymentMethods}" var="paymentMethod">
+    <div id="uuid-${paymentMethod.ID}" class="list-group-item">
+        <div class="row justify-content-between">
+            <div>
+                <div>
+                    <span class="font-weight-bold">${Resource.msg('label.payment.card.type', 'account', null)}</span>:
+                    ${paymentMethod.type}
+                </div>
+                <div>
+                    ${paymentMethod.description}
+                </div>
+            </div>
+            <div>
+                <button type="button"
+                        class="btn btn-link remove-payment"
+                        data-toggle="modal"
+                        data-target="#deletePaymentModal"
+                        data-id="${paymentMethod.ID}"
+                        data-description="${paymentMethod.description}"
+                        data-card="${paymentMethod.description}"
+                        data-url="${pdict.actionUrl}"
+                        aria-label="${Resource.msg('label.payment.deletepayment', 'payment', null)}">
+                    ${Resource.msg('label.addressbook.delete', 'account', null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</isloop>

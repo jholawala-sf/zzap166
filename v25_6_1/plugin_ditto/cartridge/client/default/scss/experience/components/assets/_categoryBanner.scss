@@ -1,0 +1,42 @@
+.category-banner {
+    overflow: hidden;
+    position: relative;
+
+    .category-banner-image-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .category-banner-image {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .category-banner-overlay-wrapper {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .category-banner-overlay {
+        height: 100%;
+    }
+
+    .category-banner-overlay-inner {
+        color: $default-hero-color;
+        padding: 1rem;
+    }
+
+    .banner-subheading {
+        @include mb(3);
+    }
+
+    .btn {
+        border-radius: 3rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 2rem;
+    }
+}

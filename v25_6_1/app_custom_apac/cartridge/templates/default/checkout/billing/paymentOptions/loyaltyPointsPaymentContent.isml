@@ -1,0 +1,39 @@
+<isset name="loyaltyPointsPaymentMethodId"
+       value="${(typeof loyaltyPointsPaymentMethodId === 'undefined') ? loyaltyPointsPaymentMethodId: require('*/cartridge/scripts/loyaltyConfig').loyaltyPointsPaymentMethodId}"
+       scope="page" />
+<isset name="chain"
+       value="${require('*/cartridge/scripts/helpers/chain')}"
+       scope="page" />
+<isset name="allowedPointsAmount"
+       value="${chain.safeGet(pdict, 'loyaltyDetails.redemption.allowedPointsAmount', 0)}"
+       scope="page" />
+<isset name="allowedPointsAsMoney"
+       value="${chain.safeGet(pdict, 'loyaltyDetails.redemption.allowedPointsAsMoney.formatted', '-')}"
+       scope="page" />
+<isset name="loyaltyPayment"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS', null)}"
+       scope="page" />
+
+<fieldset class="loyalty-points-payment-form-fields">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="pt-4 pb-2 border-bottom text-primary collapseArrow" data-toggle="collapse" data-target="#collapseLoyaltyPoints">
+                <isprint value="${Resource.msg('payments.loyalty.msg.points.header', 'loyalty', null)}" />
+            </h5>
+        </div>
+    </div>
+    <div class="collapse show" id="collapseLoyaltyPoints">
+        <div class="row">
+            <div class="col-12">
+                <p class="summary-section-label allowed-loyalty-points-label">
+                    <isprint value="${Resource.msgf('payments.loyalty.label.points.allowed', 'loyalty', null, 1000, 'One Money')}" />
+                </p>
+            </div>
+        </div>
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="${loyaltyPointsPaymentMethodId}">
+        <isinclude template="checkout/billing/loyaltyPointsPaymentForm" />
+    </div>
+    <hr />
+</fieldset>

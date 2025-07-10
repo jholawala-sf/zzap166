@@ -1,0 +1,39 @@
+<ul class="mega-menu__sub-wrapper level-2" role="menu" aria-expanded="false">
+    <div class="container d-lg-flex">
+        <isslot id="category-menu-left" context="category" description="Mega menu category left slot."
+            context-object="${menuItem.rawCategory}" />
+        <div class="mega-menu__sub d-lg-flex flex-grow-1 flex-row py-lg-4">
+            <li class="nav-item d-lg-none">
+                <a href="#" class="nav-link mobile-nav-previous">
+                    <i class="far fa-angle-left mr-3" aria-hidden="true"></i> ${menuItem.name}
+                </a>
+            </li>
+            <isloop items="${menuItem.subCategories}" var="category">
+                <li class="mega-menu__block nav-item mb-lg-4 d-flex d-lg-block justify-content-between align-items-center"
+                    role="menuitem">
+                    <a href="${category.url}" class="nav-link mega-menu__block-header">${category.name}</a>
+                    <isif condition="${category.subCategories}">
+                        <a href="#" class="nav-link mobile-nav-forward d-lg-none">
+                            <i class="far fa-angle-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="level-3">
+                            <li class="nav-item d-lg-none">
+                                <a href="#" class="nav-link mobile-nav-previous">
+                                    <i class="far fa-angle-left pr-3" aria-hidden="true"></i> ${category.name}
+                                </a>
+                            </li>
+                            <isloop items="${category.subCategories}" var="subcategory">
+                                <li class="mega-menu__block-item nav-item" role="menuitem">
+                                    <a href="${subcategory.url}" id="${category.id}" role="button" class="nav-link">
+                                        ${subcategory.name}</a>
+                                </li>
+                            </isloop>
+                        </ul>
+                    </isif>
+                </li>
+            </isloop>
+        </div>
+        <isslot id="category-menu-right" context="category" description="Mega menu category right slot."
+            context-object="${menuItem.rawCategory}" />
+    </div>
+</ul>

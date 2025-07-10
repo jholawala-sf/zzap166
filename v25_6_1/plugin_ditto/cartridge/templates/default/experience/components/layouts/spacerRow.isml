@@ -1,0 +1,6 @@
+<div class="fullWidth" style="background-color:${pdict.bgColour}" id="${pdict.uniqueId ? pdict.uniqueId : ''}">
+    <div class="spacerRow" style="height: ${pdict.spacerHeight}">
+    </div>
+    <div class="spacerRowMob" style="height: ${pdict.spacerMobileHeight}">
+    </div>
+</div>

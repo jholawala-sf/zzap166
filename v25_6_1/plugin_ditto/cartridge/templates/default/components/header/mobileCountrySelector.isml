@@ -1,0 +1,31 @@
+<isif condition="${pdict.localeModel.locale.localLinks.length > 0}">
+  <li class="nav-item country-selector d-lg-none d-flex justify-content-between align-items-center" data-url="${URLUtils.url('Page-SetLocale')}">
+    <a href="#" class="nav-link">
+      <isif condition="${pdict.localeModel.locale.displayName !== ''}">
+        <i class="fi fi-${pdict.localeModel.locale.countryCode.toLowerCase()} mr-1"></i>
+        ${pdict.localeModel.locale.displayName}
+        <iselse>
+        ${Resource.msg('global.header.noregion', 'common', null)}
+      </isif>
+    </a>
+    <a href="#" class="nav-link mobile-nav-forward d-lg-none">
+      <i class="far fa-angle-right" aria-hidden="true"></i>
+    </a>
+    <ul class="level-2" role="menu" aria-expanded="false">
+      <li class="nav-item">
+        <a href="#" class="nav-link mobile-nav-previous">
+          <i class="far fa-angle-left pr-3" aria-hidden="true"></i>
+          ${pdict.localeModel.locale.displayName}
+        </a>
+      </li>
+      <isloop items="${pdict.localeModel.locale.localLinks}" var="localeLink">
+        <li class="nav-item">
+          <a class="nav-link" href="${'#'}" data-locale="${localeLink.localID}" data-currencyCode="${localeLink.currencyCode}" >
+            <i class="fi fi-${localeLink.country.toLowerCase()} mr-1"></i>
+            ${localeLink.displayName}
+          </a>
+        </li>
+      </isloop>
+    </ul>
+  </li>
+</isif>

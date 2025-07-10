@@ -1,0 +1,19 @@
+{
+    "endpoints": [
+        {
+            "endpoint": "getPromotionData",
+            "schema": "schema.yaml",
+            "implementation": "script"
+        },
+        {
+            "endpoint": "importPromotions",
+            "schema": "schema.yaml",
+            "implementation": "script"
+        },
+        {
+            "endpoint": "importCustomerGroups",
+            "schema": "schema.yaml",
+            "implementation": "script"
+        }
+    ]
+}

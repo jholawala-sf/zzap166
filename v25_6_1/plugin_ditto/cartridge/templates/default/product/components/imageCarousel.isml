@@ -1,0 +1,53 @@
+<isif condition="${typeof product === 'undefined'}">
+    <isset name="product" value="${pdict.product}" scope="page" />
+</isif>
+
+<isif condition="${typeof layoutTemplate === 'undefined'}">
+    <isset name="layoutTemplate" value="${pdict.layoutTemplate || 1}" scope="page" />
+</isif>
+
+<isif condition="${layoutTemplate === 2}">
+    <iscomment> Grid Layout </iscomment>
+    <div class="d-flex flex-wrap">
+        <isloop items="${product.images.large}" var="image" status="loopStatus" end="3">
+            <div class="img-grid-item col-6">
+                <img src="${image.url}" alt="${image.alt} image number ${image.index}" class="img-fluid"
+                    itemprop="image" />
+            </div>
+        </isloop>
+    </div>
+<iselseif condition="${layoutTemplate === 3}"/>
+    <iscomment> Column Layout </iscomment>
+    <div class="d-flex flex-column">
+        <isloop items="${product.images.large}" var="image" status="loopStatus">
+            <div class="img-grid-item">
+                <img src="${image.url}" alt="${image.alt} image number ${image.index}" class="img-fluid"
+                    itemprop="image" />
+            </div>
+        </isloop>
+    </div>
+<iselse/>
+    <iscomment> Carousel Layout </iscomment>
+    <div class="d-flex img-container">
+        <isif condition="${product.images.small.length > 1}">
+            <div class="d-none d-lg-flex slick-paging">
+                <isloop items="${product.images.small}" var="image" status="loopStatus">
+                    <button class="slick-paging-btn ${loopStatus.first ? 'active' : ''}">
+                        <div class="slick-paging-image-container">
+                            <img src="${image.url}" alt="${image.alt} image number ${image.index}" class="img-fluid"
+                                itemprop="image" />
+                        </div>
+                    </button>
+                </isloop>
+            </div>
+        </isif>
+        <div class="product-carousel">
+            <isloop items="${product.images.large}" var="image" status="loopStatus">
+                <div class="carousel-item">
+                    <img src="${image.url}" alt="${image.alt} image number ${image.index}" class="img-fluid"
+                        itemprop="image" />
+                </div>
+            </isloop>
+        </div>
+    </div>
+</isif>

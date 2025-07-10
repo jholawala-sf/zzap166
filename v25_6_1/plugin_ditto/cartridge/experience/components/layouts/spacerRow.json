@@ -1,0 +1,60 @@
+{
+    "name": "Spacer Row",
+    "group": "Layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "spacer_details",
+            "name": "Spacer Details",
+            "attribute_definitions": [
+                {
+                "id": "height",
+                "name": "Spacer Height",
+                "type": "string",
+                "required": true
+                },
+                {
+                    "id": "mobileHeight",
+                    "name": "Spacer Mobile Height",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "row_details",
+            "name": "Row Details",
+            "attribute_definitions": [
+                {
+                    "id": "bg_colour",
+                    "name": "Background Colour",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "selectors",
+            "name": "Custom Selectors",
+            "attribute_definitions": [
+                {
+                    "id": "uniqueId",
+                    "name": "Unique ID",
+                    "description": "(No spaces) If you want to add a unique ID to the row for use with CSS or IS Scripts for example.",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id":"column1",
+            "name":"Column 1",
+            "max_components":1,
+            "component_type_exclusions": []
+        }
+    ]
+}

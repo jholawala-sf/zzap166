@@ -1,0 +1,6 @@
+<div class="ratings">
+    <isinclude template="product/components/ratings" />
+</div>
+<div class="compare d-none d-md-block">
+    <isinclude template="product/components/compare" />
+</div>

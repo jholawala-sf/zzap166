@@ -1,0 +1,38 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+
+    <iscomment>
+        <isslot id="category-menu-left" context="category" description="Category menu left."
+            context-object="${pdict.category}" />
+        <isslot id="category-menu-right" context="category" description="Category menu right."
+            context-object="${pdict.category}" />
+    </iscomment>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+    <isif
+        condition="${'DittoPDPageID' in pdict.category.getCustom() && pdict.category.getCustom().DittoPDPageID != ''}">
+        <isprint
+            value="${require('dw/experience/PageMgr').renderPage(pdict.category.getCustom().DittoPDPageID, JSON.stringify(pdict))}"
+            encoding="off" />
+    <iselse/>
+        <isslot id="cat-landing-slotbanner-m" context="category"
+            description="Banner at the top of Category Landing Pages" context-object="${pdict.category}" />
+
+        <div class="container">
+            <div class="secondary-content">
+                <isslot id="cat-landing-slotbottom-m" context="category"
+                    description="First slot below the Category Banner" context-object="${pdict.category}" />
+                <isslot id="cat-landing-slotbottom2-m" context="category"
+                    description="Second slot below the Category Banner" context-object="${pdict.category}" />
+            </div>
+        </div>
+    </isif>
+    <isinclude template="search/searchResultsNoDecorator" />
+    <isinclude template="product/compareBar" />
+</isdecorate>

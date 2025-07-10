@@ -1,0 +1,12 @@
+<style>
+    .experience-dynamic-pdDescription .highlights {
+        background-color: ${pdict.highlightBgCol};
+    }
+</style>
+
+<isinclude template="experience/dynamic/product/pdCommon" />
+
+<div class="container-fluid product-detail product-wrapper pt-3" data-pid="${product.id}">
+    <isset name="loopState" value="{count: 1}" scope="page" />
+    <isinclude template="product/components/descriptionAndDetails" />
+</div>

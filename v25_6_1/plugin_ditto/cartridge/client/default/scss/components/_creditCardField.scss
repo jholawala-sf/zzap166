@@ -1,0 +1,45 @@
+.card-number-wrapper {
+    position: relative;
+
+    &::after {
+        background-image: url();
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        height: 30px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 48px;
+    }
+
+    &[data-type="visa"]::after {
+        background-image: url("../../images/payment-types.png");
+        background-position: -162px -110px;
+        background-size: auto;
+    }
+
+    &[data-type="mastercard"]::after {
+        background-image: url("../../images/payment-types.png");
+        background-position: -295px -110px;
+        background-size: auto;
+    }
+
+    &[data-type="amex"]::after {
+        background-image: url("../../images/payment-types.png");
+        background-position: -230px -15px;
+        background-size: auto;
+    }
+
+    &[data-type="discover"]::after {
+        background-image: url("../../images/payment-types.png");
+        background-position: -95px -110px;
+        background-size: auto;
+    }
+
+    &[data-type="diners"]::after {
+        background-image: url("../../images/payment-types.png");
+        background-position: -295px -203px;
+        background-size: auto;
+    }
+}

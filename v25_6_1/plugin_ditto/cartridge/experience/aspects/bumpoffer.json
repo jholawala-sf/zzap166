@@ -1,0 +1,13 @@
+{
+  "name": "Bump Offer Page",
+  "attribute_definitions": [
+      {
+          "id": "orderNo",
+          "name": "Order No",
+          "description": "",
+          "type": "string",
+          "required": false
+      }
+  ],
+    "supported_object_types" : []
+}

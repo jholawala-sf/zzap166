@@ -1,0 +1,65 @@
+<iscomment>
+    Template Notes:
+
+    - This template is intended to be referenced from an <isinclude> tag within an <isloop> in another
+            source template. The <isloop> is expected to have a "status" attribute, named "attributeStatus".
+                - ${attributeStatus.last} is checked to see whether a particular attribute row should include the
+                Quantity drop-down menu
+
+</iscomment>
+<div class="attribute">
+    <!-- Select <Attribute> Label -->
+    <label class="${attr.id}">
+        ${attr.displayName}
+    </label>
+
+    <isif condition="${attr.swatchable}">
+        <!-- Square Swatch Image Attribute Values -->
+        <div class="d-flex flex-wrap">
+            <isloop items="${attr.values}" var="attrValue">
+                <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+                    <button class="color-attribute" data-url="${attrValue.url}" ${(product.productType === "variant" &&
+                                                                                isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+                        <isif  condition="${attrValue.images['swatch'].length > 0}">
+                            <span data-attr-value="${attrValue.value}"
+                                  class="${attr.id}-value swatch swatch-value ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'unselectable'}"
+                                  style="background-image: url(${attrValue.images['swatch'].length > 0 ? attrValue.images['swatch'][0].url : ''})">
+                            </span>
+                        <iselse/>
+                            <span data-attr-value="${attrValue.value}"
+                                  class="${attr.id}-value swatch swatch-value ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'unselectable'} swatch-${attrValue.value}"
+                                  style="">
+                            </span>
+                        </isif>
+                    </button>
+                </isif>
+            </isloop>
+        </div>
+    <iselseif condition="${attr.id === 'size' || attr.id.includes('button')}" />
+        <div class="d-flex flex-wrap">
+            <isloop items="${attr.values}" var="attrValue">
+                <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+                    <button class="size-attribute ${attrValue.selected ? 'selected' : ''}" data-url="${attrValue.url}"
+                        ${(product.productType === "variant" && isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+                        <span data-attr-value="${attrValue.value}" class="${attr.id}-value">${attrValue.displayValue}
+                        </span>
+                    </button>
+                </isif>
+            </isloop>
+        </div>
+    <iselse/>
+        <!-- Attribute Values Drop Down Menu -->
+        <select class="custom-select form-control w-auto select-${attr.id}" ${(product.productType === "variant" &&
+                                                                            isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+            <option value="${attr.resetUrl}">
+                ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+            </option>
+            <isloop items="${attr.values}" var="attrValue">
+                <option value="${attrValue.url}" data-attr-value="${attrValue.value}" ${!attrValue.selectable ?
+                                                                                      'disabled' : ''} ${attrValue.selected ? 'selected' : ''}>
+                    ${attrValue.displayValue}
+                </option>
+            </isloop>
+        </select>
+    </isif>
+</div>

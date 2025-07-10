@@ -1,0 +1,200 @@
+@import "./functions";
+
+@mixin swatch($height, $color) {
+    @include swatch-check-mark();
+
+    display: inline-block;
+    height: $height;
+    position: relative;
+    width: $height;
+
+    // swatch-filter x mark to undo a filter
+    i.fa-times-circle {
+        background: $swatch-cancel;
+        border-radius: 50%;
+        height: 0.75em;
+        line-height: 0.8em;
+        width: 0.8em;
+    }
+}
+
+@mixin swatch-check-mark() {
+    &.refinement-link.color-value[data-selected="true"]::after {
+        color: $swatch-check;
+        display: table-caption;
+        font-size: 1.625em;
+        left: 0.295em;
+        position: absolute;
+
+        @include fa-icon("\f00c", "regular");
+    }
+
+    &.refinement-link.color-value.selected {
+        align-items: center;
+        color: $swatch-check;
+        display: flex;
+        justify-content: center;
+
+        &::before {
+            @include fa-icon("\f00c", "regular");
+            @include font-size(14px);
+        }
+    }
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculate-rem($size);
+}
+
+@mixin toggle($color: #000, $width: 10px, $border: 2px) {
+    .toggle {
+        box-sizing: border-box;
+        height: $width;
+        position: relative;
+        transform: translateZ(0) rotate(180deg);
+        transition: transform 0.3s;
+        width: $width;
+
+        &::before {
+            border-bottom: solid $border $color;
+            bottom: $width / 2 - $border / 2;
+            content: "";
+            display: block;
+            height: 0;
+            position: absolute;
+            transform: translateZ(0) rotate(90deg);
+            width: 0;
+        }
+
+        &::after {
+            border-bottom: solid $border $color;
+            bottom: $width / 2 - $border / 2;
+            content: "";
+            display: block;
+            height: 0;
+            position: absolute;
+            width: $width;
+        }
+    }
+
+    .collapsed .toggle {
+        transform: rotate(0deg);
+    }
+
+    .collapsed .toggle::before {
+        border-bottom: solid $border $color;
+        bottom: $width / 2 - $border / 2;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        transform: rotate(90deg);
+        transition: width 0.3s;
+        width: $width;
+    }
+}
+
+/*
+  Mixin for creating pseudo elements
+*/
+@mixin fa-icon($icon, $type) {
+    content: $icon;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+
+    @if $type == "solid" {
+        font-weight: 900;
+    } @else if $type == "regular" {
+        font-weight: 400;
+    } @else if $type == "brands" {
+        font-weight: 400;
+    } @else {
+        font-weight: 300;
+    }
+}
+
+/*
+  Mixins to support bootstrap spacing
+ */
+@function map-get-or-key($map, $key) {
+    @if map-has-key($map, $key) or map-has-key($map, -$key) {
+        @if $key != "auto" and type-of($key) == "number" and $key < 0 {
+            @return 0 - map-get($map, -$key);
+        } @else {
+            @return map-get($map, $key);
+        }
+    } @else if type-of($key) == "string" {
+        @return unquote($key);
+    } @else {
+        @return $key;
+    }
+}
+
+@function bsize($key) {
+    @return map-get-or-key($spacers, $key);
+}
+
+@mixin m($space) {
+    margin: bsize($space);
+}
+
+@mixin mt($space) {
+    margin-top: bsize($space);
+}
+
+@mixin mb($space) {
+    margin-bottom: bsize($space);
+}
+
+@mixin ml($space) {
+    margin-left: bsize($space);
+}
+
+@mixin mr($space) {
+    margin-right: bsize($space);
+}
+
+@mixin p($space) {
+    padding: bsize($space);
+}
+
+@mixin pt($space) {
+    padding-top: bsize($space);
+}
+
+@mixin pb($space) {
+    padding-bottom: bsize($space);
+}
+
+@mixin pl($space) {
+    padding-left: bsize($space);
+}
+
+@mixin pr($space) {
+    padding-right: bsize($space);
+}
+
+@mixin mx($space) {
+    @include ml($space);
+    @include mr($space);
+}
+
+@mixin my($space) {
+    @include mt($space);
+    @include mb($space);
+}
+
+@mixin px($space) {
+    @include pl($space);
+    @include pr($space);
+}
+
+@mixin py($space) {
+    @include pt($space);
+    @include pb($space);
+}

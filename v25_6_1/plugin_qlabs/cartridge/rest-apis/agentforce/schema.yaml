@@ -1,0 +1,205 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Agentforce API
+components:
+  securitySchemes:
+    AmOAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://account.demandware.com/dwsso/oauth2/authorize
+          tokenUrl: https://account.demandware.com/dwsso/oauth2/access_token
+          scopes:
+            c_agentforce: Read information
+        clientCredentials:
+          tokenUrl: https://account.demandware.com/dwsso/oauth2/access_token
+          scopes:
+            c_agentforce: Read information
+  schemas:
+    condition:
+      type: object
+      required: ["attributePath", "operator", "conditionList", "conditionListType"]
+      properties:
+        attributePath:
+          type: string
+        operator:
+          type: string
+          enum: [
+                  "is-equal",
+                  "is-not-equal",
+                  "exists",
+                  "does-not-exist",
+                  "is-on",
+                  "is-after",
+                  "is-before",
+                  "is-today",
+                  "is-tomorrow",
+                  "is-yesterday",
+                  "is-in-the-last",
+                  "is-in-the-next",
+                  "is-in-the-current",
+                  "is-in-the-last-x-days",
+                  "is-not-in-the-last-x-days",
+                  "is-in-the-next-x-days",
+                  "is-not-in-the-next-x-days",
+                  "is-greater-than",
+                  "is-less-than",
+                  "is-greater-than-or-equal",
+                  "is-less-than-or-equal",
+                  "is-in-range",
+                  "is-not-in-range",
+                  "starts-with",
+                  "ends-with",
+                  "contains",
+                  "does-not-contain",
+                  "is-true",
+                  "is-false" ]
+        conditionList:
+          type: array
+          items:
+            type: string
+        conditionListType:
+            type: string
+            enum: [
+                    "string",
+                    "int",
+                    "number",
+                    "date"]
+paths:
+  /promotions:
+    get:
+      summary: "Gets data required for creating B2C promotions via Agentforce"
+      operationId: getPromotionData
+      parameters:
+        - in: query
+          name: siteId
+          required: true
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        200:
+          description: OK
+  /promotions/import:
+      post:
+          summary: "Imports promotions via Agentforce"
+          operationId: importPromotions
+          requestBody:
+              content:
+                  'application/json':
+                      schema:
+                          type: object
+                          required: ["siteId", "storefrontCatalogId", "promotions"]
+                          properties:
+                                siteId:
+                                    type: string
+                                storefrontCatalogId:
+                                  type: string
+                                promotions:
+                                    type: array
+                                    items:
+                                        type: object
+                                        required: [ "name", "promotionType" ]
+                                        properties:
+                                            enabled:
+                                                type: boolean
+                                            promotionType:
+                                                type: string
+                                                enum: [
+                                                    "order",
+                                                    "product",
+                                                    "shipping" ]
+                                            name:
+                                                type: string
+                                            calloutMsg:
+                                                type: string
+                                            description:
+                                                type: string
+                                            customerGroupIds:
+                                                type: array
+                                                items:
+                                                    type: string
+                                            productIds:
+                                                type: array
+                                                items:
+                                                    type: string
+                                            categoryIds:
+                                                type: array
+                                                items:
+                                                    type: string
+                                            shippingMethodIds:
+                                                type: array
+                                                items:
+                                                    type: string
+                                            discountType:
+                                                type: string
+                                                enum: [
+                                                    "amount",
+                                                    "percent",
+                                                    "free" ]
+                                            discountAmount:
+                                                type: number
+                                            discountConditionType:
+                                                type: string
+                                                enum: [
+                                                    "order-total",
+                                                    "product-quantity",
+                                                    "product-amount" ]
+                                            discountThreshold:
+                                                type: number
+                                            startDate:
+                                                type: string
+                                                format: date-time
+                                            endDate:
+                                                type: string
+                                                format: date-time
+          responses:
+              200:
+                  description: OK
+  /customer-groups/import:
+      post:
+          summary: "Imports customer groups via Agentforce"
+          operationId: importCustomerGroups
+          requestBody:
+              content:
+                  'application/json':
+                      schema:
+                          type: object
+                          required: ["siteId", "customerGroups"]
+                          properties:
+                              siteId:
+                                  type: string
+                              customerGroups:
+                                  type: array
+                                  items:
+                                      type: object
+                                      required: [ "description", "type" ]
+                                      properties:
+                                          description:
+                                              type: string
+                                          type:
+                                              type: string
+                                              enum: [
+                                                  "dynamic",
+                                                  "static"]
+                                              default: "dynamic"
+                                          name:
+                                              type: string
+                                          groupAssignments:
+                                               type: array
+                                               items:
+                                                  type: string
+                                          includedConditions:
+                                              type: array
+                                              items:
+                                                  $ref: "#/components/schemas/condition"
+                                          excludedConditions:
+                                              type: array
+                                              items:
+                                                  $ref: "#/components/schemas/condition"
+          responses:
+              200:
+                  description: OK
+security:
+  - AmOAuth2: ["c_agentforce"]

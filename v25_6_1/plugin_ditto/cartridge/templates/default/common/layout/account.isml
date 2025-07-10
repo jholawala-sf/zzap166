@@ -1,0 +1,39 @@
+<isinclude template="components/modules" sf-toolkit="off" />
+
+<isdecorate template="common/layout/page">
+    <isscript>
+        var overlayHelper = require('*/cartridge/scripts/overlayHelper');
+        var enabledPlugins = overlayHelper.enabledPlugins();
+
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addCss('/css/account/account.css');
+    </isscript>
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 account-nav-container">
+                <nav class="nav flex-column mb-md-3 mt-3 mb-5">
+                    <div class="d-none d-md-block">
+                        <isinclude template="common/layout/accountNav" />
+                    </div>
+                    <div class="d-block d-md-none">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-outline-secondary btn-block dropdown-toggle"
+                                id="account-menu-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"></button>
+                            <div class="dropdown-menu w-100" aria-labelledby="account-menu-dropdown">
+                                <isinclude template="common/layout/accountNav" />
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12 col-md-9 my-3 my-md-5">
+                <isreplace/>
+            </div>
+        </div>
+    </div>
+</isdecorate>

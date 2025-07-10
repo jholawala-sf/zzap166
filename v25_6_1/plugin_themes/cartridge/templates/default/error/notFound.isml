@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>${Resource.msg('message.page.not.found', 'error', null)}</title>
+        <link rel="stylesheet" href="${URLUtils.staticURL('/css/global.css')}" />
+    </head>
+    <body>
+
+        <h1>${Resource.msg('message.page.not.found', 'error', null)}</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block error continue-shopping" role="button" aria-pressed="true">
+                        ${Resource.msg('button.continue.shopping', 'confirmation', null)}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        /**
+         *  Load a shiny 404 page asynchronously via javascript as several tools are not available 
+         *  when rendering 404 directly
+         */ 
+        async function loadFourOhFour() {
+            // hide bot content
+            document.querySelector('html').innerHTML = '';
+            var url = '${URLUtils.url("Page-Show","cid","404-page")}';
+            // infinite loop breaker
+            if (window.location.href.indexOf(url) === -1) {
+                // fetch 404 contents
+                var newPageResponse = await fetch(url);
+                var newPageContent = await newPageResponse.text();
+
+                var htmlRoot = document.querySelector('html');
+
+                // put response in a placeholder
+                let placeholder = document.createElement('div');
+                placeholder.innerHTML = newPageContent;
+                // get all JS
+                let scripts = placeholder.querySelectorAll('script');
+                let nodes = placeholder.childNodes;
+                // replace dom contents
+                htmlRoot.innerHTML = newPageContent;
+                // force JS
+                scripts.forEach(element => {
+                    let script = document.createElement('script');
+                    script.type = element.type || 'text/javascript';
+                    if( element.hasAttribute('src') ) script.src = element.src;
+                    script.innerHTML = element.innerHTML;
+                    document.head.appendChild(script);
+                    document.head.removeChild(script);
+                });
+
+            }
+        }
+        loadFourOhFour();
+    </script>
+</html>

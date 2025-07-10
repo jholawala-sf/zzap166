@@ -1,0 +1,7 @@
+<div data-agent="${pdict.agentDeployment.agentId}"
+    data-agent-context="<isprint value="${encodeURIComponent(JSON.stringify(pdict.agentContext))}" encoding="off" />"
+    data-__container-styles="<isprint value="${encodeURIComponent(JSON.stringify(pdict.containerStyles))}" encoding="off" />"
+
+>
+    <isprint value="${pdict.regions.children.render()}" encoding="off" />
+</div>

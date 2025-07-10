@@ -1,0 +1,18 @@
+{
+    "name": "Product Detail Page",
+    "description": "Product detail page",
+    "region_definitions": [
+        {
+            "id": "main",
+            "name": "Main Region",
+            "default_component_constructors": [
+                {
+                    "type_id": "layouts.productDetail",
+                    "name": "Product Detail Layout"
+                }
+            ],
+            "component_type_exclusions": [{ "type_id": "assets.campaignBanner" }]
+        }
+    ],
+    "supported_aspect_types": ["pdp"]
+}

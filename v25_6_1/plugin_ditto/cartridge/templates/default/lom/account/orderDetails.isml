@@ -1,0 +1,88 @@
+<isset name="activeNavigation" value="order-history" scope="page" />
+
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+
+    <div class="container receipt ${pdict.order.shipping.length > 1 ? 'multi-ship' : ''}">
+        <div class="row mb-3">
+            <div class="order-confirmation-messages col-12">
+                <div class="summary-details">
+                    <span class="order-number-label">
+                        <i class="far fa-shopping-cart"></i>
+                        ${Resource.msg('label.order.number', 'confirmation', null)}
+                    </span>
+                    <span class="order-number">${pdict.order.orderNumber}</span>
+                    <span class="order-date-label">
+                        <i class="far fa-clock"></i>
+                        ${Resource.msg('label.order.date', 'confirmation', null)}
+                    </span>
+                    <span class="order-date">
+                        <isprint value="${pdict.order.creationDate}" style="DATE_TIME" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row order-details">
+            <div class="col-12 ${pdict.returningCustomer === false ? 'col-md-4' : 'col-md-6'}">
+                <div class="p-3">
+                    <isinclude template="checkout/shipping/shippingSummary" />
+                </div>
+            </div>
+            <div class="col-12 ${pdict.returningCustomer === false ? 'col-md-4' : 'col-md-6'}">
+                <div class="p-3">
+                    <isinclude template="checkout/billing/billingSummary" />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-md-8">
+                <div class="order-list">
+                    <div class="summary-section-label">${Resource.msg('label.order.list', 'confirmation', null)}</div>
+                    <isinclude template="checkout/orderProductSummary" />
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="order-summary">
+                    <div class="summary-section-label">${Resource.msg('label.order.summary', 'confirmation', null)}
+                    </div>
+                    <isinclude template="checkout/orderTotalSummary" />
+                </div>
+            </div>
+        </div>
+
+        <div class="my-account">
+            <isif condition="${(pdict.order.shipmentInfo && pdict.order.shipmentInfo.TrackingUrl) || pdict.order.isCancellable || pdict.order
+                            .isReturnable}">
+                <isif condition="${pdict.order.shipmentInfo && pdict.order.shipmentInfo.TrackingUrl !== null}">
+                    <button type="button" class="btn btn-outline-primary">
+                        <a
+                            href="${pdict.order.shipmentInfo && pdict.order.shipmentInfo.TrackingUrl !== null ? pdict.order.shipmentInfo.TrackingUrl : '#'}">
+                            ${Resource.msg('button.track.order', 'confirmation', null)}
+                        </a>
+                    </button>
+                </isif>
+                <isif condition="${pdict.order.isCancellable}">
+                    <button type="button" class="btn btn-outline-primary js-more-action-buttons">
+                        ${Resource.msg('button.cancel.items', 'confirmation', null)}
+                    </button>
+                </isif>
+
+                <isif condition="${pdict.order.isReturnable}">
+                    <button type="button" class="btn btn-outline-primary js-more-action-buttons">
+                        ${Resource.msg('button.return.items', 'confirmation', null)}
+                    </button>
+                </isif>
+            </isif>
+
+            <a href="${pdict.exitLinkUrl}" title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                class="btn btn-outline-primary">
+                ${pdict.exitLinkText}
+            </a>
+        </div>
+    </div>
+</isdecorate>

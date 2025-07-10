@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+    <div class="hero slant-down account-image">
+        <h1 class="page-title">${Resource.msg('label.loyalty.page.myactivities', 'loyalty', null)}</h1>
+    </div>
+        <isif condition="${pdict.loyalty.throwError}">
+        <div class="container">
+            <div class="row justify-content-center p-2">
+                        <div class="col  p-2 mb-3 bg-danger text-white text-center">
+                            ${Resource.msg('activity.loyalty.error', 'loyalty', null)}
+                        </div>
+            </div>
+            </div>
+        <iselse>   
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-12">
+                    <h2 class="my-4">${Resource.msg('transaction.journal.my.activities', 'loyalty', null)}</h2>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <table class="table table-striped">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">${Resource.msg('transaction.journal.transaction.date', 'loyalty', null)}</th>
+                                <th scope="col" width="50%">${Resource.msg('transaction.journal.transaction.details', 'loyalty', null)}</th>
+                                <th scope="col">${pdict.loyalty.nonqualifyingPoints}</th>
+                                <th scope="col">${pdict.loyalty.qualifyingPoints}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <isloop items="${pdict.loyalty.transactionJournal.listOfTransactionJournals}" var="tj">
+                                <tr>
+                                    <td>${tj.date.formattedLongDate}</td>
+                                    <isif condition="${tj.hasOrder}">
+                                        <td><a href="${URLUtils.url('Order-Details', 'orderID', tj.orderId)}" aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, tj.orderId)}">${tj.name}</a></td>
+                                    <iselse/>
+                                        <td>${tj.name}</td>
+                                    </isif>
+                                    <td><isprint value="${tj.rewardPoints}" /></td>
+                                    <td><isprint value="${tj.tierPoints}" /></td>
+                                </tr>
+                            </isloop>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <isif condition="${pdict.loyalty.transactionJournal.count === 0}">
+                <div class="row justify-content-center">
+                    ${Resource.msg('transaction.journal.no.activity', 'loyalty', null)}
+                </div>
+            </isif>
+        </isif>
+    </div>
+</isdecorate>

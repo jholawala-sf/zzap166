@@ -1,0 +1,92 @@
+.quick-view-dialog,
+.choose-bonus-product-dialog {
+    .carousel-container {
+        & > div:first-child {
+            flex-direction: column-reverse;
+
+            .slick-paging {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    .selectable-bonus-product-line-item {
+        margin-bottom: 0.2em;
+        margin-top: 0.2em;
+        padding-bottom: 0.3em;
+        padding-top: 0.3em;
+    }
+
+    .modal-header {
+        .full-pdp-link {
+            color: $primary;
+        }
+    }
+
+    .modal-title {
+        font-size: 1em;
+    }
+
+    .product-name {
+        font-size: 1.875em;
+    }
+
+    .availablity-container {
+        text-align: right;
+    }
+
+    .availablity-container,
+    .size-chart {
+        margin-top: 0.938em;
+    }
+
+    .modal-footer {
+        background-color: $white;
+
+        .prices .price {
+            font-size: 1.6em;
+        }
+    }
+
+    .promotions {
+        text-align: left;
+    }
+
+    .bonus-summary {
+        @include media-breakpoint-down(sm) {
+            font-size: 0.625em;
+        }
+
+        .bonus-product-name {
+            @include media-breakpoint-down(sm) {
+                padding: 0;
+            }
+        }
+    }
+
+    .pre-cart-products {
+        margin-right: 0.125em;
+    }
+
+    .color-attribute {
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    .non-input-label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-carousel {
+        .slick-prev {
+            left: 0;
+        }
+
+        .slick-next {
+            right: 0;
+        }
+    }
+}

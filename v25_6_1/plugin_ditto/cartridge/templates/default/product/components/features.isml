@@ -1,0 +1,11 @@
+<isif condition="${product.features}">
+    <div class="features">
+        <isloop items="${product.features}" var="feature">
+            <div class="feature">
+                <img src="${URLUtils.staticURL('/images/icons/product/' + feature.slug + '.svg')}"
+                    alt="${feature.value}" />
+                ${feature.value}
+            </div>
+        </isloop>
+    </div>
+</isif>

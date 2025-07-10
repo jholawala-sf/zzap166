@@ -1,0 +1,2 @@
+<img src="${URLUtils.staticURL('/images/footer-logo.png')}"
+     alt="${Resource.msg('global.storename', 'common', null)}" />

@@ -1,0 +1,35 @@
+<div class="hero-banner" style="${pdict.backgroundColor || ''}">
+    <div class="hero-banner-image-wrapper align-self-start">
+        <isif condition="${pdict.image}">
+            <div class="banner-image banner-desktop" style="background-image: url(${pdict.image.src.desktop});" role="img"
+                aria-label="${pdict.image.alt}"></div>
+        </isif>
+        <isif condition="${pdict.mobImage}">
+            <div class="banner-image banner-mobile" style="background-image: url(${pdict.mobImage.src.desktop});" role="img"
+                aria-label="${pdict.mobImage.alt}"></div>
+        </isif>
+    </div>
+    <div class="hero-banner-overlay-wrapper">
+        <div class="hero-banner-overlay container d-flex ${pdict.overlayPosition}">
+            <div class="hero-banner-overlay-inner ${pdict.overlayAlignment}">
+                <isif condition="${pdict.heading}">
+                    <div class="banner-heading h1 font-weight-bold pb-2" style="${pdict.headingStyles}">
+                        <isprint value="${pdict.heading}" encoding="off" />
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.subheading}">
+                    <div class="banner-subheading h4 pb-2" style="${pdict.subheadingStyles}">
+                        <isprint value="${pdict.subheading}" encoding="off" />
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.buttonText && pdict.buttonLink}">
+                    <a href="${pdict.buttonLink}" class="${pdict.buttonType} btn-lg">
+                        <isprint value="${pdict.buttonText}" encoding="off" />
+                    </a>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<isloop items="${categories}" var="category">
+    <isif condition="${pdict.productSearch.productSearch.categorySearch}">
+        <isif condition="${!category.subCategories.length}">
+            <li class="category-attribute ${category.selected ? 'selected' : ''}">
+                <a class="refinement-link category" href="${category.url}" data-seo-href="${category.seoRefineUrl}">${category.displayValue}</a>
+            </li>
+        </isif>
+    <iselse/>
+        <isif condition="${(pdict.productSearch.category && category.parent === pdict.productSearch.category.id) ||
+                     (pdict.productSearch.category && pdict.productSearch.productSearch.category && pdict.productSearch.productSearch
+                         .category.parent.ID === category.parent) ||
+                     (!pdict.productSearch.category && category.parent === 'root')}">
+            <li class="category-attribute ${category.selected ? 'selected' : ''}">
+                <isif condition="${(pdict.productSearch.category && category.parent === pdict.productSearch.category.id)}">
+                    <i class="far fa-angle-right mr-2"></i>
+                </isif>
+                <a class="refinement-link category" href="${category.url}" data-seo-href="${category.seoRefineUrl}">${category.displayValue}</a>
+            </li>
+        </isif>
+    </isif>
+    <isset name="categories" value="${category.subCategories}" scope="page" />
+    <isinclude template="search/refinements/categories" />
+</isloop>

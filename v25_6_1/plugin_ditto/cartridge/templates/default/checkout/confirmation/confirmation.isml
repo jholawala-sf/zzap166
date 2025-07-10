@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/checkout">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/checkout/checkout.css');
+        assets.addJs('/js/checkoutRegistration.js');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <isif condition="${dw.system.Site.current.getCustomPreferenceValue('DittoBumpOfferPage') && empty(pdict.originalOrderNo)}">
+        <isprint value="${dw.experience.PageMgr.renderPage(dw.system.Site.current.getCustomPreferenceValue('DittoBumpOfferPage'), '')}" encoding="off"/>
+    </isif>
+
+    <div class="container_sm receipt ${pdict.order.shipping.length > 1 ? 'multi-ship' : ''}">
+        <div class="row mb-3">
+            <div class="order-confirmation-messages col-12">
+                <div class="order-thank-you-msg">${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
+                </div>
+                <div class="order-placed-msg">
+                    ${Resource.msg('msg.order.number.start', 'confirmation', null)}
+                    <span class="order-number">${pdict.order.orderNumber}</span>
+                    ${Resource.msg('msg.order.number.end', 'confirmation', null)}
+                </div>
+                <isif condition="${pdict.originalOrderNo}">
+                    <div>
+                        <em>This order replaced your original order (<strong>${pdict.originalOrderNo}</strong>)</em>
+                    </div>
+                </isif>
+                <div class="order-thank-you-email-msg">
+                    ${Resource.msgf('info.receive.email.confirmation.start', 'confirmation', null)}
+                    <span class="email-address">${pdict.order.orderEmail}</span>
+                    ${Resource.msgf('info.receive.email.confirmation.end', 'confirmation', null)}
+                </div>
+                <div class="summary-details">
+                    <span class="order-date-label">
+                        <i class="far fa-clock"></i>
+                        ${Resource.msg('label.order.date', 'confirmation', null)}
+                    </span>
+                    <span class="order-date" data-parse-date>
+                        <isprint value="${pdict.order.creationDate}" formatter="yyyy-MM-dd'T'HH:mm:ss'Z'" />
+                    </span>
+                    <span class="order-print d-print-none">
+                        <i class="far fa-print"></i>
+                        <a href="#" onclick="window.print();return false;">
+                            ${Resource.msg('label.order.print', 'confirmation', null)}
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <isinclude template="checkout/confirmation/confirmationDetails" />
+    </div>
+    <div class="container_sm mt-5">
+        <isslot id="order-confirmation-cta-m" description="Order Confirmation CTA" context="global" />
+        <isslot id="order-confirmation-recommendations-m" description="Recommended products" context="global" />
+    </div>
+</isdecorate>

@@ -1,0 +1,8 @@
+<isloop items="${slotcontent.content}" var="product">
+    <div class="product-recommendation">
+        <isobject object="${product}" view="recommendation">
+            <isinclude
+                url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'swatches', true, 'ratings', true, 'showQuickView', false)}" />
+        </isobject>
+    </div>
+</isloop>

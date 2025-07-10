@@ -1,0 +1,11 @@
+{
+  "name": "Generic Page",
+  "description": "A generic page type with no restrictions.",
+  "region_definitions": [
+    {
+      "id": "main",
+      "name": "Main Region",
+      "component_type_exclusions": []
+    }
+  ]
+}

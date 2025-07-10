@@ -1,0 +1,307 @@
+@import "~ditto/utilities/mixins";
+
+// Font Awesome
+$fa-font-path: "../webfonts" !default;
+
+// flag icons location in relation to target location of the css file.
+$flag-icons-path: "../fonts/flags" !default;
+
+$font-family-base: "Source Sans Pro", sans-serif !default;
+
+// Bootstrap color overrides
+
+$white: #fff;
+$black: #000;
+$blue: #a9cddb !default;
+$purple: #9873b9 !default;
+$pink: #f5a0ca !default;
+$red: #df5b5b !default;
+$orange: #ffae6c !default;
+$yellow: #fcd65e !default;
+$green: #87d89c !default;
+
+$primary: #535353 !default;
+$secondary: #535353 !default;
+
+$success: $green !default;
+
+$gray-100: #f8f8f8 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #e6e6e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #ababab !default;
+$gray-600: #6c757d !default;
+$gray-700: #535353 !default;
+$gray-900: #393939 !default;
+
+$light: $gray-400 !default;
+
+// Ditto color variables
+
+$social-pinterest: #e60023 !default;
+$social-facebook: #3b5998 !default;
+$social-twitter: #1da1f2 !default;
+$social-link: $gray-700 !default;
+
+$swatch-colors: (
+    "beige": #d3bca9,
+    "black": black,
+    "blue": #4089c0,
+    "brown": #8e6950,
+    "green": #88c290,
+    "grey": #919191,
+    "silver": #c0c0c0,
+    "navy": #000080,
+    "orange": #f4995c,
+    "pink": #f5a0ca,
+    "purple": #9873b9,
+    "red": #df5b5b,
+    "white": white,
+    "yellow": #fbe85a,
+    "gold": #ffd700
+) !default;
+
+// Ditto variables
+
+$site-page-bg: $gray-100 !default;
+$body-text: $gray-900 !default;
+$body-background: $white !default;
+
+// Common
+$product-rating: $primary !default;
+$product-rating-empty: $gray-300 !default;
+$strikethrough-text-color: $gray-500 !default;
+$border-color: $gray-300 !default;
+
+// Hero
+$default-hero-color: $white !default;
+
+// Breadcrumbs
+$breadcrumbs: $gray-900 !default;
+
+// Carousel
+$carousel-controls: $gray-500 !default;
+
+// Checkout
+$checkout-nav-links-border: $gray-500 !default;
+$checkout-nav-links-bg: $gray-100 !default;
+
+// Consent tracking
+$consent-tracking-bg: $gray-900 !default;
+$consent-tracking-text: $white !default;
+
+// Tooltip
+$tooltip-button-color: $gray-500 !default;
+
+// Product Tile
+$product-wishlist-heart: $orange !default;
+$product-tile-regular-price: $gray-700 !default;
+$product-tile-bg: $white !default;
+$product-tile-box-shadow: 0 0 13px 0 rgba(119, 119, 119, 0.2) !default;
+$product-tile-name-color: $gray-900 !default;
+$product-tile-badge-new-bg: $orange !default;
+$product-tile-badge-new-text: $white !default;
+$product-tile-badge-sale-bg: $yellow !default;
+$product-tile-badge-sale-text: $white !default;
+
+// search
+$search-result-count-active: $gray-700 !default;
+$search-result-count-inactive: $primary !default;
+$search-result-count-text: $white !default;
+
+// Search filter actions
+$search-filter-actions-bar-border: $gray-300 !default;
+$search-filter-actions-label: $gray-900 !default;
+
+// Search Refinement
+$search-refinement-background: $white !default;
+$search-refinement-border: $gray-300 !default;
+$search-refinement-header-text: $gray-900 !default;
+$search-refinement-header-border: $gray-900 !default;
+$search-refinement-text: $gray-900 !default;
+$search-refinement-size-border: $gray-500 !default;
+$search-refinement-indent: $gray-900 !default;
+$search-refinement-size-selected-background: $gray-900 !default;
+$search-refinement-size-selected-color: $white !default;
+
+// Compare
+$compare-bar-wrapper-background: $white !default;
+$compare-bar-wrapper-border: $gray-300 !default;
+
+// Forms
+$checkbox-border-color: $gray-900 !default;
+$checkbox-check-color: $gray-900 !default;
+
+// Cart
+$order-summary-background: $gray-100 !default;
+$product-edit: $gray-500 !default;
+
+// PDP
+$social-links: $gray-500 !default;
+$details-bg: $gray-100 !default;
+
+// Instore pickup
+$store-locator-striped: $gray-100 !default;
+
+// Footer
+$site-footer-bg: $secondary !default;
+$site-footer-header: $primary !default;
+$site-footer-link: $white !default;
+$site-footer-social: $white !default;
+$site-footer-notice-bg: darken($secondary, 5%) !default;
+$site-footer-notice-text: $white !default;
+
+// Swatch
+$swatch-check: $white !default;
+$swatch-cancel: $gray-900 !default;
+$swatch-border-active: $gray-500 !default;
+
+// Tabs
+$tabs-text: $gray-700 !default;
+
+// Spinner
+$spinner-backdrop-bg: $gray-300 !default;
+$spinner-backdrop-opacity: 0.2 !default;
+
+// Login
+$login-separator: $gray-300 !default;
+
+// Promotional
+$promo-text: $success !default;
+$approaching-discount-text: $gray-700 !default;
+
+$header-above: 12 !default;
+
+$default-cubic-bezier: cubic-bezier(0.5, 0.25, 0, 1) !default;
+
+// Bootstrap variable overrides
+$enable-responsive-font-sizes: true !default;
+
+$line-height-base: 1.4 !default;
+
+$default-box-shadow: 0 5px 9px 0 rgba(119, 119, 119, 0.2) !default;
+
+$font-size-base: 1rem !default;
+$font-weight-bold: 600 !default;
+
+$h1-font-size: $font-size-base * 2 !default;
+$h2-font-size: $font-size-base * 1.75 !default;
+$h3-font-size: $font-size-base * 1.5 !default;
+$h4-font-size: $font-size-base * 1.25 !default;
+$h5-font-size: $font-size-base * 1 !default;
+$h6-font-size: $font-size-base * 0.75 !default;
+
+$headings-font-weight: 400 !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 200 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 600 !default;
+$font-weight-bolder: bolder !default;
+
+// Components
+$border-radius: 0 !default;
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 1140px,
+    xl: 1440px
+) !default;
+
+$label-margin-bottom: 0 !default;
+
+// Breadcrumbs
+
+$breadcrumb-bg: transparent !default;
+$breadcrumb-padding-y: 1.5rem !default;
+$breadcrumb-padding-x: 0 !default;
+$breadcrumb-margin-bottom: 0 !default;
+
+// Header
+$site-preheader-bg: $secondary !default;
+$site-preheader-text: $white !default;
+$site-main-menu-bg: $white !default;
+$site-main-menu-border: $gray-300 !default;
+$site-mobile-nav-bg: $white !default;
+$site-cart-background: $primary !default;
+$site-cart-mobile-background: $white !default;
+$site-menu-item-header: $primary !default;
+$site-menu-item-text: $gray-900 !default;
+$site-search-header: $gray-500 !default;
+$promo-color: $white !default;
+
+// Tabs
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-link-active-bg: $gray-300 !default;
+
+// Button
+$button-primary-bg: $primary !default;
+$button-primary-text: $white !default;
+$btn-padding-y: 0.5rem !default;
+$btn-border-radius: 0 !default;
+
+// Input
+$input-padding-y: 0.5rem !default;
+$input-padding-x: 0rem !default;
+
+$input-padding-y-sm: 0rem !default;
+$input-padding-x-sm: 0rem !default;
+
+$input-padding-y-lg: 0rem !default;
+$input-padding-x-lg: 0rem !default;
+
+$input-bg: transparent !default;
+$input-disabled-bg: transparent !default;
+
+$input-color: $gray-900 !default;
+$input-placeholder-color: $gray-300 !default;
+$input-border-color: transparent !default;
+$input-border-width: 0rem !default;
+
+$input-border-radius: 0rem !default;
+$input-border-radius-lg: 0rem !default;
+$input-border-radius-sm: 0rem !default;
+
+$input-group-addon-bg: transparent !default;
+
+$custom-control-indicator-checked-border-color: $gray-900 !default;
+$custom-select-border-radius: 0 !default;
+$custom-select-box-shadow: none !default;
+$custom-control-indicator-border-width: 1px !default;
+$form-check-input-margin-y: 0 !default;
+
+// Navbar
+$navbar-light-color: $site-menu-item-text !default;
+$navbar-dark-color: $site-menu-item-text !default;
+
+// Modal
+$modal-backdrop-bg: $gray-300 !default;
+$modal-backdrop-opacity: 0.6 !default;
+$modal-content-border-color: transparent !default;
+$modal-content-border-width: 0 !default;
+$modal-content-border-radius: 0 !default;
+
+// Card
+$card-cap-bg: $white !default;
+$card-border-color: $border-color !default;
+
+// Close
+$close-font-weight: 200 !default;
+$close-font-size: 1.75rem !default;
+
+// Popover
+$popover-border-width: 0 !default;
+$popover-border-color: transparent !default;
+
+// List Groups
+$list-group-border-color: $border-color !default;
+
+// Tooltips
+$tooltip-bg: $gray-500 !default;
+$tooltip-opacity: 1 !default;
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+$enable-responsive-font-sizes: true !default;

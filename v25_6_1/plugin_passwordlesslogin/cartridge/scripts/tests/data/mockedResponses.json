@@ -1,0 +1,25 @@
+{
+    "passwordlessAuthCustomer": {
+        "error": {
+            "status_code": "400 BAD_REQUEST",
+            "message": "Invalid header."
+        }
+    },
+    "passwordlessAccessToken": {
+        "success": {
+            "access_token": "eyJ2ZXIiOiIxLjAiLCJqa3UiOiJzbGFzL3Byb2QvenpjdV8xNTAiLCJraWQiOiJjZTYwZDQ4OC04MjgzLTRiYWUtYTU0Yi0zOTFhZGE0N2U0MGUiLCJ0eXAiOiJqd3QiLCJjbHYiOiJKMi4zLjQiLCJhbGciOiJFUzI1NiJ9.eyJhdXQiOiJHVUlEIiwic2NwIjoic2ZjYy5zaG9wcGVyLWJhc2tldHMtb3JkZXJzLnJ3IHNmY2MucHdkbGVzc19sb2dpbiIsInN1YiI6ImNjLXNsYXM6Onp6Y3VfMTUwOjpzY2lkOmZhNTI2ZWY3LTJiYWQtNDRlZi05ODE0LWQ3NzhhMzkzMTg0Njo6dXNpZDo5MjY4Zjg2Mi00OTRkLTRmZmYtOTlmMy1jZWE1ZmZmZTQ0NDQiLCJjdHgiOiJzbGFzIiwiaXNzIjoic2xhcy9wcm9kL3p6Y3VfMTUwIiwiaXN0IjoxLCJhdWQiOiJjb21tZXJjZWNsb3VkL3Byb2QvenpjdV8xNTAiLCJuYmYiOjE2NzI4Nzc1MzMsInN0eSI6IlVzZXIiLCJpc2IiOiJ1aWRvOmVjb206OnVwbjpzZ29sZGVuQHNhbGVzZm9yY2UuY29tOjp1aWRuOnNnb2xkZW5Ac2FsZXNmb3JjZS5jb206OmdjaWQ6YWJtcmcwbWV3MmxIZ1JsYklZeGFZWXhLeEs6OnJjaWQ6YmN0bDRvcGt6SmJsUzdJYTBzUk4wOHlrUTk6OmxvZ2luOnB3ZGxlc3M6OmNoaWQ6UmVmQXJjaCIsImV4cCI6MTY3Mjg3OTM2MywiaWF0IjoxNjcyODc3NTYzLCJqdGkiOiJDMkM3MDAzNjg1MTAxOTg4NzA1MDU4MTk1MTQzMTAyNDEzNTI0MTgifQ.UnIgxVMLRGAXTLf7IByikoAQsZMPFglCNWROzrbzOdb20vO36sCrURgpUqv9PqYfCSm6Goba-o1jbDDHHtdR0w",
+            "id_token": "eyJraWQiOiI3MTUxNmI0My1lNzBkLTQ5NDktYjhmNy00NTdkM2JmMjY2ZjMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjYy1zbGFzOjp6emN1XzE1MDo6c2NpZDpmYTUyNmVmNy0yYmFkLTQ0ZWYtOTgxNC1kNzc4YTM5MzE4NDY6OnVzaWQ6OTI2OGY4NjItNDk0ZC00ZmZmLTk5ZjMtY2VhNWZmZmU0NDQ0IiwiYXVkIjoiZmE1MjZlZjctMmJhZC00NGVmLTk4MTQtZDc3OGEzOTMxODQ2IiwiaXNzIjoicHJkLnVzLnNob3BwZXIuY2Muc2FsZXNmb3JjZS5jb20iLCJuYW1lIjoiZWNvbSIsImV4cCI6MTY3Mjg3OTM2MywiaWF0IjoxNjcyODc3NTYzLCJlbWFpbCI6ImVjb20ifQ.f_vdJKyIVHzXdavcUBGc41NtHu9D0qz_JAs6BsUUv8J3jbafMbnIoBxg25XzkGw5Y8kRHRy71x6r1u3EJNqJ1WflBOJG5sDKU--b7oyNRQ9qv6WnMKP5KYV27IaRkOX6pudfRkufvDj5769JUt-FrV-PEHTUqR1DfdeRc52YABCGvdc825nSFoKchKnCu8DJPurCRD7Lp5q1z3BIZhVMf8WAQED1cvaI7xQRijJ_Ugk2Eim6E8VS4GmHjHdsA0-tDvfWYC2oonI0tx2ti0Sfm3zipgbSkDiNrdECS0p33f3lkgHknuUbCurE_P3sJJG_mINOfSmnLIvVloLfTzOVXA",
+            "refresh_token": "7TE-Ztmnxxhfwfx3jJ6zuMSX0qJ9udS3otZur_8blok",
+            "expires_in": 1800,
+            "token_type": "BEARER",
+            "usid": "9268f862-494d-4fff-99f3-cea5fffe4444",
+            "customer_id": "bctl4opkzJblS7Ia0sRN08ykQ9",
+            "enc_user_id": "7d0be5c10936f10174e26a96ddab6efd",
+            "idp_access_token": "pwdless"
+        },
+        "error": {
+            "status_code": "401 UNAUTHORIZED",
+            "message": "Invalid token(u)"
+        }
+    }
+}

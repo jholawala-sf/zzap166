@@ -1,0 +1,52 @@
+<div class="acc"> 
+	<h2 style="margin-bottom:2rem;">${pdict.articleTitle}</h2>
+	<ul>
+		<li>
+			<input type="checkbox" checked>
+			<i></i>
+			<h3>${pdict.articleTitleOne}</h3>
+			<p>
+				<isprint value="${pdict.articleBodyOne}" encoding="off" />
+			</p>
+		</li>
+		<li>
+			<input type="checkbox" checked>
+			<i></i>
+			<h3>${pdict.articleTitleTwo}</h3>
+			<p>
+				<isprint value="${pdict.articleBodyTwo}" encoding="off" />
+			</p>
+		</li>
+		<isif condition="${pdict.showThree}">
+		<li>
+			<input type="checkbox" checked>
+			<i></i>
+			<h3>${pdict.articleTitleThree}</h3>
+			<p>
+				<isprint value="${pdict.articleBodyThree}" encoding="off" />
+			</p>
+		</li>
+		</isif>
+		<isif condition="${pdict.showFour}">
+		<li>
+			<input type="checkbox" checked>
+			<i></i>
+			<h3>${pdict.articleTitleFour}</h3>
+			<p>
+				<isprint value="${pdict.articleBodyFour}" encoding="off" />
+			</p>
+		</li>
+		</isif>
+		<isif condition="${pdict.showFive}">
+		<li>
+			<input type="checkbox" checked>
+			<i></i>
+			<h3>${pdict.articleTitleFive}</h3>
+			<p>
+				<isprint value="${pdict.articleBodyFive}" encoding="off" />
+			</p>
+		</li>
+		</isif>
+	</ul>
+
+</div>

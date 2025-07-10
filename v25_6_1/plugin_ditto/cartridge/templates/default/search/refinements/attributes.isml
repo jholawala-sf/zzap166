@@ -1,0 +1,19 @@
+<isif condition="${refinement.values.length && refinement.values[0].type === 'color'}">
+    <ul class="values content d-flex flex-wrap">
+        <isloop items="${refinement.values}" var="refinementValue">
+            <isinclude template="search/refinements/attributes/color" />
+        </isloop>
+    </ul>
+<iselseif condition="${refinement.values.length && refinement.values[0].type === 'size'}" />
+    <ul class="values content d-flex flex-wrap">
+        <isloop items="${refinement.values}" var="refinementValue">
+            <isinclude template="search/refinements/attributes/size" />
+        </isloop>
+    </ul>
+<iselse/>
+    <ul class="values content">
+        <isloop items="${refinement.values}" var="refinementValue">
+            <isinclude template="search/refinements/attributes/boolean" />
+        </isloop>
+    </ul>
+</isif>

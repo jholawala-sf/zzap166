@@ -1,0 +1,110 @@
+<div class="modal fade cookie-preferences" tabindex="-1" role="dialog" aria-labelledby="cookie-preferences"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">${Resource.msg('header', 'cookies', null)}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-your-privacy-tab" data-toggle="pill"
+                                href="#v-pills-your-privacy" role="tab" aria-controls="v-pills-your-privacy"
+                                aria-selected="true">${Resource.msg('label.your.privacy', 'cookies', null)}</a>
+                            <a class="nav-link" id="v-pills-required-cookies-tab" data-toggle="pill"
+                                href="#v-pills-required-cookies" role="tab" aria-controls="v-pills-required-cookies"
+                                aria-selected="false">${Resource.msg('label.required.cookies', 'cookies', null)}</a>
+                            <a class="nav-link" id="v-pills-functional-cookies-tab" data-toggle="pill"
+                                href="#v-pills-functional-cookies" role="tab" aria-controls="v-pills-functional-cookies"
+                                aria-selected="false">${Resource.msg('label.functional.cookies', 'cookies', null)}</a>
+                            <a class="nav-link" id="v-pills-advertising-cookies-tab" data-toggle="pill"
+                                href="#v-pills-advertising-cookies" role="tab"
+                                aria-controls="v-pills-advertising-cookies" aria-selected="false">
+                                ${Resource.msg('label.advertising.cookies', 'cookies', null)}
+                            </a>
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                                href="${URLUtils.url('ContactUs-PrivacyRequest')}">
+                                <span>${Resource.msg('label.privacy.request', 'cookies', null)}</span>
+                            </a>
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                                href="${URLUtils.url('Page-Show', 'cid', 'privacypolicy')}">
+                                <span>${Resource.msg('label.privacy.statement', 'cookies', null)}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-your-privacy" role="tabpanel"
+                                aria-labelledby="v-pills-your-privacy-tab">
+                                <h3>${Resource.msg('label.your.privacy', 'cookies', null)}</h3>
+
+                                <iscontentasset aid="cookie-preferences-your-privacy" />
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-required-cookies" role="tabpanel"
+                                aria-labelledby="v-pills-required-cookies-tab">
+                                <div class="d-flex justify-content-between">
+                                    <h3>${Resource.msg('label.required.cookies', 'cookies', null)}</h3>
+                                    <span>${Resource.msg('label.always.active', 'cookies', null)}</span>
+                                </div>
+
+                                <iscontentasset aid="cookie-preferences-required-cookies" />
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-functional-cookies" role="tabpanel"
+                                aria-labelledby="v-pills-functional-cookies-tab">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3>${Resource.msg('label.functional.cookies', 'cookies', null)}</h3>
+                                    <div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="functional-cookies-toggle" />
+                                            <label class="custom-control-label" for="functional-cookies-toggle">
+                                                <span class="active">${Resource.msg('label.active', 'cookies', null)}
+                                                </span>
+                                                <span class="inactive">${Resource.msg('label.inactive',
+                                                                       'cookies',
+                                                                       null)}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <iscontentasset aid="cookie-preferences-functional-cookies" />
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-advertising-cookies" role="tabpanel"
+                                aria-labelledby="v-pills-advertising-cookies-tab">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3>${Resource.msg('label.advertising.cookies', 'cookies', null)}</h3>
+                                    <div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="advertising-cookies-toggle" checked />
+                                            <label class="custom-control-label" for="advertising-cookies-toggle">
+                                                <span class="active">${Resource.msg('label.active', 'cookies', null)}
+                                                </span>
+                                                <span class="inactive">${Resource.msg('label.inactive',
+                                                                       'cookies',
+                                                                       null)}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <iscontentasset aid="cookie-preferences-advertising-cookies" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    ${Resource.msg('button.close', 'cookies', null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

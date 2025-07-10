@@ -1,0 +1,8002 @@
+@import "../utilities/functions";
+
+@each $color in map-keys($swatch-colors) {
+    $colorValue: #{map-get($swatch-colors, $color)};
+
+    .swatch-#{$color} {
+        background-color: $colorValue;
+        display: block;
+        position: relative;
+
+        @if $color == "white" {
+            border: 1px solid $gray-700;
+        }
+
+        &.disabled {
+            opacity: 0.2;
+            overflow: hidden;
+
+            &::before {
+                border-bottom: 1px solid $gray-300;
+                content: "";
+                height: 1px;
+                position: absolute;
+                transform: rotate(45deg) translateX(6px) translateY(14.5px);
+                width: sqrt(pow(30, 2) + pow(30, 2)) * 1px;
+            }
+        }
+    }
+
+    .swatch-filter-#{$color} {
+        background-color: $colorValue;
+        display: block;
+        position: relative;
+
+        @if $color == "white" {
+            border: 1px solid $gray-700;
+        }
+
+        &.disabled {
+            opacity: 0.2;
+        }
+    }
+}
+
+.swatch-filter-miscellaneous,
+.swatch-miscellaneous {
+    background: url(../images/rainbow.jpg);
+    background-size: 40px;
+    display: block;
+
+    &.disabled {
+        opacity: 0.2;
+    }
+
+    &:hover {
+        animation: move 28s infinite linear forwards;
+    }
+}
+
+@keyframes move {
+    100% {
+        background-position: 3000px 0;
+    }
+}
+
+.swatch-color {
+    height: 24px;
+    position: relative;
+    width: 24px;
+
+    &::before {
+        content: "";
+        height: 24px;
+        left: 0;
+        position: absolute;
+        width: 50%;
+
+        &:not(:last-child) {
+            width: 33.333%;
+        }
+    }
+    &::after {
+        content: "";
+        height: 24px;
+        position: absolute;
+        right: 0;
+        width: 33.333%;
+    }
+
+    @each $color in map-keys($swatch-colors) {
+        $colorValue: #{map-get($swatch-colors, $color)};
+
+        &.#{$color} {
+            background-color: $colorValue;
+        }
+    }
+    &.AAA {
+        background-color: #8ffe09;
+    }
+    &.AAB {
+        background-color: #00ff00;
+        &::before {
+            background-color: #8ffe09;
+        }
+    }
+    &.AAC {
+        background-color: #ff4400;
+    }
+    &.AAD {
+        background-color: #e4d96f;
+    }
+    &.AAE {
+        background-color: #fb2943;
+    }
+    &.AAF {
+        background-color: #48a8d0;
+    }
+    &.AAG {
+        background-color: #000000;
+        &::before {
+            background-color: #48a8d0;
+        }
+    }
+    &.AAH {
+        background-color: #0477b4;
+    }
+    &.AAI {
+        background-color: #b66a50;
+        &::before {
+            background-color: #5d8aa8;
+        }
+    }
+    &.AAJ {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #5d8aa8;
+        }
+    }
+    &.AAK {
+        background-color: #ffc8c2;
+    }
+    &.AAL {
+        background-color: #808080;
+        &::before {
+            background-color: #786a4a;
+        }
+    }
+    &.AAM {
+        background-color: #65769a;
+    }
+    &.AAN {
+        background-color: #980002;
+    }
+    &.AAO {
+        background-color: #65769a;
+    }
+    &.AAP {
+        background-color: #00ffff;
+    }
+    &.AAQ {
+        background-color: #96d3d8;
+    }
+    &.AAR {
+        background-color: #4f738e;
+    }
+    &.AAS {
+        background-color: #2b2e43;
+        &::before {
+            background-color: #85ced1;
+        }
+    }
+    &.AAT {
+        background-color: #3cadd4;
+    }
+    &.AAU {
+        background-color: #bbccdd;
+    }
+    &.AAV {
+        background-color: #585e6f;
+        &::before {
+            background-color: #bfc7d6;
+        }
+    }
+    &.AAW {
+        background-color: #4b5320;
+    }
+    &.AAX {
+        background-color: #707c78;
+        &::before {
+            background-color: #bc8d1f;
+        }
+    }
+    &.AAY {
+        background-color: #8f8395;
+    }
+    &.AAZ {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #8f8395;
+        }
+    }
+    &.AA0 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #8f8395;
+        }
+    }
+    &.AA1 {
+        background-color: #000000;
+        &::before {
+            background-color: #a552e6;
+        }
+    }
+    &.AA2 {
+        background-color: #000000;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AA3 {
+        background-color: #130a06;
+    }
+    &.AA4 {
+        background-color: #130a06;
+    }
+    &.AA5 {
+        background-color: #000000;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AA6 {
+        background-color: #1199ff;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AA7 {
+        background-color: #dd00ff;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AA8 {
+        background-color: #fee715;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AA9 {
+        background-color: #ff8c69;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABA {
+        background-color: #b3a7a6;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABB {
+        background-color: #d7c485;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABC {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABD {
+        background-color: #738f5d;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABE {
+        background-color: #b0c965;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABF {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABG {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #130a06;
+        }
+        &::before {
+            background-color: #00637c;
+        }
+    }
+    &.ABH {
+        background-color: #484a72;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABI {
+        background-color: #0067a5;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABJ {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABK {
+        background-color: #8b8589;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABL {
+        background-color: #fea166;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABM {
+        background-color: #ff0000;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABN {
+        background-color: #50c878;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABO {
+        background-color: #507b9c;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABP {
+        background-color: #00ff7c;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABQ {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABR {
+        background-color: #808080;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABS {
+        background-color: #ffa500;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABT {
+        background-color: #ce5f38;
+    }
+    &.ABU {
+        background-color: #ffa500;
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.ABV {
+        background-color: #9ca9aa;
+    }
+    &.ABW {
+        background-color: #b6b095;
+    }
+    &.ABX {
+        background-color: #733635;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.ABY {
+        background-color: #8f8395;
+        &::before {
+            background-color: #e9eadb;
+        }
+    }
+    &.ABZ {
+        background-color: #000000;
+        &::before {
+            background-color: #e9eadb;
+        }
+    }
+    &.AB0 {
+        background-color: #f5ece7;
+        &::before {
+            background-color: #e9eadb;
+        }
+    }
+    &.AB1 {
+        background-color: #999999;
+    }
+    &.AB2 {
+        background-color: #130a06;
+    }
+    &.AB3 {
+        background-color: #5ccd97;
+    }
+    &.AB4 {
+        background-color: #7ea07a;
+    }
+    &.AB5 {
+        background-color: #867ba9;
+    }
+    &.AB6 {
+        background-color: #fb7efd;
+    }
+    &.AB7 {
+        background-color: #2c4053;
+        &::before {
+            background-color: #fb7efd;
+        }
+    }
+    &.AB8 {
+        background-color: #991100;
+        &::before {
+            background-color: #fb7efd;
+        }
+    }
+    &.AB9 {
+        background-color: #fb7efd;
+    }
+    &.ACA {
+        background-color: #372528;
+    }
+    &.ACB {
+        background-color: #293432;
+    }
+    &.ACC {
+        background-color: #293432;
+    }
+    &.ACD {
+        background-color: #000000;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACE {
+        background-color: #d7c485;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACF {
+        background-color: #3850a0;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACG {
+        background-color: #96c8a2;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACH {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACI {
+        background-color: #d99058;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACJ {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACK {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACL {
+        background-color: #ffffff;
+        &::before {
+            background-color: #293432;
+        }
+    }
+    &.ACM {
+        background-color: #6a808f;
+    }
+    &.ACN {
+        background-color: #7df9ff;
+    }
+    &.ACO {
+        background-color: #26a6be;
+        &::before {
+            background-color: #6a808f;
+        }
+    }
+    &.ACP {
+        background-color: #6a808f;
+    }
+    &.ACQ {
+        background-color: #aebbc1;
+    }
+    &.ACR {
+        background-color: #96c8a2;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.ACS {
+        background-color: #2b62f4;
+    }
+    &.ACT {
+        background-color: #00177d;
+    }
+    &.ACU {
+        background-color: #ffa500;
+    }
+    &.ACV {
+        background-color: #74828f;
+    }
+    &.ACW {
+        background-color: #28282d;
+        &::before {
+            background-color: #74828f;
+        }
+    }
+    &.ACX {
+        background-color: #fcc006;
+        &::before {
+            background-color: #74828f;
+        }
+    }
+    &.ACY {
+        background-color: #a59344;
+    }
+    &.ACZ {
+        background-color: #a87900;
+    }
+    &.AC0 {
+        background-color: #09f911;
+    }
+    &.AC1 {
+        background-color: #3b506f;
+        &::before {
+            background-color: #09f911;
+        }
+    }
+    &.AC2 {
+        background-color: #9acda9;
+    }
+    &.AC3 {
+        background-color: #6b8ba2;
+        &::before {
+            background-color: #b44c97;
+        }
+    }
+    &.AC4 {
+        background-color: #464196;
+    }
+    &.AC5 {
+        background-color: #394e65;
+    }
+    &.AC6 {
+        background-color: #e8f7fd;
+    }
+    &.AC7 {
+        background-color: #664238;
+        &::before {
+            background-color: #9e5b40;
+        }
+    }
+    &.AC8 {
+        background-color: #000000;
+    }
+    &.AC9 {
+        background-color: #e4d96f;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADA {
+        background-color: #ffbf00;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADB {
+        background-color: #85ced1;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADC {
+        background-color: #8f8395;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADD {
+        background-color: #b5acab;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADE {
+        background-color: #130a06;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADF {
+        background-color: #130a06;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADG {
+        background-color: #130a06;
+        &::before {
+            background-color: #000000;
+        }
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.ADH {
+        background-color: #fb7efd;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADI {
+        background-color: #6a808f;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADJ {
+        background-color: #4a4843;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADK {
+        background-color: #000000;
+    }
+    &.ADL {
+        background-color: #000000;
+    }
+    &.ADM {
+        background-color: #ffffff;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADN {
+        background-color: #2e183b;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADO {
+        background-color: #4e4f4e;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADP {
+        background-color: #0000ff;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADQ {
+        background-color: #658cbb;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADR {
+        background-color: #0099cc;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADS {
+        background-color: #ffdf01;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADT {
+        background-color: #d7c485;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADU {
+        background-color: #a2b6b9;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADV {
+        background-color: #363737;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADW {
+        background-color: #4a4b4d;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADX {
+        background-color: #313337;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADY {
+        background-color: #e26058;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ADZ {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD0 {
+        background-color: #806f63;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD1 {
+        background-color: #54534d;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD2 {
+        background-color: #ffd700;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD3 {
+        background-color: #383428;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD4 {
+        background-color: #bc763c;
+        &::before {
+            background-color: #000000;
+        }
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.AD5 {
+        background-color: #808080;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD6 {
+        background-color: #536267;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD7 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD8 {
+        background-color: #823270;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AD9 {
+        background-color: #3a5b52;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEA {
+        background-color: #3a5b52;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEB {
+        background-color: #fde634;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEC {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AED {
+        background-color: #9f9f9f;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEE {
+        background-color: #3e3a44;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEF {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEG {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEH {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEI {
+        background-color: #d6cdb7;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEJ {
+        background-color: #8b8589;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEK {
+        background-color: #4b6113;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEL {
+        background-color: #005493;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEM {
+        background-color: #ffa500;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEN {
+        background-color: #3e4f5c;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEO {
+        background-color: #e7dbbf;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEP {
+        background-color: #dce4d7;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEQ {
+        background-color: #8d3f2d;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AER {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AES {
+        background-color: #108780;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AET {
+        background-color: #fe5a1d;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEU {
+        background-color: #ff0000;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEV {
+        background-color: #9dd8db;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEW {
+        background-color: #9e3641;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEX {
+        background-color: #1f6680;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEY {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AEZ {
+        background-color: #50c878;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE0 {
+        background-color: #110022;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE1 {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE2 {
+        background-color: #ada587;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE3 {
+        background-color: #507b9c;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE4 {
+        background-color: #8bb6b8;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE5 {
+        background-color: #a484ac;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE6 {
+        background-color: #008080;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE7 {
+        background-color: #563474;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE8 {
+        background-color: #ffafa3;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AE9 {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFA {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFB {
+        background-color: #ffffff;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFC {
+        background-color: #c3bdab;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFD {
+        background-color: #ffffff;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFE {
+        background-color: #a7e0c2;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFF {
+        background-color: #7d74a8;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFG {
+        background-color: #c3d363;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFH {
+        background-color: #f5ece7;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFI {
+        background-color: #ffff00;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFJ {
+        background-color: #808080;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFK {
+        background-color: #ffa500;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AFL {
+        background-color: #000000;
+    }
+    &.AFM {
+        background-color: #000000;
+    }
+    &.AFN {
+        background-color: #ffca7d;
+    }
+    &.AFO {
+        background-color: #2e2f31;
+    }
+    &.AFP {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #2e2f31;
+        }
+    }
+    &.AFQ {
+        background-color: #000000;
+        &::before {
+            background-color: #2e2f31;
+        }
+    }
+    &.AFR {
+        background-color: #000000;
+        &::before {
+            background-color: #2e2f31;
+        }
+    }
+    &.AFS {
+        background-color: #000000;
+        &::before {
+            background-color: #2e183b;
+        }
+    }
+    &.AFT {
+        background-color: #aaae9a;
+    }
+    &.AFU {
+        background-color: #f9f0e1;
+    }
+    &.AFV {
+        background-color: #000000;
+        &::before {
+            background-color: #f9f0e1;
+        }
+    }
+    &.AFW {
+        background-color: #3e3f41;
+    }
+    &.AFX {
+        background-color: #dfa3ba;
+    }
+    &.AFY {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #dfa3ba;
+        }
+    }
+    &.AFZ {
+        background-color: #112222;
+    }
+    &.AF0 {
+        background-color: #0084a1;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AF1 {
+        background-color: #000000;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AF2 {
+        background-color: #e9897e;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AF3 {
+        background-color: #ff0000;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AF4 {
+        background-color: #50c878;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AF5 {
+        background-color: #4d3246;
+    }
+    &.AF6 {
+        background-color: #000000;
+        &::before {
+            background-color: #00707d;
+        }
+    }
+    &.AF7 {
+        background-color: #0f0d0d;
+    }
+    &.AF8 {
+        background-color: #e5e6df;
+    }
+    &.AF9 {
+        background-color: #8f8395;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AGA {
+        background-color: #ff0000;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AGB {
+        background-color: #ffff00;
+        &::before {
+            background-color: #112222;
+        }
+    }
+    &.AGC {
+        background-color: #483c41;
+    }
+    &.AGD {
+        background-color: #383740;
+    }
+    &.AGE {
+        background-color: #151515;
+    }
+    &.AGF {
+        background-color: #4f4554;
+    }
+    &.AGG {
+        background-color: #383740;
+    }
+    &.AGH {
+        background-color: #4f4554;
+    }
+    &.AGI {
+        background-color: #b8c6be;
+    }
+    &.AGJ {
+        background-color: #1199ff;
+    }
+    &.AGK {
+        background-color: #1e272c;
+    }
+    &.AGL {
+        background-color: #383428;
+        &::before {
+            background-color: #1e272c;
+        }
+    }
+    &.AGM {
+        background-color: #3eb489;
+        &::before {
+            background-color: #1e272c;
+        }
+    }
+    &.AGN {
+        background-color: #060606;
+    }
+    &.AGO {
+        background-color: #35063e;
+        &::before {
+            background-color: #6c5765;
+        }
+    }
+    &.AGP {
+        background-color: #6c5765;
+    }
+    &.AGQ {
+        background-color: #000000;
+    }
+    &.AGR {
+        background-color: #000000;
+        &::before {
+            background-color: #dd00ff;
+        }
+    }
+    &.AGS {
+        background-color: #000000;
+        &::before {
+            background-color: #dd00ff;
+        }
+    }
+    &.AGT {
+        background-color: #000000;
+    }
+    &.AGU {
+        background-color: #3b3c36;
+    }
+    &.AGV {
+        background-color: #2c2d3c;
+    }
+    &.AGW {
+        background-color: #9f8d89;
+    }
+    &.AGX {
+        background-color: #5b4e4b;
+    }
+    &.AGY {
+        background-color: #000000;
+        &::before {
+            background-color: #554738;
+        }
+    }
+    &.AGZ {
+        background-color: #0000ff;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AG0 {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AG1 {
+        background-color: #8b8589;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.AG2 {
+        background-color: #464647;
+    }
+    &.AG3 {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #464647;
+        }
+    }
+    &.AG4 {
+        background-color: #a475b1;
+        &::before {
+            background-color: #464647;
+        }
+    }
+    &.AG5 {
+        background-color: #532934;
+    }
+    &.AG6 {
+        background-color: #0c0c0c;
+    }
+    &.AG7 {
+        background-color: #0c0c0c;
+    }
+    &.AG8 {
+        background-color: #85ced1;
+        &::before {
+            background-color: #4d4b50;
+        }
+    }
+    &.AG9 {
+        background-color: #000000;
+        &::before {
+            background-color: #4d4b50;
+        }
+    }
+    &.AHA {
+        background-color: #9f9f9f;
+        &::before {
+            background-color: #4d4b50;
+        }
+    }
+    &.AHB {
+        background-color: #c7b595;
+        &::before {
+            background-color: #4d4b50;
+        }
+    }
+    &.AHC {
+        background-color: #ff0000;
+        &::before {
+            background-color: #4d4b50;
+        }
+    }
+    &.AHD {
+        background-color: #fe6700;
+    }
+    &.AHE {
+        background-color: #000000;
+        &::before {
+            background-color: #fee715;
+        }
+    }
+    &.AHF {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #fee715;
+        }
+    }
+    &.AHG {
+        background-color: #0000ff;
+    }
+    &.AHH {
+        background-color: #000000;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHI {
+        background-color: #0000ff;
+    }
+    &.AHJ {
+        background-color: #3b506f;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHK {
+        background-color: #bc763c;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHL {
+        background-color: #00ff00;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHM {
+        background-color: #006284;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHN {
+        background-color: #fe5a1d;
+        &::before {
+            background-color: #0000ff;
+        }
+    }
+    &.AHO {
+        background-color: #1b5366;
+    }
+    &.AHP {
+        background-color: #f9f0e1;
+    }
+    &.AHQ {
+        background-color: #aebbc1;
+    }
+    &.AHR {
+        background-color: #26a6be;
+    }
+    &.AHS {
+        background-color: #363b48;
+    }
+    &.AHT {
+        background-color: #000000;
+        &::before {
+            background-color: #a6bce2;
+        }
+    }
+    &.AHU {
+        background-color: #535a61;
+    }
+    &.AHV {
+        background-color: #2c4053;
+    }
+    &.AHW {
+        background-color: #130a06;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AHX {
+        background-color: #000000;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AHY {
+        background-color: #2c4053;
+    }
+    &.AHZ {
+        background-color: #d7c485;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH0 {
+        background-color: #26a6be;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH1 {
+        background-color: #c6b183;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH2 {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH3 {
+        background-color: #507b9c;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH4 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH5 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH6 {
+        background-color: #808080;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AH7 {
+        background-color: #2c4053;
+    }
+    &.AH8 {
+        background-color: #2c4053;
+    }
+    &.AH9 {
+        background-color: #2c4053;
+    }
+    &.AIA {
+        background-color: #2c4053;
+    }
+    &.AIB {
+        background-color: #2c4053;
+    }
+    &.AIC {
+        background-color: #2c4053;
+    }
+    &.AID {
+        background-color: #2c4053;
+    }
+    &.AIE {
+        background-color: #2c4053;
+    }
+    &.AIF {
+        background-color: #c6b183;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AIG {
+        background-color: #ffffff;
+        &::before {
+            background-color: #2c4053;
+        }
+    }
+    &.AIH {
+        background-color: #2c4053;
+    }
+    &.AII {
+        background-color: #2c4053;
+    }
+    &.AIJ {
+        background-color: #2c4053;
+    }
+    &.AIK {
+        background-color: #009dae;
+    }
+    &.AIL {
+        background-color: #000000;
+        &::before {
+            background-color: #009dae;
+        }
+    }
+    &.AIM {
+        background-color: #009dae;
+    }
+    &.AIN {
+        background-color: #4e545b;
+        &::before {
+            background-color: #009dae;
+        }
+    }
+    &.AIO {
+        background-color: #000000;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.AIP {
+        background-color: #007c7a;
+    }
+    &.AIQ {
+        background-color: #0000ff;
+    }
+    &.AIR {
+        background-color: #0099cc;
+    }
+    &.AIS {
+        background-color: #000000;
+        &::before {
+            background-color: #0099cc;
+        }
+    }
+    &.AIT {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #0099cc;
+        }
+    }
+    &.AIU {
+        background-color: #0067a5;
+        &::before {
+            background-color: #0099cc;
+        }
+    }
+    &.AIV {
+        background-color: #01153e;
+        &::before {
+            background-color: #0099cc;
+        }
+    }
+    &.AIW {
+        background-color: #bc8d1f;
+        &::before {
+            background-color: #9d7446;
+        }
+    }
+    &.AIX {
+        background-color: #585e6f;
+        &::before {
+            background-color: #9d7446;
+        }
+    }
+    &.AIY {
+        background-color: #940008;
+        &::before {
+            background-color: #9d7446;
+        }
+    }
+    &.AIZ {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #9d7446;
+        }
+    }
+    &.AI0 {
+        background-color: #f1e1b0;
+    }
+    &.AI1 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #f1e1b0;
+        }
+    }
+    &.AI2 {
+        background-color: #7b002c;
+    }
+    &.AI3 {
+        background-color: #88ace0;
+        &::before {
+            background-color: #4c3d4e;
+        }
+    }
+    &.AI4 {
+        background-color: #4d503c;
+        &::before {
+            background-color: #4c3d4e;
+        }
+    }
+    &.AI5 {
+        background-color: #5e624a;
+    }
+    &.AI6 {
+        background-color: #5e624a;
+    }
+    &.AI7 {
+        background-color: #998877;
+        &::before {
+            background-color: #5e624a;
+        }
+    }
+    &.AI8 {
+        background-color: #998877;
+        &::before {
+            background-color: #5e624a;
+        }
+    }
+    &.AI9 {
+        background-color: #5e624a;
+    }
+    &.AJA {
+        background-color: #264334;
+        &::before {
+            background-color: #5e624a;
+        }
+    }
+    &.AJB {
+        background-color: #b5a642;
+    }
+    &.AJC {
+        background-color: #b5a642;
+    }
+    &.AJD {
+        background-color: #0165fc;
+    }
+    &.AJE {
+        background-color: #b3a7a6;
+        &::before {
+            background-color: #385d8d;
+        }
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.AJF {
+        background-color: #385d8d;
+    }
+    &.AJG {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #558f91;
+        }
+    }
+    &.AJH {
+        background-color: #bcaf97;
+    }
+    &.AJI {
+        background-color: #000000;
+        &::before {
+            background-color: #bcaf97;
+        }
+    }
+    &.AJJ {
+        background-color: #8b8589;
+        &::before {
+            background-color: #bcaf97;
+        }
+    }
+    &.AJK {
+        background-color: #76ff7b;
+        &::before {
+            background-color: #bcaf97;
+        }
+    }
+    &.AJL {
+        background-color: #bcaf97;
+    }
+    &.AJM {
+        background-color: #824b35;
+        &::before {
+            background-color: #664238;
+        }
+    }
+    &.AJN {
+        background-color: #9f9586;
+    }
+    &.AJO {
+        background-color: #ff0000;
+        &::before {
+            background-color: #6f828a;
+        }
+    }
+    &.AJP {
+        background-color: #c7bdc1;
+    }
+    &.AJQ {
+        background-color: #ffa500;
+        &::before {
+            background-color: #900020;
+        }
+    }
+    &.AJR {
+        background-color: #c5aeb1;
+    }
+    &.AJS {
+        background-color: #646049;
+    }
+    &.AJT {
+        background-color: #646049;
+    }
+    &.AJU {
+        background-color: #646049;
+    }
+    &.AJV {
+        background-color: #deaa88;
+        &::before {
+            background-color: #646049;
+        }
+    }
+    &.AJW {
+        background-color: #ffffff;
+        &::before {
+            background-color: #646049;
+        }
+    }
+    &.AJX {
+        background-color: #646049;
+    }
+    &.AJY {
+        background-color: #646049;
+    }
+    &.AJZ {
+        background-color: #000000;
+        &::before {
+            background-color: #646049;
+        }
+    }
+    &.AJ0 {
+        background-color: #646049;
+    }
+    &.AJ1 {
+        background-color: #646049;
+    }
+    &.AJ2 {
+        background-color: #000000;
+        &::before {
+            background-color: #646049;
+        }
+    }
+    &.AJ3 {
+        background-color: #f6ae78;
+    }
+    &.AJ4 {
+        background-color: #be4f62;
+    }
+    &.AJ5 {
+        background-color: #ff1b2d;
+    }
+    &.AJ6 {
+        background-color: #130a06;
+        &::before {
+            background-color: #ff1b2d;
+        }
+    }
+    &.AJ7 {
+        background-color: #01153e;
+        &::before {
+            background-color: #ff1b2d;
+        }
+    }
+    &.AJ8 {
+        background-color: #7f8f4e;
+    }
+    &.AJ9 {
+        background-color: #9cc2c5;
+    }
+    &.AKA {
+        background-color: #9cc2c5;
+    }
+    &.AKB {
+        background-color: #507b9c;
+        &::before {
+            background-color: #9cc2c5;
+        }
+    }
+    &.AKC {
+        background-color: #dfddd7;
+        &::before {
+            background-color: #9cc2c5;
+        }
+    }
+    &.AKD {
+        background-color: #ffffff;
+        &::before {
+            background-color: #9cc2c5;
+        }
+    }
+    &.AKE {
+        background-color: #bdbcc4;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.AKF {
+        background-color: #ffdf01;
+    }
+    &.AKG {
+        background-color: #000000;
+        &::before {
+            background-color: #ffdf01;
+        }
+    }
+    &.AKH {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #ffdf01;
+        }
+    }
+    &.AKI {
+        background-color: #707c78;
+        &::before {
+            background-color: #ffdf01;
+        }
+    }
+    &.AKJ {
+        background-color: #4e545b;
+        &::before {
+            background-color: #ffdf01;
+        }
+    }
+    &.AKK {
+        background-color: #808080;
+        &::before {
+            background-color: #ffdf01;
+        }
+    }
+    &.AKL {
+        background-color: #864c24;
+    }
+    &.AKM {
+        background-color: #000000;
+        &::before {
+            background-color: #864c24;
+        }
+    }
+    &.AKN {
+        background-color: #864c24;
+    }
+    &.AKO {
+        background-color: #c41e3a;
+    }
+    &.AKP {
+        background-color: #733635;
+        &::before {
+            background-color: #c41e3a;
+        }
+    }
+    &.AKQ {
+        background-color: #808080;
+        &::before {
+            background-color: #c41e3a;
+        }
+    }
+    &.AKR {
+        background-color: #c41e3a;
+    }
+    &.AKS {
+        background-color: #b6b095;
+        &::before {
+            background-color: #c41e3a;
+        }
+    }
+    &.AKT {
+        background-color: #c41e3a;
+    }
+    &.AKU {
+        background-color: #8f755b;
+    }
+    &.AKV {
+        background-color: #130a06;
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.AKW {
+        background-color: #8f755b;
+    }
+    &.AKX {
+        background-color: #00637c;
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.AKY {
+        background-color: #8c4a2f;
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.AKZ {
+        background-color: #01153e;
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.AK0 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #8f755b;
+        }
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.AK1 {
+        background-color: #ffa500;
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.AK2 {
+        background-color: #954e2a;
+    }
+    &.AK3 {
+        background-color: #000000;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.AK4 {
+        background-color: #d2e2f2;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.AK5 {
+        background-color: #8f755b;
+    }
+    &.AK6 {
+        background-color: #00819d;
+    }
+    &.AK7 {
+        background-color: #01153e;
+        &::before {
+            background-color: #00819d;
+        }
+    }
+    &.AK8 {
+        background-color: #00819d;
+    }
+    &.AK9 {
+        background-color: #b87333;
+        &::before {
+            background-color: #d1b399;
+        }
+    }
+    &.ALA {
+        background-color: #5f5e62;
+    }
+    &.ALB {
+        background-color: #646762;
+    }
+    &.ALC {
+        background-color: #2ddfc1;
+    }
+    &.ALD {
+        background-color: #343837;
+    }
+    &.ALE {
+        background-color: #333333;
+        &::before {
+            background-color: #343837;
+        }
+    }
+    &.ALF {
+        background-color: #7e736d;
+        &::before {
+            background-color: #343837;
+        }
+    }
+    &.ALG {
+        background-color: #6e6969;
+    }
+    &.ALH {
+        background-color: #06c2ac;
+        &::before {
+            background-color: #6e6969;
+        }
+    }
+    &.ALI {
+        background-color: #d0dce8;
+        &::before {
+            background-color: #6e6969;
+        }
+    }
+    &.ALJ {
+        background-color: #565350;
+    }
+    &.ALK {
+        background-color: #c09962;
+    }
+    &.ALL {
+        background-color: #f7cee0;
+    }
+    &.ALM {
+        background-color: #742802;
+    }
+    &.ALN {
+        background-color: #4aff00;
+    }
+    &.ALO {
+        background-color: #8f755b;
+        &::before {
+            background-color: #411900;
+        }
+    }
+    &.ALP {
+        background-color: #b27a01;
+        &::before {
+            background-color: #411900;
+        }
+    }
+    &.ALQ {
+        background-color: #685a4e;
+    }
+    &.ALR {
+        background-color: #3c2d2e;
+    }
+    &.ALS {
+        background-color: #d7c485;
+    }
+    &.ALT {
+        background-color: #130a06;
+        &::before {
+            background-color: #d7c485;
+        }
+    }
+    &.ALU {
+        background-color: #507b9c;
+        &::before {
+            background-color: #d7c485;
+        }
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.ALV {
+        background-color: #01153e;
+        &::before {
+            background-color: #d7c485;
+        }
+    }
+    &.ALW {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #d7c485;
+        }
+    }
+    &.ALX {
+        background-color: #ffa500;
+        &::before {
+            background-color: #d7c485;
+        }
+    }
+    &.ALY {
+        background-color: #d7c485;
+        &::before {
+            background-color: #f7d000;
+        }
+    }
+    &.ALZ {
+        background-color: #7fb377;
+    }
+    &.AL0 {
+        background-color: #d7c485;
+    }
+    &.AL1 {
+        background-color: #d7c485;
+    }
+    &.AL2 {
+        background-color: #808080;
+        &::before {
+            background-color: #b8af23;
+        }
+    }
+    &.AL3 {
+        background-color: #000000;
+        &::before {
+            background-color: #39a845;
+        }
+    }
+    &.AL4 {
+        background-color: #dfefea;
+    }
+    &.AL5 {
+        background-color: #a2b2bd;
+    }
+    &.AL6 {
+        background-color: #000000;
+        &::before {
+            background-color: #a2b6b9;
+        }
+    }
+    &.AL7 {
+        background-color: #3e3f41;
+    }
+    &.AL8 {
+        background-color: #130a06;
+        &::before {
+            background-color: #505d7e;
+        }
+    }
+    &.AL9 {
+        background-color: #01386a;
+        &::before {
+            background-color: #505d7e;
+        }
+    }
+    &.AMA {
+        background-color: #808080;
+        &::before {
+            background-color: #505d7e;
+        }
+    }
+    &.AMB {
+        background-color: #bcbfa8;
+        &::before {
+            background-color: #362d26;
+        }
+    }
+    &.AMC {
+        background-color: #8f755b;
+        &::before {
+            background-color: #362d26;
+        }
+    }
+    &.AMD {
+        background-color: #e6daa6;
+        &::before {
+            background-color: #4a2c2a;
+        }
+    }
+    &.AME {
+        background-color: #65000b;
+        &::before {
+            background-color: #4a2c2a;
+        }
+    }
+    &.AMF {
+        background-color: #eecc24;
+        &::before {
+            background-color: #4a2c2a;
+        }
+    }
+    &.AMG {
+        background-color: #005f7a;
+    }
+    &.AMH {
+        background-color: #f1d79e;
+    }
+    &.AMI {
+        background-color: #bccedb;
+    }
+    &.AMJ {
+        background-color: #96b3b3;
+    }
+    &.AMK {
+        background-color: #96b3b3;
+    }
+    &.AML {
+        background-color: #b87333;
+    }
+    &.AMM {
+        background-color: #ff7f50;
+    }
+    &.AMN {
+        background-color: #b8b9cb;
+    }
+    &.AMO {
+        background-color: #b8b9cb;
+    }
+    &.AMP {
+        background-color: #130a06;
+        &::before {
+            background-color: #b8b9cb;
+        }
+    }
+    &.AMQ {
+        background-color: #020035;
+        &::before {
+            background-color: #b8b9cb;
+        }
+    }
+    &.AMR {
+        background-color: #808080;
+        &::before {
+            background-color: #b8b9cb;
+        }
+    }
+    &.AMS {
+        background-color: #9fc131;
+        &::before {
+            background-color: #717388;
+        }
+    }
+    &.AMT {
+        background-color: #195190;
+        &::before {
+            background-color: #a9adc2;
+        }
+    }
+    &.AMU {
+        background-color: #0e87cc;
+    }
+    &.AMV {
+        background-color: #b8b9cb;
+    }
+    &.AMW {
+        background-color: #ffffc2;
+    }
+    &.AMX {
+        background-color: #a49887;
+    }
+    &.AMY {
+        background-color: #e2f7f1;
+    }
+    &.AMZ {
+        background-color: #00637c;
+    }
+    &.AM0 {
+        background-color: #738f5d;
+        &::before {
+            background-color: #00637c;
+        }
+    }
+    &.AM1 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #00637c;
+        }
+    }
+    &.AM2 {
+        background-color: #d8dcd6;
+        &::before {
+            background-color: #00637c;
+        }
+    }
+    &.AM3 {
+        background-color: #00637c;
+    }
+    &.AM4 {
+        background-color: #558f91;
+        &::before {
+            background-color: #623d3d;
+        }
+    }
+    &.AM5 {
+        background-color: #40342b;
+        &::before {
+            background-color: #623d3d;
+        }
+    }
+    &.AM6 {
+        background-color: #fe0002;
+    }
+    &.AM7 {
+        background-color: #362d26;
+        &::before {
+            background-color: #704f37;
+        }
+    }
+    &.AM8 {
+        background-color: #40342b;
+        &::before {
+            background-color: #704f37;
+        }
+    }
+    &.AM9 {
+        background-color: #040273;
+        &::before {
+            background-color: #7e6eac;
+        }
+    }
+    &.ANA {
+        background-color: #353f51;
+    }
+    &.ANB {
+        background-color: #535a61;
+    }
+    &.ANC {
+        background-color: #cc8855;
+    }
+    &.AND {
+        background-color: #35063e;
+    }
+    &.ANE {
+        background-color: #be5141;
+    }
+    &.ANF {
+        background-color: #97d5b3;
+        &::before {
+            background-color: #35063e;
+        }
+    }
+    &.ANG {
+        background-color: #35063e;
+    }
+    &.ANH {
+        background-color: #363737;
+    }
+    &.ANI {
+        background-color: #00ffff;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.ANJ {
+        background-color: #033500;
+    }
+    &.ANK {
+        background-color: #363737;
+    }
+    &.ANL {
+        background-color: #738f5d;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.ANM {
+        background-color: #ffff00;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.ANN {
+        background-color: #b6b095;
+    }
+    &.ANO {
+        background-color: #130a06;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANP {
+        background-color: #130a06;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANQ {
+        background-color: #000000;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANR {
+        background-color: #c41e3a;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANS {
+        background-color: #b6b095;
+    }
+    &.ANT {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANU {
+        background-color: #8b8589;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANV {
+        background-color: #ffffff;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.ANW {
+        background-color: #b6b095;
+    }
+    &.ANX {
+        background-color: #90614a;
+    }
+    &.ANY {
+        background-color: #dbc963;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.ANZ {
+        background-color: #6f95c1;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.AN0 {
+        background-color: #75406a;
+        &::before {
+            background-color: #363737;
+        }
+    }
+    &.AN1 {
+        background-color: #373e02;
+    }
+    &.AN2 {
+        background-color: #840000;
+    }
+    &.AN3 {
+        background-color: #195190;
+        &::before {
+            background-color: #4a4b4d;
+        }
+    }
+    &.AN4 {
+        background-color: #c193c0;
+        &::before {
+            background-color: #4a4b4d;
+        }
+    }
+    &.AN5 {
+        background-color: #7d74a8;
+        &::before {
+            background-color: #4a4b4d;
+        }
+    }
+    &.AN6 {
+        background-color: #955264;
+    }
+    &.AN7 {
+        background-color: #130a06;
+        &::before {
+            background-color: #303f3d;
+        }
+    }
+    &.AN8 {
+        background-color: #808080;
+        &::before {
+            background-color: #303f3d;
+        }
+    }
+    &.AN9 {
+        background-color: #303f3d;
+    }
+    &.AOA {
+        background-color: #3850a0;
+    }
+    &.AOB {
+        background-color: #293432;
+        &::before {
+            background-color: #3850a0;
+        }
+    }
+    &.AOC {
+        background-color: #000000;
+        &::before {
+            background-color: #3850a0;
+        }
+    }
+    &.AOD {
+        background-color: #ffffff;
+        &::before {
+            background-color: #3850a0;
+        }
+    }
+    &.AOE {
+        background-color: #3850a0;
+    }
+    &.AOF {
+        background-color: #ffffff;
+        &::before {
+            background-color: #3850a0;
+        }
+    }
+    &.AOG {
+        background-color: #3850a0;
+    }
+    &.AOH {
+        background-color: #3850a0;
+    }
+    &.AOI {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #3850a0;
+        }
+    }
+    &.AOJ {
+        background-color: #040273;
+    }
+    &.AOK {
+        background-color: #68457a;
+        &::before {
+            background-color: #040273;
+        }
+    }
+    &.AOL {
+        background-color: #733635;
+    }
+    &.AOM {
+        background-color: #77212e;
+        &::before {
+            background-color: #733635;
+        }
+    }
+    &.AON {
+        background-color: #000000;
+        &::before {
+            background-color: #733635;
+        }
+    }
+    &.AOO {
+        background-color: #c41e3a;
+        &::before {
+            background-color: #733635;
+        }
+    }
+    &.AOP {
+        background-color: #733635;
+    }
+    &.AOQ {
+        background-color: #9ec1cc;
+        &::before {
+            background-color: #733635;
+        }
+    }
+    &.AOR {
+        background-color: #ab4d50;
+    }
+    &.AOS {
+        background-color: #000000;
+        &::before {
+            background-color: #f7e0e1;
+        }
+    }
+    &.AOT {
+        background-color: #01153e;
+    }
+    &.AOU {
+        background-color: #36013f;
+    }
+    &.AOV {
+        background-color: #9a0200;
+    }
+    &.AOW {
+        background-color: #00555a;
+    }
+    &.AOX {
+        background-color: #264334;
+        &::before {
+            background-color: #00555a;
+        }
+    }
+    &.AOY {
+        background-color: #edc9af;
+    }
+    &.AOZ {
+        background-color: #6e5f57;
+        &::before {
+            background-color: #552c1c;
+        }
+    }
+    &.AO0 {
+        background-color: #892d4f;
+    }
+    &.AO1 {
+        background-color: #49759c;
+        &::before {
+            background-color: #c0c6c9;
+        }
+    }
+    &.AO2 {
+        background-color: #4d3e3c;
+        &::before {
+            background-color: #6d6c6c;
+        }
+    }
+    &.AO3 {
+        background-color: #e6daa6;
+    }
+    &.AO4 {
+        background-color: #130a06;
+        &::before {
+            background-color: #e6daa6;
+        }
+    }
+    &.AO5 {
+        background-color: #733635;
+        &::before {
+            background-color: #e6daa6;
+        }
+    }
+    &.AO6 {
+        background-color: #383428;
+        &::before {
+            background-color: #e6daa6;
+        }
+    }
+    &.AO7 {
+        background-color: #66829a;
+        &::before {
+            background-color: #e6daa6;
+        }
+        &::before {
+            background-color: #c5bbae;
+        }
+    }
+    &.AO8 {
+        background-color: #a484ac;
+    }
+    &.AO9 {
+        background-color: #0099cc;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APA {
+        background-color: #edd8d2;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APB {
+        background-color: #87d8c3;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APC {
+        background-color: #3e3a44;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APD {
+        background-color: #a83e6c;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APE {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APF {
+        background-color: #ffa500;
+        &::before {
+            background-color: #313337;
+        }
+    }
+    &.APG {
+        background-color: #456074;
+    }
+    &.APH {
+        background-color: #00ff00;
+    }
+    &.API {
+        background-color: #7df9ff;
+    }
+    &.APJ {
+        background-color: #d0d3d3;
+    }
+    &.APK {
+        background-color: #00bb66;
+    }
+    &.APL {
+        background-color: #8b8589;
+        &::before {
+            background-color: #1b4d3f;
+        }
+    }
+    &.APM {
+        background-color: #ffffff;
+    }
+    &.APN {
+        background-color: #264334;
+    }
+    &.APO {
+        background-color: #000000;
+        &::before {
+            background-color: #264334;
+        }
+    }
+    &.APP {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #264334;
+        }
+    }
+    &.APQ {
+        background-color: #264334;
+    }
+    &.APR {
+        background-color: #11574a;
+    }
+    &.APS {
+        background-color: #fffbf8;
+    }
+    &.APT {
+        background-color: #532d3b;
+        &::before {
+            background-color: #bf6464;
+        }
+    }
+    &.APU {
+        background-color: #6e5a5b;
+    }
+    &.APV {
+        background-color: #bf6464;
+        &::before {
+            background-color: #97572b;
+        }
+    }
+    &.APW {
+        background-color: #afcbe5;
+    }
+    &.APX {
+        background-color: #7f8f4e;
+    }
+    &.APY {
+        background-color: #d01c1f;
+    }
+    &.APZ {
+        background-color: #130a06;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP0 {
+        background-color: #000000;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP1 {
+        background-color: #d01c1f;
+    }
+    &.AP2 {
+        background-color: #ce5f38;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP3 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP4 {
+        background-color: #4e545b;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP5 {
+        background-color: #01153e;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP6 {
+        background-color: #01153e;
+        &::before {
+            background-color: #d01c1f;
+        }
+        &::before {
+            background-color: #c5bbae;
+        }
+    }
+    &.AP7 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP8 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AP9 {
+        background-color: #d01c1f;
+    }
+    &.AQA {
+        background-color: #d01c1f;
+    }
+    &.AQB {
+        background-color: #000000;
+        &::before {
+            background-color: #d01c1f;
+        }
+    }
+    &.AQC {
+        background-color: #d01c1f;
+    }
+    &.AQD {
+        background-color: #d01c1f;
+    }
+    &.AQE {
+        background-color: #532d3b;
+    }
+    &.AQF {
+        background-color: #000000;
+        &::before {
+            background-color: #532d3b;
+        }
+    }
+    &.AQG {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #532d3b;
+        }
+    }
+    &.AQH {
+        background-color: #a484ac;
+    }
+    &.AQI {
+        background-color: #4e6866;
+    }
+    &.AQJ {
+        background-color: #383428;
+        &::before {
+            background-color: #4e6866;
+        }
+    }
+    &.AQK {
+        background-color: #8b8589;
+        &::before {
+            background-color: #67592a;
+        }
+    }
+    &.AQL {
+        background-color: #8b8589;
+        &::before {
+            background-color: #67592a;
+        }
+    }
+    &.AQM {
+        background-color: #3b506f;
+    }
+    &.AQN {
+        background-color: #0000ff;
+        &::before {
+            background-color: #3b506f;
+        }
+    }
+    &.AQO {
+        background-color: #ffffff;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.AQP {
+        background-color: #000000;
+        &::before {
+            background-color: #6a808f;
+        }
+    }
+    &.AQQ {
+        background-color: #cbc9c0;
+        &::before {
+            background-color: #acadad;
+        }
+    }
+    &.AQR {
+        background-color: #ff4519;
+    }
+    &.AQS {
+        background-color: #79c753;
+    }
+    &.AQT {
+        background-color: #51504d;
+    }
+    &.AQU {
+        background-color: #ffe59d;
+    }
+    &.AQV {
+        background-color: #5d8aa8;
+        &::before {
+            background-color: #ffe59d;
+        }
+    }
+    &.AQW {
+        background-color: #eb9a9d;
+    }
+    &.AQX {
+        background-color: #738f5d;
+    }
+    &.AQY {
+        background-color: #130a06;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQZ {
+        background-color: #000000;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQ0 {
+        background-color: #8f755b;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQ1 {
+        background-color: #00637c;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQ2 {
+        background-color: #738f5d;
+    }
+    &.AQ3 {
+        background-color: #738f5d;
+    }
+    &.AQ4 {
+        background-color: #8b8589;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQ5 {
+        background-color: #5f575c;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.AQ6 {
+        background-color: #01153e;
+        &::before {
+            background-color: #738f5d;
+        }
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.AQ7 {
+        background-color: #738f5d;
+    }
+    &.AQ8 {
+        background-color: #738f5d;
+    }
+    &.AQ9 {
+        background-color: #033500;
+        &::before {
+            background-color: #738f5d;
+        }
+    }
+    &.ARA {
+        background-color: #738f5d;
+    }
+    &.ARB {
+        background-color: #738f5d;
+    }
+    &.ARC {
+        background-color: #738f5d;
+    }
+    &.ARD {
+        background-color: #738f5d;
+    }
+    &.ARE {
+        background-color: #738f5d;
+    }
+    &.ARF {
+        background-color: #738f5d;
+    }
+    &.ARG {
+        background-color: #738f5d;
+    }
+    &.ARH {
+        background-color: #0072bb;
+    }
+    &.ARI {
+        background-color: #ddb6ab;
+        &::before {
+            background-color: #848283;
+        }
+    }
+    &.ARJ {
+        background-color: #75406a;
+        &::before {
+            background-color: #848283;
+        }
+    }
+    &.ARK {
+        background-color: #998da8;
+    }
+    &.ARL {
+        background-color: #0018a8;
+    }
+    &.ARM {
+        background-color: #06c2ac;
+        &::before {
+            background-color: #0018a8;
+        }
+    }
+    &.ARN {
+        background-color: #68457a;
+    }
+    &.ARO {
+        background-color: #643a4c;
+        &::before {
+            background-color: #68457a;
+        }
+    }
+    &.ARP {
+        background-color: #532d3b;
+        &::before {
+            background-color: #68457a;
+        }
+    }
+    &.ARQ {
+        background-color: #6a2e2a;
+        &::before {
+            background-color: #68457a;
+        }
+    }
+    &.ARR {
+        background-color: #ff1111;
+        &::before {
+            background-color: #bab8d3;
+        }
+    }
+    &.ARS {
+        background-color: #495e35;
+    }
+    &.ART {
+        background-color: #130a06;
+        &::before {
+            background-color: #495e35;
+        }
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.ARU {
+        background-color: #dd00ff;
+        &::before {
+            background-color: #495e35;
+        }
+    }
+    &.ARV {
+        background-color: #000000;
+        &::before {
+            background-color: #495e35;
+        }
+    }
+    &.ARW {
+        background-color: #4b3c8e;
+    }
+    &.ARX {
+        background-color: #9dd8db;
+    }
+    &.ARY {
+        background-color: #fefe33;
+    }
+    &.ARZ {
+        background-color: #78b1bf;
+    }
+    &.AR0 {
+        background-color: #3eb489;
+        &::before {
+            background-color: #a9c1c0;
+        }
+    }
+    &.AR1 {
+        background-color: #313337;
+        &::before {
+            background-color: #c5c6c7;
+        }
+    }
+    &.AR2 {
+        background-color: #220099;
+    }
+    &.AR3 {
+        background-color: #110011;
+    }
+    &.AR4 {
+        background-color: #36013f;
+    }
+    &.AR5 {
+        background-color: #e6d5ce;
+    }
+    &.AR6 {
+        background-color: #cdc5c2;
+    }
+    &.AR7 {
+        background-color: #ffeeee;
+    }
+    &.AR8 {
+        background-color: #ffd700;
+    }
+    &.AR9 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #ffd700;
+        }
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.ASA {
+        background-color: #3c4354;
+        &::before {
+            background-color: #b27a01;
+        }
+    }
+    &.ASB {
+        background-color: #524d50;
+        &::before {
+            background-color: #be752d;
+        }
+    }
+    &.ASC {
+        background-color: #d09b2c;
+        &::before {
+            background-color: #be752d;
+        }
+    }
+    &.ASD {
+        background-color: #c6973f;
+    }
+    &.ASE {
+        background-color: #c6973f;
+    }
+    &.ASF {
+        background-color: #ffffff;
+        &::before {
+            background-color: #c6973f;
+        }
+    }
+    &.ASG {
+        background-color: #c66b30;
+    }
+    &.ASH {
+        background-color: #000000;
+        &::before {
+            background-color: #746a5e;
+        }
+    }
+    &.ASI {
+        background-color: #5e624a;
+        &::before {
+            background-color: #717388;
+        }
+    }
+    &.ASJ {
+        background-color: #9da693;
+        &::before {
+            background-color: #545144;
+        }
+    }
+    &.ASK {
+        background-color: #fd5956;
+    }
+    &.ASL {
+        background-color: #383428;
+    }
+    &.ASM {
+        background-color: #000000;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASN {
+        background-color: #343837;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASO {
+        background-color: #9fb70a;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASP {
+        background-color: #887766;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASQ {
+        background-color: #ff9300;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASR {
+        background-color: #383428;
+    }
+    &.ASS {
+        background-color: #ffd700;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.AST {
+        background-color: #214761;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASU {
+        background-color: #383428;
+    }
+    &.ASV {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #383428;
+        }
+    }
+    &.ASW {
+        background-color: #b6b095;
+    }
+    &.ASX {
+        background-color: #615e5f;
+    }
+    &.ASY {
+        background-color: #96afb7;
+    }
+    &.ASZ {
+        background-color: #008080;
+        &::before {
+            background-color: #4a4b46;
+        }
+    }
+    &.AS0 {
+        background-color: #ceff00;
+        &::before {
+            background-color: #4a4b46;
+        }
+    }
+    &.AS1 {
+        background-color: #bc763c;
+    }
+    &.AS2 {
+        background-color: #000000;
+        &::before {
+            background-color: #bc763c;
+        }
+    }
+    &.AS3 {
+        background-color: #ff0000;
+        &::before {
+            background-color: #bc763c;
+        }
+    }
+    &.AS4 {
+        background-color: #ff0000;
+        &::before {
+            background-color: #699d4c;
+        }
+    }
+    &.AS5 {
+        background-color: #00ff00;
+    }
+    &.AS6 {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #00ff00;
+        }
+    }
+    &.AS7 {
+        background-color: #00ff00;
+    }
+    &.AS8 {
+        background-color: #9fc131;
+    }
+    &.AS9 {
+        background-color: #808080;
+    }
+    &.ATA {
+        background-color: #000000;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.ATB {
+        background-color: #ffece0;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.ATC {
+        background-color: #b14566;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.ATD {
+        background-color: #00f900;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.ATE {
+        background-color: #ffffff;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.ATF {
+        background-color: #26a6be;
+        &::before {
+            background-color: #b7b9b5;
+        }
+    }
+    &.ATG {
+        background-color: #545144;
+        &::before {
+            background-color: #8d8f8f;
+        }
+    }
+    &.ATH {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #8d8f8f;
+        }
+    }
+    &.ATI {
+        background-color: #4a5a6f;
+        &::before {
+            background-color: #8d8f8f;
+        }
+    }
+    &.ATJ {
+        background-color: #66829a;
+        &::before {
+            background-color: #8d8f8f;
+        }
+    }
+    &.ATK {
+        background-color: #808080;
+        &::before {
+            background-color: #8d8f8f;
+        }
+    }
+    &.ATL {
+        background-color: #585e6f;
+    }
+    &.ATM {
+        background-color: #130a06;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATN {
+        background-color: #585e6f;
+    }
+    &.ATO {
+        background-color: #e8e3db;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATP {
+        background-color: #96c8a2;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATQ {
+        background-color: #26a6be;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATR {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATS {
+        background-color: #dc3855;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATT {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATU {
+        background-color: #ffa500;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATV {
+        background-color: #d99058;
+        &::before {
+            background-color: #585e6f;
+        }
+    }
+    &.ATW {
+        background-color: #585e6f;
+    }
+    &.ATX {
+        background-color: #2c4053;
+        &::before {
+            background-color: #49759c;
+        }
+    }
+    &.ATY {
+        background-color: #536267;
+    }
+    &.ATZ {
+        background-color: #808c8c;
+    }
+    &.AT0 {
+        background-color: #b7b59f;
+    }
+    &.AT1 {
+        background-color: #f8d664;
+    }
+    &.AT2 {
+        background-color: #556699;
+    }
+    &.AT3 {
+        background-color: #130a06;
+        &::before {
+            background-color: #bb5c14;
+        }
+    }
+    &.AT4 {
+        background-color: #808080;
+        &::before {
+            background-color: #bb5c14;
+        }
+    }
+    &.AT5 {
+        background-color: #d1dde1;
+    }
+    &.AT6 {
+        background-color: #000000;
+        &::before {
+            background-color: #6d5acf;
+        }
+    }
+    &.AT7 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #6d5acf;
+        }
+    }
+    &.AT8 {
+        background-color: #96a3c7;
+    }
+    &.AT9 {
+        background-color: #ffff00;
+    }
+    &.AUA {
+        background-color: #59b9cc;
+    }
+    &.AUB {
+        background-color: #aeb2b5;
+    }
+    &.AUC {
+        background-color: #c5cfb6;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUD {
+        background-color: #130a06;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUE {
+        background-color: #000000;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUF {
+        background-color: #000000;
+        &::before {
+            background-color: #aeb2b5;
+        }
+        &::before {
+            background-color: #130a06;
+        }
+    }
+    &.AUG {
+        background-color: #313337;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUH {
+        background-color: #484a72;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUI {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUJ {
+        background-color: #00af9d;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUK {
+        background-color: #a83e6c;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUL {
+        background-color: #fc9e21;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUM {
+        background-color: #ff0000;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUN {
+        background-color: #253668;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUO {
+        background-color: #46647e;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUP {
+        background-color: #507b9c;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUQ {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUR {
+        background-color: #ffffff;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUS {
+        background-color: #f1eee4;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUT {
+        background-color: #aeb2b5;
+    }
+    &.AUU {
+        background-color: #aeb2b5;
+    }
+    &.AUV {
+        background-color: #b6b095;
+    }
+    &.AUW {
+        background-color: #aeb2b5;
+    }
+    &.AUX {
+        background-color: #000000;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AUY {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #e0d4d0;
+        }
+    }
+    &.AUZ {
+        background-color: #5f575c;
+        &::before {
+            background-color: #e0d4d0;
+        }
+    }
+    &.AU0 {
+        background-color: #aeb2b5;
+    }
+    &.AU1 {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #aeb2b5;
+        }
+    }
+    &.AU2 {
+        background-color: #ba9238;
+    }
+    &.AU3 {
+        background-color: #4e6482;
+    }
+    &.AU4 {
+        background-color: #ffffd4;
+    }
+    &.AU5 {
+        background-color: #eeebe3;
+    }
+    &.AU6 {
+        background-color: #da3d58;
+        &::before {
+            background-color: #eeebe3;
+        }
+    }
+    &.AU7 {
+        background-color: #fbebbb;
+    }
+    &.AU8 {
+        background-color: #484a72;
+    }
+    &.AU9 {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #484a72;
+        }
+    }
+    &.AVA {
+        background-color: #fc9e21;
+        &::before {
+            background-color: #484a72;
+        }
+    }
+    &.AVB {
+        background-color: #55ff00;
+    }
+    &.AVC {
+        background-color: #e3d0bf;
+    }
+    &.AVD {
+        background-color: #c1b7b0;
+        &::before {
+            background-color: #739bd0;
+        }
+    }
+    &.AVE {
+        background-color: #0000ff;
+    }
+    &.AVF {
+        background-color: #3f74a3;
+    }
+    &.AVG {
+        background-color: #000000;
+        &::before {
+            background-color: #3f74a3;
+        }
+    }
+    &.AVH {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #3f74a3;
+        }
+    }
+    &.AVI {
+        background-color: #3f74a3;
+    }
+    &.AVJ {
+        background-color: #dce4d7;
+        &::before {
+            background-color: #0b5369;
+        }
+    }
+    &.AVK {
+        background-color: #96c8a2;
+    }
+    &.AVL {
+        background-color: #293432;
+        &::before {
+            background-color: #96c8a2;
+        }
+    }
+    &.AVM {
+        background-color: #518fd1;
+    }
+    &.AVN {
+        background-color: #3a5b52;
+    }
+    &.AVO {
+        background-color: #3a5b52;
+    }
+    &.AVP {
+        background-color: #9b6575;
+    }
+    &.AVQ {
+        background-color: #2d2c2f;
+    }
+    &.AVR {
+        background-color: #28282d;
+        &::before {
+            background-color: #2d2c2f;
+        }
+    }
+    &.AVS {
+        background-color: #343837;
+        &::before {
+            background-color: #2d2c2f;
+        }
+    }
+    &.AVT {
+        background-color: #4e6866;
+        &::before {
+            background-color: #2d2c2f;
+        }
+    }
+    &.AVU {
+        background-color: #2d2c2f;
+    }
+    &.AVV {
+        background-color: #ff1111;
+    }
+    &.AVW {
+        background-color: #ff9687;
+        &::before {
+            background-color: #ff1111;
+        }
+    }
+    &.AVX {
+        background-color: #ff1111;
+    }
+    &.AVY {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #ff1111;
+        }
+    }
+    &.AVZ {
+        background-color: #840000;
+    }
+    &.AV0 {
+        background-color: #cfc9c0;
+    }
+    &.AV1 {
+        background-color: #8bd2e3;
+    }
+    &.AV2 {
+        background-color: #8da8be;
+    }
+    &.AV3 {
+        background-color: #4d503c;
+    }
+    &.AV4 {
+        background-color: #000000;
+        &::before {
+            background-color: #4d503c;
+        }
+    }
+    &.AV5 {
+        background-color: #40342b;
+        &::before {
+            background-color: #4d503c;
+        }
+    }
+    &.AV6 {
+        background-color: #8b8589;
+        &::before {
+            background-color: #4d503c;
+        }
+    }
+    &.AV7 {
+        background-color: #d8dcd6;
+        &::before {
+            background-color: #008b8b;
+        }
+    }
+    &.AV8 {
+        background-color: #a48454;
+    }
+    &.AV9 {
+        background-color: #000000;
+        &::before {
+            background-color: #a48454;
+        }
+    }
+    &.AWA {
+        background-color: #7fb377;
+    }
+    &.AWB {
+        background-color: #9a382d;
+    }
+    &.AWC {
+        background-color: #280137;
+    }
+    &.AWD {
+        background-color: #01153e;
+        &::before {
+            background-color: #280137;
+        }
+    }
+    &.AWE {
+        background-color: #5e624a;
+        &::before {
+            background-color: #a5a542;
+        }
+    }
+    &.AWF {
+        background-color: #80c4a9;
+    }
+    &.AWG {
+        background-color: #000000;
+        &::before {
+            background-color: #4d9e9a;
+        }
+    }
+    &.AWH {
+        background-color: #e9d7c0;
+    }
+    &.AWI {
+        background-color: #1e272c;
+        &::before {
+            background-color: #cf1020;
+        }
+    }
+    &.AWJ {
+        background-color: #212121;
+    }
+    &.AWK {
+        background-color: #d8dcd6;
+    }
+    &.AWL {
+        background-color: #305679;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWM {
+        background-color: #c1d8eb;
+    }
+    &.AWN {
+        background-color: #d8dcd6;
+    }
+    &.AWO {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWP {
+        background-color: #d8dcd6;
+    }
+    &.AWQ {
+        background-color: #d8dcd6;
+    }
+    &.AWR {
+        background-color: #000000;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWS {
+        background-color: #5e624a;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWT {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWU {
+        background-color: #00637c;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWV {
+        background-color: #383428;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWW {
+        background-color: #d8dcd6;
+    }
+    &.AWX {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWY {
+        background-color: #8bd2e2;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AWZ {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AW0 {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AW1 {
+        background-color: #01153e;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AW2 {
+        background-color: #4d5659;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.AW3 {
+        background-color: #cddbdc;
+    }
+    &.AW4 {
+        background-color: #d8dcd6;
+    }
+    &.AW5 {
+        background-color: #fecdac;
+        &::before {
+            background-color: #abb6d7;
+        }
+    }
+    &.AW6 {
+        background-color: #aaff32;
+    }
+    &.AW7 {
+        background-color: #638b27;
+        &::before {
+            background-color: #aaff32;
+        }
+    }
+    &.AW8 {
+        background-color: #ffff00;
+        &::before {
+            background-color: #aaff32;
+        }
+    }
+    &.AW9 {
+        background-color: #9fc131;
+    }
+    &.AXA {
+        background-color: #5e624a;
+        &::before {
+            background-color: #9fc131;
+        }
+    }
+    &.AXB {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #dcd8c7;
+        }
+    }
+    &.AXC {
+        background-color: #6e7153;
+    }
+    &.AXD {
+        background-color: #112233;
+    }
+    &.AXE {
+        background-color: #dfefea;
+    }
+    &.AXF {
+        background-color: #000000;
+        &::before {
+            background-color: #800080;
+        }
+    }
+    &.AXG {
+        background-color: #d6cec3;
+    }
+    &.AXH {
+        background-color: #cc00cc;
+    }
+    &.AXI {
+        background-color: #b5c38e;
+    }
+    &.AXJ {
+        background-color: #bdcfea;
+    }
+    &.AXK {
+        background-color: #110101;
+    }
+    &.AXL {
+        background-color: #151515;
+    }
+    &.AXM {
+        background-color: #fe01b1;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXN {
+        background-color: #343837;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXO {
+        background-color: #c09962;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXP {
+        background-color: #ffd700;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXQ {
+        background-color: #fe019a;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXR {
+        background-color: #ffc0cb;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXS {
+        background-color: #ff7a00;
+        &::before {
+            background-color: #151515;
+        }
+    }
+    &.AXT {
+        background-color: #2c6fbb;
+    }
+    &.AXU {
+        background-color: #aaff32;
+        &::before {
+            background-color: #2c6fbb;
+        }
+    }
+    &.AXV {
+        background-color: #333333;
+    }
+    &.AXW {
+        background-color: #343837;
+    }
+    &.AXX {
+        background-color: #00b7eb;
+    }
+    &.AXY {
+        background-color: #840000;
+    }
+    &.AXZ {
+        background-color: #78b1bf;
+    }
+    &.AX0 {
+        background-color: #c87f89;
+    }
+    &.AX1 {
+        background-color: #e2f0d2;
+    }
+    &.AX2 {
+        background-color: #c87f89;
+    }
+    &.AX3 {
+        background-color: #536267;
+    }
+    &.AX4 {
+        background-color: #fdf9ef;
+    }
+    &.AX5 {
+        background-color: #343837;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.AX6 {
+        background-color: #f1e740;
+    }
+    &.AX7 {
+        background-color: #0b4008;
+    }
+    &.AX8 {
+        background-color: #602f6b;
+    }
+    &.AX9 {
+        background-color: #ed9ca8;
+        &::before {
+            background-color: #4b0082;
+        }
+        &::before {
+            background-color: #dae4ee;
+        }
+    }
+    &.AYA {
+        background-color: #d4dbb2;
+    }
+    &.AYB {
+        background-color: #193925;
+        &::before {
+            background-color: #d4dbb2;
+        }
+    }
+    &.AYC {
+        background-color: #c3b091;
+    }
+    &.AYD {
+        background-color: #728639;
+    }
+    &.AYE {
+        background-color: #000000;
+        &::before {
+            background-color: #c5b5ca;
+        }
+    }
+    &.AYF {
+        background-color: #7bb18d;
+    }
+    &.AYG {
+        background-color: #01153e;
+    }
+    &.AYH {
+        background-color: #a87900;
+        &::before {
+            background-color: #bab86c;
+        }
+    }
+    &.AYI {
+        background-color: #b0e0e6;
+    }
+    &.AYJ {
+        background-color: #e9d2ac;
+        &::before {
+            background-color: #b0e0e6;
+        }
+    }
+    &.AYK {
+        background-color: #9370db;
+    }
+    &.AYL {
+        background-color: #fe01b1;
+        &::before {
+            background-color: #9370db;
+        }
+    }
+    &.AYM {
+        background-color: #63647e;
+    }
+    &.AYN {
+        background-color: #000000;
+        &::before {
+            background-color: #7d212a;
+        }
+    }
+    &.AYO {
+        background-color: #005f6a;
+        &::before {
+            background-color: #a65052;
+        }
+    }
+    &.AYP {
+        background-color: #365c7d;
+    }
+    &.AYQ {
+        background-color: #f5ebd8;
+    }
+    &.AYR {
+        background-color: #8a9a9a;
+    }
+    &.AYS {
+        background-color: #658d6d;
+    }
+    &.AYT {
+        background-color: #b5a088;
+    }
+    &.AYU {
+        background-color: #807d7f;
+    }
+    &.AYV {
+        background-color: #773f1a;
+    }
+    &.AYW {
+        background-color: #ffffd4;
+    }
+    &.AYX {
+        background-color: #000000;
+        &::before {
+            background-color: #ffffd4;
+        }
+    }
+    &.AYY {
+        background-color: #808080;
+        &::before {
+            background-color: #ffffd4;
+        }
+    }
+    &.AYZ {
+        background-color: #aaff32;
+        &::before {
+            background-color: #ffffd4;
+        }
+    }
+    &.AY0 {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #ffffd4;
+        }
+    }
+    &.AY1 {
+        background-color: #7d7f7c;
+    }
+    &.AY2 {
+        background-color: #385d8d;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.AY3 {
+        background-color: #293432;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AY4 {
+        background-color: #c41e3a;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AY5 {
+        background-color: #d7c485;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AY6 {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AY7 {
+        background-color: #7d7f7c;
+    }
+    &.AY8 {
+        background-color: #130a06;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AY9 {
+        background-color: #39505c;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZA {
+        background-color: #000000;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZB {
+        background-color: #000000;
+        &::before {
+            background-color: #7d7f7c;
+        }
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.AZC {
+        background-color: #000000;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZD {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #7d7f7c;
+        }
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.AZE {
+        background-color: #383428;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZF {
+        background-color: #607879;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZG {
+        background-color: #7d7f7c;
+    }
+    &.AZH {
+        background-color: #800080;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZI {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZJ {
+        background-color: #ff0000;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZK {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZL {
+        background-color: #01153e;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZM {
+        background-color: #a484ac;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZN {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZO {
+        background-color: #ffffff;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZP {
+        background-color: #f5ece7;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZQ {
+        background-color: #808080;
+        &::before {
+            background-color: #7d7f7c;
+        }
+    }
+    &.AZR {
+        background-color: #7d7f7c;
+    }
+    &.AZS {
+        background-color: #313337;
+        &::before {
+            background-color: #9f9f9f;
+        }
+    }
+    &.AZT {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #9f9f9f;
+        }
+    }
+    &.AZU {
+        background-color: #000000;
+        &::before {
+            background-color: #6e3d34;
+        }
+    }
+    &.AZV {
+        background-color: #acaea9;
+    }
+    &.AZW {
+        background-color: #383428;
+        &::before {
+            background-color: #acaea9;
+        }
+    }
+    &.AZX {
+        background-color: #bb7431;
+    }
+    &.AZY {
+        background-color: #ff4400;
+        &::before {
+            background-color: #bb7431;
+        }
+    }
+    &.AZZ {
+        background-color: #9ba88d;
+    }
+    &.AZ0 {
+        background-color: #313337;
+        &::before {
+            background-color: #3e3a44;
+        }
+    }
+    &.AZ1 {
+        background-color: #5f5f6e;
+    }
+    &.AZ2 {
+        background-color: #130a06;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ3 {
+        background-color: #fb7efd;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ4 {
+        background-color: #000000;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ5 {
+        background-color: #000000;
+        &::before {
+            background-color: #5f5f6e;
+        }
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.AZ6 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ7 {
+        background-color: #ce5f38;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ8 {
+        background-color: #ff1111;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.AZ9 {
+        background-color: #5f5f6e;
+    }
+    &.A0A {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.A0B {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.A0C {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.A0D {
+        background-color: #000000;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.A0E {
+        background-color: #9ca9aa;
+    }
+    &.A0F {
+        background-color: #b6b095;
+    }
+    &.A0G {
+        background-color: #000000;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.A0H {
+        background-color: #eaefe5;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.A0I {
+        background-color: #5f5f6e;
+    }
+    &.A0J {
+        background-color: #5f5f6e;
+    }
+    &.A0K {
+        background-color: #999999;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.A0L {
+        background-color: #130a06;
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.A0M {
+        background-color: #7e736d;
+        &::before {
+            background-color: #03012d;
+        }
+    }
+    &.A0N {
+        background-color: #b3ebe0;
+    }
+    &.A0O {
+        background-color: #63563b;
+    }
+    &.A0P {
+        background-color: #6d9192;
+    }
+    &.A0Q {
+        background-color: #3eb489;
+    }
+    &.A0R {
+        background-color: #383428;
+        &::before {
+            background-color: #3eb489;
+        }
+    }
+    &.A0S {
+        background-color: #26a6be;
+    }
+    &.A0T {
+        background-color: #000000;
+        &::before {
+            background-color: #26a6be;
+        }
+    }
+    &.A0U {
+        background-color: #b7b9b5;
+        &::before {
+            background-color: #26a6be;
+        }
+    }
+    &.A0V {
+        background-color: #ffffff;
+        &::before {
+            background-color: #26a6be;
+        }
+    }
+    &.A0W {
+        background-color: #c6b183;
+    }
+    &.A0X {
+        background-color: #aebbc1;
+    }
+    &.A0Y {
+        background-color: #ffffff;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.A0Z {
+        background-color: #6a808f;
+    }
+    &.A00 {
+        background-color: #35637c;
+    }
+    &.A01 {
+        background-color: #9fd9d7;
+    }
+    &.A02 {
+        background-color: #ffe4e1;
+    }
+    &.A03 {
+        background-color: #130a06;
+        &::before {
+            background-color: #ffe4e1;
+        }
+    }
+    &.A04 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #ffe4e1;
+        }
+    }
+    &.A05 {
+        background-color: #ad6d7f;
+    }
+    &.A06 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #ffe4e1;
+        }
+    }
+    &.A07 {
+        background-color: #d6cdb7;
+    }
+    &.A08 {
+        background-color: #8f755b;
+        &::before {
+            background-color: #d6cdb7;
+        }
+    }
+    &.A09 {
+        background-color: #d6cdb7;
+    }
+    &.A1A {
+        background-color: #130a06;
+        &::before {
+            background-color: #d6cdb7;
+        }
+    }
+    &.A1B {
+        background-color: #000000;
+        &::before {
+            background-color: #d6cdb7;
+        }
+    }
+    &.A1C {
+        background-color: #e6daa6;
+        &::before {
+            background-color: #d6cdb7;
+        }
+    }
+    &.A1D {
+        background-color: #d6d6d1;
+    }
+    &.A1E {
+        background-color: #000000;
+        &::before {
+            background-color: #c7b595;
+        }
+    }
+    &.A1F {
+        background-color: #746f5c;
+    }
+    &.A1G {
+        background-color: #130a06;
+        &::before {
+            background-color: #6b252c;
+        }
+    }
+    &.A1H {
+        background-color: #808080;
+        &::before {
+            background-color: #6b252c;
+        }
+    }
+    &.A1I {
+        background-color: #006284;
+    }
+    &.A1J {
+        background-color: #0000ff;
+        &::before {
+            background-color: #006284;
+        }
+    }
+    &.A1K {
+        background-color: #a2b6b9;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.A1L {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.A1M {
+        background-color: #d2e2f2;
+        &::before {
+            background-color: #707c78;
+        }
+    }
+    &.A1N {
+        background-color: #f6eed5;
+    }
+    &.A1O {
+        background-color: #f6eed5;
+    }
+    &.A1P {
+        background-color: #fcf0c2;
+    }
+    &.A1Q {
+        background-color: #00758f;
+    }
+    &.A1R {
+        background-color: #638b27;
+    }
+    &.A1S {
+        background-color: #ffc0cb;
+    }
+    &.A1T {
+        background-color: #da321c;
+        &::before {
+            background-color: #60460f;
+        }
+    }
+    &.A1U {
+        background-color: #7f8f4e;
+        &::before {
+            background-color: #827b77;
+        }
+    }
+    &.A1V {
+        background-color: #00758f;
+        &::before {
+            background-color: #827b77;
+        }
+    }
+    &.A1W {
+        background-color: #897f79;
+    }
+    &.A1X {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #d8cbb5;
+        }
+    }
+    &.A1Y {
+        background-color: #ceb301;
+    }
+    &.A1Z {
+        background-color: #a59344;
+    }
+    &.A10 {
+        background-color: #d4d0c5;
+    }
+    &.A11 {
+        background-color: #aa907d;
+    }
+    &.A12 {
+        background-color: #aa907d;
+    }
+    &.A13 {
+        background-color: #01153e;
+    }
+    &.A14 {
+        background-color: #ffa500;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.A15 {
+        background-color: #04d9ff;
+    }
+    &.A16 {
+        background-color: #000000;
+        &::before {
+            background-color: #cfff04;
+        }
+    }
+    &.A17 {
+        background-color: #b9a281;
+    }
+    &.A18 {
+        background-color: #130a06;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A19 {
+        background-color: #c6b183;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2A {
+        background-color: #000000;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2B {
+        background-color: #00637c;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2C {
+        background-color: #9da693;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2D {
+        background-color: #738f5d;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2E {
+        background-color: #cecdb8;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2F {
+        background-color: #8b8589;
+    }
+    &.A2G {
+        background-color: #130a06;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2H {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2I {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2J {
+        background-color: #deaa88;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2K {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2L {
+        background-color: #ffa500;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2M {
+        background-color: #8b8589;
+    }
+    &.A2N {
+        background-color: #8b8589;
+    }
+    &.A2O {
+        background-color: #a5a542;
+    }
+    &.A2P {
+        background-color: #8b8589;
+    }
+    &.A2Q {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #8b8589;
+        }
+    }
+    &.A2R {
+        background-color: #8d7e71;
+    }
+    &.A2S {
+        background-color: #8d7e71;
+    }
+    &.A2T {
+        background-color: #4b6113;
+    }
+    &.A2U {
+        background-color: #9acda9;
+    }
+    &.A2V {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #9acda9;
+        }
+    }
+    &.A2W {
+        background-color: #bcaf97;
+        &::before {
+            background-color: #76ff7b;
+        }
+    }
+    &.A2X {
+        background-color: #e6daa6;
+        &::before {
+            background-color: #75fd63;
+        }
+    }
+    &.A2Y {
+        background-color: #8ad370;
+    }
+    &.A2Z {
+        background-color: #000000;
+        &::before {
+            background-color: #4b6113;
+        }
+    }
+    &.A20 {
+        background-color: #40a48e;
+    }
+    &.A21 {
+        background-color: #000000;
+        &::before {
+            background-color: #40a48e;
+        }
+    }
+    &.A22 {
+        background-color: #54534d;
+        &::before {
+            background-color: #c6e5ca;
+        }
+    }
+    &.A23 {
+        background-color: #c5ccc0;
+    }
+    &.A24 {
+        background-color: #11ff11;
+    }
+    &.A25 {
+        background-color: #000000;
+        &::before {
+            background-color: #11ff11;
+        }
+    }
+    &.A26 {
+        background-color: #76ff7b;
+    }
+    &.A27 {
+        background-color: #000000;
+        &::before {
+            background-color: #76ff7b;
+        }
+    }
+    &.A28 {
+        background-color: #bcaf97;
+        &::before {
+            background-color: #76ff7b;
+        }
+    }
+    &.A29 {
+        background-color: #8b8589;
+        &::before {
+            background-color: #76ff7b;
+        }
+    }
+    &.A3A {
+        background-color: #4a4f52;
+        &::before {
+            background-color: #76ff7b;
+        }
+    }
+    &.A3B {
+        background-color: #9acda9;
+    }
+    &.A3C {
+        background-color: #0000ff;
+        &::before {
+            background-color: #010b13;
+        }
+    }
+    &.A3D {
+        background-color: #7df9ff;
+        &::before {
+            background-color: #010b13;
+        }
+    }
+    &.A3E {
+        background-color: #bc763c;
+        &::before {
+            background-color: #010b13;
+        }
+    }
+    &.A3F {
+        background-color: #b0807a;
+    }
+    &.A3G {
+        background-color: #000000;
+    }
+    &.A3H {
+        background-color: #67a195;
+    }
+    &.A3I {
+        background-color: #f2d3bc;
+    }
+    &.A3J {
+        background-color: #445055;
+    }
+    &.A3K {
+        background-color: #005493;
+    }
+    &.A3L {
+        background-color: #353c3d;
+    }
+    &.A3M {
+        background-color: #808010;
+    }
+    &.A3N {
+        background-color: #677a04;
+    }
+    &.A3O {
+        background-color: #434854;
+    }
+    &.A3P {
+        background-color: #f9e3b4;
+    }
+    &.A3Q {
+        background-color: #ffa500;
+    }
+    &.A3R {
+        background-color: #dd6600;
+    }
+    &.A3S {
+        background-color: #1f6954;
+        &::before {
+            background-color: #d1acce;
+        }
+    }
+    &.A3T {
+        background-color: #ffffff;
+        &::before {
+            background-color: #d1acce;
+        }
+    }
+    &.A3U {
+        background-color: #800080;
+        &::before {
+            background-color: #d1acce;
+        }
+    }
+    &.A3V {
+        background-color: #e0d0db;
+    }
+    &.A3W {
+        background-color: #000000;
+        &::before {
+            background-color: #e0d0db;
+        }
+    }
+    &.A3X {
+        background-color: #000000;
+        &::before {
+            background-color: #e0d0db;
+        }
+        &::before {
+            background-color: #280137;
+        }
+    }
+    &.A3Y {
+        background-color: #fff1d8;
+    }
+    &.A3Z {
+        background-color: #414a4c;
+    }
+    &.A30 {
+        background-color: #3b5257;
+    }
+    &.A31 {
+        background-color: #c87f89;
+    }
+    &.A32 {
+        background-color: #5b3d27;
+        &::before {
+            background-color: #998877;
+        }
+    }
+    &.A33 {
+        background-color: #8d3f2d;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.A34 {
+        background-color: #66829a;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.A35 {
+        background-color: #656466;
+    }
+    &.A36 {
+        background-color: #96c8a2;
+        &::before {
+            background-color: #2b2e43;
+        }
+    }
+    &.A37 {
+        background-color: #a83e6c;
+        &::before {
+            background-color: #2b2e43;
+        }
+    }
+    &.A38 {
+        background-color: #eae0c8;
+    }
+    &.A39 {
+        background-color: #f3f2ed;
+    }
+    &.A4A {
+        background-color: #ded8dc;
+    }
+    &.A4B {
+        background-color: #aa4400;
+    }
+    &.A4C {
+        background-color: #52677b;
+    }
+    &.A4D {
+        background-color: #75697e;
+        &::before {
+            background-color: #52677b;
+        }
+    }
+    &.A4E {
+        background-color: #52677b;
+    }
+    &.A4F {
+        background-color: #ffffff;
+        &::before {
+            background-color: #d99058;
+        }
+    }
+    &.A4G {
+        background-color: #fecdac;
+    }
+    &.A4H {
+        background-color: #e0e6d7;
+        &::before {
+            background-color: #dfe1cc;
+        }
+    }
+    &.A4I {
+        background-color: #e7dbbf;
+    }
+    &.A4J {
+        background-color: #8c8475;
+    }
+    &.A4K {
+        background-color: #a9bdb1;
+        &::before {
+            background-color: #dce4d7;
+        }
+    }
+    &.A4L {
+        background-color: #9a382d;
+        &::before {
+            background-color: #dce4d7;
+        }
+    }
+    &.A4M {
+        background-color: #800080;
+    }
+    &.A4N {
+        background-color: #000000;
+        &::before {
+            background-color: #800080;
+        }
+    }
+    &.A4O {
+        background-color: #d1acce;
+        &::before {
+            background-color: #800080;
+        }
+    }
+    &.A4P {
+        background-color: #ffffff;
+        &::before {
+            background-color: #800080;
+        }
+    }
+    &.A4Q {
+        background-color: #8d3f2d;
+    }
+    &.A4R {
+        background-color: #000000;
+        &::before {
+            background-color: #8d3f2d;
+        }
+    }
+    &.A4S {
+        background-color: #ffa500;
+        &::before {
+            background-color: #8d3f2d;
+        }
+    }
+    &.A4T {
+        background-color: #76ff7b;
+        &::before {
+            background-color: #8d3f2d;
+        }
+    }
+    &.A4U {
+        background-color: #ab4d50;
+    }
+    &.A4V {
+        background-color: #2b5d34;
+    }
+    &.A4W {
+        background-color: #ffc0cb;
+    }
+    &.A4X {
+        background-color: #000000;
+        &::before {
+            background-color: #ffc0cb;
+        }
+    }
+    &.A4Y {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #ffc0cb;
+        }
+    }
+    &.A4Z {
+        background-color: #f3bac9;
+    }
+    &.A40 {
+        background-color: #ffeaeb;
+    }
+    &.A41 {
+        background-color: #f7cdc7;
+    }
+    &.A42 {
+        background-color: #130a06;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A43 {
+        background-color: #000000;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A44 {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A45 {
+        background-color: #f7cdc7;
+    }
+    &.A46 {
+        background-color: #d8dcd6;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A47 {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A48 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A49 {
+        background-color: #f7cdc7;
+    }
+    &.A5A {
+        background-color: #f7cdc7;
+    }
+    &.A5B {
+        background-color: #000000;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A5C {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A5D {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A5E {
+        background-color: #ffffff;
+        &::before {
+            background-color: #f7cdc7;
+        }
+    }
+    &.A5F {
+        background-color: #f7cdc7;
+    }
+    &.A5G {
+        background-color: #f7cdc7;
+    }
+    &.A5H {
+        background-color: #f7cdc7;
+    }
+    &.A5I {
+        background-color: #f7cdc7;
+    }
+    &.A5J {
+        background-color: #f7cdc7;
+    }
+    &.A5K {
+        background-color: #363838;
+    }
+    &.A5L {
+        background-color: #0088dc;
+    }
+    &.A5M {
+        background-color: #c5d1da;
+    }
+    &.A5N {
+        background-color: #ff1111;
+        &::before {
+            background-color: #a4292e;
+        }
+    }
+    &.A5O {
+        background-color: #203b3d;
+    }
+    &.A5P {
+        background-color: #000000;
+        &::before {
+            background-color: #203b3d;
+        }
+    }
+    &.A5Q {
+        background-color: #4d503c;
+        &::before {
+            background-color: #203b3d;
+        }
+    }
+    &.A5R {
+        background-color: #203b3d;
+    }
+    &.A5S {
+        background-color: #9acda9;
+    }
+    &.A5T {
+        background-color: #9acda9;
+    }
+    &.A5U {
+        background-color: #000000;
+        &::before {
+            background-color: #123955;
+        }
+    }
+    &.A5V {
+        background-color: #11875d;
+    }
+    &.A5W {
+        background-color: #130a06;
+        &::before {
+            background-color: #11875d;
+        }
+    }
+    &.A5X {
+        background-color: #aadccd;
+    }
+    &.A5Y {
+        background-color: #000000;
+        &::before {
+            background-color: #dd00ff;
+        }
+    }
+    &.A5Z {
+        background-color: #f3d2cf;
+    }
+    &.A50 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #f3d2cf;
+        }
+    }
+    &.A51 {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #f3d2cf;
+        }
+    }
+    &.A52 {
+        background-color: #52677b;
+        &::before {
+            background-color: #f3d2cf;
+        }
+    }
+    &.A53 {
+        background-color: #bab8d3;
+    }
+    &.A54 {
+        background-color: #ebb3b2;
+    }
+    &.A55 {
+        background-color: #800080;
+    }
+    &.A56 {
+        background-color: #000000;
+        &::before {
+            background-color: #a83e6c;
+        }
+    }
+    &.A57 {
+        background-color: #800080;
+    }
+    &.A58 {
+        background-color: #63647e;
+    }
+    &.A59 {
+        background-color: #7e6eac;
+        &::before {
+            background-color: #75697e;
+        }
+    }
+    &.A6A {
+        background-color: #108780;
+        &::before {
+            background-color: #c1b7b0;
+        }
+    }
+    &.A6B {
+        background-color: #7d74a8;
+        &::before {
+            background-color: #c1b7b0;
+        }
+    }
+    &.A6C {
+        background-color: #875f9a;
+        &::before {
+            background-color: #c1b7b0;
+        }
+    }
+    &.A6D {
+        background-color: #808080;
+        &::before {
+            background-color: #c1b7b0;
+        }
+    }
+    &.A6E {
+        background-color: #66676d;
+    }
+    &.A6F {
+        background-color: #5f575c;
+    }
+    &.A6G {
+        background-color: #130a06;
+        &::before {
+            background-color: #5f575c;
+        }
+    }
+    &.A6H {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #5f575c;
+        }
+    }
+    &.A6I {
+        background-color: #5f575c;
+    }
+    &.A6J {
+        background-color: #7f4330;
+        &::before {
+            background-color: #5f575c;
+        }
+    }
+    &.A6K {
+        background-color: #a9bdb1;
+        &::before {
+            background-color: #5f575c;
+        }
+    }
+    &.A6L {
+        background-color: #7f4330;
+    }
+    &.A6M {
+        background-color: #b6b095;
+    }
+    &.A6N {
+        background-color: #68457a;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.A6O {
+        background-color: #5f575c;
+        &::before {
+            background-color: #f8eee7;
+        }
+    }
+    &.A6P {
+        background-color: #cbc9c0;
+        &::before {
+            background-color: #a1adb5;
+        }
+    }
+    &.A6Q {
+        background-color: #ff0000;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.A6R {
+        background-color: #01153e;
+        &::before {
+            background-color: #c0c0c0;
+        }
+    }
+    &.A6S {
+        background-color: #014600;
+    }
+    &.A6T {
+        background-color: #89fe05;
+    }
+    &.A6U {
+        background-color: #89fe05;
+    }
+    &.A6V {
+        background-color: #653700;
+        &::before {
+            background-color: #940008;
+        }
+    }
+    &.A6W {
+        background-color: #a484ac;
+        &::before {
+            background-color: #940008;
+        }
+    }
+    &.A6X {
+        background-color: #940008;
+    }
+    &.A6Y {
+        background-color: #130a06;
+        &::before {
+            background-color: #ee3322;
+        }
+    }
+    &.A6Z {
+        background-color: #cfc8bd;
+    }
+    &.A60 {
+        background-color: #00177d;
+    }
+    &.A61 {
+        background-color: #b00149;
+    }
+    &.A62 {
+        background-color: #865e49;
+    }
+    &.A63 {
+        background-color: #333333;
+    }
+    &.A64 {
+        background-color: #cdb6a0;
+    }
+    &.A65 {
+        background-color: #ff0000;
+    }
+    &.A66 {
+        background-color: #000000;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A67 {
+        background-color: #353235;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A68 {
+        background-color: #343837;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A69 {
+        background-color: #ffa500;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A7A {
+        background-color: #01153e;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A7B {
+        background-color: #ffffff;
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+    &.A7C {
+        background-color: #ffffff;
+        &::before {
+            background-color: #ff0000;
+        }
+        &::before {
+            background-color: #1f595c;
+        }
+    }
+    &.A7D {
+        background-color: #f9f0e1;
+    }
+    &.A7E {
+        background-color: #dd0033;
+    }
+    &.A7F {
+        background-color: #000000;
+        &::before {
+            background-color: #8a3319;
+        }
+    }
+    &.A7G {
+        background-color: #881400;
+    }
+    &.A7H {
+        background-color: #000000;
+        &::before {
+            background-color: #034f7c;
+        }
+    }
+    &.A7I {
+        background-color: #bfd5b3;
+    }
+    &.A7J {
+        background-color: #bfd5b3;
+    }
+    &.A7K {
+        background-color: #ddd6b7;
+    }
+    &.A7L {
+        background-color: #e8c5c1;
+    }
+    &.A7M {
+        background-color: #b5905a;
+    }
+    &.A7N {
+        background-color: #000000;
+        &::before {
+            background-color: #8a2232;
+        }
+    }
+    &.A7O {
+        background-color: #ffa500;
+    }
+    &.A7P {
+        background-color: #b76e79;
+    }
+    &.A7Q {
+        background-color: #c6ddcd;
+    }
+    &.A7R {
+        background-color: #7c2439;
+    }
+    &.A7S {
+        background-color: #585e6f;
+        &::before {
+            background-color: #7c2439;
+        }
+    }
+    &.A7T {
+        background-color: #a4803f;
+    }
+    &.A7U {
+        background-color: #667e2c;
+    }
+    &.A7V {
+        background-color: #eed202;
+    }
+    &.A7W {
+        background-color: #887766;
+    }
+    &.A7X {
+        background-color: #887766;
+    }
+    &.A7Y {
+        background-color: #c9ae74;
+    }
+    &.A7Z {
+        background-color: #b14566;
+    }
+    &.A70 {
+        background-color: #ffe4c6;
+    }
+    &.A71 {
+        background-color: #8c93ad;
+    }
+    &.A72 {
+        background-color: #0ff0fe;
+    }
+    &.A73 {
+        background-color: #c7dfb8;
+    }
+    &.A74 {
+        background-color: #c7dfb8;
+    }
+    &.A75 {
+        background-color: #c7dfb8;
+    }
+    &.A76 {
+        background-color: #ffbbdd;
+    }
+    &.A77 {
+        background-color: #000080;
+    }
+    &.A78 {
+        background-color: #fb2943;
+    }
+    &.A79 {
+        background-color: #b76e79;
+    }
+    &.A8A {
+        background-color: #095d75;
+    }
+    &.A8B {
+        background-color: #5a4458;
+    }
+    &.A8C {
+        background-color: #e9dcd1;
+    }
+    &.A8D {
+        background-color: #efeeff;
+    }
+    &.A8E {
+        background-color: #000000;
+        &::before {
+            background-color: #f45520;
+        }
+    }
+    &.A8F {
+        background-color: #363737;
+        &::before {
+            background-color: #f45520;
+        }
+    }
+    &.A8G {
+        background-color: #0a7e8c;
+    }
+    &.A8H {
+        background-color: #c3e7e8;
+    }
+    &.A8I {
+        background-color: #686d6c;
+    }
+    &.A8J {
+        background-color: #5b3d27;
+        &::before {
+            background-color: #763f3d;
+        }
+    }
+    &.A8K {
+        background-color: #664238;
+        &::before {
+            background-color: #763f3d;
+        }
+    }
+    &.A8L {
+        background-color: #ff1b2d;
+        &::before {
+            background-color: #763f3d;
+        }
+    }
+    &.A8M {
+        background-color: #bf6464;
+        &::before {
+            background-color: #763f3d;
+        }
+    }
+    &.A8N {
+        background-color: #763f3d;
+        &::before {
+            background-color: #c1d8eb;
+        }
+    }
+    &.A8O {
+        background-color: #66829a;
+    }
+    &.A8P {
+        background-color: #5e624a;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8Q {
+        background-color: #9cc2c5;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8R {
+        background-color: #4a4b4d;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8S {
+        background-color: #040273;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8T {
+        background-color: #49759c;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8U {
+        background-color: #ffa500;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8V {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #66829a;
+        }
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.A8W {
+        background-color: #66829a;
+    }
+    &.A8X {
+        background-color: #01153e;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8Y {
+        background-color: #503b53;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A8Z {
+        background-color: #d2e2f2;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A80 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #66829a;
+        }
+    }
+    &.A81 {
+        background-color: #ce5f38;
+    }
+    &.A82 {
+        background-color: #aebbc1;
+    }
+    &.A83 {
+        background-color: #34414e;
+        &::before {
+            background-color: #acdfdd;
+        }
+    }
+    &.A84 {
+        background-color: #d2e2f2;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.A85 {
+        background-color: #26a6be;
+    }
+    &.A86 {
+        background-color: #586e75;
+    }
+    &.A87 {
+        background-color: #759dbe;
+    }
+    &.A88 {
+        background-color: #5555ff;
+    }
+    &.A89 {
+        background-color: #5555ff;
+    }
+    &.A9A {
+        background-color: #a2b9c2;
+    }
+    &.A9B {
+        background-color: #66829a;
+    }
+    &.A9C {
+        background-color: #838487;
+    }
+    &.A9D {
+        background-color: #000000;
+        &::before {
+            background-color: #eecc24;
+        }
+    }
+    &.A9E {
+        background-color: #313337;
+        &::before {
+            background-color: #eecc24;
+        }
+    }
+    &.A9F {
+        background-color: #e6daa6;
+        &::before {
+            background-color: #eecc24;
+        }
+    }
+    &.A9G {
+        background-color: #be5141;
+        &::before {
+            background-color: #a90308;
+        }
+    }
+    &.A9H {
+        background-color: #be5141;
+        &::before {
+            background-color: #a90308;
+        }
+    }
+    &.A9I {
+        background-color: #a9bdb1;
+    }
+    &.A9J {
+        background-color: #ffffff;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9K {
+        background-color: #a9bdb1;
+    }
+    &.A9L {
+        background-color: #a9bdb1;
+    }
+    &.A9M {
+        background-color: #000000;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9N {
+        background-color: #00637c;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9O {
+        background-color: #fcf0c2;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9P {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9Q {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9R {
+        background-color: #ffa500;
+        &::before {
+            background-color: #a9bdb1;
+        }
+    }
+    &.A9S {
+        background-color: #c1b7b0;
+    }
+    &.A9T {
+        background-color: #b8a487;
+    }
+    &.A9U {
+        background-color: #a3713f;
+    }
+    &.A9V {
+        background-color: #c0c0c0;
+    }
+    &.A9W {
+        background-color: #00a86b;
+        &::before {
+            background-color: #c0c0c0;
+        }
+    }
+    &.A9X {
+        background-color: #ff0000;
+        &::before {
+            background-color: #c0c0c0;
+        }
+    }
+    &.A9Y {
+        background-color: #ff0000;
+        &::before {
+            background-color: #c0c0c0;
+        }
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.A9Z {
+        background-color: #516572;
+    }
+    &.A90 {
+        background-color: #000000;
+        &::before {
+            background-color: #516572;
+        }
+    }
+    &.A91 {
+        background-color: #000000;
+        &::before {
+            background-color: #516572;
+        }
+        &::before {
+            background-color: #9a0eea;
+        }
+    }
+    &.A92 {
+        background-color: #ff00ff;
+        &::before {
+            background-color: #516572;
+        }
+    }
+    &.A93 {
+        background-color: #5b7c99;
+    }
+    &.A94 {
+        background-color: #59656d;
+    }
+    &.A95 {
+        background-color: #bfc8c3;
+    }
+    &.A96 {
+        background-color: #733635;
+        &::before {
+            background-color: #656466;
+        }
+    }
+    &.A97 {
+        background-color: #fffafa;
+    }
+    &.A98 {
+        background-color: #130a06;
+        &::before {
+            background-color: #253668;
+        }
+    }
+    &.A99 {
+        background-color: #808080;
+        &::before {
+            background-color: #253668;
+        }
+    }
+    &.BAA {
+        background-color: #d3dedf;
+    }
+    &.BAB {
+        background-color: #1d2951;
+    }
+    &.BAC {
+        background-color: #fddc00;
+        &::before {
+            background-color: #3d3c7c;
+        }
+    }
+    &.BAD {
+        background-color: #3d3c7c;
+    }
+    &.BAE {
+        background-color: #897e59;
+    }
+    &.BAF {
+        background-color: #d75c5d;
+    }
+    &.BAG {
+        background-color: #2c4053;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAH {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAI {
+        background-color: #a9bdb1;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAJ {
+        background-color: #d75c5d;
+    }
+    &.BAK {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAL {
+        background-color: #7fb377;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAM {
+        background-color: #ffffff;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAN {
+        background-color: #d75c5d;
+    }
+    &.BAO {
+        background-color: #d75c5d;
+    }
+    &.BAP {
+        background-color: #d75c5d;
+    }
+    &.BAQ {
+        background-color: #d75c5d;
+    }
+    &.BAR {
+        background-color: #bdbcc4;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAS {
+        background-color: #ffffff;
+        &::before {
+            background-color: #d75c5d;
+        }
+    }
+    &.BAT {
+        background-color: #d75c5d;
+    }
+    &.BAU {
+        background-color: #d75c5d;
+    }
+    &.BAV {
+        background-color: #d75c5d;
+    }
+    &.BAW {
+        background-color: #e5e2e1;
+    }
+    &.BAX {
+        background-color: #5a665c;
+    }
+    &.BAY {
+        background-color: #6d6c6c;
+        &::before {
+            background-color: #77603f;
+        }
+    }
+    &.BAZ {
+        background-color: #00ff7c;
+    }
+    &.BA0 {
+        background-color: #d6341e;
+    }
+    &.BA1 {
+        background-color: #9bc2b4;
+    }
+    &.BA2 {
+        background-color: #c0fb2d;
+    }
+    &.BA3 {
+        background-color: #000000;
+        &::before {
+            background-color: #6b4c37;
+        }
+    }
+    &.BA4 {
+        background-color: #a0a197;
+    }
+    &.BA5 {
+        background-color: #76745d;
+    }
+    &.BA6 {
+        background-color: #49454b;
+    }
+    &.BA7 {
+        background-color: #ffc0cb;
+        &::before {
+            background-color: #49454b;
+        }
+    }
+    &.BA8 {
+        background-color: #a7c5ce;
+    }
+    &.BA9 {
+        background-color: #5e9b8a;
+    }
+    &.BBA {
+        background-color: #4682b4;
+    }
+    &.BBB {
+        background-color: #cd526c;
+        &::before {
+            background-color: #46647e;
+        }
+    }
+    &.BBC {
+        background-color: #001155;
+    }
+    &.BBD {
+        background-color: #0000cd;
+    }
+    &.BBE {
+        background-color: #ada587;
+    }
+    &.BBF {
+        background-color: #507b9c;
+    }
+    &.BBG {
+        background-color: #130a06;
+        &::before {
+            background-color: #507b9c;
+        }
+        &::before {
+            background-color: #8f755b;
+        }
+    }
+    &.BBH {
+        background-color: #2c4053;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBI {
+        background-color: #8f755b;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBJ {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBK {
+        background-color: #507b9c;
+    }
+    &.BBL {
+        background-color: #01153e;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBM {
+        background-color: #b8dca7;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBN {
+        background-color: #ffa500;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBO {
+        background-color: #507b9c;
+    }
+    &.BBP {
+        background-color: #66829a;
+        &::before {
+            background-color: #507b9c;
+        }
+    }
+    &.BBQ {
+        background-color: #9eb4d3;
+    }
+    &.BBR {
+        background-color: #2c4053;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.BBS {
+        background-color: #aebbc1;
+    }
+    &.BBT {
+        background-color: #01153e;
+        &::before {
+            background-color: #aebbc1;
+        }
+    }
+    &.BBU {
+        background-color: #7fb377;
+    }
+    &.BBV {
+        background-color: #507b9c;
+    }
+    &.BBW {
+        background-color: #507b9c;
+    }
+    &.BBX {
+        background-color: #507b9c;
+    }
+    &.BBY {
+        background-color: #507b9c;
+    }
+    &.BBZ {
+        background-color: #507b9c;
+    }
+    &.BB0 {
+        background-color: #bcc0cc;
+    }
+    &.BB1 {
+        background-color: #d8cab2;
+    }
+    &.BB2 {
+        background-color: #bb7a2c;
+    }
+    &.BB3 {
+        background-color: #130a06;
+        &::before {
+            background-color: #8bb6b8;
+        }
+    }
+    &.BB4 {
+        background-color: #000000;
+        &::before {
+            background-color: #8bb6b8;
+        }
+    }
+    &.BB5 {
+        background-color: #ffdf22;
+    }
+    &.BB6 {
+        background-color: #cde5e2;
+    }
+    &.BB7 {
+        background-color: #5539cc;
+    }
+    &.BB8 {
+        background-color: #782a39;
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.BB9 {
+        background-color: #782a39;
+        &::before {
+            background-color: #343837;
+        }
+    }
+    &.BCA {
+        background-color: #3eb489;
+        &::before {
+            background-color: #d8dcd6;
+        }
+    }
+    &.BCB {
+        background-color: #cdc6bd;
+    }
+    &.BCC {
+        background-color: #a4777e;
+    }
+    &.BCD {
+        background-color: #782a39;
+    }
+    &.BCE {
+        background-color: #d1b26f;
+    }
+    &.BCF {
+        background-color: #000000;
+        &::before {
+            background-color: #d1b26f;
+        }
+    }
+    &.BCG {
+        background-color: #343837;
+        &::before {
+            background-color: #d1b26f;
+        }
+    }
+    &.BCH {
+        background-color: #d2e2f2;
+        &::before {
+            background-color: #9f4440;
+        }
+    }
+    &.BCI {
+        background-color: #ff9300;
+    }
+    &.BCJ {
+        background-color: #000000;
+        &::before {
+            background-color: #477f4a;
+        }
+    }
+    &.BCK {
+        background-color: #dce4d7;
+        &::before {
+            background-color: #477f4a;
+        }
+    }
+    &.BCL {
+        background-color: #f45520;
+        &::before {
+            background-color: #477f4a;
+        }
+    }
+    &.BCM {
+        background-color: #b9a281;
+    }
+    &.BCN {
+        background-color: #dc3855;
+    }
+    &.BCO {
+        background-color: #008080;
+    }
+    &.BCP {
+        background-color: #01889f;
+    }
+    &.BCQ {
+        background-color: #25a36f;
+    }
+    &.BCR {
+        background-color: #79839b;
+    }
+    &.BCS {
+        background-color: #281f3f;
+    }
+    &.BCT {
+        background-color: #4d4d4b;
+    }
+    &.BCU {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #ec6a37;
+        }
+    }
+    &.BCV {
+        background-color: #563474;
+    }
+    &.BCW {
+        background-color: #000000;
+        &::before {
+            background-color: #563474;
+        }
+    }
+    &.BCX {
+        background-color: #ffafa3;
+    }
+    &.BCY {
+        background-color: #696fa5;
+    }
+    &.BCZ {
+        background-color: #130a06;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC0 {
+        background-color: #246bce;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC1 {
+        background-color: #000000;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC2 {
+        background-color: #b8dca7;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC3 {
+        background-color: #edd8d2;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC4 {
+        background-color: #ab3475;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC5 {
+        background-color: #585e6f;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC6 {
+        background-color: #3a5b52;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC7 {
+        background-color: #393d2a;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC8 {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BC9 {
+        background-color: #006284;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BDA {
+        background-color: #4a4f52;
+    }
+    &.BDB {
+        background-color: #ffffff;
+        &::before {
+            background-color: #4a4f52;
+        }
+    }
+    &.BDC {
+        background-color: #7fb377;
+    }
+    &.BDD {
+        background-color: #130a06;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BDE {
+        background-color: #010b13;
+        &::before {
+            background-color: #807d7f;
+        }
+        &::before {
+            background-color: #b8b4b6;
+        }
+    }
+    &.BDF {
+        background-color: #ffddee;
+    }
+    &.BDG {
+        background-color: #563474;
+        &::before {
+            background-color: #2b3f5c;
+        }
+    }
+    &.BDH {
+        background-color: #42342b;
+    }
+    &.BDI {
+        background-color: #2a7e19;
+    }
+    &.BDJ {
+        background-color: #203b3d;
+        &::before {
+            background-color: #eaefe5;
+        }
+    }
+    &.BDK {
+        background-color: #e0d4d0;
+        &::before {
+            background-color: #eaefe5;
+        }
+    }
+    &.BDL {
+        background-color: #697a7e;
+    }
+    &.BDM {
+        background-color: #deaa88;
+    }
+    &.BDN {
+        background-color: #4e545b;
+    }
+    &.BDO {
+        background-color: #484a72;
+        &::before {
+            background-color: #4e545b;
+        }
+    }
+    &.BDP {
+        background-color: #7c2439;
+        &::before {
+            background-color: #4e545b;
+        }
+    }
+    &.BDQ {
+        background-color: #4e545b;
+    }
+    &.BDR {
+        background-color: #000000;
+        &::before {
+            background-color: #4e545b;
+        }
+    }
+    &.BDS {
+        background-color: #98687e;
+    }
+    &.BDT {
+        background-color: #195190;
+    }
+    &.BDU {
+        background-color: #000000;
+        &::before {
+            background-color: #195190;
+        }
+    }
+    &.BDV {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #195190;
+        }
+    }
+    &.BDW {
+        background-color: #01153e;
+        &::before {
+            background-color: #195190;
+        }
+    }
+    &.BDX {
+        background-color: #01153e;
+        &::before {
+            background-color: #195190;
+        }
+        &::before {
+            background-color: #d99058;
+        }
+    }
+    &.BDY {
+        background-color: #195190;
+    }
+    &.BDZ {
+        background-color: #96afb7;
+    }
+    &.BD0 {
+        background-color: #06c2ac;
+    }
+    &.BD1 {
+        background-color: #00ffef;
+    }
+    &.BD2 {
+        background-color: #00ffef;
+    }
+    &.BD3 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #00ffef;
+        }
+    }
+    &.BD4 {
+        background-color: #00ffef;
+    }
+    &.BD5 {
+        background-color: #e6daa6;
+    }
+    &.BD6 {
+        background-color: #bcaf97;
+        &::before {
+            background-color: #e6daa6;
+        }
+    }
+    &.BD7 {
+        background-color: #efc5b5;
+        &::before {
+            background-color: #e6daa6;
+        }
+    }
+    &.BD8 {
+        background-color: #54534d;
+        &::before {
+            background-color: #efc5b5;
+        }
+    }
+    &.BD9 {
+        background-color: #bcaf97;
+        &::before {
+            background-color: #a475b1;
+        }
+    }
+    &.BEA {
+        background-color: #da3d58;
+    }
+    &.BEB {
+        background-color: #eeebe3;
+        &::before {
+            background-color: #da3d58;
+        }
+    }
+    &.BEC {
+        background-color: #151515;
+    }
+    &.BED {
+        background-color: #01153e;
+    }
+    &.BEE {
+        background-color: #130a06;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEF {
+        background-color: #000000;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEG {
+        background-color: #0099cc;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEH {
+        background-color: #385d8d;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEI {
+        background-color: #864c24;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEJ {
+        background-color: #d7c485;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEK {
+        background-color: #a49887;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEL {
+        background-color: #00637c;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEM {
+        background-color: #e6daa6;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEN {
+        background-color: #bf6464;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEO {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEP {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEQ {
+        background-color: #87d8c3;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BER {
+        background-color: #a5a542;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BES {
+        background-color: #0067a5;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BET {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEU {
+        background-color: #8b8589;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEV {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEW {
+        background-color: #800080;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEX {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEY {
+        background-color: #108780;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BEZ {
+        background-color: #f45520;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE0 {
+        background-color: #66829a;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE1 {
+        background-color: #507b9c;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE2 {
+        background-color: #507b9c;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE3 {
+        background-color: #01153e;
+    }
+    &.BE4 {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE5 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE6 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #01153e;
+        }
+        &::before {
+            background-color: #9a382d;
+        }
+    }
+    &.BE7 {
+        background-color: #ffffff;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE8 {
+        background-color: #ffa500;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BE9 {
+        background-color: #ffa500;
+        &::before {
+            background-color: #01153e;
+        }
+    }
+    &.BFA {
+        background-color: #00637c;
+        &::before {
+            background-color: #4d5659;
+        }
+    }
+    &.BFB {
+        background-color: #4d5659;
+    }
+    &.BFC {
+        background-color: #f7cdc7;
+        &::before {
+            background-color: #4d5659;
+        }
+    }
+    &.BFD {
+        background-color: #66829a;
+        &::before {
+            background-color: #a17308;
+        }
+    }
+    &.BFE {
+        background-color: #8fbabc;
+    }
+    &.BFF {
+        background-color: #a484ac;
+    }
+    &.BFG {
+        background-color: #000000;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.BFH {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.BFI {
+        background-color: #66829a;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.BFJ {
+        background-color: #a484ac;
+    }
+    &.BFK {
+        background-color: #ffffff;
+        &::before {
+            background-color: #a484ac;
+        }
+    }
+    &.BFL {
+        background-color: #aeadad;
+    }
+    &.BFM {
+        background-color: #ffffff;
+        &::before {
+            background-color: #c1d8eb;
+        }
+    }
+    &.BFN {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #4d5659;
+        }
+    }
+    &.BFO {
+        background-color: #9dacb7;
+    }
+    &.BFP {
+        background-color: #4d5659;
+    }
+    &.BFQ {
+        background-color: #203462;
+    }
+    &.BFR {
+        background-color: #b8b9cb;
+        &::before {
+            background-color: #d57b65;
+        }
+    }
+    &.BFS {
+        background-color: #40342b;
+        &::before {
+            background-color: #d57b65;
+        }
+    }
+    &.BFT {
+        background-color: #c14d36;
+    }
+    &.BFU {
+        background-color: #01153e;
+        &::before {
+            background-color: #c14d36;
+        }
+    }
+    &.BFV {
+        background-color: #dfddd7;
+    }
+    &.BFW {
+        background-color: #0339f8;
+    }
+    &.BFX {
+        background-color: #000000;
+        &::before {
+            background-color: #0339f8;
+        }
+    }
+    &.BFY {
+        background-color: #ff7420;
+    }
+    &.BFZ {
+        background-color: #cf9fa9;
+    }
+    &.BF0 {
+        background-color: #f7efdd;
+    }
+    &.BF1 {
+        background-color: #293432;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF2 {
+        background-color: #c6b183;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF3 {
+        background-color: #000000;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF4 {
+        background-color: #2c4053;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF5 {
+        background-color: #646049;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF6 {
+        background-color: #733635;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF7 {
+        background-color: #6d6c6c;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF8 {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BF9 {
+        background-color: #c6973f;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGA {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGB {
+        background-color: #8b8589;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGC {
+        background-color: #c5bbae;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGD {
+        background-color: #763f3d;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGE {
+        background-color: #a9bdb1;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGF {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGG {
+        background-color: #f7efdd;
+    }
+    &.BGH {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGI {
+        background-color: #7fb377;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGJ {
+        background-color: #f5ece7;
+        &::before {
+            background-color: #f7efdd;
+        }
+    }
+    &.BGK {
+        background-color: #f7efdd;
+    }
+    &.BGL {
+        background-color: #f7efdd;
+    }
+    &.BGM {
+        background-color: #5e624a;
+        &::before {
+            background-color: #fdfaf1;
+        }
+    }
+    &.BGN {
+        background-color: #998877;
+        &::before {
+            background-color: #fdfaf1;
+        }
+    }
+    &.BGO {
+        background-color: #5e624a;
+        &::before {
+            background-color: #fdfaf1;
+        }
+    }
+    &.BGP {
+        background-color: #998877;
+        &::before {
+            background-color: #fdfaf1;
+        }
+    }
+    &.BGQ {
+        background-color: #fdfaf1;
+    }
+    &.BGR {
+        background-color: #e7eae5;
+    }
+    &.BGS {
+        background-color: #f7efdd;
+    }
+    &.BGT {
+        background-color: #f7efdd;
+    }
+    &.BGU {
+        background-color: #66829a;
+        &::before {
+            background-color: #65344e;
+        }
+    }
+    &.BGV {
+        background-color: #faf7d6;
+    }
+    &.BGW {
+        background-color: #65344e;
+    }
+    &.BGX {
+        background-color: #747d5a;
+    }
+    &.BGY {
+        background-color: #9a0eea;
+    }
+    &.BGZ {
+        background-color: #9a0eea;
+    }
+    &.BG0 {
+        background-color: #cb6d51;
+    }
+    &.BG1 {
+        background-color: #cdc50a;
+    }
+    &.BG2 {
+        background-color: #806b5d;
+        &::before {
+            background-color: #cdc50a;
+        }
+    }
+    &.BG3 {
+        background-color: #ceff00;
+    }
+    &.BG4 {
+        background-color: #ffff00;
+    }
+    &.BG5 {
+        background-color: #a9be70;
+    }
+    &.BG6 {
+        background-color: #7b7c94;
+    }
+    &.BG7 {
+        background-color: #305679;
+        &::before {
+            background-color: #7b7c94;
+        }
+    }
+    &.BG8 {
+        background-color: #d2e2f2;
+    }
+    &.BG9 {
+        background-color: #000000;
+        &::before {
+            background-color: #d2e2f2;
+        }
+        &::before {
+            background-color: #5f5f6e;
+        }
+    }
+    &.BHA {
+        background-color: #8f755b;
+        &::before {
+            background-color: #d2e2f2;
+        }
+    }
+    &.BHB {
+        background-color: #4aff00;
+        &::before {
+            background-color: #d2e2f2;
+        }
+    }
+    &.BHC {
+        background-color: #49494d;
+        &::before {
+            background-color: #d2e2f2;
+        }
+    }
+    &.BHD {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #d2e2f2;
+        }
+    }
+    &.BHE {
+        background-color: #d2e2f2;
+    }
+    &.BHF {
+        background-color: #4d3e3c;
+    }
+    &.BHG {
+        background-color: #6d6c6c;
+        &::before {
+            background-color: #4d3e3c;
+        }
+    }
+    &.BHH {
+        background-color: #fde634;
+        &::before {
+            background-color: #4d3e3c;
+        }
+    }
+    &.BHI {
+        background-color: #123955;
+        &::before {
+            background-color: #4d3e3c;
+        }
+    }
+    &.BHJ {
+        background-color: #eecc24;
+        &::before {
+            background-color: #4d3e3c;
+        }
+    }
+    &.BHK {
+        background-color: #ffffff;
+    }
+    &.BHL {
+        background-color: #293432;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHM {
+        background-color: #000000;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHN {
+        background-color: #000000;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHO {
+        background-color: #5e624a;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHP {
+        background-color: #9eb1ae;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHQ {
+        background-color: #ee5c6c;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHR {
+        background-color: #c41e3a;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHS {
+        background-color: #ddb6ab;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHT {
+        background-color: #d01c1f;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHU {
+        background-color: #808080;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHV {
+        background-color: #585e6f;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHW {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHX {
+        background-color: #3a5b52;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHY {
+        background-color: #d8dcd6;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BHZ {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH0 {
+        background-color: #26a6be;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH1 {
+        background-color: #b9bcb6;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH2 {
+        background-color: #d6cdb7;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH3 {
+        background-color: #8bd2e2;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH4 {
+        background-color: #e7dbbf;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH5 {
+        background-color: #ff0000;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH6 {
+        background-color: #c0c0c0;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH7 {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH8 {
+        background-color: #427573;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BH9 {
+        background-color: #0b5509;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BIA {
+        background-color: #ffffff;
+    }
+    &.BIB {
+        background-color: #ffff00;
+        &::before {
+            background-color: #ffffff;
+        }
+        &::before {
+            background-color: #000000;
+        }
+    }
+    &.BIC {
+        background-color: #c3bdab;
+    }
+    &.BID {
+        background-color: #eeebe3;
+    }
+    &.BIE {
+        background-color: #e9dcd1;
+    }
+    &.BIF {
+        background-color: #a2d4bd;
+    }
+    &.BIG {
+        background-color: #0c0c1f;
+    }
+    &.BIH {
+        background-color: #fdf9ef;
+    }
+    &.BII {
+        background-color: #130a06;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIJ {
+        background-color: #293432;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIK {
+        background-color: #2c4053;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIL {
+        background-color: #d7c485;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIM {
+        background-color: #d8dcd6;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIN {
+        background-color: #7d7f7c;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIO {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIP {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIQ {
+        background-color: #d75c5d;
+        &::before {
+            background-color: #fdf9ef;
+        }
+    }
+    &.BIR {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #e7eae5;
+        }
+    }
+    &.BIS {
+        background-color: #faf0db;
+    }
+    &.BIT {
+        background-color: #000000;
+        &::before {
+            background-color: #e5e4db;
+        }
+    }
+    &.BIU {
+        background-color: #aeb2b5;
+        &::before {
+            background-color: #e5e4db;
+        }
+    }
+    &.BIV {
+        background-color: #ffffd4;
+    }
+    &.BIW {
+        background-color: #000000;
+        &::before {
+            background-color: #cdccbe;
+        }
+    }
+    &.BIX {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #cdccbe;
+        }
+    }
+    &.BIY {
+        background-color: #f5ecd2;
+    }
+    &.BIZ {
+        background-color: #c3bdab;
+    }
+    &.BI0 {
+        background-color: #000000;
+        &::before {
+            background-color: #a7e0c2;
+        }
+    }
+    &.BI1 {
+        background-color: #ffffff;
+    }
+    &.BI2 {
+        background-color: #ecf3e1;
+    }
+    &.BI3 {
+        background-color: #c3bdab;
+    }
+    &.BI4 {
+        background-color: #f7efdd;
+    }
+    &.BI5 {
+        background-color: #000000;
+        &::before {
+            background-color: #ffffff;
+        }
+    }
+    &.BI6 {
+        background-color: #bb4444;
+    }
+    &.BI7 {
+        background-color: #fea051;
+        &::before {
+            background-color: #ecfcec;
+        }
+    }
+    &.BI8 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #ecfcec;
+        }
+    }
+    &.BI9 {
+        background-color: #747d5a;
+    }
+    &.BJA {
+        background-color: #faf7d6;
+    }
+    &.BJB {
+        background-color: #a484ac;
+    }
+    &.BJC {
+        background-color: #f5ece7;
+    }
+    &.BJD {
+        background-color: #5f5f6e;
+        &::before {
+            background-color: #f5ece7;
+        }
+    }
+    &.BJE {
+        background-color: #b6b095;
+        &::before {
+            background-color: #f5ece7;
+        }
+    }
+    &.BJF {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #f5ece7;
+        }
+    }
+    &.BJG {
+        background-color: #ffffff;
+        &::before {
+            background-color: #f5ece7;
+        }
+    }
+    &.BJH {
+        background-color: #f5ece7;
+    }
+    &.BJI {
+        background-color: #e5d295;
+    }
+    &.BJJ {
+        background-color: #aebbc1;
+    }
+    &.BJK {
+        background-color: #e9eadb;
+        &::before {
+            background-color: #a8d3e1;
+        }
+    }
+    &.BJL {
+        background-color: #f5ecd2;
+    }
+    &.BJM {
+        background-color: #875f9a;
+    }
+    &.BJN {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #875f9a;
+        }
+    }
+    &.BJO {
+        background-color: #875f9a;
+    }
+    &.BJP {
+        background-color: #875f9a;
+    }
+    &.BJQ {
+        background-color: #4f301f;
+    }
+    &.BJR {
+        background-color: #010b13;
+    }
+    &.BJS {
+        background-color: #ffff00;
+    }
+    &.BJT {
+        background-color: #130a06;
+        &::before {
+            background-color: #ffff00;
+        }
+    }
+    &.BJU {
+        background-color: #000000;
+        &::before {
+            background-color: #ffff00;
+        }
+    }
+    &.BJV {
+        background-color: #0000ff;
+        &::before {
+            background-color: #ffff00;
+        }
+    }
+    &.BJW {
+        background-color: #ffff00;
+    }
+    &.BJX {
+        background-color: #f4eeda;
+    }
+    &.BJY {
+        background-color: #a475b1;
+    }
+    &.BJZ {
+        background-color: #000000;
+        &::before {
+            background-color: #ceb736;
+        }
+    }
+    &.BJ0 {
+        background-color: #bc8d1f;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ1 {
+        background-color: #000000;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ2 {
+        background-color: #313337;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ3 {
+        background-color: #8d8f8f;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ4 {
+        background-color: #a4292e;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ5 {
+        background-color: #108780;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ6 {
+        background-color: #66829a;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ7 {
+        background-color: #f7efdd;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ8 {
+        background-color: #f5ece7;
+        &::before {
+            background-color: #808080;
+        }
+    }
+    &.BJ9 {
+        background-color: #000000;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKA {
+        background-color: #b6b095;
+    }
+    &.BKB {
+        background-color: #000000;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKC {
+        background-color: #b0e0e6;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKD {
+        background-color: #427573;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKE {
+        background-color: #3b506f;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKF {
+        background-color: #a5a542;
+        &::before {
+            background-color: #b6b095;
+        }
+    }
+    &.BKG {
+        background-color: #ff9066;
+    }
+    &.BKI {
+        background-color: #ffa500;
+    }
+    &.BKJ {
+        background-color: #130a06;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.BKK {
+        background-color: #000000;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.BKL {
+        background-color: #d7c485;
+        &::before {
+            background-color: #ffa64f;
+        }
+    }
+    &.BKM {
+        background-color: #d7c485;
+        &::before {
+            background-color: #be7249;
+        }
+    }
+    &.BKN {
+        background-color: #d7c485;
+        &::before {
+            background-color: #be7249;
+        }
+    }
+    &.BKO {
+        background-color: #ffa500;
+    }
+    &.BKP {
+        background-color: #66829a;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.BKQ {
+        background-color: #01153e;
+        &::before {
+            background-color: #ffa500;
+        }
+    }
+    &.BKR {
+        background-color: #ff8f00;
+    }
+    &.BKS {
+        background-color: #f9633b;
+    }
+    &.BKT {
+        background-color: #ff714e;
+    }
+}

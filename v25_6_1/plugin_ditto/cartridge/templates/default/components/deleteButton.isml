@@ -1,0 +1,9 @@
+<a href="${'#'}"
+    class="remove-btn-lg remove-product"
+    data-pid="${lineItem.id}"
+    data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+    data-uuid="${lineItem.UUID}"
+    aria-label="${Resource.msgf('text.remove.line.item','cart', null, lineItem.productName)}"
+    title="${Resource.msg('link.remove.item', 'cart', null)}">
+    ${Resource.msg('link.remove.item', 'cart', null)}
+</a>

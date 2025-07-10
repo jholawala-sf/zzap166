@@ -1,0 +1,13 @@
+@import "variables";
+@import "account/passwordRequirements";
+
+@include media-breakpoint-up(md) {
+    .account-auth_col:first-of-type {
+        border-right: 1px solid $login-separator;
+    }
+}
+
+.account-auth_content {
+    max-width: 24rem;
+    width: 100%;
+}

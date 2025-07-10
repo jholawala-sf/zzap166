@@ -1,0 +1,25 @@
+{
+    "extends": [
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2021,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "document": true,
+        "subscribe": true,
+        "emit": true
+    },
+    "rules": {
+        "comma-dangle": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/label-has-for": "off"
+    }
+}

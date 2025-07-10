@@ -1,0 +1,11 @@
+<div class="purchase-order">
+    <span><isprint value="${pdict.purchaseOrderDetails.labels.methodName}" encoding="off" /></span>
+</div>
+<div class="purchase-order-number">
+    <span class="purchase-order-number">
+        <isprint value="${pdict.purchaseOrderDetails.labels.summaryLabel}" encoding="off" />&nbsp;${payment.purchaseOrderNumber}
+    </span>
+</div>
+<div class="purchase-order-amount mb-3">
+    ${Resource.msg('label.amount', 'payment', null)}:&nbsp${payment.formattedAmount}
+</div>

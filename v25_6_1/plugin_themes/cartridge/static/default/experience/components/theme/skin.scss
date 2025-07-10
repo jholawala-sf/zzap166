@@ -1,0 +1,18 @@
+:root {
+  --skin-primary-color-1: ${pdict.primaryAccentColor.value};
+  --skin-primary-color-invert-1: ${pdict.primaryAccentColorInvert.value};
+  --skin-background-color-1: ${pdict.mainBackground.value};
+  --skin-border-color-1: ${pdict.borderColorOne.value};
+  --skin-link-color-1: ${pdict.linkColor.value};
+  --skin-banner-background-color-1: ${pdict.bannerBackground.value};
+  --skin-banner-text-color-1: ${pdict.bannerTextColor.value};
+  --skin-main-text-color-1: ${pdict.mainTextColor.value};
+  --skin-selectbox-background-color-1: ${pdict.selectBoxBackground.value};
+  --skin-selectbox-text-color-1: ${pdict.selectBoxTextColor.value};
+  --skin-heading-color-1: ${pdict.headingColor.value};
+  --skin-heading-color-1-invert: ${pdict.headingColorInvert.value};
+  --skin-price-1: ${pdict.priceTextColor.value};
+  --skin-header-font: '${pdict.headerfont}';
+  --skin-body-font: '${pdict.bodyfont}';
+  --skin-menu-font: '${pdict.menufont}';
+}

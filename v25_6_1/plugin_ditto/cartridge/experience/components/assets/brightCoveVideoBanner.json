@@ -1,0 +1,104 @@
+{
+    "name": "Brightcove Video Banner",
+    "description": "Video that plays in the banner component on a page.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "background",
+            "name": "Video Info",
+            "description": "The video ID that is to be shown, i.e.6234367983001",
+            "attribute_definitions": [
+                {
+                    "id": "videoID",
+                    "name": "Video ID",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "overlay",
+            "name": "Overlay",
+            "description": "The overlay on top of the banner image.",
+            "attribute_definitions": [
+                {
+                    "id": "heading",
+                    "name": "Heading",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "headingColor",
+                    "name": "Heading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "subheading",
+                    "name": "Subheading",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "subheadingColor",
+                    "name": "Subheading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "buttonText",
+                    "name": "Button Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonLink",
+                    "name": "Button Link",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "buttonType",
+                    "name": "Button Type",
+                    "type": "enum",
+                    "values": ["Primary", "Primary - Outline", "Secondary", "Secondary - Outline"],
+                    "default_value": "Primary",
+                    "required": false
+                },
+                {
+                    "id": "overlayPosition",
+                    "name": "Overlay Position",
+                    "type": "enum",
+                    "values": [
+                        "Top Left",
+                        "Top Center",
+                        "Top Right",
+                        "Middle Left",
+                        "Middle Center",
+                        "Middle Right",
+                        "Bottom Left",
+                        "Bottom Center",
+                        "Bottom Right"
+                    ],
+                    "default_value": "Top Left",
+                    "required": false
+                },
+                {
+                    "id": "overlayAlignment",
+                    "name": "Overlay Alignment",
+                    "type": "enum",
+                    "values": ["Left", "Center", "Right"],
+                    "default_value": "Left",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

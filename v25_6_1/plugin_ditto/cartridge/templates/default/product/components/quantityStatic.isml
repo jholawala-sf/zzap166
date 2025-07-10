@@ -1,0 +1,5 @@
+<isif condition="${product.selectedQuantity > 1}">
+    <span class="quantity non-input-label" data-quantity="${product.selectedQuantity}">
+        ${Resource.msg('label.quantity', 'common', null) + ': ' + parseInt(product.selectedQuantity, 10).toString()}
+    </span>
+</isif>

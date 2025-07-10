@@ -1,0 +1,12 @@
+<div class="list-group-item list-group-item-action">
+    <div class="d-flex justify-content-between">
+        <div class="registry">
+            ${registry.eventName} &middot;
+            <isprint value="${registry.eventDate}" style="DATE_SHORT" /> &middot;
+            ${registry.eventCity} ${registry.eventState}
+        </div>
+        <a href="${registry.url}" class="add-product">
+            ${Resource.msg('action.add.product', 'giftRegistry', null)}
+        </a>
+    </div>
+</div>

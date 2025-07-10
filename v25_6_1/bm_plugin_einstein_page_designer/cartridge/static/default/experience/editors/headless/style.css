@@ -1,0 +1,16 @@
+:root {
+  --sds-c-textarea-sizing-min-height: 200px;
+}
+.slds-button_outline-icon {
+  border: 1px solid var(--sds-c-button-outline-brand-color-border, #0176d3);
+  color: var(--sds-c-button-outline-brand-color-border, #0176d3);
+}
+#EinsteinAssistedComponentEditor .inline-alert .slds-notify-container {
+  position: relative;
+}
+#EinsteinAssistedComponentEditor .slds-tabs_scoped__content {
+  padding: 0;
+}
+#EinsteinAssistedComponentEditor .slds-tabs_scoped__content-container {
+  padding: 1rem;
+}

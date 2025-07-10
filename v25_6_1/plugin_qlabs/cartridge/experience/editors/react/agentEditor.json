@@ -1,0 +1,8 @@
+{
+    "name": "Agent Deployment Editor",
+    "description": "Config agent deployment with context",
+    "resources": {
+        "styles": [""],
+        "scripts": ["/js/agent-editor.js"]
+    }
+}

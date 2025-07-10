@@ -1,0 +1,51 @@
+{
+  "name": "Template",
+  "description": "Template with JSX",
+  "group": "Agents",
+  "attribute_definition_groups": [
+    {
+      "id": "component",
+      "name": "Component",
+      "attribute_definitions": [
+        {
+          "id": "props",
+          "name": "Component Properties",
+          "type": "custom",
+          "editor_definition": {
+            "type": "react.propEditor",
+            "configuration": {
+              "component": "Template",
+              "props": {
+                "children": {
+                  "name": "Template",
+                  "type": "template",
+                  "required": true,
+                  "description": "JSX Template"
+                }
+              }
+            }
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "container",
+      "name": "Container",
+      "attribute_definitions": [
+        {
+          "id": "__containerStyles",
+          "name": "Container Style Config",
+          "type": "custom",
+          "editor_definition": {
+            "type": "react.styleEditor"
+          },
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": [
+
+  ]
+}

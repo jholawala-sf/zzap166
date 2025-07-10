@@ -1,0 +1,16 @@
+{
+  "name": "Category Landing Page",
+  "description": "A category landing page.",
+  "region_definitions": [
+    {
+      "id": "header",
+      "name": "Header Region",
+      "component_type_exclusions": []
+    },
+    {
+      "id": "main",
+      "name": "Main Region",
+      "component_type_exclusions": []
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<isif condition="${!pdict.productSearch.category}">
+    <div class="search-highlights">
+        <div class="results-for">
+            <span class="search-result-count">
+                <isif condition="${pdict.productSearch.count > 0 || pdict.contentSearch.contentCount > 0}">
+                    ${Resource.msgf('label.resultsfor', 'search', null)}
+                <iselse/>
+                    ${Resource.msg('label.noresultsfor', 'search', null)}
+                </isif>
+            </span>
+            <span class="search-keywords">
+                "${pdict.productSearch.searchKeywords ? pdict.productSearch.searchKeywords : ''}"
+            </span>
+        </div>
+        <isif
+            condition="${pdict.productSearch.isSearchSuggestionsAvailable && pdict.productSearch.productIds.length === 0}">
+            <div class="did-you-mean">
+                <isloop items="${pdict.productSearch.suggestionPhrases}" alias="phrase" status="loopState">
+                    <isif condition="${loopState.first}">
+                        <p>
+                            <span>${Resource.msg('label.didyoumean', 'search', null)}</span>
+                            <a class="link" title="${phrase.value}" href="${phrase.url}">${phrase.value}</a>
+                        </p>
+                        <isif condition="${!loopState.last}">
+                            <p>
+                                <span>${Resource.msg('label.ormaybe', 'search', null)}</span>
+                        </isif>
+                    <iselse/>
+                        <a class="link" title="${phrase.value}" href="${phrase.url}">${phrase.value}</a>
+                        <isif condition="${loopState.last}">
+                            </p>
+                        <iselse/>
+                            ,&nbsp;
+                        </isif>
+                    </isif>
+                </isloop>
+            </div>
+        </isif>
+    </div>
+    <div class="search-nav px-5">
+        <div class="nav-tabs-wrapper">
+            <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active product-search" href="#product-search-results"
+                        aria-controls="product-search-results" data-toggle="tab" role="tab" aria-selected="true"
+                        tabindex="0" id="product-tab">
+                        ${Resource.msg('tab.nav.search.productsresults', 'search', null)}
+                        ${'(' + parseInt(pdict.productSearch.count) + ')'}
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link content-search" href="#content-search-results-pane"
+                        aria-controls="content-search-results-pane" data-toggle="tab" role="tab" aria-selected="false"
+                        tabindex="-1" id="articles-tab"
+                        data-url="${URLUtils.url('Search-Content', 'q', pdict.productSearch.searchKeywords, 'startingPage', 0)}">
+                        ${Resource.msg('tab.nav.search.artclesresults', 'search', null)}
+                        ${'(' + parseInt(pdict.contentSearch.contentCount) + ')'}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</isif>

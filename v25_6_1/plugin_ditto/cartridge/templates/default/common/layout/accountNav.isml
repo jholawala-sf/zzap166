@@ -1,0 +1,43 @@
+<a class="nav-link account-nav_item ${activeNavigation === 'account' ? 'active' : ''}"
+    href="${URLUtils.https('Account-Show')}">
+    <i class="far fa-user"></i>
+    ${Resource.msg('link.nav.account', 'account', null)}
+</a>
+<a class="nav-link account-nav_item ${activeNavigation === 'order-history' ? 'active' : ''}"
+    href="${URLUtils.https('Order-History')}">
+    <i class="far fa-box-open"></i>
+    ${Resource.msg('link.nav.orders', 'account', null)}
+</a>
+<isif condition="${enabledPlugins.Wishlist}">
+    <a class="nav-link account-nav_item ${activeNavigation === 'wishlist' ? 'active' : ''}"
+        href="${URLUtils.https('Wishlist-Show')}">
+        <i class="far fa-heart"></i>
+        ${Resource.msg('link.nav.wishlist', 'account', null)}
+    </a>
+</isif>
+<a class="nav-link account-nav_item ${activeNavigation === 'addresses' ? 'active' : ''}"
+    href="${URLUtils.https('Address-List')}">
+    <i class="far fa-address-card"></i>
+    ${Resource.msg('link.nav.addressbook', 'account', null)}
+</a>
+<a class="nav-link account-nav_item ${activeNavigation === 'payment-options' ? 'active' : ''}"
+    href="${URLUtils.https('PaymentInstruments-List')}">
+    <i class="far fa-credit-card"></i>
+    ${Resource.msg('link.nav.payment.options', 'account', null)}
+</a>
+<isif condition="${enabledPlugins.GiftRegistry}">
+    <a class="nav-link account-nav_item ${activeNavigation === 'gift-registry' ? 'active' : ''}"
+        href="${URLUtils.url('GiftRegistry-Manage', 'rurl', 4)}">
+        <i class="far fa-gift"></i>
+        ${Resource.msg('link.nav.giftregistry', 'account', null)}
+    </a>
+</isif>
+<a class="nav-link account-nav_item ${activeNavigation === 'communication-preferences' ? 'active' : ''}"
+    href="${URLUtils.url('Account-Communication-Preferences')}">
+    <i class="far fa-mail-bulk"></i>
+    ${Resource.msg('link.nav.communication.preferences', 'account', null)}
+</a>
+<a class="nav-link account-nav_item" href="${URLUtils.https('Login-Logout')}">
+    <i class="far fa-sign-out"></i>
+    ${Resource.msg('link.nav.logout', 'account', null)}
+</a>

@@ -1,0 +1,8 @@
+<div class="${pdict.wrapperClasses}">
+    <div class="row">
+        <isprint value="${pdict.regions.products
+                        .setClassName('carousel')
+                        .setAttribute('data-slick', pdict.carouselConfig)
+                        .render()}" encoding="off" />
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/productDetail.js');
+</isscript>
+
+<div class="outer">
+
+    <div class="shop-container">
+        <a href="${pdict.productUrl1}">
+            <div class="shop-image" style="background-image:url('${pdict.product1.images.medium[0].url}')">
+
+
+            </div>
+        </a>
+
+        <div class="product-detail" data-pid="${pdict.product1.id}">
+            <select class="quantity-select" style="display:none">
+                <option value="1" selected>1</option>
+            </select>
+            <input type="hidden" class="add-to-cart-url"
+                value="${URLUtils.url('Cart-AddProduct')}">
+            <button class="add-to-cart shop-button" data-pid="${pdict.product1.id}" style="background-color: ${pdict.product.btnColour};border:1px solid ${pdict.product.borderColour}"></button>
+        </div>
+
+
+        <div class="shop-textbox">
+
+            <div class="shop-title">${pdict.product1.productName}</div>
+
+
+            <div class="productPricing">
+                <isset name="price" value="${pdict.product1.price}" scope="page" />
+                <isinclude template="experience/components/commerce_assets/product/pricing/main" />
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <isloop items="${[1, 2, 3, 4, 5]}" var="star">
+                        <i class="fa
+        <isif condition=" ${4>= star}">
+                            fa-star
+                            <iselseif condition="${(4 % 1 > 0) && (Math.ceil(4) >= star)}">
+                                fa-star-half-o
+                                <iselse>
+                                    fa-star-o
+                                    </isif>
+                                    " aria-hidden="true">
+                        </i>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

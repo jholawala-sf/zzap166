@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {
+      "endpoint": "getById",
+      "schema": "schema.yaml",
+      "implementation": "script"
+    },
+    {
+      "endpoint": "getByGroupId",
+      "schema": "schema.yaml",
+      "implementation": "script"
+    }
+  ]
+}

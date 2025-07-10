@@ -1,0 +1,396 @@
+@import "navigation";
+@import "mobile-navigation";
+
+.page {
+    .site-header {
+        position: fixed;
+        z-index: 11;
+    }
+}
+
+.site-header {
+    width: 100%;
+
+    .service-cloud-banner {
+        background-color: $danger;
+        color: $white;
+        height: 40px;
+    }
+
+    .navbar {
+        height: 100%;
+    }
+
+    .navbar-brand {
+        display: flex;
+
+        .logo {
+            width: $logo-width;
+        }
+
+        &.temp4-brand {
+            display: none;
+        }
+    }
+
+    .main-nav {
+        margin-bottom: -1px;
+    }
+
+    .minicart-total {
+        align-items: center;
+        background-color: $site-cart-background;
+        display: flex;
+        height: calculate-rem(40px);
+        justify-content: center;
+        width: calculate-rem(60px);
+    }
+
+    .mobile-search_btn {
+        display: inline-block;
+
+        @include p(3);
+    }
+
+    @include media-breakpoint-down(md) {
+        .minicart-total {
+            background-color: $site-cart-mobile-background;
+            color: $site-menu-item-text;
+            height: 100%;
+        }
+    }
+
+    .preheader {
+        background-color: $site-preheader-bg;
+        height: $preheader-height;
+
+        .country-selector {
+            cursor: pointer;
+
+            .dropdown-menu {
+                border: 0;
+                border-radius: 0;
+                box-shadow: $default-box-shadow;
+                margin: 0;
+            }
+
+            .dropdown-item {
+                color: $site-menu-item-text !important;
+            }
+
+            &:hover {
+                .dropdown-menu {
+                    display: block;
+                }
+            }
+        }
+
+        .country-selector_button {
+            color: $site-preheader-text;
+        }
+
+        a,
+        .country-selector,
+        .minicart-total {
+            color: $site-preheader-text;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .search-field {
+        border-left: 0;
+    }
+
+    .dropdown-toggle {
+        &::after {
+            border: 0;
+        }
+    }
+
+    .nav-link {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        @include font-size(12px);
+
+        @include media-breakpoint-up(md) {
+            @include font-size(14px);
+        }
+    }
+
+    .right-nav-minified {
+        display: none;
+    }
+}
+
+.site-header_slim {
+    .main-menu {
+        border-bottom: 0;
+    }
+}
+
+.promo-banner {
+    color: $promo-color;
+    font-size: $header-promo-font-size;
+}
+
+.main-menu {
+    background-color: $site-main-menu-bg;
+    border-bottom: 1px solid $site-main-menu-border;
+    position: relative;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .navbar-brand {
+        .logo {
+            display: none;
+            width: $logo-width;
+        }
+        .experience-logo {
+            display: none;
+            img {
+                width: $logo-width;
+            }
+        }
+        .logo-alt {
+            display: block;
+            width: $logo-alt-width;
+        }
+        .experience-mobileLogo {
+            display: block;
+            img {
+                width: $logo-alt-width;
+            }
+        }
+    }
+
+    .site-header.template5 {
+        .navbar-inner {
+            justify-content: space-between !important;
+        }
+
+        .right-nav-minified.head-search {
+            display: flex;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .site-header {
+        .navbar-brand {
+            .logo-alt {
+                display: none;
+            }
+            .experience-mobileLogo {
+                display: none;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .site-header {
+        transform: translateY(0);
+        transition: transform 0.2s $default-cubic-bezier;
+
+        .main-nav,
+        .main-nav,
+        .navbar-nav,
+        .navbar-inner,
+        .nav-item {
+            height: 100%;
+        }
+
+        .main-menu {
+            height: $header-height;
+            transition: height 0.2s $default-cubic-bezier;
+        }
+
+        .right-nav-minified {
+            display: none;
+
+            .user-message {
+                display: none;
+            }
+
+            .minicart-total {
+                padding: 0 !important;
+            }
+        }
+
+        .right-nav {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .minify-header {
+        &.service-cloud-agent {
+            .site-header:not(.site-header_slim) {
+                transform: translateY(-80px);
+            }
+        }
+        .site-header:not(.site-header_slim) {
+            transform: translateY(-40px);
+
+            .right-nav-minified {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .site-search {
+                @include mr(3);
+            }
+        }
+
+        .minicart-total {
+            background-color: $white;
+        }
+
+        .main-menu {
+            height: auto;
+        }
+
+        .main-nav {
+            margin-bottom: -8px;
+            margin-right: auto;
+        }
+
+        .navbar-brand {
+            .logo {
+                display: none;
+            }
+            .experience-logo {
+                display: none;
+            }
+            .logo-alt {
+                display: block;
+                width: $logo-alt-width;
+            }
+            .experience-mobileLogo {
+                display: block;
+                img {
+                    width: $logo-alt-width;
+                }
+            }
+        }
+
+        &.oneRowHead {
+            margin-bottom: -40px;
+
+            .level-1 > .nav-item {
+                padding: 0.8rem 0.5rem;
+            }
+
+            .site-header .navbar{
+                min-height: inherit;
+            }
+
+            .site-header:not(.site-header_slim) {
+                transform: translateY(-40px);
+            }
+
+            .main-menu {
+                min-height: 73px;
+            }
+
+            .navbar-brand {
+                .logo,
+                .experience-logo {
+                    display: block;
+                }
+
+                .logo-alt,
+                .experience-mobileLogo {
+                    display: none;
+                }
+            }
+
+            .site-header.template3 .main-nav {
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            .site-header.template4 {
+                .main-nav {
+                    margin-right: unset;
+                    flex-basis: 44%;
+                }
+                
+                .right-nav {
+                    flex-basis: 44%;
+                    justify-content: flex-end;
+                }
+
+                .navbar-brand {
+                    &.main-brand {
+                        display: none;
+                    }
+    
+                    &.temp4-brand {
+                        display: flex;
+                        flex-basis: 12%;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        .site-header.template5:not(.site-header_slim) {
+            transform: translateY(-76px);
+
+            .left-nav-minified {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    .site-header.template5 {
+        .preheader {
+            background-color: $site-main-menu-bg;
+            border-bottom: $site-preheader-bg 1px solid;
+            height: auto;
+            min-height: 75px;
+
+            nav {
+                min-height: inherit;
+            }
+
+            a, 
+            .country-selector, 
+            .minicart-total {
+                color: $body-color;
+            }
+
+            .minicart-total {
+                background-color: transparent;
+            }
+
+            .leftBlock {
+                min-width: 25.9rem;
+            }
+        }
+
+        .site-search {
+            width: 12em;
+        }
+
+        .main-menu {
+            height: 50px;
+        }
+
+        .left-nav-minified {
+            display: none;
+        }
+    }
+}

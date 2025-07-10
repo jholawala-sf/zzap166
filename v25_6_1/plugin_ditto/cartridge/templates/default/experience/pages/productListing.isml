@@ -1,0 +1,23 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isdecorate template="${pdict.decorator}">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+
+    <iscomment>
+        <isslot id="category-menu-left" context="category" description="Category menu left."
+            context-object="${pdict.category}" />
+        <isslot id="category-menu-right" context="category" description="Category menu right."
+            context-object="${pdict.category}" />
+    </iscomment>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <isprint value="${pdict.regions.main.render()}" encoding="off" />
+
+    <isinclude template="product/compareBar" />
+</isdecorate>

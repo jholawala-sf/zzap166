@@ -1,0 +1,28 @@
+    <isif condition="${pdict.isEditMode}">
+        <link rel="stylesheet" href="${URLUtils.staticURL('/css/global.css')}" />
+    </isif>
+<isinclude template="/common/htmlHead" />
+    <isif condition="${pdict.canonicalUrl}">
+        <link rel="canonical" href="${pdict.canonicalUrl}" />
+    </isif>
+    <isactivedatahead/>
+    <isinclude template="/components/schema" />
+</head>
+
+<body class="${session.userAuthenticated ? ' service-cloud-agent' : ''}">
+            <isreplace/>
+        <!--[if lt IE 10]>
+            <isinclude sf-toolkit="off" template="/common/scripts" />
+        <![endif]-->
+        <isinclude url="${URLUtils.url('ConsentTracking-Check')}" />
+    </div>
+    <iscomment>
+        hook for Marketing Cloud connector & other integration which need to inject
+        logic at the page end
+        IMPORTANT: Note that this hook will be called to cached as well as uncached pages
+        which means you need to put privacy information into another remote include
+    </iscomment>
+    ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
+</body>
+
+</html>

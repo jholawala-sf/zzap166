@@ -1,0 +1,87 @@
+{
+    "name": "Product Tile",
+    "description": "Product tile component.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "productSelection",
+            "name": "Product Selection",
+            "description": "Select a product to render.",
+            "attribute_definitions": [
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "description": "Represents the product to render in the tile.",
+                    "type": "product",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "tile_configuration",
+            "name": "Tile Configuration",
+            "description": "Product tile configuration settings.",
+            "attribute_definitions": [
+                {
+                    "id": "swatches",
+                    "name": "Display Swatch",
+                    "description": "Whether or not to display the product tile swatch.",
+                    "type": "boolean",
+                    "required": false,
+                    "default_value": true
+                },
+                {
+                    "id": "ratings",
+                    "name": "Display Ratings",
+                    "description": "Whether or not to display the product ratings.",
+                    "type": "boolean",
+                    "required": false,
+                    "default_value": true
+                },
+                {
+                    "id": "quickView",
+                    "name": "Display Quick View",
+                    "description": "Whether or not to enable Quick View.",
+                    "type": "boolean",
+                    "required": false,
+                    "default_value": true
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

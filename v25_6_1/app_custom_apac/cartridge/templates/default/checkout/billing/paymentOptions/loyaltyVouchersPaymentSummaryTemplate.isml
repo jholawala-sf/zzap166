@@ -1,0 +1,20 @@
+<isset name="chain"
+       value="${require('*/cartridge/scripts/helpers/chain')}"
+       scope="page" />
+<isset name="vouchersPayment"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_VOUCHERS', null)}"
+       scope="page" />
+<isset name="loyaltyVouchersAmountDetails"
+       value="${chain.safeGet(pdict, 'order.billing.payment.loyaltyVouchersAmountDetails', null)}"
+       scope="page" />
+
+<div class="loyalty-vouchers-summary-template summary-details d-none">
+    <div class="loyalty-vouchers-summary-header payment-info-label">
+        <span><isprint value="${Resource.msg('confirmation.loyalty.msg.payment.type.voucher', 'loyalty', null)}" /></span>
+    </div>
+    <div class="loyalty-vouchers-summary-details">
+        <div class="loyalty-vouchers-summary-code"><isprint value="${Resource.msg('confirmation.loyalty.msg.payment.voucher.code', 'loyalty', null)}" /> </div>
+        <div class="loyalty-vouchers-summary-amount"><isprint value="${Resource.msgf('confirmation.loyalty.msg.payment.voucher.value', 'loyalty', null)}" /> </div>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="form-group">
+    <label class="form-control-label" for="shipmentSelector">
+        ${Resource.msg('heading.ship.to.address', 'checkout', null)}
+    </label>
+
+    <select name="shipmentSelector" class="addressSelector form-control custom-select"
+        data-create-shipment-url="${URLUtils.https('CheckoutAddressServices-CreateNewAddress')}">
+        <isinclude template="checkout/shipping/shipmentSelectorOptions" />
+    </select>
+
+    <div class="invalid-feedback"></div>
+    <div class="row justify-content-around mt-3">
+        <button type="button" class="btn btn-link btn-show-details">
+            <i class="fas fa-edit"></i>
+            ${Resource.msg('action.update.address', 'checkout',
+            null)}
+        </button>
+        <button type="button" class="btn btn-link btn-add-new">
+            <i class="fas fa-plus"></i>
+            ${Resource.msg('action.add.new', 'checkout', null)}
+        </button>
+    </div>
+</div>

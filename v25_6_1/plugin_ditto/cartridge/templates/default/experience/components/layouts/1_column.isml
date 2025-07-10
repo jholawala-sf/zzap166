@@ -1,0 +1,5 @@
+<div class="${pdict.containerClasses}" id="${pdict.uniqueId ? pdict.uniqueId : ''}">
+    <div class="layout-row row ${pdict.rowClasses}" style="${pdict.rowStyles}">
+        <isprint value="${pdict.regions.column1.setClassName(pdict.column1Width).render()}" encoding="off" />
+    </div>
+</div>

@@ -1,0 +1,310 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="common/modules" />
+    <style>
+        .form-control::-webkit-input-placeholder { color: #393939; }  /* WebKit, Blink, Edge */
+        .form-control:-moz-placeholder { color: #393939; }  /* Mozilla Firefox 4 to 18 */
+        .form-control::-moz-placeholder { color: #393939; }  /* Mozilla Firefox 19+ */
+        .form-control:-ms-input-placeholder { color: #393939; }  /* Internet Explorer 10-11 */
+        .form-control::-ms-input-placeholder { color: #393939; }  /* Microsoft Edge */
+    </style>
+
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/productDetail.js');
+        assets.addCss('/css/product/detail.css');
+    </isscript>
+ 
+    <isset name="product" value="${pdict.product}" scope="page" />
+    <isset name="loopState" value="{count: 1}" scope="page" />
+    <isset name="isQuickView" value="${false}" scope="page" />
+    <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+    <isobject object="${product.raw}" view="detail" />
+    <div class="container-fluid product-detail product-wrapper pt-3" data-pid="${product.id}">
+        <div class="row">
+            <!---Breadcrumbs--->
+            <div class="col-12 product-breadcrumb d-block d-md-none">
+                <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            </div>
+
+            <!-- Product Name -->
+            <div class="col-12 d-md-none">
+                <h1 class="product-name">${product.productName}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <!---Breadcrumbs--->
+            <div class="product-breadcrumb col d-none d-md-block">
+                <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            </div>
+        </div>
+
+        <form id="variationForm" action="${URLUtils.url('Cart-AddVariantProducts').toString()}" method="post">
+             
+        <div class="row">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-8">
+                        <!-- Product Images Carousel -->
+                        <div class="col carousel-container">
+                            <isinclude template="product/components/imageCarousel" />
+                        </div>
+                    </div>
+
+                    <div class="pdp-primary-info col-12 col-md-4 col-xl-3">
+                        <!-- Product Name -->
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="product-name d-none d-md-block">${product.productName} ${product.id}</h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col d-flex flex-wrap justify-content-between align-items-center pb-2">
+                                <!-- Prices -->
+                                <div class="prices">
+                                    <isset name="price" value="${product.price}" scope="page" />
+                                    <isinclude template="product/components/pricing/main" />
+                                </div>
+                                <isinclude template="product/components/pidRating" />
+                            </div>
+                        </div>
+
+                        <!-- Product Availability -->
+                        <isinclude template="product/components/productAvailability" />
+
+                        <!-- Applicable Promotions -->
+                        <div class="row">
+                            <div class="col-12 promotions">
+                                <isinclude template="product/components/promotions" />
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="attributes">
+                            <!-- Attributes and Quantity -->
+                            <isset name="isBundle" value="${false}" scope="page" />
+                            <isset name="loopState" value="{count: 1}" scope="page" />
+
+
+                            <h3>Quantities</h3>
+                            <table class="table table-bordered table-striped">
+                                    <thead>
+                                        
+                                        <tr>
+                                            <td> </td>
+                                            <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus"> 
+ 
+                                            <div class="attribute">
+                                                <!-- Select <Attribute> Label -->
+                                                <iscomment> <label class="${attr.id}">
+                                                    ${attr.displayName}
+                                                </label> </iscomment>
+
+                                            <isif condition="${attributeStatus.first}">
+                                                <td align="center" style="width: 73px; vertical-align: bottom !important;">
+                                                    <div style="padding-bottom: .7em;">All</div> 
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0" onClick="this.value=''" onChange="fillAllQuantity(this.value);" value="" size="1"/>
+                                                </td> 
+                                            </isif>                              
+
+                                    <isif condition="${attr.swatchable}">
+                                        <!-- Square Swatch Image Attribute Values -->
+                                        
+                                        <iscomment> this is needed since I am constructing a rather complex matrix of form values - need to know previous # of colors </iscomment>
+                                        <isset name="swatchColors" scope="page" value="${attr.values}"/>
+                                       
+                                           <div class="d-flex flex-wrap">
+                                            <isloop items="${attr.values}" var="attrValue" status="status2">
+
+                                                <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+
+                                                    <th align="center" style="width: 73px;">
+
+                                                        <button class="color-attribute"  disabled>
+                                                            <span data-attr-value="${attrValue.value}"
+                                                                class="${attr.id}-value swatch swatch-value unselectable"
+                                                                style="background-image: url(${attrValue.images['swatch'].length > 0 ? attrValue.images['swatch'][0].url : ''})">
+                                                            </span>
+                                                        </button><br>
+
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0" onClick="this.value=''" onChange="fillColumnQuantity('${status2.count}', this.value);" value="" size="1"/>
+                                                    </th>
+                                                </isif>
+                                            </isloop>
+                                            </div>
+
+                                            <iscomment> #### TJG: is this last swatch? If so, let's end the 
+                                            table header tabs...   </iscomment>
+                                            <isif condition="${status2.last && attributeStatus.first}">
+                                        </tr>
+                                    </thead>
+                                        </isif>
+                                    
+                                    <iselseif condition="${attr.id === 'size'}" />
+                                      
+                                            <tbody>
+
+                                            <isloop items="${attr.values}" var="attrValue2" status="status3">
+                                                <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected)}">
+
+                                                    <tr>
+                                                        <iscomment> START A NEW ROW IN THE TABLE (underneath the first header row): but each of these 
+                                                                rows needs to do another iteration to create a new 
+                                                                td element within this row - each corresponding to 
+                                                                a value in the color attribute.  This breaks if we are not 
+                                                                using something other than a 'COLOR', 'SIZE' variation attributes
+                                                                so take care.  Will need to make this more dynamic in the future </iscomment>
+                                                        <td style="vertical-align: middle;">
+                                                                ${attrValue2.displayValue} 
+                                                        </td>
+                                                        <td>
+                                                            <div class="pull-right">
+                                                                <input type="text" class="form-control" placeholder="0" name="bla__${status3.count}" onClick="this.value=''" onChange="fillQuantity('${status3.count}', this.value);" value="" size="1"/>
+                                                                <iscomment> <button type="button" class="btn btn-primary btn-sm"><i class="fad fa-arrow-square-right"></i></button> </iscomment>
+                                                                <iscomment> <button type="button" class="btn btn-primary btn-sm">Go</button> </iscomment>
+                                                            </div>
+                                                        </td> 
+                                                        <iscomment>  Need to loop through all COLOR attributes now.  </iscomment>
+                                                            <isloop items="${swatchColors}" var="attrValueC" status="status4">
+
+                                                        <td style="vertical-align: bottom !important;">
+                                                            <iscomment> So the naming convention below is putting the value of the COLOR attribute (or first attribute if I"m 
+                                                                using mens jackets) and the value of the second attribute which is the size attribute. </iscomment>
+                                                            <input type="text" class="form-control" placeholder="0" id="VAR_ROW_${status3.count}_${product.id}${attrValueC.value}${attrValue2.value}" onClick="this.value=''" name="QTY__${status3.count}__${product.id}${attrValueC.value}${attrValue2.value}__COL__${status4.count}"  value="0" size="1"/> 
+                                                        </td>
+                                                                
+                                                            </isloop>
+                                                    </tr>
+
+                                                </isif>
+                                            </isloop>
+
+                                    <iselse/>
+
+                                        <!-- Attribute Values Drop Down Menu -->
+                                        <select class="custom-select form-control w-auto select-${attr.id}" ${(product.productType === "variant" &&
+                                                                                                            isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+                                            <option value="${attr.resetUrl}">
+                                                ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+                                            </option>
+                                            <isloop items="${attr.values}" var="attrValue">
+                                                <option value="${attrValue.url}" data-attr-value="${attrValue.value}" ${!attrValue.selectable ?
+                                                                                                                    'disabled' : ''} ${attrValue.selected ? 'selected' : ''}>
+                                                    ${attrValue.displayValue}
+                                                </option>
+                                            </isloop>
+                                        </select>
+                                    </isif>
+                                </div>
+       
+                                    <iscomment> <isinclude template="product/components/variationMatrixAttribute" /> </iscomment>
+
+                                </div>
+
+                                <iscomment> TJG CUSTOM - if check </iscomment>
+                                <iscomment> <isif condition="${attributeStatus.last && !isBundle && product.options.length === 0}">
+                                    <!-- Quantity Drop Down Menu -->
+                                    <div class="attribute quantity">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                                </isif> </iscomment>
+
+                            </isloop>
+
+</tbody>
+    </table> 
+
+                            <isif condition="${!product.variationAttributes && product.options.length === 0}">
+                                <div class="simple-quantity">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </isif>
+
+                            <isif condition="${product.options && product.options.length > 0}">
+                                <isinclude template="product/components/options" />
+                            </isif>
+
+
+
+                            <!-- Size Chart -->
+                            <isif condition="${product.variationAttributes && product.sizeChartId}">
+                                <div class="size-chart">
+                                    <isinclude template="product/components/sizeChart" />
+                                </div>
+                            </isif>
+                        </div>
+
+                        <div class="prices-add-to-cart-actions mt-sm-4">
+                            <!-- Cart and [Optionally] Apple Pay -->
+                            <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+
+                            <iscomment> #### TJG Show this button instead of of the html include  - put this in a condition</iscomment>
+                            <div class="pdp-checkout-button d-flex">
+                                <button class="add-to-cart btn btn-primary flex-grow-1" data-pid="${product.id}" disabled}>
+                                    <i class="fa fa-shopping-bag"></i>
+                                    <span class="ml-1">
+                                        ${Resource.msg('button.addtocart', 'common', null)}
+                                    </span>
+                                </button>
+                                <iscomment> <isif condition="${pdict.enabledPlugins.Wishlist}">
+                                    <isinclude template="wishlist/components/addToWishListButton" />
+                                </isif> </iscomment>
+                            </div>
+                            <iscomment> ### END BLOCK </iscomment>
+
+
+                        </div>
+                        <!-- Social Sharing Icons -->
+                        <div class="row">
+                            <isinclude template="product/components/socialIcons" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <isset name="loopState" value="{count: 1}" scope="page" />
+        <isinclude template="product/components/descriptionAndDetails" />
+
+        <div class="row recommendations">
+            <div class="container">
+                <isslot id="product-recommendations-1-m" description="Product Recommendations 1" context="global"
+                    context-object="${product.raw}" />
+                <isslot id="product-recommendations-2-m" description="Product Recommendations 2" context="global"
+                    context-object="${product.raw}" />
+                <isproductrecommendations product="${product}" />
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    </isobject>
+</isdecorate>
+
+<script>
+    
+    $(document).ready(function(){
+
+        $(".button").click(function () {
+            $(".button-overlay").toggleClass("active");
+        });
+
+    });
+
+    function fillQuantity(index, qty) {
+        // basically means, look through all 'INPUT' elements whose name starts with QTY__ and change the value to what was passed in
+        $("input[name*='QTY__" + index + "']").val(qty); 
+    }
+
+    function fillColumnQuantity(index, qty) {
+        $("input[name*='COL__" + index + "']").val(qty); 
+    }
+
+    function fillAllQuantity(qty) {
+        $("input[name*='COL__']").val(qty); 
+    }
+</script>

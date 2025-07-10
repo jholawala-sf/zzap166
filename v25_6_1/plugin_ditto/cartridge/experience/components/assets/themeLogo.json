@@ -1,0 +1,27 @@
+{
+    "name": "Theme Logo",
+    "description": "Theme Logo",
+    "group": "Themes",
+    "attribute_definition_groups": [
+        {
+            "id": "logo",
+            "name": "Logo",
+            "description": "Logo Details",
+            "attribute_definitions": [
+                {
+                    "id": "logoImage",
+                    "name": "Image",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "logoWidth",
+                    "name": "Logo Width (px)",
+                    "type": "integer",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

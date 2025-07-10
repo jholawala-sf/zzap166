@@ -1,0 +1,13 @@
+<div class="grid-header">
+    <div class="container mt-3 mt-md-5">
+        <h2 class="section-header">${Resource.msg('label.noresults.products', 'search', null)}</h2>
+    </div>
+
+    <div class="container mt-3 mt-md-5">
+        <isslot id="noresults-help" description="Recommendations for no result search" context="global" />
+    </div>
+
+    <div class="container mt-3 mt-md-5">
+        <isslot id="noresult-recommendations" description="Recommendations for no result search" context="global" />
+    </div>
+</div>

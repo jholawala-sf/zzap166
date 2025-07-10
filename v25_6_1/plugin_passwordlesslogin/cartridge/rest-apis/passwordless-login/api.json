@@ -1,0 +1,9 @@
+{
+  "endpoints": [
+    {
+      "endpoint": "authorizeCustomer",
+      "schema": "schema.yaml",
+      "implementation": "script"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "endpoints": [
+    {"endpoint": "customerGroups", "schema": "schema.yaml", "implementation": "script"}
+  ]
+}

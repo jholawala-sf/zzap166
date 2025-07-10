@@ -1,0 +1,61 @@
+.shop-container a {
+    width: 100%;
+}
+
+.shop-image {
+    height: 356px;
+    width: 100%;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.shop-textbox {
+    padding: 1rem 0rem 0rem 0.5rem;
+}
+
+.shop-button {
+    width: 4rem !important;
+    height: 4rem !important;
+    border-radius: 50%;
+    background-image: url("https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/ZZSE_291/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v77d707d305312b142a3a140fa7144ed520d122a2/images/add-icon.png");
+    background-size: contain;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+/* fix hover */
+
+.shop-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.shop-title {
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-top: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.shop-textbox .sales .value {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}

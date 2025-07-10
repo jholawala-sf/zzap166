@@ -1,0 +1,31 @@
+.image-component {
+    overflow: hidden;
+    position: relative;
+
+    .image-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .image-overlay-wrapper {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .image-overlay {
+        height: 100%;
+    }
+
+    .iamge-overlay-inner {
+        padding: 1rem;
+    }
+}

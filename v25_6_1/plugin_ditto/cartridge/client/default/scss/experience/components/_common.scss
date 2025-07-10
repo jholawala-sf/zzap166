@@ -1,0 +1,13 @@
+.experience-layouts-1_column,
+.experience-layouts-2_column,
+.experience-layouts-3_column,
+.experience-layouts-4_column,
+.experience-layouts-5_column,
+.experience-layouts-6_column {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.experience-component {
+    flex: 1 1 auto;
+}

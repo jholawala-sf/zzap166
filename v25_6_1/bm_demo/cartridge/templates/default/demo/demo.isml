@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Demo</title>
+<!--    <link rel="stylesheet" href="${URLUtils.staticURL('/css/index.css')}" />-->
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/Intro.css')}" />
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/Designer.css')}" />
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/Outro.css')}" />
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/override.css')}" />
+    <link rel="stylesheet" href="${URLUtils.staticURL('/assets/styles/salesforce-lightning-design-system.css')}" />
+    <script>
+        window._clientSettings = <isprint value="${JSON.stringify(pdict.clientSettings, null, 2)}" encoding="off"/>
+    </script>
+    <script>
+        window._config = <isprint value="${JSON.stringify(pdict.config, null, 2)}" encoding="off" />;
+    </script>
+    <script>
+        // break out of inner frame if clicked
+        if(this != top){
+            top.location.href = this.location.href;
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ${'#'}header {
+            height: 60px;
+            background-color: #f2f2f2;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        ${'#'}iframeContainer {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 100px);
+        }
+
+        ${'#'}parent-iframe {
+            width: calc(100% - 500px);
+            float: left;
+            height: 100%;
+        }
+
+        ${'#'}small-iframe {
+            width: 500px;
+            border: none;
+            float: right;
+            height: 100vh;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="demo-react-container"></div>
+<link rel="stylesheet" href="${URLUtils.absStatic('js/demo/assets/main.css')}"/>
+<script src="${URLUtils.staticURL('/js/demo/assets/main.js')}"></script>
+</body>
+</html>

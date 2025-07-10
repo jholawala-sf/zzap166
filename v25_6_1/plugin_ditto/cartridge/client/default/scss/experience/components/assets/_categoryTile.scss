@@ -1,0 +1,8 @@
+.category-tile {
+    .category-name {
+        text-align: center;
+
+        @include font-size(18px);
+        @include mt(3);
+    }
+}

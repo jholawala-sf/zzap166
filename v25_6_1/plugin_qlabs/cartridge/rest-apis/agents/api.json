@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {
+      "endpoint": "getAgents",
+      "schema": "schema.yaml",
+      "implementation": "script"
+    },
+    {
+      "endpoint": "getUserVerification",
+      "schema": "schema.yaml",
+      "implementation": "script"
+    }
+  ]
+}

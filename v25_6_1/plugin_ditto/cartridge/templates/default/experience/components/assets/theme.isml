@@ -1,0 +1,134 @@
+<isscript>
+    const THEME_COLORS = [
+        {
+            name: "General Colors",
+            colors: [
+                {
+                    name: "Primary Color",
+                    var: "primaryColor",
+                    cssVar: "--toolkit-primary"
+                },
+                {
+                    name: "Secondary Color",
+                    var: "secondaryColor",
+                    cssVar: "--toolkit-secondary"
+                },
+                {
+                    name: "Text Color",
+                    var: "textColor",
+                    cssVar: "--toolkit-text-color"
+                }
+            ]
+        },
+        {
+            name: "Header",
+            colors: []
+        },
+        {
+            name: "Footer",
+            colors: [
+                {
+                    name: "Footer FG Color",
+                    var: "footerFGColor",
+                    cssVar: "--toolkit-site-footer-fg"
+                },
+                {
+                    name: "Footer BG Color",
+                    var: "footerBGColor",
+                    cssVar: "--toolkit-site-footer-bg"
+                }
+            ]
+        },
+        {
+            name: "Product",
+            colors: [
+                {
+                    name: "Ratings Color",
+                    var: "productRatingsColor",
+                    cssVar: "--toolkit-product-ratings-color"
+                }
+            ]
+        },
+        {
+            name: "Buttons",
+            display: false,
+            colors: [
+                {
+                    name: "Button Primary Text",
+                    var: "buttonPrimaryTextColor",
+                    cssVar: "--toolkit-btn-primary-text"
+                },
+                {
+                    name: "Button Secondary Text",
+                    var: "buttonSecondaryTextColor",
+                    cssVar: "--toolkit-btn-secondary-text"
+                }
+            ]
+        },
+    ]
+</isscript>
+
+<isprint value="${'<style>'}" encoding="off"/>
+<isif condition="${pdict.editMode}">
+.ditto-theme-editor-container {
+<iselse/>
+:root {
+</isif>
+
+<isloop items="${THEME_COLORS}" alias="group">
+    <isloop items="${group.colors}" alias="color">
+        <isif condition="${!empty(pdict[color.var])}">
+${color.cssVar}: ${pdict[color.var]};
+        </isif>
+    </isloop>
+</isloop>
+
+}
+<isif condition="${!empty(pdict.rawCSS)}">
+    <isprint value="${pdict.rawCSS}" encoding="off"/>
+</isif>
+<isprint value="${'</style>'}" encoding="off"/>
+
+
+<isif condition="${pdict.editMode}">
+    <isloop items="${THEME_COLORS}" alias="group">
+        <isif condition="${group.display === false}">
+            <iscontinue/>
+        </isif>
+        <h3>${group.name}</h3>
+
+        <div class="d-flex">
+            <isloop items="${group.colors}" alias="color">
+                <div class="col-12 col-lg-4">
+                    <div class="ditto-theme-editor--swatch-container">
+                        <div class="ditto-theme-editor--swatch-color" style="background-color: var(${color.cssVar}, var(${color.cssVar}-default, 'white'))"></div>
+                        <div class="ditto-theme-editor--swatch-info">
+                            <strong>${color.name}</strong><br/>
+                            <isif condition="${!empty(pdict[color.var])}">
+                            ${pdict[color.var]}
+                            <iselse/>
+                                <i style="color: #888888">default</i>
+                            </isif>
+                        </div>
+                    </div>
+                </div>
+            </isloop>
+        </div>
+    </isloop>
+
+    <h3>Buttons</h3>
+    <div class="d-flex">
+        <div class="d-flex">
+            <div class="col-12">
+                <button class="btn btn-primary btn-lg">Button Primary</button><br/><br/>
+                <button class="btn btn-outline-primary btn-lg">Button Outline Primary</button><br/><br/>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="col-12">
+                <button class="btn btn-secondary btn-lg">Button Secondary</button><br/><br/>
+                <button class="btn btn-outline-secondary btn-lg">Button Outline Secondary</button><br/><br/>
+            </div>
+        </div>
+    </div>
+</isif>

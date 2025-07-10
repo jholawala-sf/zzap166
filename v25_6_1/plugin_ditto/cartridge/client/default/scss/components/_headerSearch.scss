@@ -1,0 +1,137 @@
+@import "../variables";
+
+.site-search {
+    background-color: $site-main-menu-bg;
+    position: relative;
+
+    .input-group {
+        align-items: center;
+        border: 1px solid $site-main-menu-border;
+        padding: 0.25rem 0.5rem;
+
+        .search-field {
+            box-shadow: none;
+            height: calculate-rem(25px);
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+    }
+
+    .input-group-text {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+        margin-right: 0.5em;
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: 20em;
+    }
+
+    @include media-breakpoint-only(md) {
+        width: 14.0625em;
+    }
+
+    @include media-breakpoint-only(sm) {
+        width: 12.5em;
+    }
+}
+
+.suggestions-wrapper {
+    position: relative;
+}
+
+.suggestions {
+    background-color: $site-main-menu-bg;
+    border: 1px solid $site-main-menu-border;
+    box-shadow: $default-box-shadow;
+    display: block !important;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+
+    @include media-breakpoint-up(lg) {
+        width: 43.75em;
+    }
+
+    @include media-breakpoint-down(md) {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .order-2 {
+        @include media-breakpoint-up(lg) {
+            border-right: 1px solid $site-main-menu-border;
+        }
+    }
+
+    .do-you-mean {
+        border-bottom: 1px solid $site-main-menu-border;
+    }
+
+    .header {
+        color: $site-search-header;
+        font-size: 0.875rem;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    .product-thumbnail {
+        height: 100px;
+        width: auto;
+    }
+
+    .thumbnail {
+        height: 40px;
+        width: auto;
+    }
+
+    .name {
+        a {
+            width: 150px;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .suggestions {
+        height: 100vh;
+        padding-bottom: 96px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .site-search {
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateY(0);
+        transition: transform 0.5s $default-cubic-bezier;
+        width: 100vw;
+        z-index: -1;
+
+        .suggestions {
+            position: absolute;
+        }
+
+        .site-search-active & {
+            transform: translateY(48px);
+        }
+
+        .search-field {
+            border-right: 0;
+        }
+
+        .input-group-append {
+            .input-group-text {
+                border-left: 0;
+            }
+        }
+    }
+}

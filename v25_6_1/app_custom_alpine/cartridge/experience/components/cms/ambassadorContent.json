@@ -1,0 +1,23 @@
+{
+    "name": "Ambassador Content",
+    "group": "CMS",
+    "attribute_definition_groups": [
+        {
+            "id": "content",
+            "name": "Content",
+            "description": "The Ambassador content",
+            "attribute_definitions": [
+                {
+                    "id": "cmsItem",
+                    "name": "Ambassador",
+                    "type": "cms_record",
+                    "required": true,
+                    "editor_definition": {
+                        "content_type": "ambassador"
+                    }
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

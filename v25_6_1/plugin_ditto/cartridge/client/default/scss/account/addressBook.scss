@@ -1,0 +1,8 @@
+@import "../variables";
+@import "~base/utilities/deleteCardButton";
+
+.remove-btn {
+    @include delete-card-button();
+
+    width: 3rem;
+}

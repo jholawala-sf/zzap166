@@ -1,0 +1,114 @@
+@import "../variables";
+@import "./productCard";
+
+.minicart-container {
+    background-color: $white;
+    border-left: 1px solid $site-main-menu-border;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: top 426ms $default-cubic-bezier, transform 426ms $default-cubic-bezier;
+    width: calculate-rem(320px);
+    z-index: 51;
+
+    @include media-breakpoint-up(md) {
+        height: 100vh;
+    }
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    .minicart-header {
+        .btn-close {
+            background: none;
+            border: 0;
+            border-left: 1px solid $site-main-menu-border;
+            cursor: pointer;
+            padding: 0;
+
+            @include font-size(16px);
+        }
+    }
+
+    .minicart-header,
+    .approaching-discounts {
+        border-bottom: 1px solid $site-main-menu-border;
+    }
+
+    .approaching-discounts {
+        @include p(3);
+        @include mb(3);
+    }
+
+    .view-cart {
+        color: $primary !important;
+        text-transform: none !important;
+
+        @include font-size(13px);
+    }
+
+    .minicart-title {
+        font-weight: $font-weight-bold;
+
+        @include font-size(13px);
+    }
+
+    .remove-btn {
+        background-color: white;
+        border: none;
+        color: #ccc;
+        float: right;
+        font-size: 1.625em;
+        margin-top: -0.313em;
+        padding: 0;
+    }
+
+    .product-summary {
+        flex-shrink: 1;
+        overflow: auto;
+    }
+
+    .card-body {
+        padding: 0.625em;
+    }
+
+    .quantity-label {
+        font-size: 0.813em;
+    }
+
+    .quantity {
+        width: 100%;
+    }
+
+    .minicart-footer {
+        background-color: $white;
+        border-top: 1px solid $site-main-menu-border;
+        flex-shrink: 0;
+        margin-top: auto;
+    }
+
+    .estimated-total {
+        margin-top: 0.625em;
+    }
+
+    .sub-total-label {
+        font-size: 1em;
+        font-weight: $font-weight-bold;
+    }
+
+    .sub-total {
+        font-size: 1em;
+        font-weight: $font-weight-bold;
+    }
+
+    .line-item-divider {
+        margin: 0.625em -0.625em 0.625em -1.325em;
+    }
+
+    .line-item-name {
+        width: 90%;
+    }
+}

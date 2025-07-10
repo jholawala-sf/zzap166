@@ -1,0 +1,18 @@
+<style>
+    .experience-dynamic-pdRecs .recommendations {
+        background-color: ${pdict.bgCol};
+    }
+</style>
+
+<isinclude template="experience/dynamic/product/pdCommon" />
+<div class="container-fluid product-detail product-wrapper pt-3" data-pid="${product.id}">
+    <div class="row recommendations">
+        <div class="container">
+            <isslot id="product-recommendations-1-m" description="Product Recommendations 1" context="global"
+                context-object="${product.raw}" />
+            <isslot id="product-recommendations-2-m" description="Product Recommendations 2" context="global"
+                context-object="${product.raw}" />
+            <isproductrecommendations product="${product}" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="image-container">
+    <a href="${pdict.urls.product}">
+        <img class="tile-image" src="${product.images.medium[0].url}" alt="${product.productName}"
+            title="${product.images.medium[0].title}" itemprop="image" />
+    </a>
+    <div class="badges d-flex">
+        <isif condition="${product.isNew}">
+            <div class="badge new">${Resource.msg('badge.new', 'product', null)}</div>
+        </isif>
+        <isif condition="${product.isOnSale}">
+            <div class="badge sale">${Resource.msg('badge.sale', 'product', null)}</div>
+        </isif>
+    </div>
+    <a class="wishlistTile" href="${URLUtils.url('Wishlist-AddProduct')}"
+        title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
+        <i class="far fa-heart"></i>
+    </a>
+    <isif condition="${pdict.display.showQuickView !== false}">
+        <a class="quickview hidden-sm-down btn btn-outline-primary mx-3" href="${pdict.urls.quickView}"
+            title="${Resource.msgf('button.quickview', 'common', null, product.productName)}">
+            ${Resource.msg('label.quickview', 'search', null)}
+        </a>
+    </isif>
+</div>

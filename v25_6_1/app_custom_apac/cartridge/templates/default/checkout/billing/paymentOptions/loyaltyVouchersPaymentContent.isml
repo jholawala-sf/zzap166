@@ -1,0 +1,75 @@
+<isset name="chain"
+       value="${require('*/cartridge/scripts/helpers/chain')}"
+       scope="page" />
+<isset name="vouchersPayment"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_VOUCHERS', null)}"
+       scope="page" />
+<isset name="loyaltyVouchersPaymentMethodId"
+       value="${(typeof loyaltyVouchersPaymentMethodId === 'undefined') ? loyaltyVouchersPaymentMethodId: require('*/cartridge/scripts/loyaltyConfig').loyaltyVouchersPaymentMethodId}"
+       scope="page" />
+<isset name="allowedVouchersQty"
+       value="${chain.safeGet(pdict, 'loyaltyDetails.vouchers.remainingRedeemableQty', 0)}"
+       scope="page" />
+<fieldset class="loyalty-vouchers-payment-form-fields">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="pt-4 pb-2 border-bottom text-primary collapseArrow" data-toggle="collapse" data-target="#collapseVouchersPoints">
+                <isprint value="${Resource.msg('payments.loyalty.msg.vouchers.header', 'loyalty', null)}" />
+            </h5>
+        </div>
+    </div>
+    <div class="collapse show" id="collapseVouchersPoints">
+        <div class="row">
+            <div class="col-12">
+                <p class="summary-section-label allowed-loyalty-vouchers-label">
+                    <isprint value="${Resource.msg('payments.loyalty.list.vouchers.label', 'loyalty', null)}" />
+                </p>
+                <button id="allowed-loyalty-voucher-select" class="btn btn-link pl-0 pb-2 text-primary"
+                        data-allowed-voucher-qty="${allowedVouchersQty}"
+                        data-refresh-summary-url="${URLUtils.url('CheckoutServices-UpdateVouchersModal')}"
+                        data-toggle="modal" data-target="#chooseLoyaltyVoucherModal">
+                    <isif condition="${allowedVouchersQty}">
+                    <iscomment>
+                        Approach not to use msgf for resources was done, as we have to update value via AJAX call
+                        any time there is a change to the basket and vouchers were applied/removed. As text could be
+                        localized and general extension via client/server side JS would have more complexity
+                        and customizations involved, bellow approach was applied.
+                    </iscomment>
+                    <span id="allowedVouchersQty">
+                        <isprint value="${allowedVouchersQty.toString()}" />
+                    </span>
+                    <isprint value="${Resource.msg('payments.loyalty.list.vouchers.available', 'loyalty', null)}" />
+                <iselse/>
+                    <isprint value="${Resource.msg('payments.loyalty.list.vouchers.not.available', 'loyalty', null)}" />
+                </isif>
+                </button>
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+            </div>
+        </div>
+
+        <div class="modal fade" id="chooseLoyaltyVoucherModal" tabindex="-1" role="dialog" aria-labelledby="chooseLoyaltyVoucherModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">
+                            <isprint value="${Resource.msg('payments.loyalty.vouchers.modal.title', 'loyalty', null)}" />
+                        </h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <isset name="vouchers" value="${chain.safeGet(pdict, 'loyaltyDetails.vouchers', null)}" scope="page" />
+                        <isset name="totalExcludingLoyaltyBasedPaymentMethods" value="${chain.safeGet(pdict, 'order.billing.payment.totalExcludingLoyaltyBasedPaymentMethods.formatted', null)}" scope="page" />
+                        <isinclude template="checkout/billing/paymentOptions/voucherModalBody" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="${loyaltyVouchersPaymentMethodId}">
+        <isinclude template="checkout/billing/loyaltyVouchersPaymentForm" />
+    </div>
+</fieldset>

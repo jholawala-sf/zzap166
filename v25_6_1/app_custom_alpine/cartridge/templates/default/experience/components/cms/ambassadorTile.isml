@@ -1,0 +1,28 @@
+<div class="ambassador-tile">
+    <a class="ambassador-tile-link text-reset" href="${pdict.link}">
+        <isif condition="${pdict.image}">
+            <div class="ambassador-tile-image-wrapper">
+                <picture>
+                    <source srcset="${pdict.image.src.desktop}" media="(min-width: 48rem)" />
+                    <source srcset="${pdict.image.src.mobile}" media="(min-width: 20rem)" />
+                    <img src="${pdict.image.src.mobile}" class="img-fluid object-fit_none"
+                        style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                        ${pdict.image.alt ? 'alt="' + pdict.image.alt + '" title="' + pdict.image.alt + '"' : ''} />
+                </picture>
+                <isif condition="${pdict.description !== ''}">
+                    <div class="ambassador-tile-overlay justify-content-center align-items-center">
+                        <div class="d-flex">
+                            <isprint value="${pdict.activity}" encoding="off" />
+                        </div>
+                    </div>
+                </isif>
+            </div>
+        </isif>
+
+        <div class="ambassador-tile-text">
+            <h5 class="ambassador-tile-title font-weight-bold">
+                <isprint value="${pdict.title}" encoding="off" />
+            </h5>
+        </div>
+    </a>
+</div>

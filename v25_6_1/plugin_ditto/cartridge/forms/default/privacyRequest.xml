@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+    <field
+        formid="privacyRequestType"
+        label="label.input.privacy.request.type"
+        type="integer"
+        mandatory="true"
+        missing-error="privacy.request.missing"
+        value-error="error.message.required"
+    >
+        <options>
+            <option optionid="" label="select.default.request.type" value="" />
+            <option optionid="1" label="label.select.option.1" value="1" />
+            <option optionid="2" label="label.select.option.2" value="2" />
+            <option optionid="3" label="label.select.option.3" value="3" />
+            <option optionid="4" label="label.select.option.4" value="4" />
+        </options>
+    </field>
+
+    <field
+        formid="firstname"
+        label="label.input.firstname.profile"
+        mandatory="true"
+        max-length="50"
+        missing-error="error.message.required"
+        range-error="error.message.lessthan50"
+        type="string"
+    />
+
+    <field
+        formid="lastname"
+        label="label.input.lastname.profile"
+        mandatory="true"
+        max-length="50"
+        missing-error="error.message.required"
+        range-error="error.message.lessthan50"
+        type="string"
+    />
+
+    <field
+        formid="email"
+        label="label.input.email.profile"
+        mandatory="true"
+        max-length="50"
+        missing-error="error.message.required"
+        parse-error="error.message.parse.email.form"
+        range-error="error.message.lessthan50"
+        regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+        value-error="ValueErrorText"
+        type="string"
+    />
+
+    <field
+        formid="phone"
+        label="label.input.phonenumber"
+        mandatory="true"
+        regexp="^\(?([2-9][0-8][0-9])\)?[\-\. ]?([2-9][0-9]{2})[\-\. ]?([0-9]{4})(\s*x[0-9]+)?$"
+        missing-error="error.message.required"
+        parse-error="error.message.parse.phone.form"
+        type="string"
+    />
+
+    <field
+        formid="submitRequest"
+        label="label.submit.request"
+        binding="submitRequest"
+        type="boolean"
+        mandatory="false"
+        checked="true"
+    />
+
+</form>

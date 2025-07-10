@@ -1,0 +1,58 @@
+<!--- TEMPLATENAME: voucherModalBody.isml --->
+<isset name="chain"
+       scope="page"
+       value="${require('*/cartridge/scripts/helpers/chain')}"/>
+<isset name="listOfRedeemableVouchers"
+       scope="page"
+       value="${chain.safeGet(vouchers, 'listOfRedeemableVouchers', [])}"/>
+<isset name="totalAmountOfRedeemableVouchers"
+       scope="page"
+       value="${chain.safeGet(vouchers, 'totalAmountOfRedeemableVouchers', null)}"/>
+<div class="row leading-lines subtotal-item">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span><isprint value="${Resource.msg('payments.loyalty.vouchers.modal.order.total', 'loyalty', null)}" /></span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="sub-total"><isprint value="${totalExcludingLoyaltyBasedPaymentMethods}" /></span></p>
+    </div>
+</div>
+
+<isloop items="${listOfRedeemableVouchers}" status="loopStatus" var="redeemableVoucher">
+    <div class="form-check bg-light px-5 py-3 mb-2">
+        <input class="form-check-input"
+               type="radio"
+               name="exampleRadios"
+               id="${'exampleRadios'+loopStatus.index}"
+               value="${redeemableVoucher.code}"
+               ${loopStatus.first ? 'checked' : ''}>
+        <label class="form-check-label" for="${'exampleRadios'+loopStatus.index}">
+            <isprint value="${redeemableVoucher.name}"/>
+        </label>
+        <p>
+            <strong> <isprint value="${Resource.msg('payments.loyalty.vouchers.modal.current.value', 'loyalty', null)}" />: <isprint value="${redeemableVoucher.balance.formatted}" /></strong>
+            <br>
+            <isprint value="${Resource.msg('payments.loyalty.vouchers.modal.original.value', 'loyalty', null)}" />: <isprint value="${redeemableVoucher.originalValue.formatted}" />
+            <br>
+            <isprint value="${Resource.msg('payments.loyalty.vouchers.modal.code', 'loyalty', null)}" />: <isprint value="${redeemableVoucher.code}"/>
+            <br>
+            <isprint value="${redeemableVoucher.expirationDate.formattedLongDate}" />
+        </p>
+    </div>
+</isloop>
+
+<div class="row leading-lines subtotal-item">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span><isprint value="${Resource.msg('payments.loyalty.vouchers.modal.balance', 'loyalty', null)}" /></span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="sub-total"><isprint value="${totalAmountOfRedeemableVouchers.formatted}"/></span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <button id="cancelVoucherModal" name="cancel" class="btn btn-outline-primary px-4 mr-3"
+                value="1"><isprint value="${Resource.msg('payments.loyalty.vouchers.modal.cancel', 'loyalty', null)}" /></button>
+        <button id="submitVoucherModal" name="submit" class="btn btn-primary px-4"
+                value="1"><isprint value="${Resource.msg('payments.loyalty.vouchers.modal.apply', 'loyalty', null)}" /></button>
+    </div>
+</div>

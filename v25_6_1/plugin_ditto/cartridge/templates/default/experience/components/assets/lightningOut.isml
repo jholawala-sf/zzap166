@@ -1,0 +1,17 @@
+<script src="${pdict.loadJsUrl}"></script>
+
+<script>
+    $Lightning.use("${pdict.appName}", function() {                  
+            $Lightning.createComponent("${pdict.cmptName}", 
+                { },                  
+                "cmptHere",
+                function(cmp) {
+                    // do something if want
+                }
+            );
+        },
+        '${pdict.communityUrl}'
+    );
+</script>
+
+<div id="cmptHere"></div>

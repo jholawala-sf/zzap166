@@ -1,0 +1,34 @@
+<isset name="shippingAddress" value="${pdict.forms.shippingForm.shippingAddress}" scope="page" />
+
+<div class="form-group">
+    <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
+
+    <select class="form-control shipping-method-list"
+        data-select-shipping-method-url="${URLUtils.https('CheckoutShippingServices-SelectShippingMethod')}"
+        data-action-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingMethodsList')}"
+        name="${shippingAddress.shippingMethodID.htmlName}">
+        <isloop items="${shippingModel.applicableShippingMethods}" var="shippingMethod">
+            <option value="${shippingMethod.ID}" data-pickup="${shippingMethod.storePickupEnabled}"
+                ${shippingModel.selectedShippingMethod && shippingMethod.ID === shippingModel.selectedShippingMethod.ID ?
+                'selected' : ''}>
+                <span class="display-name">${shippingMethod.displayName}</span>
+                <isif condition="${shippingMethod.estimatedArrivalTime}">
+                    <span class="text-muted arrival-time">(${shippingMethod.estimatedArrivalTime})</span>
+                </isif>
+                <span class="shipping-cost">${shippingMethod.shippingCost}</span>
+            </option>
+        </isloop>
+    </select>
+</div>
+
+
+<!---------------------------------------------------------------------------------->
+<!-- Template used by client to redraw shipping methods                           -->
+<!---------------------------------------------------------------------------------->
+<div id="shipping-method-template" style="display:none;">
+    <option value="" data-pickup="">
+        <span class="display-name"></span>
+        <span class="text-muted arrival-time" style="display:none"></span>
+        <span class="shipping-cost"></span>
+    </option>
+</div>

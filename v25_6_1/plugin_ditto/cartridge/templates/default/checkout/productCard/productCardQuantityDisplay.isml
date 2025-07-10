@@ -1,0 +1,8 @@
+<div class="line-item-quanity-info quantity" data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}">
+    <span class="qty-card-quantity-label">
+        ${Resource.msg('field.selectquantity', 'cart', null)}
+    </span>:
+    <span class="qty-card-quantity-count">
+        <isprint value="${lineItem.quantity}" formatter="##" />
+    </span>
+</div>

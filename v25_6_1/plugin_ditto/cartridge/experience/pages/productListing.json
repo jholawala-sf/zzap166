@@ -1,0 +1,13 @@
+{
+    "name": "Product Listing Page",
+    "description": "Product listing page- NTO version with 1 region",
+    "region_definitions": [
+        {
+            "id": "main",
+            "name": "Main Region",
+            "default_component_constructors": [{ "type_id": "layouts.productList", "name": "Product Listing Layout" }],
+            "component_type_exclusions": [{ "type_id": "assets.campaignBanner" }]
+        }
+    ],
+    "supported_aspect_types": ["plp"]
+}

@@ -1,0 +1,15 @@
+<isdecorate template="labs/container">
+    <template id="labs-template">
+        <link rel="stylesheet" href="${URLUtils.absStatic('js/labs/assets/vendor.css')}"/>
+        <link rel="stylesheet" href="${URLUtils.absStatic('js/labs/assets/main.css')}"/>
+        <div id="labs-react-container"></div>
+    </template>
+    <div id="labs-container"></div>
+    <script>
+        window._clientSettings = <isprint value="${JSON.stringify(pdict.clientSettings, null, 2)}" encoding="off"/>
+    </script>
+
+    <link rel="stylesheet" href="${URLUtils.absStatic('js/labs/assets/vendor.css')}"/>
+    <link rel="stylesheet" href="${URLUtils.absStatic('js/labs/assets/main.css')}"/>
+    <script type="module" src="${URLUtils.absStatic('js/labs/assets/main.js')}"></script>
+</isdecorate>

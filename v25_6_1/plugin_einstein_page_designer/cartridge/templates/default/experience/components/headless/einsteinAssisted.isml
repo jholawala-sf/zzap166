@@ -1,0 +1,20 @@
+<script>
+      window.__PD_einstein_assisted_html = `
+      <isprint value="${pdict.html}" encoding="off" />
+      `;
+      window.__PD_einstein_assisted_react = `
+      <isprint value="${pdict.react}" encoding="off" />
+      `;
+      window.__PD_einstein_assisted_componentID = "<isprint value="${pdict.componentID}" encoding="off" />";
+      
+</script>
+
+<div id="pd-<isprint value=" ${pdict.componentID}" encoding="off" />"></div>
+
+<isif condition="${pdict.mode === 'html'}">
+    <isprint value="${pdict.html}" encoding="off" />
+</isif>
+
+<isif condition="${pdict.mode === 'react'}">
+    <script src="${URLUtils.staticURL('experience/components/headless/react-rendering.js')}"></script>
+</isif>

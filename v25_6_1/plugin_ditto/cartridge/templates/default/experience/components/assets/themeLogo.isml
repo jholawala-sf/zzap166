@@ -1,0 +1,3 @@
+<isif condition="${!empty(pdict.logoImage)}">
+    <img src="${pdict.logoImage.file.url}" style="max-width: ${pdict.logoWidth ? pdict.logoWidth + 'px' : '200px'}"/>
+</isif>

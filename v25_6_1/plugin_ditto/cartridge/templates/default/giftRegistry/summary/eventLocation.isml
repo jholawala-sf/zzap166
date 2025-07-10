@@ -1,0 +1,6 @@
+<span class="event-location-summary">
+    <span class="event-city-summary">${pdict.giftRegistryModel.eventInfo.city || ''}<isif
+            condition="${pdict.giftRegistryModel.eventInfo.state}">,</isif>
+    </span>
+    <span class="event-state-summary">${pdict.giftRegistryModel.eventInfo.state || ''}</span>
+</span>

@@ -1,0 +1,35 @@
+<isset name="activeNavigation" value="payment-options" scope="page" />
+
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/paymentInstruments.js');
+        assets.addCss('/css/account/payment.css');
+    </isscript>
+
+    <isinclude template="account/payment/deletePaymentModal" />
+
+    <div class="container">
+        <div class="account-header">
+            <h2>${Resource.msg('page.heading.payments', 'payment', null)}</h2>
+            <isif condition="${pdict.addPaymentUrl}">
+                <a href="${pdict.addPaymentUrl}" class="btn btn-link">
+                    ${Resource.msg('label.payment.addnewpayment', 'payment', null)}
+                </a>
+            </isif>
+        </div>
+        <div class="row">
+            <div class="col-12 ${pdict.noSavedPayments ? '' : 'd-none'}">
+                <div class="no-addresses-msg">
+                    ${Resource.msg('msg.no.saved.payments', 'payment', null)}
+                </div>
+            </div>
+            <div class="col-12">
+                <!-- Rows for addresses in the Address Book -->
+                <div class="list-group list-group-flush">
+                    <isinclude template="account/payment/savedPayments"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

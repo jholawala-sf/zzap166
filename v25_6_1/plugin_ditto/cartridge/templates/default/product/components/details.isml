@@ -1,0 +1,6 @@
+<isif condition="${product.longDescription}">
+    <div class="long-description">
+        <div class="description-label">${Resource.msg('label.features', 'product', null)}</div>
+        <isprint value="${product.longDescription}" encoding="off" />
+    </div>
+</isif>

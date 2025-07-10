@@ -1,0 +1,12 @@
+@import "../variables";
+@import "../checkout/checkoutComponents";
+
+.section-label {
+    font-size: $receipt-font-size;
+    font-weight: bolder;
+}
+
+.my-account {
+    margin-bottom: 0.938em;
+    text-align: center;
+}

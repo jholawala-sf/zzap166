@@ -1,0 +1,89 @@
+<isset name="loyaltyVouchersPaymentFields" value="${pdict.forms.billingForm.loyaltyPaymentFields.vouchers}" scope="page" />
+
+<!-- Loyalty Voucher Action hidden control attribute managed by client side JS -->
+<input type="hidden"
+       class="form-control"
+       id="removeVoucherAction"
+       name="${loyaltyVouchersPaymentFields.removeVoucherAction.htmlName}"
+       value="false">
+
+<div class="row sfpp-payment-method-name">
+    <div class="col-8">
+        <div
+            class="form-group ${!!loyaltyVouchersPaymentFields.amount.mandatory ? 'required' : ''} ${loyaltyVouchersPaymentFields.amount.htmlName}">
+            <label class="form-control-label" for="number">
+                <isprint value="${Resource.msg('payments.loyalty.msg.vouchers.code', 'loyalty', null)}" />
+            </label>
+            <input type="text" class="form-control" id="number" value="" <isprint
+                value=${loyaltyVouchersPaymentFields.number.attributes} encoding="off" /> />
+            <div class="invalid-feedback" id="loyaltyVouchersPaymentInvalidMessage"></div>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        </div>
+    </div>
+    <div class="col-4 submit-loyalty-vouchers-payment-button">
+        <div class="mb-sm-3">
+            <div class="form-group">
+                <label class="form-control-label" aria-hidden="true"> &nbsp; </label>
+                <button class="btn btn-outline-primary btn-block submit-loyalty-vouchers-payment" id="submit-loyalty-vouchers-payment"
+                    type="submit" data-refresh-summary-url="${URLUtils.url('CheckoutServices-UpdateOrderSummary')}"
+                    name="submit" value="submit-loyalty-vouchers-payment">
+                    <isprint value="${Resource.msg('payments.loyalty.button.vouchers.apply', 'loyalty', null)}" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<isset name="chain" value="${require('*/cartridge/scripts/helpers/chain')}" scope="page" />
+<isset name="loyaltyVouchersAmountDetails"
+       value="${chain.safeGet(pdict, 'order.billing.payment.loyaltyVouchersAmountDetails', null)}"
+       scope="page" />
+
+<div  class="row loyalty-vouchers-amount-info-section">
+        <isloop items="${loyaltyVouchersAmountDetails}" var="voucherDetails" status="loopStatus">
+            <div class="col-8 pt-2 loyalty-voucher-information">
+                <p class="summary-section-label loyalty-vouchers-amount-added-label">
+                    <i class="text-success fa fa-check-circle"></i>
+                    <span class="loyalty-voucher-applied">
+                        <isprint value="${chain.safeGet(voucherDetails, 'name', '')}" />
+                    </span>
+                    <isprint value="${Resource.msg('payments.loyalty.vouchers.applied.1', 'loyalty', null)}" />
+                    <span class="loyalty-voucher-money-amount-applied">
+                        <isprint value="${chain.safeGet(voucherDetails, 'amount.formatted', '-')}" />
+                    </span>
+                    <isprint value="${Resource.msg('payments.loyalty.vouchers.applied.2', 'loyalty', null)}" />
+                </p>
+            </div>
+            <div class="col-4 text-right loyalty-voucher-button">
+                <button class="btn btn-link text-primary remove-loyalty-voucher-payment"
+                        id="remove-loyalty-voucher-payment-${loopStatus.index}"
+                        type="submit"
+                        name="submit"
+                        data-voucher-code="${voucherDetails.code}"
+                        value="remove-loyalty-voucher-payment">
+                    <isprint value="${Resource.msg('payments.loyalty.button.vouchers.remove', 'loyalty', null)}" />
+                </button>
+            </div>
+        </isloop>
+</div>
+
+<!-- Loyalty Voucher row template -->
+<div id="loyalty-voucher-template" class="checkout-hidden">
+    <div class="col-8 pt-2 loyalty-voucher-information checkout-hidden">
+        <p class="summary-section-label loyalty-vouchers-amount-added-label">
+            <i class="text-success fa fa-check-circle"></i>
+            <span class="loyalty-voucher-applied"></span>
+            <isprint value="${Resource.msg('payments.loyalty.vouchers.applied.1', 'loyalty', null)}" />
+            <span class="loyalty-voucher-money-amount-applied"></span>
+            <isprint value="${Resource.msg('payments.loyalty.vouchers.applied.2', 'loyalty', null)}" />
+        </p>
+    </div>
+    <div class="col-4 text-right loyalty-voucher-button checkout-hidden">
+        <button class="btn btn-link text-primary remove-loyalty-voucher-payment"
+                type="submit"
+                name="submit"
+                value="remove-loyalty-voucher-payment">
+            <isprint value="${Resource.msg('payments.loyalty.button.vouchers.remove', 'loyalty', null)}" />
+        </button>
+    </div>
+</div>

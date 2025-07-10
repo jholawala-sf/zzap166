@@ -1,0 +1,45 @@
+@import "./variables";
+
+.page-title {
+    font-weight: $font-weight-bold;
+}
+
+.continue-shopping-link {
+    @include font-size(13px);
+
+    color: $gray-900;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}
+
+.totals {
+    background-color: $order-summary-background;
+}
+
+.cart-page {
+    .approaching-discounts {
+        background-color: $order-summary-background;
+
+        @include py(3);
+        @include mb(3);
+    }
+
+    .line-item-attributes-name,
+    .qty-card-quantity-label {
+        font-weight: $font-weight-bold;
+    }
+
+    .gift-certificates-applied-total,
+    .purchase-order-applied-total {
+        color: $success;
+    }
+
+    .remaining-order-total {
+        font-weight: 600;
+    }
+
+    .hide-purchase-order-applied,
+    .hide-remaining-total {
+        display: none;
+    }
+}

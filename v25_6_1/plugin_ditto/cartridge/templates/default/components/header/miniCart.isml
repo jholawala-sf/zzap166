@@ -1,0 +1,8 @@
+<div class="minicart-total">
+    <a class="minicart-link" href="${'#'}" title="${Resource.msg('minicart.viewcart', 'common', null)}">
+        <i class="far fa-lg fa-shopping-bag" aria-hidden="true"></i>
+        <span class="minicart-quantity ml-1">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+    </a>
+</div>

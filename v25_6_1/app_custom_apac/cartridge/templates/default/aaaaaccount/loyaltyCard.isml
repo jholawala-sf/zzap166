@@ -1,0 +1,22 @@
+<isset name="chain" value="${require('*/cartridge/scripts/helpers/chain')}" scope="page" />
+<isset name="isLoyaltyCustomer" value="${chain.safeGet(pdict, 'account.loyalty.isLoyaltyCustomer', false)}" scope="page" />
+
+<div class="card">
+    <div class="card-header clearfix">
+        <h2 class="pull-left">${Resource.msg('profile.loyalty.label.loyalty', 'loyalty', null)}</h2>
+    </div>
+    <isif condition="${isLoyaltyCustomer}">
+        <div class="card-body">
+            <div>${Resource.msg('profile.loyalty.status.optin', 'loyalty', null)}</div>
+            <a href="${URLUtils.url('Loyalty-Optout')}" class="btn btn-link pl-0"
+                aria-label="${Resource.msg('profile.loyalty.status.cta.label.optout', 'loyalty', null)}">${Resource.msg('profile.loyalty.status.cta.optout', 'loyalty', null)}</a>
+        </div>
+
+    <iselse/>
+        <div class="card-body">
+            <div>${Resource.msg('profile.loyalty.status.optout', 'loyalty', null)}</div>
+            <a href="${URLUtils.url('Loyalty-Optin')}" class="card-link"
+                aria-label="${Resource.msg('profile.loyalty.status.cta.label.optin', 'loyalty', null)}">${Resource.msg('profile.loyalty.status.cta.optin', 'loyalty', null)}</a>
+        </div>
+    </isif>
+</div>

@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "AvantGarde";
+    src: url("../fonts/AvantGardeForSalesforce-Demi.otf") format("opentype");
+}
+
+body {
+    margin: 0;
+    font-family: "AvantGarde", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+    --footerHeight: 80px;
+}
+
+.panel-container{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--footerHeight);
+}
+.panel{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 2rem;
+    position: relative;
+    box-shadow: 6px 5px 16px 10px #0000001A;
+}
+.panel img{
+    position: absolute;
+    left: 3rem;
+    height: 0px;
+}
+.panel img.demo-img{
+    position: absolute;
+    right: 3rem;
+    left: auto;
+}
+.panel button + button{
+    margin-left: 2rem;
+}
+
+.panel button{
+    flex-basis: 140px;
+    font-size: 14px;
+    padding: 1rem 0rem;
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+    border-color: transparent;
+}
+
+.panel button.end{
+    margin-left: auto;
+}
+
+.panel button a{
+    text-decoration: none;
+    color: white;
+}
+
+.App .main-container{
+    min-height: calc(100vh - var(--footerHeight));
+    background: #22683E;
+    padding: 0rem 3rem calc(var(--footerHeight) + 1rem) 3rem;
+}
+
+.App .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main .iframe2 .iphonebezel-container{
+    position: relative;
+}
+
+.iframe2 .iphonebezel-container img{
+    width: 100%;
+    position: relative;
+}
+
+.iframe2 .iphonebezel-container iframe{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: calc(100% - 5px);
+    border-radius: 20%;
+    border: 0px solid transparent;
+}
+
+.main .iframe1{
+    width: 100%;
+}
+
+.main .iframe1 h2{
+    font-size: 16px;
+    color: white;
+    text-align: left;
+}
+
+.main .iframe1 iframe{
+    width: 100%;
+    height: 800px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+
+.main .iframe2{
+}
+
+.main .iframe2 h2{
+    font-size: 16px;
+    color: white;
+    text-align: left;
+}
+
+/* IFrames styles for development */
+.App.iframe1{
+    background-color: green;
+    min-height: 100vh;
+}
+.App.iframe1 h1{
+    margin: 0;
+}
+
+.App.iframe2{
+    background-color: yellow;
+    min-height: 100vh;
+}
+.App.iframe2 h1{
+    margin: 0;
+}
+
+@media screen and (min-width: 768px){
+    .App .main{
+        flex-direction: row;
+    }
+    .main .iframe1{
+        width: 65%;
+    }
+    .main .iframe2{
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .panel{
+        padding: 0px 4rem;
+    }
+    .panel button{
+        flex-basis: 200px;
+        font-size: 18px;
+    }
+    .panel button + button{
+        margin-left: 3rem;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .panel img{
+        height: 70px;
+    }
+    .main .iframe1 h2{
+        font-size: 24px;
+    }
+    .main .iframe2 h2{
+        font-size: 24px;
+    }
+}

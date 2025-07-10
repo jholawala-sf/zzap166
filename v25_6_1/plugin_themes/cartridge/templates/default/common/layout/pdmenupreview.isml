@@ -1,0 +1,29 @@
+<isdecorate template="common/layout/page">
+    <style>
+    .backoffice .megaflyout {
+        display: flex !important;
+    }
+
+    .nav.backoffice .nav-item.dropdown .dropdown-menu a{
+        color: var(--skin-selectbox-text-color-1);
+    }
+
+    .backoffice .nav-item .nav-link {
+        background-color: #fff;
+        color: #444;
+    }
+
+    .backoffice .nav-item .top-level.nav-link {
+        background-color: var(--skin-banner-background-color-1);
+        color: var(--skin-banner-text-color-1);
+        width: max-content;
+    }
+    </style>
+
+    <div class="container">
+        <h2> Preview </h2>
+        Below is a rough preview of each of the menu items to show you the contents of the menu dropdowns. For an a acurate representation please open the menu in the header.
+        <hr>
+        <isreplace/>
+    </div>
+</isdecorate>

@@ -1,0 +1,10 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+
+@theme static {
+    /* --primary and --secondary come from ditto themes, fallback to tailwind blues */
+    --color-primary: var(--toolkit-primary, var(--primary, --color-blue-600));
+    --color-secondary: var(--toolkit-secondary, var(--secondary, --color-blue-300));
+}
+/*@import "tailwindcss/preflight.css" layer(base);*/
+@import "tailwindcss/utilities.css" layer(utilities);

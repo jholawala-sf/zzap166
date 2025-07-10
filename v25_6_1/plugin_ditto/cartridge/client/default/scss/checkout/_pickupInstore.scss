@@ -1,0 +1,21 @@
+@import "../storeLocator/storeLocator";
+
+.shipping-method-list {
+    padding-bottom: 1rem;
+}
+
+.store-locator-container .search-form {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.store-locator-container .select-store {
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 1em;
+        margin-top: 0;
+    }
+}
+
+.change-store {
+    margin-bottom: 1em;
+}

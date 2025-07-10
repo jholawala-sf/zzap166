@@ -1,0 +1,36 @@
+<isif condition="${typeof isPdpTestSegment == 'undefined'}">
+    <isset name="isPdpTestSegment" value="${!!pdict.isPdpTestSegment}" scope="page" />
+</isif>
+
+<isif condition="${!isPdpTestSegment}">
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-block btn-outline-secondary btn-get-in-store-inventory"
+                    data-action-url="${pdict.pickUpInStore.actionUrl}" data-ats-action-url="${pdict.pickUpInStore.atsActionUrl}"
+                    data-modal-close-text=${Resource.msg('label.modal.close.text', 'instorePickup', null)} type="submit"
+            ${!product.readyToOrder || !product.available || !product.availableForInStorePickup ? "disabled" : ""}>
+            ${Resource.msg('button.availability.select.store', 'instorePickup', null)}
+            </button>
+        </div>
+    </div>
+</isif>
+
+<div class="row">
+    <div class="col">
+        <div class="card selected-store-with-inventory display-none">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="instore-pickup-header">
+                    <i class="far fa-map-marker-alt mr-1"></i>
+                    ${Resource.msg('msg.in.store.inventory.selected.store.title', 'instorePickup', null)}
+                </span>
+                <button class="btn btn-link change-store p-0" data-action-url="${pdict.pickUpInStore.actionUrl}"
+                    type="submit">
+                    ${Resource.msg('button.change.store', 'instorePickup', null)}
+                </button>
+            </div>
+
+            <!-- for placing the selected store details on PDP page-->
+            <div class="card-body"></div>
+        </div>
+    </div>
+</div>

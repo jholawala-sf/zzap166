@@ -1,0 +1,28 @@
+<isif condition="${pdict.loggedIn}">
+    <isset name="activeNavigation" value="wishlist" scope="page" />
+
+    <isdecorate template="common/layout/account">
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets.js');
+            assets.addCss('/css/wishlist.css');
+            assets.addJs('/js/wishlist.js');
+        </isscript>
+        <div class="container">
+            <isinclude template="wishlist/components/wishlist" />
+        </div>
+    </isdecorate>
+<iselse/>
+    <isdecorate template="common/layout/page">
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets.js');
+            assets.addCss('/css/wishlist.css');
+            assets.addJs('/js/wishlist.js');
+            assets.addCss('/css/login.css');
+            assets.addJs('/js/login.js');
+        </isscript>
+        <div class="container login-page">
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <isinclude template="wishlist/components/login" />
+        </div>
+    </isdecorate>
+</isif>

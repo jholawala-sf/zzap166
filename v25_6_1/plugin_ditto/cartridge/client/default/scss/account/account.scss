@@ -1,0 +1,54 @@
+@import "../variables";
+
+.account-nav-container {
+    @include media-breakpoint-up(lg) {
+        background-color: $details-bg;
+        margin-bottom: -3rem;
+        padding-bottom: 6.25rem;
+        padding-top: 6.25rem;
+
+        &::before {
+            background-color: inherit;
+            content: "";
+            height: 100%;
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: 50vw;
+        }
+    }
+
+    .nav-link {
+        color: $gray-900;
+
+        &:hover,
+        &.active {
+            color: $secondary;
+        }
+
+        i {
+            max-width: 16px;
+
+            @include mr(2);
+        }
+    }
+
+    .account-nav_item {
+        @include font-size(18px);
+    }
+}
+
+.account-header {
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    justify-content: space-between;
+
+    @include mb(4);
+
+    .order-history-select,
+    .order-history-select:focus,
+    .order-history-select:active {
+        box-shadow: none !important;
+    }
+}

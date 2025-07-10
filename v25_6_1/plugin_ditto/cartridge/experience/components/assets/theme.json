@@ -1,0 +1,92 @@
+{
+    "name": "Theme",
+    "description": "Theme component",
+    "group": "Themes",
+    "attribute_definition_groups": [
+        {
+            "id": "colors",
+            "name": "General Theme Colors",
+            "attribute_definitions": [
+                {
+                    "id": "primaryColor",
+                    "name": "Primary Color",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "secondaryColor",
+                    "name": "Secondary Color",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "textColor",
+                    "name": "Text Color",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "footer",
+            "name": "Footer",
+            "attribute_definitions": [
+                {
+                    "id": "footerFGColor",
+                    "name": "Footer FG Color",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "footerBGColor",
+                    "name": "Footer BG Color",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "buttons",
+            "name": "Buttons",
+            "attribute_definitions": [
+                {
+                    "id": "buttonPrimaryTextColor",
+                    "name": "Button Primary Text Color",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonSecondaryTextColor",
+                    "name": "Button Secondary Text Color",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "product",
+            "name": "Product",
+            "attribute_definitions": [
+                {
+                    "id": "productRatingsColor",
+                    "name": "Product Ratings Color",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "advanced",
+            "name": "Advanced Overrides",
+            "attribute_definitions": [
+                {
+                    "id": "rawCSS",
+                    "name": "Raw CSS",
+                    "type": "text",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

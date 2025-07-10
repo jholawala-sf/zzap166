@@ -1,0 +1,26 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <!--- Search Results Banner --->
+    <isif condition="${pdict.productSearch.isCategorySearch}">
+        <div class="hero search-banner" ${pdict.productSearch.bannerImageUrl ? 'style="background-image:url(' +
+                                        pdict.productSearch.bannerImageUrl + ')"' : ''}>
+            <h1 class="header page-title d-none">
+                ${pdict.productSearch.category.name}
+            </h1>
+        </div>
+    <iselse/>
+        <isslot id="search-result-banner-m" description="Banner for search results" context="global" />
+    </isif>
+
+    <isinclude template="search/searchResultsNoDecorator" />
+    <isinclude template="product/compareBar" />
+</isdecorate>

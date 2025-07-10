@@ -1,0 +1,7 @@
+<isif condition="${slotcontent != null}">
+    <div class="mega-menu-slot mega-menu__block ${slotcontent.slotID} d-none d-lg-block">
+        <isloop items="${slotcontent.content}" var="markupText">
+            <isprint value="${markupText.markup}" encoding="off" />
+        </isloop>
+    </div>
+</isif>

@@ -1,0 +1,14 @@
+<isset name="remainingTotal" value="${pdict.order && pdict.order.totals && pdict.order.totals.remainingTotal != null ? pdict.order.totals.remainingTotal : null}" scope="page" />
+<isif condition="${remainingTotal == null && pdict.totals && pdict.totals.remainingTotal}">
+    <isset name="remainingTotal" value="${pdict.totals.remainingTotal}" scope="page" />
+</isif>
+<div class="row remaining-order-total ${remainingTotal && remainingTotal.value >= 0 ? '' : 'hide-remaining-total'}">
+    <div class="col-6">
+        <span>${Resource.msg('label.order.remainingTotal', 'confirmation', null)}</span>
+    </div>
+    <div class="col-6">
+        <div class="text-right">
+            <span class="remaining-order-total-amount">${remainingTotal && remainingTotal.formatted ? remainingTotal.formatted : ''}</span>
+        </div>
+    </div>
+</div>

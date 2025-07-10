@@ -1,0 +1,36 @@
+{
+    "name": "Embed Lightning Component",
+    "description": "Component to embed a Lightning component",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "org_detail",
+            "name": "Org Details",
+            "attribute_definitions": [
+                {
+                    "id": "app_name",
+                    "name": "Lightning App Name (including the namespace, eg c:)",
+                    "type": "text",
+                    "required": true,
+                    "description": "eg. c:myApp"
+                },
+                {
+                    "id": "cmpt_name",
+                    "name": "Lightning Component Name (including the namespace, eg c:)",
+                    "type": "text",
+                    "required": true,
+                    "description": "eg. c:myComponent"
+                },
+                {
+                    "id": "community_url",
+                    "name": "Community URL with Guest Profile enabled and Storefront Whitelisted",
+                    "type": "text",
+                    "required": true,
+                    "description": "eg. https://sdodemo-123.force.com"
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}
+  

@@ -1,0 +1,84 @@
+{
+    "name": "Category Tile",
+    "description": "Category tile component.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "categorySelection",
+            "name": "Category Selection",
+            "description": "Select a category to render.",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "description": "Represents the category to render in the tile.",
+                    "type": "category",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "tileConfiguration",
+            "name": "Tile Configuration",
+            "description": "Category tile configuration.",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Image",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "titleOverride",
+                    "name": "Title Override",
+                    "description": "Override the category title.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.wysiwyg",
+                        "configuration": {
+                            "editorHeight": 300,
+                            "plugins": ["lists", "directionality"],
+                            "toolbar": "styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | ltr rtl"
+                        }
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

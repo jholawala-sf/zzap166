@@ -1,0 +1,8 @@
+<isif condition="${lineItem.isBonusProductLineItem}">
+    <div>${Resource.msg('msg.bonus.product', 'cart', null)}</div>
+</isif>
+<div class="line-item-header">
+    <div class="line-item-name">
+        <a href="${lineItem.url}" class="d-inline-block text-reset text-truncate">${lineItem.productName}</a>
+    </div>
+</div>

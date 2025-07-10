@@ -1,0 +1,17 @@
+<isset name="chain"
+       value="${require('*/cartridge/scripts/helpers/chain')}"
+       scope="page" />
+<isset name="loyaltyPayment"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS', null)}"
+       scope="page" />
+
+<div id="loyalty-points-summary" class="summary-details ${(empty(loyaltyPayment) || loyaltyPayment.value <= 0) ? 'd-none' : ''}">
+    <div class="loyalty-points-summary-header payment-info-label">
+        <span><isprint value="${Resource.msg('confirmation.loyalty.msg.payment.type.points', 'loyalty', null)}" /></span>
+    </div>
+    <div class="loyalty-points-summary-details">
+        <span class="loyalty-points-summary-amount"><isprint value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS.formatted', null)}" /></span>
+        <span class="loyalty-points-summary-points">(<isprint value="${require('dw/util/StringUtils').formatNumber(chain.safeGet(pdict, 'order.billing.payment.totalLoyaltyPointsApplied', null), '#')}" /> </span>
+        <span class="loyalty-points-summary-amount-points-label"><isprint value="${Resource.msgf('confirmation.loyalty.msg.payment.amount.from.points', 'loyalty', null)}" />) </span>
+    </div>
+</div>

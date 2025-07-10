@@ -1,0 +1,19 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<isif condition="${typeof showMiniCarousel === 'undefined'}">
+    <isset name="showMiniCarousel" value="${false}" scope="page" />
+</isif>
+
+<isif condition="${product.recommendations.length > 0}">
+    <h2 class="section-header">
+        <isprint value="${Resource.msg('label.recommendations', 'product', null)}" encoding="on" />
+    </h2>
+
+    <div class="row">
+        <div class="${showMiniCarousel ? 'mini-carousel' : 'carousel'}">
+            <isloop items="${product.recommendations}" var="recommendation">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', recommendation.recommendedItemID, 'pview', 'tile', 'ratings', true, 'swatches', true,
+                                'showQuickView', false)}" />
+            </isloop>
+        </div>
+    </div>
+</isif>

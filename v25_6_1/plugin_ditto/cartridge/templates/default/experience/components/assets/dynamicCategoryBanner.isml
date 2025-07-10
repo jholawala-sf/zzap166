@@ -1,0 +1,21 @@
+<div class="category-banner" style="${pdict.backgroundColor || ''}">
+    <div class="category-banner-image-wrapper align-self-start">
+        <isif condition="${pdict.imageUrl}">
+            <picture>
+                <img src="${pdict.imageUrl}" class="category-banner-image img-fluid"
+                     ${pdict.heading ? 'alt="' + pdict.heading + '" title="' + pdict.heading + '"' : ''} />
+            </picture>
+        </isif>
+    </div>
+    <div class="category-banner-overlay-wrapper">
+        <div class="category-banner-overlay container d-flex ${pdict.overlayPosition}">
+            <div class="category-banner-overlay-inner ${pdict.overlayAlignment}">
+                <isif condition="${pdict.heading}">
+                    <div class="banner-heading h1 font-weight-bold pb-2" style="${pdict.headingStyles}">
+                        <isprint value="${pdict.heading}" encoding="off" />
+                    </div>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>

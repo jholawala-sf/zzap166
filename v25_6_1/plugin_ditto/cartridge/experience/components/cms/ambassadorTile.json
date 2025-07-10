@@ -1,0 +1,37 @@
+{
+    "name": "Ambassador Tile",
+    "group": "CMS",
+    "attribute_definition_groups": [
+        {
+            "id": "pageSelection",
+            "name": "Page Selection",
+            "description": "Select a page to render.",
+            "attribute_definitions": [
+                {
+                    "id": "page",
+                    "name": "Page",
+                    "description": "Represents the page to link to from the tile.",
+                    "type": "page",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "tileContent",
+            "name": "Tile Content",
+            "description": "The tile content",
+            "attribute_definitions": [
+                {
+                    "id": "cmsItem",
+                    "name": "Tile Content",
+                    "type": "cms_record",
+                    "required": true,
+                    "editor_definition": {
+                        "content_type": "ambassador"
+                    }
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

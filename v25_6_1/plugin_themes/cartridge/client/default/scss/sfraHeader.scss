@@ -1,0 +1,10 @@
+.header-svg-icon svg {
+    width: 25px;
+    padding-top: 4px;
+}
+
+.header-svg-icon svg path, .header-svg-icon svg circle {
+    fill:var(--skin-banner-text-color-1);
+    opacity: 0.8;
+}
+

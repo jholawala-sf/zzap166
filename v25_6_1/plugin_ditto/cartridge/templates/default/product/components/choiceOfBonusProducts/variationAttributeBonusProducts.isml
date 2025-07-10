@@ -1,0 +1,56 @@
+<iscomment>
+
+    Template Notes:
+
+    - This template is intended to be referenced from an <isinclude> tag within an <isloop> in another
+            source template. This template is only used with choice of bonus products promotions
+</iscomment>
+
+<div class="attribute">
+    <!-- Select <Attribute> Label -->
+    <label class="${attr.id}">
+        ${attr.displayName}
+    </label>
+
+    <isif condition="${attr.swatchable}">
+        <!-- Square Swatch Image Attribute Values -->
+        <div class="d-flex flex-wrap">
+            <isloop items="${attr.values}" var="attrValue">
+                <button class="color-attribute" data-url="${attrValue.url}" ${(product.productType === "variant" &&
+                                                                            isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+                    <span data-attr-value="${attrValue.value}"
+                        class="${attr.id}-value swatch swatch-value ${attrValue.selected ? 'selected' : ''} ${attrValue.selectable ? 'selectable' : 'unselectable'}"
+                        style="background-image: url(${attrValue.images['swatch'][0].url})">
+                    </span>
+                </button>
+            </isloop>
+        </div>
+    <iselseif condition="${attr.id === 'size'}" />
+        <div class="d-flex flex-wrap">
+            <isloop items="${attr.values}" var="attrValue">
+                <button class="size-attribute ${attrValue.selected ? 'selected' : ''}" data-url="${attrValue.url}"
+                    ${(product.productType === "variant" && isBundle) || pdict.disabledAttribute ? "disabled" : ""}>
+                    <span data-attr-value="${attrValue.value}" class="${attr.id}-value">${attrValue.displayValue}
+                    </span>
+                </button>
+            </isloop>
+        </div>
+
+    <iselse/>
+        <!-- Attribute Values Drop Down Menu -->
+        <select class="custom-select form-control select-${attr.id}"
+            id="bonus-${attr.id}-${productLoopStatus && productLoopStatus.count ? productLoopStatus.count : '1'}"
+            ${product.productType === "variant" ? "disabled" : ""}>
+            <option value="${attr.resetUrl}">
+                ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+            </option>
+            <isloop items="${attr.values}" var="attrValue">
+                <option value="${attrValue.url}" data-attr-value="${attrValue.value}" ${!attrValue.selectable ?
+                                                                                      'disabled' : ''} ${attrValue.selected ? 'selected' : ''}>
+                    ${attrValue.displayValue}
+                </option>
+            </isloop>
+        </select>
+
+    </isif>
+</div>

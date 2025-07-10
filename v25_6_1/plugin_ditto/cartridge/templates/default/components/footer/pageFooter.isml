@@ -1,0 +1,56 @@
+<footer class="site-footer">
+    <div class="site-footer__inner-container">
+        <div class="container_sm">
+            <div class="site-footer__brand text-center py-3 py-md-5">
+                <a href="${URLUtils.https('Home-Show')}">
+                    <isif condition="${require('*/cartridge/scripts/theme/theme.js').available()}">
+                        <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderFooterLogo()}" encoding="off"/>
+                    <iselse/>
+                        <isinclude template="components/footer/logo" />
+                    </isif>
+                </a>
+            </div>
+            <div class="row site-footer_content justify-content-center">
+                <div class="col-11">
+                    <div class="row flex-wrap-reverse flex-lg-row">
+                        <div class="site-footer_marketing col-12 col-lg-4">
+                            <iscomment>
+                                <isinclude template="components/footer/emailSignup" />
+                            </iscomment>
+                            <isif condition="${dw.system.Site.current.getCustomPreferenceValue('mcEnableMailingLists') === true}">
+                                <isinclude url="${URLUtils.url('MCSubscription-SubscribeFooter')}" />
+                            </isif>
+
+                            <iscontentasset aid="footer-social" />
+                        </div>
+                        <nav class="d-flex flex-column flex-md-row justify-content-between col-12 col-lg-8">
+                            <div class="site-footer_col mb-3 ml-md-4">
+                                <isslot id="footer-column-1-m" description="Footer Column: 1" context="global" />
+                            </div>
+                            <div class="site-footer_col mb-3 ml-md-4">
+                                <isslot id="footer-column-2-m" description="Footer Column: 2" context="global" />
+                            </div>
+                            <div class="site-footer_col mb-3 ml-md-4">
+                                <isslot id="footer-column-3-m" description="Footer Column: 3" context="global" />
+                            </div>
+                            <div class="site-footer_col mb-3 ml-md-4">
+                                <isslot id="footer-column-4-m" description="Footer Column: 4" context="global" />
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notice py-3">
+          <isinclude template="components/footer/footerCopyright" />
+        </div>
+        <button type="button" class="back-to-top" title="${Resource.msg('button.back_to_top', 'common', null)}"
+            aria-hidden="true">
+            <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-inverse fa-stack-2x"></i>
+                <i class="far fa-angle-up fa-stack-2x"></i>
+            </span>
+        </button>
+    </div>
+</footer>
+<isinclude template="components/cookie-preferences" />

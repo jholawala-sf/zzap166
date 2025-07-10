@@ -1,0 +1,14 @@
+<div class="quantity-form-wishlist form-inline">
+    <label class="line-item-pricing-info quantity-label mr-3" for="quantity">
+        ${Resource.msg('field.selectquantity', 'cart', null)}</label>
+    <select class="quantity custom-select" data-uuid="${item.UUID}" data-pid="${item.pid}"
+        data-pre-select-qty="${item.qty}" id="quantity" name="quantity">
+        <isloop begin="${item.minOrderQuantity}" end="${item.maxOrderQuantity}" status="status">
+            <isif condition="${item.qty === status.index}">
+                <option selected>${status.index}</option>
+            <iselse/>
+                <option>${status.index}</option>
+            </isif>
+        </isloop>
+    </select>
+</div>

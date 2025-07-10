@@ -1,0 +1,23 @@
+<isset name="purchaseOrderFields" value="${pdict.forms.billingForm.purchaseOrderFields}" scope="page"/>
+
+<div class="row">
+    <div class="col-12">
+        <div class="input-group ${purchaseOrderFields.purchaseOrderNumber.mandatory ? 'required' : ''} ${purchaseOrderFields.purchaseOrderNumber.htmlName}">
+            <input type="text" class="form-control purchaseOrderNumber" id="purchaseOrderNumber"
+                   value="${pdict.order.billing.payment.selectedPaymentInstruments
+                    && pdict.order.billing.payment.selectedPaymentInstruments.length > 0
+                    ? pdict.order.billing.payment.selectedPaymentInstruments[0].purchaseOrderNumber||''
+                    : ''}"
+                   placeholder="${pdict.purchaseOrderDetails.labels.placeHolder}"
+                   data-placeholder="${pdict.purchaseOrderDetails.labels.placeHolder}"
+            <isprint value=${purchaseOrderFields.purchaseOrderNumber.attributes} encoding="off"/> aria-describedby="purchaseOrderNumberInvalidMessage">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-primary btn-block apply-po-btn"
+                        data-action="${URLUtils.url('PurchaseOrder-Submit')}">
+                    ${Resource.msg('button.apply.purchase.order', 'payment', null)}
+                </button>
+            </div>
+            <div class="invalid-feedback" id="purchaseOrderNumberInvalidMessage"></div>
+        </div>
+    </div>
+</div>

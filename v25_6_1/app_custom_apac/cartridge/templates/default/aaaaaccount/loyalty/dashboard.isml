@@ -1,0 +1,302 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/profile.css');
+        assets.addJs('/js/dashboard.js');
+    </isscript>
+    <div class="hero slant-down account-image">
+        <h1 class="page-title">${Resource.msgf('label.loyalty.page.dashboard', 'loyalty', '', pdict.loyalty.programName)}</h1>
+    </div>
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12">
+                <h2 class="my-4">${Resource.msg('dashboard.loyalty.page.title', 'loyalty', null)}</h2>
+            </div>
+            <div class="col-sm-12 col-md-12 pt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-sm-12 col-md-12 row">
+                            <div class="col-sm-6 col-md-6 text-left p-1">
+                                <h4 class="m-0">${pdict.loyalty.fullName}
+                                </h4>
+                            </div>
+                            <div class="col-sm-6 col-md-6 text-right p-1 text-uppercase text-left-sm">
+                                ${Resource.msg('dashboard.loyalty.card.membershipno', 'loyalty', null)}
+                                ${pdict.loyalty.loyaltyProgramMemberNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <isif condition="${pdict.loyalty && pdict.loyalty.serviceDataAvailable}">
+                <div class="container">
+                    <div class="row tier-points">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card bg-dark text-white bg-white p-3">
+                                <img src='data:image/png;base64,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'
+                                    class="card-img" alt="Background Decorator" />
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title text-dark m-3 font-weight-normal">
+                                        <span class="pb-2">
+                                            <svg width="31" height="32" style="margin-bottom:8px; margin-right:0.5rem"
+                                                viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M21.1336 9.93559C21.1336 7.9279 16.3949 6.29004 10.5668 6.29004C4.73873 6.29004 0 7.9279 0 9.93559V11.2036C0 13.2113 4.73873 14.8492 10.5668 14.8492C16.3949 14.8492 21.1336 13.2113 21.1336 11.2036V9.93559ZM0 14.1609C0 15.7459 4.73873 17.0139 10.5668 17.0139C16.3949 17.0139 21.1336 15.7459 21.1336 14.1609V16.7497C21.1336 18.7574 16.3949 20.3953 10.5668 20.3953C4.73873 20.3953 0 18.7574 0 16.7497V14.1609ZM10.5668 22.5626C4.73873 22.5626 0 21.2946 0 19.7095V22.3512C0 24.3589 4.73873 25.944 10.5668 25.944C16.3949 25.944 21.1336 24.3061 21.1336 22.2984V19.7095C21.1336 21.2946 16.3949 22.5626 10.5668 22.5626ZM10.5668 28.1625C4.73873 28.1625 0 26.8945 0 25.3095V27.8983C0 29.906 4.73873 31.5439 10.5668 31.5439C16.3949 31.5439 21.1336 29.906 21.1336 27.8983V25.3095C21.1336 26.8945 16.3949 28.1625 10.5668 28.1625Z"
+                                                    fill="#00A1E0" />
+                                                <circle cx="20.433" cy="10.8862" r="10.5668" fill="#00A1E0" />
+                                                <path
+                                                    d="M21.3467 16.7029V18.0048H19.6053V16.7706C18.8614 16.7255 18.2133 16.6015 17.661 16.3986C17.12 16.1957 16.6353 15.9196 16.207 15.5702L17.2553 14.2853C17.6836 14.5783 18.1119 14.7925 18.5402 14.9277C18.9685 15.063 19.4588 15.1306 20.0111 15.1306C21.5553 15.1306 22.3273 14.6121 22.3273 13.5752C22.3273 13.237 22.2484 12.9722 22.0906 12.7805C21.9328 12.5777 21.6905 12.4142 21.3636 12.2902C21.0368 12.155 20.5634 12.0141 19.9435 11.8676C18.7712 11.5745 17.9146 11.1969 17.3736 10.7348C16.8326 10.2614 16.5621 9.59641 16.5621 8.73979C16.5621 7.92826 16.8382 7.26889 17.3905 6.76168C17.9541 6.2432 18.6923 5.92197 19.6053 5.79799V4.54688H21.3467V5.78108C22.4851 5.89379 23.4995 6.26011 24.39 6.88003L23.4432 8.16495C22.9698 7.89444 22.5133 7.69156 22.0737 7.55631C21.6342 7.40978 21.1382 7.33652 20.5859 7.33652C19.2785 7.33652 18.6247 7.77046 18.6247 8.63835C18.6247 8.94267 18.6923 9.185 18.8276 9.36535C18.9741 9.53441 19.1939 9.68094 19.487 9.80492C19.7913 9.91764 20.2421 10.0416 20.8395 10.1769C22.0343 10.4361 22.9303 10.825 23.5277 11.3435C24.1364 11.8507 24.4407 12.5777 24.4407 13.5244C24.4407 14.4261 24.1533 15.1475 23.5784 15.6885C23.0036 16.2183 22.2597 16.5564 21.3467 16.7029Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            ${Resource.msgf('dashboard.loyalty.card.nonqualifying.name', 'loyalty', 'Reward Points', pdict.loyalty.nonQualifying.name)}
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div class="card-body text-dark">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text h4">${pdict.loyalty.nonQualifying.points.balance}</p>
+                                            <p class="card-text">&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card bg-dark text-white bg-white p-3">
+                                <img class="card-img" alt="Background Decorator"
+                                    src='data:image/png;base64,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' />
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title text-dark m-3 font-weight-normal d-flex">
+                                        <span class="pb-2">
+                                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M15.1695 23.9961L9.02338 32.6922L7.45415 28.5076H3.26953L8.63107 21.2499C9.67722 21.9038 10.7888 21.9692 11.5734 22.1653C11.8349 22.2307 12.1618 22.2961 12.2926 22.2961C12.4234 22.3615 12.6849 22.5576 12.8157 22.6884C13.4041 23.0807 14.1888 23.6692 15.1695 23.9961ZM25.108 21.2499C24.0618 21.9038 22.9503 21.9692 22.1657 22.1653C21.9041 22.2307 21.5118 22.2961 21.3811 22.2961C21.2503 22.3615 20.9888 22.5576 20.858 22.6884C20.2695 23.0807 19.5503 23.7345 18.5695 24.0615L24.7157 32.6922L26.2849 28.5076H30.4695L25.108 21.2499ZM16.8695 7.58454C14.8426 7.58454 13.208 9.21916 13.208 11.2461C13.208 13.273 14.8426 14.9076 16.8695 14.9076C18.8965 14.9076 20.5311 13.273 20.5311 11.2461C20.5311 9.21916 18.8965 7.58454 16.8695 7.58454ZM26.808 11.2461C26.808 12.4884 25.4349 13.4692 24.9772 14.5807C24.5195 15.7576 24.7811 17.3922 23.8657 18.2422C23.0157 19.0922 21.3811 18.8961 20.2041 19.3538C19.0926 19.8115 18.1118 21.1845 16.8695 21.1845C15.6272 21.1845 14.6465 19.8115 13.5349 19.3538C12.358 18.8961 10.7234 19.1576 9.87338 18.2422C9.02338 17.3922 9.21953 15.7576 8.76184 14.5807C8.30415 13.4692 6.93107 12.4884 6.93107 11.2461C6.93107 10.0038 8.30415 9.023 8.76184 7.91146C9.21953 6.73454 8.95799 5.09993 9.87338 4.24993C10.7234 3.39992 12.358 3.59608 13.5349 3.13839C14.6465 2.68069 15.6272 1.30762 16.8695 1.30762C18.1118 1.30762 19.0926 2.68069 20.2041 3.13839C21.3811 3.59608 23.0157 3.33454 23.8657 4.24993C24.7157 5.09993 24.5195 6.73454 24.9772 7.91146C25.4349 9.023 26.808 10.0038 26.808 11.2461ZM23.6695 11.2461C23.6695 7.45377 20.6618 4.44608 16.8695 4.44608C13.0772 4.44608 10.0695 7.45377 10.0695 11.2461C10.0695 15.0384 13.0772 18.0461 16.8695 18.0461C20.6618 18.0461 23.6695 15.0384 23.6695 11.2461Z"
+                                                    fill="#747474" />
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            ${Resource.msg('dashboard.loyalty.card.qualifying.title', 'loyalty', null)}
+                                        </span>
+                                        <span class="ml-auto h3">
+                                            ${pdict.loyalty.qualifying.level}
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div class="card-body text-dark">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text h4">${pdict.loyalty.qualifying.points.balance}</p>
+                                            <p class="card-text">
+                                                ${Resource.msg('dashboard.loyalty.card.qualifying.expiring', 'loyalty', null)} ${pdict.loyalty.qualifying.expiring.formattedLongDate}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="card bg-white">
+                        <div class="card-body shadow-sm">
+                            <div class="card-header border-bottom-0">
+                                <h4 class="font-weight-normal">${Resource.msg('dashboard.loyalty.card.vouchers.title', 'loyalty', null)} (${require('dw/util/StringUtils').formatNumber(pdict.loyalty.vouchers.count, '#')})</h4>
+                            </div>
+                            <div class="row">
+                                <div id="loyaltyVouchersCarousel" class="carousel slide carousel-multi-items"
+                                    data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
+                                    data-next="${Resource.msg('button.next', 'common', null)}" data-wrap="false">
+                                    <div class="carousel-inner" role="listbox">
+                                        <isloop items="${pdict.loyalty.vouchers.listOfVouchers}" var="voucher"
+                                            status="loopStatus">
+                                            <div
+                                                class='carousel-item ${loopStatus.index} <isif condition="${loopStatus.index == 0}">active</isif>'>
+                                                <div class="col-md-6">
+                                                    <div class="row voucher">
+                                                        <div class="col-sm-10">
+                                                            <h4 class="text-primary">${voucher.name}</h4>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <i class="fa fa-gift fa-lg"></i>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <p>${voucher.description} <br />
+                                                                <isif condition="${voucher.balance}">
+                                                                    ${Resource.msg('dashboard.loyalty.card.vouchers.balance', 'loyalty', null)} ${voucher.balance.formatted}
+                                                                <iselse/>
+                                                                    &nbsp;
+                                                                </isif>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            ${Resource.msg('dashboard.loyalty.card.vouchers.code', 'loyalty', null)} ${voucher.code}
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            ${Resource.msg('dashboard.loyalty.card.vouchers.expiration', 'loyalty', null)}
+                                                            ${voucher.expirationDate.formattedLongDate}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <isif condition="${loopStatus.index >= 5}">
+                                                <div class='carousel-item'>
+                                                    <div class="view-all-vouchers col-md-6">
+                                                        <div class="col-md-30 text-center pt-5 fs-1">
+                                                            <a href="#">${Resource.msg('dashboard.loyalty.card.vouchers.lengthexceeds', 'loyalty', null)}</a>
+                                                            <span class="link-text" data-view="${Resource.msg('dashboard.loyalty.card.vouchers.lengthexceeds', 'loyalty', null)}" data-hide="${Resource.msg('dashboard.loyalty.card.vouchers.hideall', 'loyalty', null)}"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <isbreak/>
+                                            </isif>
+                                        </isloop>
+                                    </div>
+                                    <isif condition="${pdict.loyalty.vouchers.count > 1}">
+                                        <a class="carousel-control-prev" href="${" #"}loyaltyVouchersCarousel" role="button"
+                                            data-slide="prev">
+                                            <span class="fa icon-prev" aria-hidden="true"></span>
+                                            <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="${" #"}loyaltyVouchersCarousel" role="button"
+                                            data-slide="next">
+                                            <span class="fa icon-next" aria-hidden="true"></span>
+                                            <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                                        </a>
+                                    </isif>
+                                </div>
+                            </div>
+                            <div class="row view-all">
+                                <div class="col">
+                                    <a href="#">${Resource.msg('dashboard.loyalty.card.vouchers.viewall', 'loyalty', null)}</a>
+                                    <span class="link-text" data-view="${Resource.msg('dashboard.loyalty.card.vouchers.viewall', 'loyalty', null)}" data-hide="${Resource.msg('dashboard.loyalty.card.vouchers.hideall', 'loyalty', null)}"></span>
+                                </div>
+                            </div>
+                            <div class="row voucher-table d-none">
+                                <div class="col">
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">${Resource.msg('dashboard.loyalty.table.vouchers.voucher', 'loyalty', null)}</th>
+                                                <th scope="col">${Resource.msg('dashboard.loyalty.table.vouchers.code', 'loyalty', null)}</th>
+                                                <th scope="col">${Resource.msg('dashboard.loyalty.table.vouchers.expiration', 'loyalty', null)}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <isloop items="${pdict.loyalty.vouchers.listOfVouchers}" var="voucher">
+                                                <tr>
+                                                    <td>${voucher.name}</td>
+                                                    <td>${voucher.code}</td>
+                                                    <td>${voucher.expirationDate.formattedLongDate}</td>
+                                                </tr>
+                                            </isloop>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="card bg-white">
+                        <div class="card-body shadow-sm">
+                            <div class="card-header border-bottom-0">
+                                <h4 class="font-weight-normal">${Resource.msg('dashboard.loyalty.card.promotions.title', 'loyalty', null)}
+                                    (${require('dw/util/StringUtils').formatNumber(pdict.loyalty.promotions.count, '#')})
+                                </h4>
+                            </div>
+                            <div class="row d-block">
+                                <div id="loyaltyPromotionsCarousel" class="carousel slide promotions" data-interval="0"
+                                    data-prev="${Resource.msg('button.previous', 'common', null)}"
+                                    data-next="${Resource.msg('button.next', 'common', null)}" data-wrap="false">
+                                    <div class="carousel-inner" role="listbox">
+                                        <isloop items="${pdict.loyalty.promotions.listOfPromotions}" var="promotion"
+                                            status="loopStatus">
+                                            <div
+                                                class='carousel-item ml-1 <isif condition="${loopStatus.index == 0}">active</isif>'>
+                                                <div class="row border mr-3 ml-2">
+                                                    <div class="col-md-12 pt-3">
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <h3 class="text-primary">${promotion.name}</h3>
+                                                            </div>
+                                                            <div class="col-md-4 text-secondary">
+                                                                ${promotion.startDate.formattedLongDate} -
+                                                                ${promotion.endDate.formattedLongDate}
+                                                            </div>
+                                                        </div>
+                                                        <p>${promotion.description}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <isif condition="${loopStatus.index >= 5}">
+                                                <isbreak/>
+                                            </isif>
+                                        </isloop>
+                                    </div>
+                                    <isif condition="${pdict.loyalty.promotions.count > 1}">
+                                        <a class="carousel-control-prev" href="${" #"}loyaltyPromotionsCarousel"
+                                            role="button" data-slide="prev">
+                                            <span class="fa icon-prev" aria-hidden="true"></span>
+                                            <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="${" #"}loyaltyPromotionsCarousel"
+                                            role="button" data-slide="next">
+                                            <span class="fa icon-next" aria-hidden="true"></span>
+                                            <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                                        </a>
+                                    </isif>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <isif condition="${pdict.loyalty.benefits.count > 0}">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header border-bottom-0">
+                                <h4 class="font-weight-normal">${Resource.msg('dashboard.loyalty.card.benefits.title', 'loyalty', null)}</h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table table-striped">
+                                    <isloop items="${pdict.loyalty.benefits.listOfBenefits}" var="benefit">
+                                        <tr>
+                                            <td>${benefit.name}</td>
+                                        </tr>
+                                    </isloop>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </isif>
+                <div class="col-sm-12 col-md-12">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <div class="col-sm-12 col-md-12 row">
+                                <a href="${URLUtils.url('Loyalty-Optout')}" class="card-link"
+                                    aria-label="${Resource.msg('dashboard.loyalty.card.optiontoleave', 'loyalty', null)}">${Resource.msg('dashboard.loyalty.card.optiontoleave', 'loyalty', null)}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <iselse/>
+                <div class="row justify-content-center">
+                    <div class="col p-3 mb-2 bg-danger text-white">
+                        ${Resource.msg('dashboard.loyalty.error', 'loyalty', null)}
+                    </div>
+                </div>
+            </isif>
+        </div>
+    </div>
+</isdecorate>

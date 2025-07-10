@@ -1,0 +1,17 @@
+.ratings {
+    color: $product-rating;
+
+    @include font-size(11px);
+    @include pb(2);
+
+    .fa-stack {
+        height: 1rem;
+        line-height: 1rem;
+        vertical-align: -0.24999999rem;
+        width: 1rem;
+    }
+
+    .fa-star.fa-inverse {
+        color: $product-rating-empty;
+    }
+}

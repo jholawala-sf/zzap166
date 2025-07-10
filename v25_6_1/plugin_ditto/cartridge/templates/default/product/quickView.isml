@@ -1,0 +1,123 @@
+<isset name="productCopy" value="${pdict.product}" scope="page" />
+<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="isBundle" value="${false}" scope="page" />
+<isset name="isQuickView" value="${true}" scope="page" />
+<isset name="isProductSet" value="${false}" scope="page" />
+<isset name="loopState" value="{count: 1}" scope="page" />
+<div class="product-quickview product-${product.productType} col product-wrapper product-detail"
+    data-pid="${product.id}">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <div class="row">
+                <!-- Product Images Carousel -->
+                <div class="col carousel-container">
+                    <isinclude template="product/components/imageCarousel" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Name and Number -->
+        <div class="col-12 col-sm-6">
+            <div class="row">
+                <div class="col">
+                    <section>
+                        <h1 class="product-name">
+                            <a class="text-reset" href="${URLUtils.url('Product-Show', 'pid', product.id)}">
+                                ${product.productName}</a>
+                        </h1>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col d-flex flex-wrap justify-content-between align-items-center pb-2">
+                    <!-- Prices -->
+                    <div class="prices">
+                        <isset name="price" value="${product.price}" scope="page" />
+                        <isinclude template="product/components/pricing/main" />
+                    </div>
+                    <isinclude template="product/components/pidRating" />
+                </div>
+            </div>
+
+            <div class="hidden-xs-down col availability align-self-end global-availability row"
+                data-ready-to-order="${product.readyToOrder}" data-available="${product.available}">
+                <div class="row">
+                    <isinclude template="product/components/availability" />
+                </div>
+            </div>
+
+            <!-- Applicable Promotions -->
+            <isif condition="${product.promotions}">
+                <div class="row">
+                    <div class="col-12 promotions">
+                        <isinclude template="product/components/promotions" />
+                    </div>
+                </div>
+            </isif>
+
+            <hr class="my-3" />
+
+            <div class="detail-panel">
+                <!-- Attributes -->
+                <section class="attributes">
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                        <div data-attr="${attr.id}" class="swatch row">
+                            <div class="col-12">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+
+                            <isif condition="${attributeStatus.last}">
+                                <!-- Quantity Drop Down Menu -->
+                                <isif condition="${!pdict.giftRegistryEdit}">
+                                    <div class="quantity col-4 d-none">
+                                        <isif condition="${pdict.addToCartUrl || pdict.updateCartUrl}">
+                                            <isinclude template="product/components/quantity" />
+                                        </isif>
+                                    </div>
+                                </isif>
+                            </isif>
+                        </div>
+                    </isloop>
+
+                    <!-- Quantity Drop Down Menu -->
+                    <isif condition="${pdict.giftRegistryEdit}">
+                        <div class="row">
+                            <div class="col">
+                                <div class="attribute quantity gift-registry-quantity-desired-sm">
+                                    <isinclude template="product/components/quantityDesired" />
+                                </div>
+                            </div>
+                        </div>
+                    <iselse/>
+                        <isif condition="${pdict.addToCartUrl || pdict.updateCartUrl}">
+                            <div class="attribute quantity">
+                                <isinclude template="product/components/quantity" />
+                            </div>
+                        </isif>
+                    </isif>
+                </section>
+
+                <isif condition="${product.productType !== 'bundle'}">
+                    <!-- Options -->
+                    <isif condition="${product.options && product.options.length > 0}">
+                        <isinclude template="product/components/options" />
+                    </isif>
+                </isif>
+            </div>
+
+            <div class="prices-add-to-cart-actions mt-3">
+                <!-- Cart and [Optionally] Apple Pay -->
+                <isif condition="${pdict.addToCartUrl}">
+                    <isinclude template="product/components/addToCartGlobal" />
+                <iselse/>
+                    <isinclude template="product/components/updateProduct" />
+                </isif>
+            </div>
+            <!-- Social Sharing Icons -->
+            <div class="row">
+                <isinclude template="product/components/socialIcons" />
+            </div>
+        </div>
+    </div>
+</div>

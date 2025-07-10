@@ -1,0 +1,10 @@
+<div data-agent-component="${pdict.reactComponentName}"
+    data-props="<isprint value="${encodeURIComponent(JSON.stringify(pdict.props))}" encoding="off" />"
+    <isif condition="${pdict.containerStyles}">
+        data-__container-styles="<isprint value="${encodeURIComponent(JSON.stringify(pdict.containerStyles))}" encoding="off" />"
+    </isif>
+>
+    <isif condition="${pdict.regions && pdict.regions.children}">
+        <isprint value="${pdict.regions.children.render()}" encoding="off" />
+    </isif>
+</div>

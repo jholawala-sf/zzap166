@@ -1,0 +1,222 @@
+@import "../variables";
+@import "pdpInstoreInventory";
+
+.product-detail {
+    .carousel-container {
+        .product-carousel {
+            height: 100%;
+            max-width: calculate-rem(800px);
+            overflow: hidden;
+
+            .slick-prev {
+                left: 5px;
+            }
+
+            .slick-next {
+                right: 5px;
+            }
+
+            @include px(5);
+        }
+
+        .slick-paging {
+            flex-direction: column;
+        }
+    }
+
+    .product-number {
+        color: $gray-900;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        font-size: 0.8125rem;
+        height: 100%;
+    }
+
+    .add-cart-button-extension {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.highlights {
+    align-items: center;
+    background-color: $details-bg;
+    flex-direction: column;
+    justify-content: center;
+
+    @include p(5);
+    @include my(5);
+
+    .short-description {
+        text-align: center;
+
+        @include font-size(22px);
+    }
+}
+
+.description-label {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    @include mb(2);
+}
+
+.long-description {
+    ul {
+        padding-left: 18px;
+
+        li {
+            margin-bottom: 0.25rem;
+        }
+    }
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include mt(5);
+
+    .feature {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+
+        @include mx(4);
+        @include mb(3);
+        @include font-size(14px);
+
+        img {
+            height: calculate-rem(40px);
+            max-width: calculate-rem(40px);
+            width: auto;
+
+            @include mb(1);
+        }
+    }
+}
+
+.recommendations {
+    background-color: $details-bg;
+
+    @include mt(5);
+    @include p(5);
+}
+
+@include media-breakpoint-down(xs) {
+    .site-footer {
+        padding-bottom: calculate-rem(142px);
+
+        .back-to-top {
+            bottom: 150px;
+        }
+    }
+}
+.salesforce-buynow-element {
+    width: 100%;
+}
+
+.salesforce-buynow-element:not(:empty) {
+    margin-top: 0.5rem;
+}
+
+.salesforce-buynow-element-errors {
+    margin-top: 0.75rem;
+    text-align: left;
+}
+
+.salesforce-buynow-element[disabled] {
+    display: none;
+}
+
+.salesforce-buynow-element div:not(:first-child) {
+    margin-top: 1em;
+}
+
+/* PDP Templates */
+@media (min-width: 1200px) {
+    .product-detail {
+
+        &.product-template2 {
+            .img-grid-item {
+                padding: 0 0 1.5rem 0;
+            }
+
+            .pdp-primary-info {
+                flex: 0 0 20%;
+                max-width: 20%;
+            }
+
+            .carousel-container {
+                padding: 0;
+            }
+        }
+
+        &.product-template3 {
+            .product-container {
+                width: 100%;
+
+                .pdp-primary-info {
+                    padding: 0 6rem;
+
+                    .highlights {
+                        background-color: transparent;
+                        padding: 0;
+                        margin-bottom: 0;
+                    }
+
+                    .prod-details {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        &.product-template4 {
+            .template4-container {
+                max-width: 100vw;
+            }
+            
+            .carousel-container {
+                .img-container {
+                    flex-direction: column-reverse;
+                }
+
+                .slick-paging{
+                    flex-direction: row;
+                    justify-content: center;
+                }
+
+                .product-carousel {
+                    max-width: 100%;
+
+                    .carousel-item {
+                        padding-bottom: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .product-template2 .template2-container {
+        padding-right: 15px;
+        padding-left: 15px;
+
+        .col-12.col-sm-9,
+        .carousel-container {
+            padding: 0;
+        }
+    }
+
+    .product-detail.product-template3 {
+        .pdp-primary-info {
+            padding: 0 30px;
+        }
+    }
+}

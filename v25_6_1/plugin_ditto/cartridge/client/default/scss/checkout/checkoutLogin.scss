@@ -1,0 +1,17 @@
+@import "../variables";
+
+.login-col {
+    display: flex;
+    justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+        &:first-of-type {
+            border-right: 1px solid $site-main-menu-border;
+        }
+    }
+}
+
+.login-col_content {
+    max-width: 24rem;
+    width: 100%;
+}

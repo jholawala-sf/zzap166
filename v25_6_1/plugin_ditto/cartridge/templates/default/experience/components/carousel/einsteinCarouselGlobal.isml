@@ -1,0 +1,5 @@
+<div class="${pdict.wrapperClasses}" data-recommender="${pdict.recommender}" data-loadurl="${pdict.loadUrl}">
+    <div class="row">
+        <div class="einstein-carousel" data-slick="${pdict.carouselConfig}"></div>
+    </div>
+</div>

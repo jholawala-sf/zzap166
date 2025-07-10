@@ -1,0 +1,37 @@
+<div class="container_md">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="site-footer__sflogo py-2">
+                    Built on 
+                    <img src="${URLUtils.staticURL('/images/logo-salesforce.svg')}" alt="Salesforce" style="height:40px;"/>
+                </div>
+                <div class="py-2 pl-5">
+                    <div class="row mb-1">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <div class="demo-site">&copy; Copyright <span id="copyrightYear"></span> Salesforce.com, inc. | 
+                            Northern Trail Outfitters is not a real company. It is used for Salesforce demos. No orders will be processed.</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="https://www.salesforce.com/company/legal/" target="_blank" title="Terms &amp; Conditions">Legal</a></li>
+                                <li class="list-inline-item"><a href="https://www.salesforce.com/company/legal/sfdc-website-terms-of-service/" target="_blank" title="Terms &amp; Conditions">Terms Of Service</a></li>
+                                <li class="list-inline-item"><a href="https://www.salesforce.com/company/privacy/" target="_blank" title="Privacy Policy">Privacy Information</a></li>
+                                <li class="list-inline-item"><a href="https://www.salesforce.com/company/disclosure/" target="_blank">Responsible Disclosure</a></li>
+                                <li class="list-inline-item"><a href="https://trust.salesforce.com/en/" target="_blank">Trust</a></li>
+                                <li class="list-inline-item"><a href="https://www.salesforce.com/company/contact-us/" target="_blank">Contact</a></li>
+                                <li class="list-inline-item"><a class="ot-sdk-show-settings" href="#" title="Privacy Preferences">Cookie Preferences</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("copyrightYear").innerHTML = new Date().getFullYear();
+</script>

@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Agents API
+components:
+  securitySchemes:
+    ShopperToken:
+      type: http
+      scheme: bearer
+      flows:
+        authorizationCode:
+          authorizationUrl: https://shortcode.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/my-org-id/oauth2/authorize
+          tokenUrl: https://shortcode.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/my-org-id/oauth2/token
+          scopes:
+            c_agents_rw: Interact with Agents
+paths:
+  /agents:
+    get:
+      summary: "Gets a list of agents assigned to a site"
+      operationId: getAgents
+      parameters:
+        - in: query
+          name: siteId
+          required: true
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        200:
+          description: OK
+  /verification:
+    get:
+      summary: "Gets a JWT for use with MIAW"
+      operationId: getUserVerification
+      parameters:
+        - in: query
+          name: siteId
+          required: true
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        200:
+          description: OK
+security:
+  - ShopperToken: ["c_agents_rw"]

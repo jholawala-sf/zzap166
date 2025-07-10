@@ -1,0 +1,18 @@
+<iscomment>
+    This template sets the vouchers context for the checkout/billing/paymentOptions/voucherModalBody template
+    when routed through an Ajax call. Vouchers are accessed from the param object per
+    the dw.util.Template.render(params : Map) call
+    (Please see https://documentation.demandware.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Template.html).
+</iscomment>
+
+<isset name="vouchers"
+       value="${param.vouchers}"
+       scope="page" />
+<isset name="chain"
+       scope="page"
+       value="${require('*/cartridge/scripts/helpers/chain')}"/>
+<isset name="totalExcludingLoyaltyBasedPaymentMethods"
+       value="${chain.safeGet(param, 'order.billing.payment.totalExcludingLoyaltyBasedPaymentMethods.formatted', null)}"
+       scope="page" />
+
+<isinclude template="checkout/billing/paymentOptions/voucherModalBody" />

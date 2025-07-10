@@ -1,0 +1,84 @@
+<div class="product-info uuid-${lineItem.UUID} p-2 p-md-4">
+    <!--- name and remove buttons --->
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-7">
+            <div class="d-flex flex-row">
+                <div class="item-image">
+                    <a href="${lineItem.url}">
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" />
+                    </a>
+                </div>
+                <div class="product-details">
+                    <isinclude template="cart/productCard/cartProductCardHeader" />
+                    <div class="d-block d-md-none">
+                        <isinclude template="cart/productCard/cartProductCardProductPrice" />
+                    </div>
+                    <div class="item-attributes d-flex flex-column">
+                        <isloop items="${lineItem.variationAttributes}" var="attribute">
+                            <div class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
+                                <span class="font-weight-bold">${attribute.displayName}</span>:
+                                <span class="line-item-attribute-value">${attribute.displayValue}</span>
+                            </div>
+                        </isloop>
+                        <isloop items="${lineItem.options}" var="option">
+                            <isif condition="${!!option}">
+                                <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                                    data-value-id="${option.selectedValueId}">
+                                    <p class="line-item-attributes">${option.displayName}</p>
+                                </div>
+                            </isif>
+                        </isloop>
+                        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+
+                        <div class="bundle-includes font-weight-bold">${Resource.msg('msg.bundle.includes','cart',null)}
+                        </div>
+                        <!--- individual bundled line items --->
+                        <isinclude template="cart/productCard/cartProductCardBundledItems" />
+                        
+                     <iscomment>        <div class="line-item-availability availability-${lineItem.UUID}">
+                                <isloop items="${lineItem.availability.messages}" var="message">
+                                    ${message}
+                                </isloop>
+                                <isif condition="${lineItem.availability.inStockDate}">
+                                    <div class="line-item-instock-date">
+                                        ${lineItem.availability.inStockDate}
+                                    </div>
+                                </isif>
+                            </div> 
+                     
+                        <isinclude template="cart/productCard/cartProductCardAvailability" />   </iscomment>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 bundle-misc">
+            <div class="d-flex flex-column justify-content-between h-100 align-items-end">
+                <div class="bundle-pricing d-none d-sm-block">
+                    <isinclude template="cart/productCard/cartProductCardProductPrice" />
+                </div>
+
+                <div class="bundle-options product-edit product-move d-flex">
+                    <isif condition="${lineItem.productType === 'bundle' && false}">
+                        <div class="bundle-edit">
+                            <a href="${URLUtils.url('Cart-GetProduct', 'uuid', lineItem.UUID)}" class="edit"
+                                title="${Resource.msg('link.edit.item','cart',null)}">${Resource.msg('link.edit.item','cart',null)}</a>
+                        </div>
+                    </isif>
+                    <isif condition="${!lineItem.isBonusProductLineItem}">
+                        <div class="hidden-md-down">
+                            <isinclude template="components/deleteButton" />
+                        </div>
+                    </isif>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row bundle-card-footer">
+
+    </div>
+
+</div>

@@ -1,0 +1,1 @@
+{"version":3,"file":"wysiwyg.css","mappings":";;;AAAA;EACE;ACCF,C","sources":["webpack://b2c-commerce-industries/./cartridges/bm_ditto/cartridge/client/default/scss/experience/editors/wysiwyg.scss","webpack://b2c-commerce-industries/wysiwyg.scss"],"sourcesContent":[".ql-editor {\n  min-height: 250px;\n}\n",".ql-editor {\n  min-height: 250px;\n}"],"names":[],"sourceRoot":""}

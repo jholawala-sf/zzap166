@@ -1,0 +1,14 @@
+{
+    "name": "Bump Offer Page",
+    "description": "A page designer page with bump offer section and order details",
+    "region_definitions": [
+        {
+            "id": "main",
+            "name": "Main Region",
+            "component_type_exclusions": []
+        }
+    ],
+    "supported_aspect_types": [
+        "bumpoffer"
+    ]
+}

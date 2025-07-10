@@ -1,0 +1,111 @@
+{
+    "name": "Article Accordion",
+    "description": "Component for displaying knowledge",
+    "group": "Components",
+    "attribute_definition_groups": [
+      {
+        "id": "article_details",
+        "name": "Knowledge Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title",
+            "name": "Articles Header",
+            "type": "text",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "article_detail_one",
+        "name": "Article #1 Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title1",
+            "name": "Article Title",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "article_body1",
+            "name": "Article Body",
+            "type": "markup",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "article_detail_two",
+        "name": "Article #2 Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title2",
+            "name": "Article Title",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "article_body2",
+            "name": "Article Body",
+            "type": "markup",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "article_detail_three",
+        "name": "Article #3 Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title3",
+            "name": "Article Title",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "article_body3",
+            "name": "Article Body",
+            "type": "markup",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "article_detail_four",
+        "name": "Article #4 Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title4",
+            "name": "Article Title",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "article_body4",
+            "name": "Article Body",
+            "type": "markup",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "article_detail_five",
+        "name": "Article #5 Details",
+        "attribute_definitions": [
+          {
+            "id": "article_title5",
+            "name": "Article Title",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "article_body5",
+            "name": "Article Body",
+            "type": "markup",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+}
+  

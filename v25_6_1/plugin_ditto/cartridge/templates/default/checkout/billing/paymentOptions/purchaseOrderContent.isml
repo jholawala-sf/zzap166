@@ -1,0 +1,17 @@
+<!--- purchase order form --->
+<isset name="purchaseOrderPaymentMethodId" value="${require('*/cartridge/scripts/helpers/purchaseOrderHelpers').PURCHASE_ORDER_PAYMENT_METHOD_ID}" scope="page" />
+
+<div class="purchase-order-content" id="purchase-order-content">
+    <fieldset class="payment-form-fields">
+        <!--- payment method is purchase order --->
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${purchaseOrderPaymentMethodId}" />
+
+        <fieldset class="purchase-order-form">
+            <isinclude template="checkout/billing/purchaseOrderForm" />
+        </fieldset>
+
+        <fieldset class="purchase-order-payment-details">
+            <isinclude template="checkout/billing/purchaseOrderList" />
+        </fieldset>
+    </fieldset>
+</div>

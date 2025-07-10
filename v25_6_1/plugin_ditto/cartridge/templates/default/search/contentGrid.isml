@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-md-10 col-lg-6">
+    <isloop items="${pdict.contentSearch.contents}" var="contentAsset">
+      <div class="content mb-4">
+        <h4><a href="${contentAsset.url}">${contentAsset.name}</a></h4>
+        <isif condition="${contentAsset.description}">
+        <div class="description">${contentAsset.description}</div>
+        </isif>
+      </div>
+    </isloop>
+
+    <isif condition="${pdict.contentSearch.moreContentUrl}">
+      <div class="col show-more-content mt-5">
+        <div class="text-center">
+          <button class="btn btn-outline-primary col-12 col-sm-3" data-url="${pdict.contentSearch.moreContentUrl}">
+            ${Resource.msg('button.more', 'search', null)}
+          </button>
+        </div>
+      </div>
+    </isif>
+  </div>
+</div>

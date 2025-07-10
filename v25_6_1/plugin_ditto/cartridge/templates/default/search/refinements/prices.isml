@@ -1,0 +1,14 @@
+<ul class="values content">
+    <isloop items="${refinement.values}" var="refinementValue" status="loopStatus">
+        <li class="price-attribute">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="price-attribute"
+                    id="price-attribute-${loopStatus.index}" data-href="${refinementValue.url}"
+                    ${refinementValue.selected ? 'checked' : ''} />
+                <label class="form-check-label" for="price-attribute-${loopStatus.index}">
+                    <span class="value">${refinementValue.displayValue}</span>
+                </label>
+            </div>
+        </li>
+    </isloop>
+</ul>

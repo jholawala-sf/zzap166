@@ -1,0 +1,41 @@
+<div class="hero-banner" style="${pdict.backgroundColor || ''}">
+    <div class="hero-banner-image-wrapper align-self-start">
+
+        <div class="banner-image" style="" role="img"
+             aria-label="${pdict.image.alt}">
+            <video-js autoplay="true" data-account="6234339542001" data-player="default" data-embed="default" loop
+                      data-video-id="${pdict.videoID}" data-playlist-id="" data-application-id=""
+                      class="vjs-fluid"></video-js>
+
+            <script src="https://players.brightcove.net/6234339542001/default_default/index.min.js"></script>
+        </div>
+
+
+    </div>
+    <div class="hero-banner-overlay-wrapper">
+        <div class="hero-banner-overlay container d-flex ${pdict.overlayPosition}">
+            <div class="hero-banner-overlay-inner ${pdict.overlayAlignment}">
+                <isif condition="${pdict.heading}">
+                    <div class="banner-heading display-4 font-weight-bold pb-2" style="${pdict.headingStyles}">
+                        <isprint value="${pdict.heading}" encoding="off"/>
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.subheading}">
+                    <div class="banner-subheading h2 pb-2" style="${pdict.subheadingStyles}">
+                        <isprint value="${pdict.subheading}" encoding="off"/>
+                    </div>
+                </isif>
+
+                <isif condition="${pdict.buttonText && pdict.buttonLink}">
+                    <a href="${pdict.buttonLink}" class="${pdict.buttonType} btn-lg">
+                        <isprint value="${pdict.buttonText}" encoding="off"/>
+                    </a>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

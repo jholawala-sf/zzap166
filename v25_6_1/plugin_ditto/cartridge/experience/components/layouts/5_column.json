@@ -1,0 +1,175 @@
+{
+    "name": "5 Column",
+    "group": "Layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "layout",
+            "name": "Layout",
+            "attribute_definitions": [
+                {
+                    "id": "alignment",
+                    "name": "Alignment",
+                    "description": "Specify the alignment of the column(s).",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnAlignment"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "wrapColumns",
+                    "name": "Wrap Columns",
+                    "description": "Wrap columns if a column should fall to the next row.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                },
+                {
+                    "id": "hideGutters",
+                    "name": "Hide Gutters",
+                    "description": "Hide column default gutters.",
+                    "type": "boolean",
+                    "default_value": false,
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "size",
+            "name": "Size",
+            "attribute_definitions": [
+                {
+                    "id": "isFullWidth",
+                    "name": "Display Full Width",
+                    "description": "Whether or not the region should be rendered the full width of the page.",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "column1Width",
+                    "name": "Column 1",
+                    "description": "Specify the column width across different breakpoints.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnWidth"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "column2Width",
+                    "name": "Column 2",
+                    "description": "Specify the column width across different breakpoints.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnWidth"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "column3Width",
+                    "name": "Column 3",
+                    "description": "Specify the column width across different breakpoints.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnWidth"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "column4Width",
+                    "name": "Column 4",
+                    "description": "Specify the column width across different breakpoints.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnWidth"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "column5Width",
+                    "name": "Column 5",
+                    "description": "Specify the column width across different breakpoints.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.columnWidth"
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "selectors",
+            "name": "Custom Selectors",
+            "attribute_definitions": [
+                {
+                    "id": "uniqueId",
+                    "name": "Unique ID",
+                    "description": "(No spaces) If you want to add a unique ID to the row for use with CSS or IS Scripts for example.",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id": "column1",
+            "name": "Column 1",
+            "component_type_exclusions": []
+        },
+        {
+            "id": "column2",
+            "name": "Column 2",
+            "component_type_exclusions": []
+        },
+        {
+            "id": "column3",
+            "name": "Column 3",
+            "component_type_exclusions": []
+        },
+        {
+            "id": "column4",
+            "name": "Column 4",
+            "component_type_exclusions": []
+        },
+        {
+            "id": "column5",
+            "name": "Column 5",
+            "component_type_exclusions": []
+        }
+    ]
+}

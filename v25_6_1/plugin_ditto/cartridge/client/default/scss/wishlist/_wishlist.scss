@@ -1,0 +1,44 @@
+@import "../variables";
+@import "~base/components/toastMessage";
+
+.add-to-wishlist-messages,
+.remove-from-wishlist-messages {
+    left: 50%;
+    position: fixed;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+
+.add-to-wishlist-alert,
+.remove-from-wishlist-alert {
+    animation: fade 5s linear forwards;
+    box-shadow: 1px 1px 5px grey;
+    padding: 1em;
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    &.show {
+        display: block;
+    }
+}
+
+.update-wishlist-messages {
+    @include toast-message();
+}
+
+.update-wishlist-alert {
+    @include toast-alert();
+}

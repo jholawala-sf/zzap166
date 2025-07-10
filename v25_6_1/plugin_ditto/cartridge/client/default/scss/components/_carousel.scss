@@ -1,0 +1,139 @@
+@import "~slick/slick";
+
+.product-carousel,
+.einstein-carousel,
+.carousel,
+.mini-carousel {
+    height: 1px;
+    visibility: hidden;
+
+    &.slick-initialized {
+        height: auto;
+        visibility: visible;
+    }
+}
+
+.einstein-carousel,
+.carousel,
+.mini-carousel {
+    width: 100%;
+
+    .product {
+        @include mx(3);
+    }
+}
+
+.product-carousel,
+.banner-carousel,
+.einstein-carousel,
+.carousel,
+.mini-carousel {
+    &.slick-slider {
+        width: 100%;
+    }
+
+    .slick-prev,
+    .slick-next {
+        background-color: $white;
+        border: 0;
+        border-radius: 18px;
+        box-shadow: 0 0 9px 0 rgba(119, 119, 119, 0.1);
+        color: $primary;
+        font-size: 0;
+        height: 35px;
+        position: absolute;
+        top: 50%;
+        transition: opacity 0.3s $default-cubic-bezier, box-shadow 0.3s $default-cubic-bezier;
+        width: 35px;
+        z-index: 2;
+
+        &::before {
+            color: $primary;
+            opacity: 0.75;
+            @include font-size(20px);
+        }
+
+        &.slick-disabled {
+            opacity: 0.4;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 9px 0 rgba(119, 119, 119, 0.4);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+
+        &::before {
+            @include fa-icon("\f104", "regular");
+        }
+    }
+
+    .slick-next {
+        right: 0;
+        
+        &::before {
+            padding-left: 0.2rem;
+            @include fa-icon("\f105", "regular");
+        }
+    }
+
+    .slick-dots {
+        bottom: -25px;
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+
+        li {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            padding: 0;
+            position: relative;
+        }
+
+        button {
+            background-color: $white;
+            border: 1px solid $secondary;
+            border-radius: calculate-rem(7px);
+            cursor: pointer;
+            display: block;
+            font-size: 0;
+            height: calculate-rem(14px);
+            outline: none;
+            padding: calculate-rem(5px);
+            width: calculate-rem(14px);
+
+            &::before {
+                display: none;
+            }
+
+            &:hover,
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .slick-active {
+            button {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    .slick-list {
+        .slick-loading & {
+            background: $white slick-image-url("ajax-loader.gif") center center no-repeat;
+        }
+    }
+}

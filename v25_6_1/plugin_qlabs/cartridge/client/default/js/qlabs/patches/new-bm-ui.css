@@ -1,0 +1,27 @@
+/* apply new bm style overrides
+
+data-controller is added by companion script to support controller scoped styles
+*/
+
+/**
+Broken external image fix
+This selector is brittle but there should not be other (larger) images in this table
+*/
+body[data-controller="ViewProduct_52-Edit"] #ssaForm > table > tbody img,
+body[data-controller="ViewProduct_52-Dispatch"] #ssaForm > table > tbody img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+/**
+Product Attribute table
+*/
+body[data-controller="ViewProduct_52-Edit"] td:has(> span[data-dw-tooltip]),
+body[data-controller="ViewProduct_52-Dispatch"] td:has(> span[data-dw-tooltip]) {
+    min-width: 230px;
+}
+
+body[data-controller="ViewProduct_52-Edit"] span[data-dw-tooltip],
+body[data-controller="ViewProduct_52-Dispatch"] span[data-dw-tooltip] {
+    white-space: normal;
+}

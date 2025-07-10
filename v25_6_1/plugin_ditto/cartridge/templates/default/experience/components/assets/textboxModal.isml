@@ -1,0 +1,30 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+</isscript>
+<style>
+    ${pdict.customCss}
+</style>
+<div class="editorialRichText-component-container">
+    <div class="row">
+        <div class="col-12 align-self-center text-center p-3">
+            <isprint value="${pdict.richText}" encoding="off" />
+            <span class="modal-link" data-toggle="modal" data-target="#modalTrigger">
+                <isprint value="${pdict.modalLinkText}" encoding="off" /></span>
+        </div>
+    </div>
+    <div class="modal fade" id="modalTrigger" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <isprint value="${pdict.modalLinkContent}" encoding="off" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

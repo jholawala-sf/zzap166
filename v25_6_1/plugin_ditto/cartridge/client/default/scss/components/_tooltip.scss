@@ -1,0 +1,12 @@
+.info-icon {
+    border: 0;
+    border-radius: calculate-rem(6px);
+    color: $tooltip-button-color;
+    display: inline-block;
+    height: calculate-rem(12px);
+    padding: 0;
+    text-align: center;
+    width: calculate-rem(12px);
+
+    @include font-size(12px);
+}

@@ -1,0 +1,110 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isinclude template="/components/modules" sf-toolkit="off" />
+<isif condition="${pdict.isInEditMode}">
+    <!-- creates a wireframe like site, which can be used to configure the decorating pieces -->
+    <!DOCTYPE html>
+    <html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
+        <head>
+            <!--[if gt IE 9]><!-->
+                <isinclude sf-toolkit="off" template="/common/scripts" />
+            <!--<![endif]-->
+            <isinclude template="/common/htmlHead" />
+            <isif condition="${pdict.canonicalUrl}" >
+                <link rel="canonical" href="${pdict.canonicalUrl}"/>
+            </isif>
+            <isactivedatahead/>
+            <isinclude template="/components/schema" />
+            <isprint value="${pdict.regions.skin.render()}" encoding="off"/>
+        </head>
+        <body>
+            ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader') || ''}
+
+            <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}" >
+                <isprint value="${pdict.regions.header.render()}" encoding="off"/>
+
+                <div role="main" id="maincontent">
+                    <style>
+                        .wireframebox {
+                            position: relative;
+                            background: white;
+                            padding: 30px;
+                            overflow: hidden;
+                            border: lightgray 1px solid;
+                            height: 20em;
+                        }
+
+                        .wireframebox:before, .wireframebox:after {
+                            position: absolute;
+                            content: '';
+                            background: lightgray;
+                            display: block;
+                            width: 100%;
+                            height: 30px;
+                            -webkit-transform: rotate(-45deg);
+                            transform: rotate(-45deg);
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                        }
+
+                        .wireframebox:after {
+                            -webkit-transform: rotate(45deg);  
+                            transform: rotate(45deg);
+                        }
+                    </style>
+                    <div class="container">
+                        <div class="wireframebox">
+                            <h1>Preview</h1>
+                            <h2>Heading 2</h2>
+                            <p>Text</p>
+                            <p><button class="btn btn-primary">Button Primary</button></p>
+                            <p><button class="btn btn-outline-primary">Button Outline</button></p>
+                            <p><a href="${'#'}">Link</a></p>
+                        </div>
+                    </div>
+                </div>
+                <isprint value="${pdict.regions.footer.render()}" encoding="off"/>
+            </div>
+            <div class="error-messaging"></div>
+            <div class="modal-background"></div>
+            <iscontentasset aid="cookie_hint" />
+            <!--[if lt IE 10]>
+                <isinclude sf-toolkit="off" template="/common/scripts" />
+            <![endif]-->
+            <iscomment>
+                hook for Marketing Cloud connector & other integration which need to inject
+                logic at the page end
+                IMPORTANT: Note that this hook will be called to cached as well as uncached pages
+                            which means you need to put privacy information into another remote include
+            </iscomment>
+            ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter') || ''}
+            <isinclude url="${URLUtils.url('ConsentTracking-Check')}"/>
+        </body>
+    </html>
+<iselse>
+    <!--- The actual includes used in the storefront --->
+    <isif condition="${pdict.skin}">    
+        <isprint value="${pdict.regions.skin.render()}" encoding="off"/>
+    </isif>
+
+    <isif condition="${pdict.header}">
+        <isprint value="${pdict.regions.header.render()}" encoding="off"/>
+    </isif>
+    
+    <isif condition="${pdict.footer}">
+        <isprint value="${pdict.regions.footer.render()}" encoding="off"/>
+    </isif>
+
+
+</isif>
+<isloop items="${ require('*/cartridge/scripts/assets.js').styles }" var="style">
+    <link rel="stylesheet" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
+</isloop>
+<isloop items="${ require('*/cartridge/scripts/assets.js').scripts }" var="script">
+    <script defer type="text/javascript" src="${script.src}"
+        <isif condition="${script.integrity != null}">integrity="${script.integrity}" crossorigin="anonymous"></isif>
+        >
+    </script>
+</isloop>

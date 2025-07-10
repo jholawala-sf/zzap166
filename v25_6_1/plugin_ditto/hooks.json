@@ -1,0 +1,32 @@
+{
+    "hooks": [
+        {
+            "name": "app.customer.loggedIn",
+            "script": "~/cartridge/scripts/hooks/customer"
+        },
+        {
+            "name": "app.experience.editmode",
+            "script": "~/cartridge/experience/hooks"
+        },
+        {
+            "name": "app.template.afterFooter",
+            "script": "~/cartridge/scripts/hooks/links"
+        },
+        {
+            "name": "app.payment.form.processor.basic_gift_certificate",
+            "script": "./cartridge/scripts/hooks/payment/processor/basic_gift_certificate_form_processor"
+        },
+        {
+            "name": "app.payment.processor.basic_gift_certificate",
+            "script": "./cartridge/scripts/hooks/payment/processor/basic_gift_certificate"
+        },
+        {
+            "name": "app.payment.form.processor.purchase_order",
+            "script": "./cartridge/scripts/hooks/payment/processor/purchase_order_form_processor"
+        },
+        {
+            "name": "app.payment.processor.purchase_order",
+            "script": "./cartridge/scripts/hooks/payment/processor/purchase_order"
+        }
+    ]
+}

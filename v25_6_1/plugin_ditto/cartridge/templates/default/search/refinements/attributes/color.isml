@@ -1,0 +1,11 @@
+<li class="color-attribute mr-3 mb-3">
+    <a href="${'#'}" data-href="${refinementValue.url}" data-seo-href="${refinementValue.seoRefineUrl || refinementValue.url}"
+        class="refinement-link color-value swatch ${refinementValue.swatchId} ${!refinementValue.selectable ? 'disabled' : ''} ${refinementValue.selected && refinementValue.selectable ? 'selected' : ''}"
+        title="${refinementValue.title}" ${!refinementValue.selectable ? 'disabled' : ''}>
+        <span id="${refinementValue.swatchId}-assistive" class="sr-only selected-assistive-text">
+            ${refinementValue.selected && refinementValue.selectable ? Resource.msg('msg.assistive.selected.text',
+            'common', null) : ''}
+            ${refinementValue.title}
+        </span>
+    </a>
+</li>

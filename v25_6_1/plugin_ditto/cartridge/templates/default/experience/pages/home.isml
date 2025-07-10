@@ -1,0 +1,4 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isdecorate template="${pdict.decorator}">
+    <isprint value="${pdict.regions.main.render()}" encoding="off" />
+</isdecorate>

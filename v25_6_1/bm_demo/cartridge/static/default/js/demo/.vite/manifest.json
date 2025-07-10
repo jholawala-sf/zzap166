@@ -1,0 +1,8 @@
+{
+  "cartridges/bm_demo/cartridge/client/default/js/demo/main.jsx": {
+    "file": "assets/main.js",
+    "name": "main",
+    "src": "cartridges/bm_demo/cartridge/client/default/js/demo/main.jsx",
+    "isEntry": true
+  }
+}

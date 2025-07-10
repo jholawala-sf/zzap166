@@ -1,0 +1,24 @@
+<isif condition="${pdict.apiProductSearch.count > 0}">
+    <isprint value="${pdict.regions.aboveBumpOffer.render()}" encoding="off" />
+
+    <div class="bump-offer-region">
+        <div style="display: flex; justify-content: center; color: #88c290">
+            <isprint value="${pdict.promotion.calloutMsg}" encoding="off"/>
+        </div>
+        <form action="${URLUtils.url('Order-BumpOffer')}" method="post">
+
+            <div style="display: flex; justify-content: center;">
+            <isloop items="${pdict.apiProductSearch.productSearchHits}" var="product" status="loopState">
+                <isinclude
+                    url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', false, 'ratings', false, 'compare', false)}" />
+                <input type="hidden" name="pid" value="${product.productID}"/>
+            </isloop>
+            </div>
+            <div class="bump-offer-cta-container" style="display: flex; justify-content: center; margin:20px 0;">
+                <button class="btn btn-primary btn-lg" id="bump-offer-accept">Yes! I'll take this offer!</button>
+            </div>
+        </form>
+    </div>
+
+    <isprint value="${pdict.regions.belowBumpOffer.render()}" encoding="off" />
+</isif>

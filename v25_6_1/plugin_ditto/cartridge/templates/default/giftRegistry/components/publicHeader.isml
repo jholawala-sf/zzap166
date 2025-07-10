@@ -1,0 +1,16 @@
+<h2 class="public-header">
+    <isif condition="${pdict.giftRegistryModel.coRegistrant && pdict.giftRegistryModel.coRegistrant.firstName && pdict.giftRegistryModel
+                     .coRegistrant.lastName}">
+        ${Resource.msgf('giftregistry.public.view.coRegistrant.header', 'giftRegistry', null,
+        pdict.giftRegistryModel.name, pdict.giftRegistryModel.registrant.firstName,
+        pdict.giftRegistryModel.registrant.lastName, pdict.giftRegistryModel.coRegistrant.firstName,
+        pdict.giftRegistryModel.coRegistrant.lastName)}
+    <iselse/>
+        ${Resource.msgf('giftregistry.public.view.header', 'giftRegistry', null, pdict.giftRegistryModel.name,
+        pdict.giftRegistryModel.registrant.firstName, pdict.giftRegistryModel.registrant.lastName)}
+    </isif>
+</h2>
+<h4 class="public-header-date my-3">
+    <isinclude template="giftRegistry/summary/eventDate" />
+    <isinclude template="giftRegistry/summary/eventLocation" />
+</h4>

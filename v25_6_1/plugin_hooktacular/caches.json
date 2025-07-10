@@ -1,0 +1,24 @@
+{
+    "caches": [
+        {
+            "id": "ProductExtendStatic",
+            "expireAfterSeconds": 86400
+        },
+        {
+            "id": "SearchSuggestions",
+            "expireAfterSeconds": 86400
+        },
+        {
+            "id": "ProductExtendDynamic",
+            "expireAfterSeconds": 86400
+        },
+        {
+            "id": "GeoIP",
+            "expireAfterSeconds": 86400
+        },
+        {
+            "id": "BearerToSession",
+            "expireAfterSeconds": 900
+        }
+    ]
+}

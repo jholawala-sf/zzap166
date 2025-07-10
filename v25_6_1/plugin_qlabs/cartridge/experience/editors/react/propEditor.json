@@ -1,0 +1,8 @@
+{
+    "name": "Prop Editor",
+    "description": "Edits react component props",
+    "resources": {
+        "styles": [""],
+        "scripts": ["/js/prop-editor.js"]
+    }
+}

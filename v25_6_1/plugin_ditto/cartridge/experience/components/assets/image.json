@@ -1,0 +1,96 @@
+{
+    "name": "Image",
+    "description": "Image with optional text overlay.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "content",
+            "name": "Content",
+            "description": "The image content.",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Image",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "link",
+                    "name": "Link",
+                    "type": "url",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "overlay",
+            "name": "Overlay",
+            "description": "The overlay on top of the banner image.",
+            "attribute_definitions": [
+                {
+                    "id": "content",
+                    "name": "Content",
+                    "description": "The overlay content.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.wysiwyg"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "overlayPosition",
+                    "name": "Overlay Position",
+                    "type": "enum",
+                    "values": [
+                        "Top Left",
+                        "Top Center",
+                        "Top Right",
+                        "Middle Left",
+                        "Middle Center",
+                        "Middle Right",
+                        "Bottom Left",
+                        "Bottom Center",
+                        "Bottom Right"
+                    ],
+                    "default_value": "Top Left",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

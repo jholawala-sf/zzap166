@@ -1,0 +1,87 @@
+.App .outro {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.App .outro .outro-background{
+    position: absolute;
+    background-image: url("../images/solo-outro.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.App .outro .opacity-layer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.App .outro .body{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.App .outro .body h2{
+    color: white;
+    font-size: calc(12px + 2.8vw);
+    text-transform: uppercase;
+    margin: 2rem 3rem;
+}
+
+.App .outro .body img{
+    width: 20%;
+    max-width: 340px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.App .outro button{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    bottom: 8%;
+    right: -4.5rem;
+    background-color: white;
+    color: black;
+    font-size: 22px;
+    width: 300px;
+    text-align: left;
+    border-radius: 17% / 50%;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+}
+
+.App .outro button img{
+    height: 50px;
+    margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 768px){
+    .App .outro .body{
+        flex-direction: row;
+    }
+    .App .outro .body h2{
+        text-align: right;
+    }
+    .App .outro button{
+        position: absolute;
+        right: -2.5rem;
+    }
+    .App .outro button img{
+        height: 80px;
+        margin-right: 1.5rem;
+    }
+  }

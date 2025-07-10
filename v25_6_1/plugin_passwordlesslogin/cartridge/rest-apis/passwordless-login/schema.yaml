@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Passwordless Login API
+components:
+  securitySchemes:
+    ShopperToken:
+      type: http
+      scheme: bearer
+      flows:
+        authorizationCode:
+          authorizationUrl: https://shortcode.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/my-org-id/oauth2/authorize
+          tokenUrl: https://shortcode.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/my-org-id/oauth2/token
+          scopes:
+            c_passwordlessLogin_r: Execute read operations on the Passwordless Login API
+paths:
+  /login:
+    post:
+      summary: "Custom API to authorize the passwordless customer."
+      operationId: authorizeCustomer
+      parameters:
+        - in: query
+          name: siteId
+          required: true
+          schema:
+            type: string
+            minLength: 1
+        - in: query
+          name: c_emailId
+          required: true
+          schema:
+              type: string
+              minLength: 1
+        - in: query
+          name: c_loginId
+          required: false
+          schema:
+              type: string
+        - in: query
+          name: c_usid
+          required: false
+          schema:
+              type: string
+      responses:
+        200:
+          description: OK
+security:
+  - ShopperToken: ["c_passwordlessLogin_r"]

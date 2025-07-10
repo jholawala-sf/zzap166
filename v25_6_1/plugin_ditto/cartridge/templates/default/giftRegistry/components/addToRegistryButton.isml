@@ -1,0 +1,3 @@
+<button class="add-to-gift-registry btn btn-link" data-href="${product.giftRegistryLink}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+    ${Resource.msg('button.gift.registry', 'giftRegistry', null)}
+</button>

@@ -1,0 +1,33 @@
+<isset name="activeNavigation" value="order-history" scope="page" />
+
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/orderHistory.js');
+    </isscript>
+
+
+    <div class="container">
+        <div class="account-header">
+            <h2>${Resource.msg('label.orderhistory', 'account', null)}</h2>
+            <div class="order-history-select-wrapper">
+                <select class="form-control order-history-select"
+                    aria-label="${Resource.msg('label.filter.order.history', 'account', null)}">
+                    <isloop items="${pdict.filterValues}" var="filterValue">
+                        <option value="${filterValue.optionValue}" <isif
+                            condition="${pdict.orderFilter === filterValue.displayValue ||
+                                       pdict.filterValues === Resource.msg('orderhistory.sixmonths.option', 'order', null) ||
+                                       pdict.filterValues === Resource.msg('orderhistory.twelvemonths.option', 'order', null)}"> selected</isif>>
+                            ${filterValue.displayValue}
+                        </option>
+                    </isloop>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 list-group list-group-flush">
+                <isinclude template="lom/account/order/orderList" />
+            </div>
+        </div>
+    </div>
+</isdecorate>

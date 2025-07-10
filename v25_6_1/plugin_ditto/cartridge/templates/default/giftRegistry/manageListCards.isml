@@ -1,0 +1,15 @@
+<div class="card-manage-gift-registry"
+    data-error-msg="${Resource.msg('removeGiftRegistry.failure.msg', 'giftRegistry', null)}">
+    <div class="gift-registry-manage-list">
+        <isinclude template="giftRegistry/listCardBody" />
+    </div>
+
+    <isif condition="${pdict.moreResults}">
+        <isinclude template="giftRegistry/components/moreResultsButton" />
+    </isif>
+
+    <div
+        class="gift-registry-not-found-footer text-center ${pdict.account.giftRegistryList.length > 0 ? 'd-none' : ''}">
+        <a href="${URLUtils.url('GiftRegistry-Begin')}">${Resource.msg('link.create.new', 'account', null)}</a>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<header class="site-header site-header_slim">
+    <section class="main-menu">
+        <nav class="navbar">
+            <div class="d-flex align-items-center justify-content-between w-100 p-3">
+                <a class="continue-shopping-link text-reset d-flex align-items-center"
+                    href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                    <i class="far fa-chevron-left"></i>
+                    <span class="ml-2">${Resource.msg('link.continue.shopping', 'cart', null)}</span>
+                </a>
+                <div class="navbar-brand">
+                    <a href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null),
+                                                                  Resource.msg('global.home', 'common', null))}">
+                        <isif condition="${require('*/cartridge/scripts/theme/theme.js').available()}">
+                            <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderLogo()}" encoding="off"/>
+                            <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderMobileLogo()}" encoding="off"/>
+                        <iselse/>
+                            <isinclude template="components/header/logo" />
+                        </isif>
+                    </a>
+                </div>
+                <div class="need-help d-none d-md-block">
+                    <span>${Resource.msg('info.need.help', 'cart', null)}</span>
+                    <span>
+                        <a href="tel:${Resource.msg('info.phone.number', 'common', null)}">
+                            ${Resource.msg('info.phone.number', 'common', null)}</a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </section>
+</header>

@@ -1,0 +1,13 @@
+<isif condition="${pdict.orders.length > 0}">
+    <isloop items="${pdict.orders}" var="order">
+        <isinclude template="lom/account/order/orderHistoryCard"/>
+    </isloop>
+<iselse/>
+    <div class="list-group-item">
+        <div class="row">
+            <div class="col-10">
+                ${Resource.msg('label.orderhistory.noorders','account',null)}
+            </div>
+        </div>
+    </div>
+</isif>

@@ -1,0 +1,16 @@
+<isinclude template="common/modules" />
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/productDetail.js');
+    assets.addCss('/css/product/detail.css');
+</isscript>
+
+<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="loopState" value="{count: 1}" scope="page" />
+<isset name="isQuickView" value="${false}" scope="page" />
+<isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+<isset name="layoutTemplate" value="${pdict.pdpLayoutTemplate ? pdict.pdpLayoutTemplate : 1}" scope="page"/>
+<isobject object="${product.raw}" view="detail" >
+    <isinclude template="${'product/components/pdpLayout' + layoutTemplate}"/>
+</isobject>

@@ -1,0 +1,62 @@
+{
+    "name": "Product Detail Layout",
+    "description": "Product Detail Layout",
+    "group": "Layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "productDetail",
+            "name": "Product Detail Settings",
+            "description": "Product Detail Settings",
+            "attribute_definitions": [
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "type": "product",
+                    "required": true,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "product"
+                    }
+                },
+                {
+                    "id": "templateLayout",
+                    "name": "Template Layout",
+                    "type": "enum",
+                    "values": ["Base PDP - Layout 1", "Layout 2", "Layout 3", "Layout 4"],
+                    "default_value": "Base PDP - Layout 1",
+                    "required": false
+                },
+                {
+                    "id": "hideRatings",
+                    "name": "Hide Ratings",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "hideSocials",
+                    "name": "Hide Socials",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "hideDesc",
+                    "name": "Hide Description/Features",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "hideRecs",
+                    "name": "Hide Recommendations",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id": "productDetail",
+            "name": "Product Detail Region",
+            "component_type_exclusions": []
+        }
+    ]
+}

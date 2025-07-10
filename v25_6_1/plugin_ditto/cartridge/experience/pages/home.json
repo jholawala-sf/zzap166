@@ -1,0 +1,11 @@
+{
+  "name": "Homepage",
+  "description": "A predefined layout structure designed for the homepage.",
+  "region_definitions": [
+    {
+      "id": "main",
+      "name": "Main Region",
+      "component_type_exclusions": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "endpoints": [
+    {"endpoint": "getSomething", "schema": "schema.yaml", "implementation": "script"}
+  ]
+}

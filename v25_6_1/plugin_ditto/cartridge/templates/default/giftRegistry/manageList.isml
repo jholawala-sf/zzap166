@@ -1,0 +1,23 @@
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/giftRegistry.css');
+        assets.addCss('/css/account/dashboard.css');
+        assets.addJs('/js/giftRegistry.js');
+    </isscript>
+
+    <isinclude template="giftRegistry/removeGiftRegistryModal" />
+
+    <div class="container">
+        <div class="account-header">
+            <h2>${Resource.msg('title.gift.registry.page', 'giftRegistry', null)}</h2>
+            <a href="${URLUtils.url('GiftRegistry-Begin')}" class="btn btn-link">
+                ${Resource.msg('link.create.new', 'account', null)}</a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <isinclude template="giftRegistry/manageListCards" />
+            </div>
+        </div>
+    </div>
+</isdecorate>

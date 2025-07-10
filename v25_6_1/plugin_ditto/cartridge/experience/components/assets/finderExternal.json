@@ -1,0 +1,23 @@
+{
+  "name": "Product Finder Wizard UPLOADED",
+  "description": "Similar to the original Product Finder Wizard component with the exception that the entire wizard is being fed via a JSON configuration ",
+  "group": "Components",
+  "attribute_definition_groups": [
+    {
+      "id": "wizard2",
+      "name": "Product Finder Wizard Configuration UPLOADED",
+      "description": "You can define the pages and content of the wizard ",
+      "attribute_definitions": [
+        {
+          "id": "configText",
+            "name": "Config Text",
+            "description": "The config JSON text to use for this wizard",
+          "required": false,
+          "type": "text"
+        }
+      ]
+    }
+
+  ],
+  "region_definitions": []
+}

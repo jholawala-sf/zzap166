@@ -1,0 +1,1 @@
+<isprint value="${require('*/cartridge/scripts/theming/skin.js').renderHeader()}" encoding="off">

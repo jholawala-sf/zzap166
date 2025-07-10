@@ -1,0 +1,8 @@
+{
+    "name": "Recommender Overrides",
+    "description": "Allows configuration of override recommenders or explicit products for a given recommendation area",
+    "resources": {
+        "styles": [""],
+        "scripts": ["/experience/editors/recommenderOverrides.js"]
+    }
+}

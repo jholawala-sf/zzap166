@@ -1,0 +1,34 @@
+<isset name="price" value="${item.priceObj}" scope="page" />
+
+<div class="col-4 col-md-5 d-flex flex-column justify-content-between align-items-end product-card-footer">
+    <isinclude template="wishlist/components/makePublicCheckbox" />
+
+    <!--- line item total price --->
+    <div class="line-item-total-price">
+        <div class="item-total-${item.UUID} price">
+            <isinclude template="/product/components/pricing/main" />
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <isif condition=${!pdict.wishlist.publicView}>
+            <button type="button" class="remove-btn-lg remove-from-wishlist btn btn-outline-primary mr-2"
+                data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', item.pid)}" aria-label="remove">
+                ${Resource.msg('link.edit.remove', 'wishlist', null)}
+            </button>
+            <div class="edit-add-to-wishlist mr-2">
+                <a href="${URLUtils.url('Wishlist-GetProduct', 'uuid', item.UUID, 'pid', item.pid)}"
+                    class="edit btn btn-outline-primary" data-toggle="modal" data-target="#editWishlistProductModal"
+                    title="${Resource.msg('link.edit.item', 'cart', null)}">
+                    ${Resource.msg('link.edit.item', 'cart', null)}
+                </a>
+            </div>
+        </isif>
+        <isif condition="${!!item.master}">
+            <isinclude template="wishlist/components/selectAttributesButton" />
+        <iselse/>
+            <!-- add to Cart from Wishlist -->
+            <isinclude template="wishlist/components/addToCartButton" />
+        </isif>
+    </div>
+</div>

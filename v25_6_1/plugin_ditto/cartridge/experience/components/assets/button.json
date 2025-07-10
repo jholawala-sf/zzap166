@@ -1,0 +1,86 @@
+{
+    "name": "Button",
+    "group": "components",
+    "attribute_definition_groups": [
+        {
+            "id": "button__details",
+            "name": "Button Details",
+            "attribute_definitions": [
+                {
+                    "id": "btnText",
+                    "name": "Button Text",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "btnLink",
+                    "name": "Button Link",
+                    "type": "url",
+                    "required": true
+                },
+                {
+                    "id": "buttonType",
+                    "name": "Button Type",
+                    "type": "enum",
+                    "values": ["Primary", "Primary - Outline", "Secondary", "Secondary - Outline"],
+                    "default_value": "Primary",
+                    "required": false
+                },
+                {
+                    "id": "iconCode",
+                    "name": "Optional FontAwesome Icon Code",
+                    "description": "FontAwesome Icon Code if icon is desired in button eg. fa-arrow-right",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "btnAlign",
+                    "name": "Button Alignment",
+                    "type": "enum",
+                    "values": [
+                        "Left",
+                        "Center",
+                        "Right"
+                    ],
+                    "default_value": "Center",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

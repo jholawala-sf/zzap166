@@ -1,0 +1,19 @@
+<isscript>
+    var config = require('*/cartridge/scripts/qlabs/config').getQlabsConfig(true);
+</isscript>
+<script>
+    (function() {
+        navigator.serviceWorker.register('/qlabs-service-worker.js')
+            .then((registration) => {
+                console.log('[QLABS] Service Worker registered successfully');
+                registration.update();
+            })
+            .catch((error) => {
+                console.error('[QLABS] Service Worker registration failed:', error);
+            });
+        // TODO move this to a more robust solution
+        window.__qlabsConfig = JSON.parse("<isprint value="${JSON.stringify(config)}" encoding="jsblock" />");
+        window._clientSettings = window.__qlabsConfig.clientSettings;
+    })()
+</script>
+<script type="module" src="${URLUtils.staticURL('js/qlabs/companion.js')}"></script>

@@ -1,0 +1,10 @@
+<div class="line-item-availability availability-${item.UUID}">
+    <isloop items="${item.availability.messages}" var="message">
+        <div class="line-item-availability-status ${message.replace(/\s+/g, '-').toLowerCase()}">${message}</div>
+    </isloop>
+    <isif condition="${item.availability.inStockDate}">
+        <div class="line-item-instock-date">
+            ${item.availability.inStockDate}
+        </div>
+    </isif>
+</div>

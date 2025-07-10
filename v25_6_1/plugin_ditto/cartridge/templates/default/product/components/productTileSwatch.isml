@@ -1,0 +1,19 @@
+<isif condition="${product.variationAttributes && product.variationAttributes.length > 0}">
+    <div class="color-swatches">
+        <div class="swatches">
+            <isloop items="${product.variationAttributes[0].values}" var="swatch" status="loopState">
+                <isif condition="${loopState.count < 6}">
+                    <a href="${swatch.url}">
+                        <div class="swatch swatch-color ${swatch.id}" data-index="${loopState.count - 1}"
+                            title="${swatch.displayValue}"></div>
+                    </a>
+                <iselse>
+                    <span>
+                        <a href="${pdict.urls.product}">...</a>
+                    </span>
+                    <isbreak/>
+                </isif>
+            </isloop>
+        </div>
+    </div>
+</isif>

@@ -1,0 +1,11 @@
+<isset name="giftCertificatesApplied" value="${pdict.order && pdict.order.totals ? pdict.order.totals.giftCertificatesApplied : pdict.totals.giftCertificatesApplied}" scope="page" />
+<div class="row gift-certificates-applied ${giftCertificatesApplied.value >= 0 ? 'hide-gift-certificates-applied' : ''}">
+    <div class="col-6">
+        <span>${Resource.msg('label.order.giftCard','confirmation',null)}</span>
+    </div>
+    <div class="col-6">
+        <div class="text-right">
+            <span class="gift-certificates-applied-total">${giftCertificatesApplied.formatted}</span>
+        </div>
+    </div>
+</div>

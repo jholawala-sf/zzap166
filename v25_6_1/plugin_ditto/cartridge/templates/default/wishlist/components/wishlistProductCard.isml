@@ -1,0 +1,53 @@
+<div class="product-info uuid-${item.UUID} p-4">
+    <!--- image, attributes, availability --->
+    <div class="row">
+        <div class="col-8 col-md-7">
+            <div class="row">
+                <div class="d-flex flex-row">
+                    <div class="item-image">
+                        <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                            <img class="product-image" src="${item.imageObj.small[0].url}"
+                                alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <isinclude template="wishlist/components/wishlistProductCardHeader" />
+
+                        <div class="item-attributes d-flex flex-column">
+                            <isloop items="${item.variationAttributes}" var="attribute">
+                                <isloop items="${attribute.values}" var="eachValue">
+                                    <isif condition="${!!eachValue.selected}">
+                                        <div class="line-item-attributes">
+                                            <span class="font-weight-bold">${attribute.displayName}:</span>
+                                            ${eachValue.displayValue}
+                                        </div>
+                                    </isif>
+                                </isloop>
+                            </isloop>
+                            <isif condition="${item.options}">
+                                <isloop items="${item.options}" var="option">
+                                    <isif condition="${!!option}">
+                                        <div class="line-item-attributes">
+                                            <span class="font-weight-bold">${option.displayName}:</span>
+                                            ${option.displayValue}
+                                        </div>
+                                    </isif>
+                                </isloop>
+                            </isif>
+
+                            <isinclude template="wishlist/components/wishlistProductCardAvailability" />
+
+                            <!--- quantity --->
+                            <div class="line-item-quantity">
+                                <isinclude template="wishlist/components/productCardQuantitySelector" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---unit price and quantity --->
+        <isinclude template="wishlist/components/productListItemProductPrice" />
+
+    </div>
+</div>

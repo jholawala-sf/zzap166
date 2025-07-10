@@ -1,0 +1,6 @@
+<div class="card-body">
+    <isif condition="${require('*/cartridge/scripts/helpers/siteHelpers').getSitePreference('enablePasswordlessLogin')}">
+        <isinclude template="account/components/passwordlessLoginButton" />
+    </isif>
+    <isinclude template="account/components/oauth" />
+</div>

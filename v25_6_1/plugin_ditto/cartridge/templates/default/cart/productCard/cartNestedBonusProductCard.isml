@@ -1,0 +1,67 @@
+<div class="bundled-line-item">
+    <div class="row">
+        <div class="col-8 col-md-7">
+            <div class="row">
+                <div class="d-flex flex-row">
+                    <div class="item-image">
+                        <a href="${productLineItem.url}">
+                            <img class="product-image" src="${productLineItem.images.small[0].url}"
+                                alt="${productLineItem.images.small[0].alt}"
+                                title="${productLineItem.images.small[0].title}" />
+                        </a>
+                    </div>
+                    <div class="product-line-item-details">
+                        <div class="line-item-header">
+                            <div class="line-item-name">
+                                <a href="${productLineItem.url}" class="text-reset">
+                                    ${productLineItem.productName}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item-attributes d-flex flex-column">
+                            <isloop items="${productLineItem.variationAttributes}" var="attribute">
+                                <div class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
+                                    <span class="line-item-attributes-name">${attribute.displayName}</span>:
+                                    ${attribute.displayValue}
+                                </div>
+                            </isloop>
+                            <isloop items="${productLineItem.options}" var="option">
+                                <isif condition="${!!option}">
+                                    <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                                        data-value-id="${option.selectedValueId}">
+                                        <p class="line-item-attributes">${option.displayName}</p>
+                                    </div>
+                                </isif>
+                            </isloop>
+                            <div class="line-item-quanity-info">
+                                <span class="qty-card-quantity-label">
+                                    ${Resource.msg('field.selectquantity', 'cart', null)}
+                                </span>:
+                                <span class="qty-card-quantity-count">
+                                    <isprint value="${productLineItem.quantity}" formatter="##" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--- line item total price --->
+        <div class="col-4 col-md-5 d-flex flex-column justify-content-between align-items-end product-card-footer">
+            <!--- line item total price --->
+            <div class="line-item-total-price">
+                <div class="item-total-${productLineItem.UUID} price">
+                    <div class="d-flex">
+                        <div
+                            class="strike-through ${!productLineItem.priceTotal.nonAdjustedPrice ? 'non-adjusted-price' : ''}">
+                            ${productLineItem.priceTotal.nonAdjustedPrice}
+                        </div>
+                        <div class="pricing line-item-total-price-amount item-total-${productLineItem.UUID}">
+                            ${productLineItem.priceTotal.price}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

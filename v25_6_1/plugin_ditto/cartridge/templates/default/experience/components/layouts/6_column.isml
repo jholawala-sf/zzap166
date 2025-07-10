@@ -1,0 +1,10 @@
+<div class="${pdict.containerClasses}" id="${pdict.uniqueId ? pdict.uniqueId : ''}">
+    <div class="layout-row row ${pdict.rowClasses}" style="${pdict.rowStyles}">
+        <isprint value="${pdict.regions.column1.setClassName(pdict.column1Width).render()}" encoding="off" />
+        <isprint value="${pdict.regions.column2.setClassName(pdict.column2Width).render()}" encoding="off" />
+        <isprint value="${pdict.regions.column3.setClassName(pdict.column3Width).render()}" encoding="off" />
+        <isprint value="${pdict.regions.column4.setClassName(pdict.column4Width).render()}" encoding="off" />
+        <isprint value="${pdict.regions.column5.setClassName(pdict.column5Width).render()}" encoding="off" />
+        <isprint value="${pdict.regions.column6.setClassName(pdict.column6Width).render()}" encoding="off" />
+    </div>
+</div>

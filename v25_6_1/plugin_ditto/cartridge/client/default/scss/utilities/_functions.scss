@@ -1,0 +1,29 @@
+@function calculate-rem($size) {
+    $remSize: $size / 16px;
+
+    @return #{$remSize}rem;
+}
+
+@function sqrt($r) {
+    $x0: 1;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}
+
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    }
+
+    @return $value;
+}

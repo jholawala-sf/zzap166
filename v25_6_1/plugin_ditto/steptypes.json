@@ -1,0 +1,157 @@
+{
+    "step-types": {
+        "script-module-step": [
+            {
+                "@type-id": "custom.ditto.test",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "true",
+                "description": "Testing",
+                "module": "plugin_ditto/cartridge/scripts/jobs/testJob.js",
+                "function": "testJob",
+                "transactional": "false",
+                "timeout-in-seconds": "900",
+                "parameters": {
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+            }
+        ],
+        "chunk-script-module-step": [
+            {
+                "@type-id": "custom.datacloud.orderexport",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Export orders to file for data cloud ingestion",
+                "module": "plugin_ditto/cartridge/scripts/jobs/datacloud/orderExport.js",
+                "before-step-function":"beforeStep",
+                "total-count-function":"getTotalCount",
+                "before-chunk-function":"beforeChunk",
+                "read-function":"read",
+                "process-function":"process",
+                "write-function":"write",
+                "after-chunk-function":"afterChunk",
+                "after-step-function":"afterStep",
+                "chunk-size":250,
+                "transactional":"true",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name": "startDate",
+                            "@type": "datetime-string",
+                            "@required": "true",
+                            "@target-type": "date",
+                            "description": "Start date for the order export"
+                        },
+                        {
+                            "@name": "endDate",
+                            "@type": "datetime-string",
+                            "@required": "false",
+                            "@target-type": "date",
+                            "description": "End date for the order export"
+                        },
+                        {
+                            "@name": "minAge",
+                            "@type": "long",
+                            "@required": "false",
+                            "description": "Minimum age of order to export; i.e. lookback"
+                        },
+                        {
+                            "@name": "filename",
+                            "@type": "string",
+                            "@required": "false",
+                            "description": "Target filename"
+                        }
+                    ]
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+            },
+            {
+                "@type-id": "custom.datacloud.customerexport",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Export all customers to file for data cloud ingestion",
+                "module": "plugin_ditto/cartridge/scripts/jobs/datacloud/customerExport.js",
+                "before-step-function":"beforeStep",
+                "total-count-function":"getTotalCount",
+                "before-chunk-function":"beforeChunk",
+                "read-function":"read",
+                "process-function":"process",
+                "write-function":"write",
+                "after-chunk-function":"afterChunk",
+                "after-step-function":"afterStep",
+                "chunk-size":250,
+                "transactional":"true",
+                "parameters": {
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+            },
+            {
+                "@type-id": "custom.catalog.storefrontexport",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Export all assigned (variant) products of the storefront",
+                "module": "plugin_ditto/cartridge/scripts/jobs/catalog/export.js",
+                "before-step-function":"beforeStep",
+                "total-count-function":"getTotalCount",
+                "before-chunk-function":"beforeChunk",
+                "read-function":"read",
+                "process-function":"process",
+                "write-function":"write",
+                "after-chunk-function":"afterChunk",
+                "after-step-function":"afterStep",
+                "chunk-size":250,
+                "transactional":"true",
+                "parameters": {
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

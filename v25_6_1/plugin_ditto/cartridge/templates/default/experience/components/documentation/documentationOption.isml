@@ -1,0 +1,14 @@
+<div class="form-check documentation-option">
+    <input style="margin-top: 5px" class="form-check-input" type="radio" name="documentation-option" id="documentation-option-${pdict.id}" value="${pdict.id}">
+    <label class="form-check-label" for="documentation-option-${pdict.id}">
+        ${pdict.name}
+    </label>
+    <div>
+        <isprint value="${pdict.regions.content.render()}" encoding="off" />
+    </div>
+    <isif condition="${pdict.isFile}">
+        <div>
+        <input type="file" class="form-control-file" id="documentation-file-${pdict.id}" name="documentation-file-${pdict.id}">
+        </div>
+    </isif>
+</div>

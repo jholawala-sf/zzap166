@@ -1,0 +1,122 @@
+<isdecorate template="common/layout/page">
+
+<isset name="activeNavigation" value="quickReorder" scope="page" />
+<isset name="productCount" value="${1}" scope="page" />
+
+<div class="container">
+    <form action="${URLUtils.url('Cart-AddMultipleProducts').toString()}" method="post">
+        <div class="row">
+            <div class="col">
+                <div class="account-header">
+                    <h2 class="header">${pdict.category.displayName}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row float-right">
+            <div class="col" style="width: 10em;">
+                <button class="btn btn-outline-primary btn-block mb-1" href="${URLUtils.https('Cart-Show')}" title="${Resource.msg('bulkorder.viewcart', 'bulkOrder', null)}">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span class="ml-1">
+                        ${Resource.msg('bulkorder.viewcart', 'bulkOrder', null)}
+                    </span>
+                </button>
+            </div>
+            <div class="col" style="width: 10em;">
+            <button class="add-to-cart btn btn-primary">
+                <i class="fa fa-shopping-bag"></i>
+                <span class="ml-1">
+                    ${Resource.msg('bulkorder.addtocart', 'bulkOrder', null)}
+                </span>
+            </button>
+            </div>
+        </div>
+        <br/><br/>
+
+        <isloop iterator="${pdict.category.subCategories}" alias="subcategory">
+            <div class="row">
+                <div class="col">
+                    <div class="section-header" style="padding-top: 1em; text-align: left; margin-bottom: 1.5em;">
+                        <h2 class="subheader">
+                            ${subcategory.displayName}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10em;" scope="col">${Resource.msg('bulkorder.product', 'bulkOrder', null)}</th>
+                            <th style="width: 22em;" scope="col">${Resource.msg('bulkorder.sku', 'bulkOrder', null)}</th>
+                            <th style="width: 22em;" scope="col">${Resource.msg('bulkorder.name', 'bulkOrder', null)}</th>
+                            <th style="width: 10em;" scope="col">${Resource.msg('bulkorder.price', 'bulkOrder', null)}</th>
+                            <th style="width: 10em;" scope="col">${Resource.msg('bulkorder.quantity', 'bulkOrder', null)}</th>
+                        </tr>
+                    </thead>
+                    <isloop iterator="${subcategory.products}" alias="product">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle; text-align: center;">
+                                    <img class="product-image img-fluid" style="width: 30%;"
+                                        src="${product.getImage('hi-res',0).url}"
+                                        alt="${product.getImage('hi-res',0).alt}"
+                                        title="${product.getImage('hi-res',0).title}" >
+                                </td>
+                                <td style="vertical-align: middle;"><isprint value = "${product.ID}"></td>
+                                <!-- <td style="vertical-align: middle;"><a href=${URLUtils.url('Product-Show', 'pid', product.ID)}>${product.name}</a></td> -->
+                                <td style="vertical-align: middle;">${product.name}</td>
+                                <td style="vertical-align: middle;"><span>$</span><isprint value="${product.priceModel.price.value}" /></td>
+                                <td style="vertical-align: middle;">
+                                    <input class="form-control" type="text" name="bulk_${productCount.toFixed(0)}_quantity" value="">
+                                    <input class="form-control" type="hidden" name="bulk_${productCount.toFixed(0)}_productId" value="${product.ID}">
+                                </td>
+                            </tr>
+                        </tbody>
+                        <isset name="productCount" value="${productCount + 1}" scope="page" />
+                    </isloop>
+                </table>
+            </div>
+        </isloop>
+        <br/><br/>
+
+        <div class="row float-right">
+            <div class="col" style="width: 10em;">
+                <button class="btn btn-outline-primary btn-block mb-1" href="${URLUtils.https('Cart-Show')}" title="${Resource.msg('bulkorder.viewcart', 'bulkOrder', null)}">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span class="ml-1">
+                        ${Resource.msg('bulkorder.viewcart', 'bulkOrder', null)}
+                    </span>
+                </button>
+            </div>
+            <div class="col"style="width: 10em;">
+            <button class="add-to-cart btn btn-primary">
+                <i class="fa fa-shopping-bag"></i>
+                <span class="ml-1">
+                    ${Resource.msg('bulkorder.addtocart', 'bulkOrder', null)}
+                </span>
+            </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="mt-5">
+        <isslot id="reorder-recommendations-m" description="Recommended products" context="global" />
+    </div>
+
+</div>
+
+</isdecorate>
+
+<style>
+@media only screen and (max-width: 600px) {
+  .img-fluid {
+    width: 100% !important;
+  }
+  .table th, .table td {
+    width: 0em;
+    padding: 0.25rem 0 0.25rem;
+    text-align: center;
+  }
+}
+</style>

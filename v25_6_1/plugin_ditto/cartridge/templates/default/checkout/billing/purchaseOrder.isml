@@ -1,0 +1,14 @@
+<div class="card purchase-order purchase-order-block">
+    <div class="card-header">
+        <span class="card-header-custom"><isprint value="${pdict.purchaseOrderDetails.labels.cardLabel}" encoding="off" /></span>
+    </div>
+    <div class="card-body">
+        <fieldset class="purchase-order-details">
+            <div class="row">
+                <div class="col-sm-12">
+                    <isinclude template="checkout/billing/paymentOptions/purchaseOrderContent" />
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

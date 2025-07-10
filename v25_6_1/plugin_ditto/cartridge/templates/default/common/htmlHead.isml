@@ -1,0 +1,69 @@
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<iscomment>The page meta data will be replaced by rule based content if it's available</iscomment>
+<isif condition="${dw.system.System.getInstanceType() != dw.system.System.PRODUCTION_SYSTEM}">
+    <title>${pdict.CurrentPageMetaData.title ? pdict.CurrentPageMetaData.title + ' | ' : ''}
+        ${Resource.msg('global.site.name', 'version', null)}</title>
+<iselse/>
+    <title>
+        <isprint value="${pdict.CurrentPageMetaData.title}" encoding="htmlcontent" />
+    </title>
+</isif>
+
+<meta name="description" content="${pdict.CurrentPageMetaData.description ? pdict.CurrentPageMetaData.description : Resource.msg('global.storename',
+                                  'common', null)}" />
+<meta name="keywords" content="${pdict.CurrentPageMetaData.keywords ? pdict.CurrentPageMetaData.keywords : Resource.msg('global.storename', 'common',
+                               null)}" />
+<isloop items="${pdict.CurrentPageMetaData.pageMetaTags}" var="pageMetaTag">
+    <isif condition="${pageMetaTag.name}">
+        <meta name="${pageMetaTag.ID}" content="${pageMetaTag.content}" />
+    <iselseif condition="${pageMetaTag.property}" />
+        <meta property="${pageMetaTag.ID}" content="${pageMetaTag.content}" />
+    </isif>
+</isloop>
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="apple-touch-icon" sizes="57x57" href="${URLUtils.staticURL('/images/favicons/apple-icon-57x57.png')}">
+<link rel="apple-touch-icon" sizes="60x60" href="${URLUtils.staticURL('/images/favicons/apple-icon-60x60.png')}">
+<link rel="apple-touch-icon" sizes="72x72" href="${URLUtils.staticURL('/images/favicons/apple-icon-72x72.png')}">
+<link rel="apple-touch-icon" sizes="76x76" href="${URLUtils.staticURL('/images/favicons/apple-icon-76x76.png')}">
+<link rel="apple-touch-icon" sizes="114x114" href="${URLUtils.staticURL('/images/favicons/apple-icon-114x114.png')}">
+<link rel="apple-touch-icon" sizes="120x120" href="${URLUtils.staticURL('/images/favicons/apple-icon-120x120.png')}">
+<link rel="apple-touch-icon" sizes="144x144" href="${URLUtils.staticURL('/images/favicons/apple-icon-144x144.png')}">
+<link rel="apple-touch-icon" sizes="152x152" href="${URLUtils.staticURL('/images/favicons/apple-icon-152x152.png')}">
+<link rel="apple-touch-icon" sizes="180x180" href="${URLUtils.staticURL('/images/favicons/apple-icon-180x180.png')}">
+<link rel="icon" type="image/png" sizes="192x192"
+    href="${URLUtils.staticURL('/images/favicons/android-icon-192x192.png')}">
+<link rel="icon" type="image/png" sizes="32x32" href="${URLUtils.staticURL('/images/favicons/favicon-32x32.png')}">
+<link rel="icon" type="image/png" sizes="96x96" href="${URLUtils.staticURL('/images/favicons/favicon-96x96.png')}">
+<link rel="icon" type="image/png" sizes="16x16" href="${URLUtils.staticURL('/images/favicons/favicon-16x16.png')}">
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/global.css')}" />
+<isloop items="${require('*/cartridge/scripts/assets.js').styles}" var="style">
+    <link rel="stylesheet" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
+</isloop>
+
+<isprint value="${require('*/cartridge/scripts/theme/theme.js').renderCSS()}" encoding="off">
+
+<isif condition="${'GoogleVerificationTag' in dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom
+                 .GoogleVerificationTag != ''}">
+    <meta name="google-site-verification" content="<isprint value="
+        ${dw.system.Site.current.preferences.custom.GoogleVerificationTag}" />" />
+</isif>
+
+<iscomment>
+    hook for Marketing Cloud connector & other integration which need to inject
+    logic or markup into the page header
+    IMPORTANT: Note that this hook will be called to cached as well as uncached pages
+    which means you need to put privacy information into another remote include
+</iscomment>
+${dw.system.HookMgr.callHook('app.template.htmlHead', 'htmlHead', pdict) || ''}
+<isscript>
+    var overrideContent = dw.content.ContentMgr.getContent("htmlhead-" + dw.system.Site.current.ID)
+</isscript>
+<isif condition="${!empty(overrideContent)}">
+    <isprint value="${overrideContent.custom.body}" encoding="off" />
+</isif>

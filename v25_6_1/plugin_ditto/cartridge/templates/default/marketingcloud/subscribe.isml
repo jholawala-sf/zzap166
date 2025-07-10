@@ -1,0 +1,28 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<form action="${URLUtils.httpsContinue()}" method="post" id="MCSubscriptionForm" class="email-signup">
+    <div class="site-footer__header mb-1">
+        ${Resource.msg('mcsubscribe.signup.header', 'forms', null)}
+    </div>
+    <p>${Resource.msg('mcsubscribe.signup', 'forms', null)}</p>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="far fa-envelope" aria-hidden="true"></i>
+            </span>
+        </div>
+        <input type="text" class="form-control" id="${pdict.CurrentForms.mcsubscribe.email.htmlName}"
+            name="${pdict.CurrentForms.mcsubscribe.email.htmlName}"
+            placeholder="${Resource.msg('mcsubscribe.email.placeholder', 'forms', null)}" value="<isprint value="
+            ${pdict.CurrentForms.mcsubscribe.email.htmlValue}" encoding="htmldoublequote" />"
+        />
+        <span class="input-group-append">
+            <button type="submit" value="${Resource.msg('mcsubscribe.subscribe', 'forms', null)}"
+                name="${pdict.CurrentForms.mcsubscribe[pdict.formAction].htmlName}" class="btn btn-primary"
+                title="${Resource.msg('mcsubscribe.subscribe', 'forms', null)}">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </span>
+    </div>
+    <input type="hidden" name="${dw.web.CSRFProtection.getTokenName()}"
+        value="${dw.web.CSRFProtection.generateToken()}" />
+</form>

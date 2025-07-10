@@ -1,0 +1,24 @@
+{
+  "name": "Recommender Overrides",
+  "description": "Override pwa-kit recommender config",
+  "group": "Headless",
+  "attribute_definition_groups": [
+    {
+      "id": "main",
+      "name": "Config",
+      "attribute_definitions": [
+        {
+          "id": "recommenderOverrides",
+          "name": "Einstein Recommender Overrides",
+          "type": "custom",
+          "editor_definition": {
+            "type": "einstein.recommenderOverrides"
+          },
+          "required": false
+        }
+
+      ]
+    }
+  ],
+  "region_definitions": []
+}

@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.template.afterFooter",
+            "script": "./cartridge/scripts/qlabs/hooks.js"
+        },
+        {
+            "name": "dw.ocapi.shop.product_search.modifyGETResponse",
+            "script": "./cartridge/scripts/qlabs/hooks/productSearch"
+        }
+    ]
+}

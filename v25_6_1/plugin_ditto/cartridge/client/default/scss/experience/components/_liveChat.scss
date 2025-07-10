@@ -1,0 +1,36 @@
+.live-chat {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    bottom: 30px;
+    color: $primary;
+    cursor: pointer;
+    position: fixed;
+    right: 70px;
+    z-index: 9;
+
+    .fa-stack {
+        border-radius: 50%;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        width: 2em;
+    }
+}
+
+#snapins_invite {
+    position: fixed !important;
+    .modal-dialog {
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+        padding: 0;
+    }
+
+    .fa-comments-alt {
+        color: $primary;
+    }
+
+    .invite-message {
+        @include font-size(18px);
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Einstein Assisted",
+  "description": "Raw chakra UI markup in JSX form",
+  "group": "einstein",
+  "attribute_definition_groups": [
+    {
+      "id": "instructions",
+      "name": "",
+      "attribute_definitions": [
+        {
+          "id": "code",
+          "name": " ",
+          "type": "custom",
+          "editor_definition": {
+            "type": "headless.einsteinAssisted"
+          },
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

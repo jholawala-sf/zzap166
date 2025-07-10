@@ -1,0 +1,64 @@
+.hero-banner {
+    overflow: hidden;
+    position: relative;
+
+    .hero-banner-image-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .banner-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        width: 100%;
+    }
+
+    .hero-banner-overlay-wrapper {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .hero-banner-overlay {
+        height: 100%;
+    }
+
+    .hero-banner-overlay-inner {
+        color: $default-hero-color;
+        padding: 1rem;
+    }
+
+    .banner-subheading {
+        @include mb(3);
+    }
+
+    .btn {
+        border-radius: 3rem;
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+    }
+
+    .banner-desktop {
+        display: block;
+    }
+
+    .banner-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-banner {
+        .banner-desktop {
+            display: none;
+        }
+    
+        .banner-mobile {
+            display: block;
+        }
+    }
+}

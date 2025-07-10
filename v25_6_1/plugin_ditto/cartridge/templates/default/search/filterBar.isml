@@ -1,0 +1,35 @@
+<ul class="filter-items d-flex align-items-center mx-2">
+    <isloop items="${pdict.productSearch.selectedFilters}" var="refinement" status="state">
+        <isif condition="${refinement.type === 'color'}">
+            <li class="swatch-filter">
+                <button data-href="${refinement.url}"
+                    class="btn btn-link text-reset text-decoration-none text-capitalize d-flex align-items-center">
+                    <div class="swatch swatch-filter-${refinement.presentationId} mr-2"></div>
+                    <span class="sr-only">
+                        ${Resource.msgf('assistive.text.remove.filter.button', 'search', null, refinement.title)}
+                    </span>
+                    <i class="far fa-times"></i>
+                </button>
+            </li>
+        <iselseif condition="${refinement.type === 'category' && refinement.id === 'root'}"/>
+            <iscomment>do not show root category</iscomment>
+            <iscontinue/>
+        <iselse/>
+            <li class="filter-value">
+                <button data-href="${refinement.url}"
+                    class="btn btn-link text-reset text-decoration-none text-capitalize">
+                    <span class="mr-2" aria-hidden="true">${refinement.displayValue}</span>
+                    <span class="sr-only">
+                        ${Resource.msgf('assistive.text.remove.filter.button', 'search', null, refinement.title)}
+                    </span>
+                    <i class="far fa-times"></i>
+                </button>
+            </li>
+        </isif>
+        <isif condition="${state.last}">
+            <button class="btn" data-href="${pdict.productSearch.resetLink}">
+                ${Resource.msg('link.reset', 'search', null)}
+            </button>
+        </isif>
+    </isloop>
+</ul>

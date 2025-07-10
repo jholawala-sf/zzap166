@@ -1,0 +1,28 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/login.js');
+    </isscript>
+
+    <isslot id="register-banner-m" description="Banner for registration" context="global" />
+
+    <div class="container login-page mt-5">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-center account-auth_col">
+                <div class="account-auth_content">
+                    <isinclude template="account/components/registerForm" />
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center account-auth_col">
+                <div class="account-auth_content">
+                    <div class="mb-5">
+                        <iscontentasset aid="account-auth-create-account-content-m" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

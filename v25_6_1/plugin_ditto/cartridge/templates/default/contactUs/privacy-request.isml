@@ -1,0 +1,65 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+    </isscript>
+
+    <div class="container_sm mt-3 mt-md-5">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <iscontentasset aid="privacy-request" />
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label
+                        for="form-control-label ${pdict.privacyRequestForm.privacyRequestType.mandatory === true ? 'required' : ''}">
+                        <isprint value="${pdict.privacyRequestForm.privacyRequestType.label}" encoding="htmlcontent" />
+                    </label>
+                    <select class="custom-select" <isprint
+                        value="${pdict.privacyRequestForm.privacyRequestType.attributes}" encoding="off" />>
+                    <isloop items=${pdict.privacyRequestForm.privacyRequestType.options} var="type">
+                        <option id="${type.id}" value="${type.htmlValue}" ${type.selected ? 'selected' : ''}>
+                            ${type.label}</option>
+                    </isloop>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group ${pdict.privacyRequestForm.firstname.mandatory === true ? 'required' : ''}">
+                    <label class="form-control-label" for="firstname">
+                        <isprint value="${pdict.privacyRequestForm.firstname.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="firstname" class="form-control" id="firstname" <isprint
+                        value="${pdict.privacyRequestForm.firstname.attributes}" encoding="off" /> />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group ${pdict.privacyRequestForm.lastname.mandatory === true ? 'required' : ''}">
+                    <label class="form-control-label" for="lastname">
+                        <isprint value="${pdict.privacyRequestForm.lastname.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="lastname" class="form-control" id="lastname" <isprint
+                        value="${pdict.privacyRequestForm.lastname.attributes}" encoding="off" /> />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group ${pdict.privacyRequestForm.email.mandatory === true ? 'required' : ''}">
+                    <label class="form-control-label" for="email">
+                        <isprint value="${pdict.privacyRequestForm.email.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="email" class="form-control" id="email" <isprint
+                        value="${pdict.privacyRequestForm.email.attributes}" encoding="off" /> />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group ${pdict.privacyRequestForm.phone.mandatory === true ? 'required' : ''}">
+                    <label class="form-control-label" for="phone">
+                        <isprint value="${pdict.privacyRequestForm.phone.label}" encoding="htmlcontent" />
+                    </label>
+                    <input type="phone" class="form-control" id="phone" <isprint
+                        value="${pdict.privacyRequestForm.phone.attributes}" encoding="off" /> />
+                    <div class="invalid-feedback"></div>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">
+                    ${Resource.msg('label.submit.request', 'forms', null)}</button>
+            </div>
+        </div>
+    </div>
+</isdecorate>

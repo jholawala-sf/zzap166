@@ -1,0 +1,102 @@
+{
+    "name": "Einstein Carousel: Dynamic Product",
+    "group": "Carousel",
+    "attribute_definition_groups": [
+        {
+            "id": "dynamicCategory",
+            "description": "Determines product anchor.",
+            "attribute_definitions": [
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "type": "product",
+                    "required": true,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "product"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "einstein",
+            "name": "Einstein",
+            "attribute_definitions": [
+                {
+                    "id": "recommender",
+                    "name": "Recommender",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.einstein",
+                        "configuration": {
+                            "recommenderTypes": ["product-to-product"]
+                        }
+                    },
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "carousel",
+            "name": "Carousel",
+            "attribute_definitions": [
+                {
+                    "id": "breakpoints",
+                    "name": "Breakpoint Settings",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.carousel"
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "size",
+            "name": "Size",
+            "attribute_definitions": [
+                {
+                    "id": "isFullWidth",
+                    "name": "Display Full Width",
+                    "description": "Whether or not the region should be rendered the full width of the page.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

@@ -1,0 +1,26 @@
+<isif condition="${pdict.localeModel.locale.localLinks.length > 0}">
+  <div class="d-none d-md-inline-block mr-3">
+    <div class="dropdown country-selector" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0">
+      <span class="country-selector_button" aria-haspopup="true">
+        <isif condition="${pdict.localeModel.locale.displayName !== ''}">
+          <i class="fi fi-${pdict.localeModel.locale.countryCode.toLowerCase()} mr-1"></i>
+          ${pdict.localeModel.locale.displayName}
+          <iselse/>
+          ${Resource.msg('global.header.noregion', 'common', null)}
+        </isif>
+        <i class="far fa-angle-down" aria-hidden="true"></i>
+      </span>
+      <ul class="dropdown-menu" aria-hidden="true" aria-label="submenu">
+        <isloop items="${pdict.localeModel.locale.localLinks}" var="localeLink">
+          <li>
+            <a class="dropdown-item" href="${'#'}" data-locale="${localeLink.localID}"
+              data-currencyCode="${localeLink.currencyCode}">
+              <i class="fi fi-${localeLink.country.toLowerCase()} mr-1"></i>
+              ${localeLink.displayName}
+            </a>
+          </li>
+        </isloop>
+      </ul>
+    </div>
+  </div>
+</isif>

@@ -1,0 +1,33 @@
+{
+    "name": "Bump Offer Promotion",
+    "description": "Displays bump offer from searchable promotion",
+    "group": "Dynamic",
+    "attribute_definition_groups": [
+        {
+            "id": "bumpOfferPromotionInfo",
+            "description": "Promotion Info",
+            "attribute_definitions": [
+                {
+                    "id": "bumpOfferPromotionID",
+                    "name": "Promotion ID",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id": "aboveBumpOffer",
+            "name": "Above Bump Offer",
+            "component_type_exclusions": []
+        },
+        {
+            "id": "belowBumpOffer",
+            "name": "Below Bump Offer",
+            "component_type_exclusions": []
+        }
+
+
+    ]
+}

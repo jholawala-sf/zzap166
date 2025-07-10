@@ -1,0 +1,9 @@
+<isif condition="${pdict.isInEditMode}">
+    <isdecorate template="common/layout/page">
+        <isprint value="${pdict.regions.header.render()}" encoding="off" />
+        <isprint value="${pdict.regions.main.render()}" encoding="off" />
+    </isdecorate>
+<iselse/>
+    <isprint value="${pdict.regions.header.render()}" encoding="off" />
+    <isprint value="${pdict.regions.main.render()}" encoding="off" />
+</isif>

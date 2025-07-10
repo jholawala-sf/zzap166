@@ -1,0 +1,23 @@
+<form class="email-signup">
+    <div class="site-footer__header mb-1">
+        ${Resource.msg('mcsubscribe.signup.header', 'forms', null)}
+    </div>
+    <p>${Resource.msg('mcsubscribe.signup', 'forms', null)}</p>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="far fa-envelope" aria-hidden="true"></i>
+            </span>
+        </div>
+        <input type="text" class="form-control" name="hpEmailSignUp"
+            placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
+            aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
+        <span class="input-group-append">
+            <button type="submit" class="btn btn-primary subscribe-email"
+                data-href="${URLUtils.url('EmailSubscribe-Subscribe')}"
+                title="${Resource.msg('button.form.emailsignup', 'homePage', null)}">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </span>
+    </div>
+</form>

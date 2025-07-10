@@ -1,0 +1,115 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/cancelItems.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+        assets.addCss('/css/account/account.css');
+        assets.addCss('/css/cart.css');
+    </isscript>
+   
+    <!--- Replace image once UX has given images --->
+    <div class="hero slant-down account-image">
+        <h1 class="page-title">${Resource.msg('label.order.Thankyou','account',null)}</h1>
+    </div>
+     <!---Breadcrumbs--->
+    <div class="container receipt">
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-md-6">
+                <h2>${Resource.msg('label.cancel.items','account',null)}</h2>
+            </div>
+            <input type="hidden" id="orderId" name="orderId" value= ${pdict.order.orderNumber}>
+                <div class="col-8">
+                    <div class="card order-product-summary">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 start-lines">
+                                    <span class="order-receipt-label grand-total-label">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.unCancelledQuantity)}</span>
+                                </div>
+                                <div class="col-6 end-lines">
+                                    <span class="grand-total-price">${pdict.totalUnCancelledAmount}</span>
+                                </div>
+                                
+                            </div>
+                        </div>  
+                            
+                        
+                    
+                        <div class="mx-2 text-danger show-item-error">${Resource.msg('label.order.cancellation.error1', 'account', null)}</div>
+                        
+                        <div class="card-body product-summary-block">
+                            <isloop items="${pdict.order.shipping}" var="shippingModel">
+                                <isif condition="${pdict.order.shipping.length > 1}">
+                                    <div class="shipment-block">
+                                </isif>
+
+                                <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+                               
+                                    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+                                        <div class="card ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
+                                            <div class="card-body">
+                                                <isinclude template="checkout/productCard/bonusProductCard" />
+                                            </div>
+                                        </div>
+                                    <iselse/>
+                                        <isif condition="${lineItem.status !== 'CANCELLED'}">
+                                            <div class="form-group custom-control custom-checkbox select-items">
+                                                
+                                                <input type="checkbox" class="custom-control-input" id= ${lineItem.id} name="cancelItem" value= ${lineItem.id}>
+                                                    <label class="custom-control-label" for= ${lineItem.id}>
+                                                            <isinclude template="checkout/productCard/productCard" />
+                                                    </label>
+                                                
+                                            </div>
+                                        </isif> 
+                                    </isif>
+                                </isloop>
+
+                                <isif condition="${pdict.order.shipping.length > 1}">
+                                    <isinclude template="checkout/shipping/shippingCard" />
+                                </isif>
+                            </isloop>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <span class="summary-section-label order-date-label">${Resource.msg('label.order.item.cancellation.reason', 'account', null)} </span>
+                            <select class="form-control custom-select my-2" >
+                                <option value="Changed my mind">Changed my mind</option>
+                                <option value="Ordered by mistake">Ordered by mistake</option>
+                                <option value="Found a cheaper alternative">Found a cheaper alternative</option>
+                                <option value="Need it earlier than scheduled">Need it earlier than scheduled</option>
+                            </select>
+                        </div>
+                        <div class="my-1 mx-3">
+                            <hr class="line-item-divider">
+                        </div>
+                        <div class="card-body">
+                            <isinclude url="${URLUtils.url('Page-Include', 'cid', 'b2cloyalty_cancelItem_message')}"/>
+                            
+                        </div>
+                        <div class="form-group custom-control custom-checkbox mx-3">
+                            <input type="checkbox" class="custom-control-input" id="terms_conditions" name="terms_conditions">
+                            <label class="custom-control-label" for="terms_conditions">
+                                I accept the <a> terms and conditions </a> for cancelled order items.      
+                            </label>
+                        <div class="mx-2 text-danger terms-conditions-error">${Resource.msg('label.order.cancellation.error2', 'account', null)}</div>
+                        </div>
+                        <div class="row mx-2">
+                            <div class="col-6 my-3">
+                                <a class="btn btn-block btn-outline-primary"
+                                href="${URLUtils.url('Account-Show')}">${Resource.msg('profile.loyalty.form.cta.cancel', 'loyalty', null)}</a>
+                            </div>
+                            <div class="col-6 my-3">
+                                
+                                <a href="#" class="btn btn-save btn-primary btn-block " role="button" aria-pressed="true">
+                                    ${Resource.msg('button.order.items.cance.confirm','account',null)}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    
+</isdecorate>

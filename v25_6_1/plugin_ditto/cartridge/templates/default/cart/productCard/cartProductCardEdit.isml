@@ -1,0 +1,32 @@
+<!--- TEMPLATENAME: cartProductCardEdit.isml --->
+<!--- Edit product and MoveToWishList--->
+
+<iscomment>default isEditAllowed to true if it was not set</iscomment>
+<isset name="isEditAllowed" value="${empty(lineItem.editAllowed) || lineItem.editAllowed}" scope="page" />
+
+<div class="product-edit product-move">
+    <isif condition="${lineItem.documentationRequired}">
+        <a href="${URLUtils.url('Cart-AddDocumentation', 'uuid', lineItem.UUID)}" class="documentation"
+           data-toggle="modal"
+           data-target="#editDocumentationModal"
+           data-uuid="${lineItem.UUID}"
+        >Add Documentation</a>
+    </isif>
+    <isif condition="${isEditAllowed}">
+        <a href="${URLUtils.url('Cart-GetProduct', 'uuid', lineItem.UUID)}" class="edit"
+           data-toggle="modal" data-target="#editProductModal"
+           aria-label="${Resource.msgf('text.edit.line.item','cart', null, lineItem.productName)}"
+           title="${Resource.msg('link.edit.item', 'cart', null)}">${Resource.msg('link.edit.item', 'cart', null)}</a>
+    </isif>
+    <isif condition="${pdict.enabledPlugins.Wishlist}">
+        <a href="${URLUtils.url('Wishlist-AddProduct')}" class="move"
+            data-pid="${lineItem.id}"
+            data-name="${lineItem.productName}"
+            data-action="${URLUtils.url('Cart-RemoveProductLineItem')}"
+            data-uuid="${lineItem.UUID}"
+            title="${Resource.msg('link.move.to.wishlist', 'cart', null)}">${Resource.msg('link.move.to.wishlist', 'cart', null)}</a>
+    </isif>
+    <isif condition="${!lineItem.isBonusProductLineItem}">
+        <isinclude template="components/deleteButton" />
+    </isif>
+</div>

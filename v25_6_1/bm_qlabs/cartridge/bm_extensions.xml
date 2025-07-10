@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+    <menuitem id="qlabs_id01" position="99999" site="false">
+        <name xml:lang="x-default">QLabs</name>
+        <short_description xml:lang="x-default">
+            QLabs - Tools and experiments from Q-Branch
+        </short_description>
+        <description xml:lang="x-default">
+            QLabs - Tools and experiments from Q-Branch
+        </description>
+        <icon>icons/q_small.png</icon>
+    </menuitem>
+    <menuaction id="qlabs" menupath="qlabs_id01" position="-1" site="false">
+        <name xml:lang="x-default">Home</name>
+        <short_description xml:lang="x-default">QLabs Home</short_description>
+        <description xml:lang="x-default">QLabs</description>
+        <exec pipeline="QLabs" node="Start"/>
+        <sub-pipelines>
+            <pipeline name="QLabs-Start"/>
+            <pipeline name="QLabs-DataStore"/>
+            <pipeline name="QLabs-MRTRequest"/>
+            <pipeline name="QLabs-Misc"/>
+            <pipeline name="QLabs-EGPTRequest"/>
+            <pipeline name="QLabs-EGPTSystemRequest"/>
+            <pipeline name="QLabs-ComponentInfo"/>
+            <pipeline name="QLabs-Test"/>
+            <pipeline name="QLabs-UserVerification"/>
+            <pipeline name="QLabs-AgentApiRequest"/>
+        </sub-pipelines>
+        <icon>icons/q_small.png</icon>
+    </menuaction>
+    <menuaction id="NoPermissionCheck" site="false">
+        <name xml:lang="x-default">Dummy</name>
+        <short_description xml:lang="x-default">dummy menu action that holds the pipelines which do not require a permission check</short_description>
+        <description xml:lang="x-default">dummy menu action that holds the pipelines which do not require a permission check.</description>
+        <sub-pipelines>
+            <pipeline name="OpenAI-OpenAIRequest" />
+            <pipeline name="QLabs-Keepalive" />
+            <pipeline name="QLabs-Info" />
+        </sub-pipelines>
+    </menuaction>
+</extensions>

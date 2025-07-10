@@ -1,0 +1,20 @@
+{
+    "name":"Documentation Workflow",
+    "description":"For line item customization",
+    "region_definitions":[
+        {
+            "id":"content",
+            "name":"Content Region",
+            "component_type_exclusions": [
+                {"type_id": "documentation.documentationOption"}
+            ]
+        },
+        {
+            "id":"options",
+            "name":"Options",
+            "component_type_inclusions": [
+                {"type_id": "documentation.documentationOption"}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+.ambassador-content {
+    .ambassador-content_top {
+        background-color: $gray-100;
+
+        @include media-breakpoint-down(md) {
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .ambassador-name {
+        font-weight: $font-weight-bold;
+    }
+
+    .ambassador-text {
+        @include font-size(18);
+    }
+}

@@ -1,0 +1,102 @@
+.public-header,
+.public-header-date {
+    text-align: center;
+}
+.failedAttempt {
+    color: $red;
+    text-align: center;
+}
+
+.gr-search-results-header {
+    border-bottom: 1px solid $border-color;
+    display: flex;
+
+    @include pb(2);
+    @include mb(3);
+
+    h3 {
+        margin: 0;
+    }
+
+    .gr-search-results-count {
+        @include ml(3);
+    }
+}
+
+.no-co-registrant,
+.no-post-event-address {
+    .event-edit-button,
+    .event-summary,
+    .card-body {
+        display: none;
+    }
+}
+
+.add-co-registrant,
+.add-post-event-address {
+    .edit-button {
+        display: none;
+    }
+}
+
+.gr-landing-block {
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 265px;
+    }
+}
+
+.gr-search-results {
+    .search-result {
+        border-bottom: 1px solid $gray-100;
+        @include py(3);
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+}
+
+.gift-registry-event-formation-tabs {
+    @include mb(3);
+}
+
+.registry-card-display-info {
+    .card-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.gift-registry-landing-page {
+    .nav-tabs {
+        border-width: 1px;
+    }
+
+    .event-info-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        @include mb(2);
+
+        .clear-list-btn {
+            @include px(0);
+        }
+    }
+
+    .gr-item-actions {
+        display: flex;
+        width: 100%;
+
+        @include mt(3);
+
+        a,
+        button {
+            flex: 1 1 0;
+        }
+    }
+}

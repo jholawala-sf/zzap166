@@ -1,0 +1,127 @@
+{
+  "_B4MFY5CR.js": {
+    "file": "assets/B4MFY5CR.js",
+    "name": "B4MFY5CR",
+    "imports": [
+      "_production.js"
+    ]
+  },
+  "_production.js": {
+    "file": "assets/production.js",
+    "name": "production",
+    "isDynamicEntry": true,
+    "imports": [
+      "cartridges/bm_qlabs/cartridge/client/default/js/labs/main.jsx"
+    ],
+    "dynamicImports": [
+      "node_modules/@tanstack/query-devtools/build/DevtoolsComponent/HO4MOOFI.js",
+      "node_modules/@tanstack/query-devtools/build/DevtoolsPanelComponent/HUY7CZI3.js"
+    ]
+  },
+  "cartridges/bm_qlabs/cartridge/client/default/js/labs/main.jsx": {
+    "file": "assets/main.js",
+    "name": "main",
+    "src": "cartridges/bm_qlabs/cartridge/client/default/js/labs/main.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "_production.js"
+    ],
+    "css": [
+      "assets/main.css"
+    ],
+    "assets": [
+      "assets/symbols.svg",
+      "assets/symbols3.svg",
+      "assets/symbols4.svg",
+      "assets/symbols2.svg",
+      "assets/symbols5.svg",
+      "assets/banner-brand-default.png",
+      "assets/banner-group-public-default.png",
+      "assets/banner-user-default.png",
+      "assets/group_avatar_160.png",
+      "assets/group_avatar_200.png",
+      "assets/profile_avatar_160.png",
+      "assets/profile_avatar_200.png",
+      "assets/einstein-figure.svg",
+      "assets/bg-info@2x.png"
+    ]
+  },
+  "node_modules/@salesforce-ux/design-system/assets/icons/action-sprite/svg/symbols.svg": {
+    "file": "assets/symbols.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/icons/action-sprite/svg/symbols.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/icons/custom-sprite/svg/symbols.svg": {
+    "file": "assets/symbols5.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/icons/custom-sprite/svg/symbols.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/icons/doctype-sprite/svg/symbols.svg": {
+    "file": "assets/symbols2.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/icons/doctype-sprite/svg/symbols.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/icons/standard-sprite/svg/symbols.svg": {
+    "file": "assets/symbols4.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/icons/standard-sprite/svg/symbols.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/icons/utility-sprite/svg/symbols.svg": {
+    "file": "assets/symbols3.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/icons/utility-sprite/svg/symbols.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/einstein-headers/einstein-figure.svg": {
+    "file": "assets/einstein-figure.svg",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/einstein-headers/einstein-figure.svg"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/group_avatar_160.png": {
+    "file": "assets/group_avatar_160.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/group_avatar_160.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/group_avatar_200.png": {
+    "file": "assets/group_avatar_200.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/group_avatar_200.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/profile_avatar_160.png": {
+    "file": "assets/profile_avatar_160.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/profile_avatar_160.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/profile_avatar_200.png": {
+    "file": "assets/profile_avatar_200.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/profile_avatar_200.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-brand-default.png": {
+    "file": "assets/banner-brand-default.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-brand-default.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-group-public-default.png": {
+    "file": "assets/banner-group-public-default.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-group-public-default.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-user-default.png": {
+    "file": "assets/banner-user-default.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/themes/oneSalesforce/banner-user-default.png"
+  },
+  "node_modules/@salesforce-ux/design-system/assets/images/welcome-mat/bg-info@2x.png": {
+    "file": "assets/bg-info@2x.png",
+    "src": "node_modules/@salesforce-ux/design-system/assets/images/welcome-mat/bg-info@2x.png"
+  },
+  "node_modules/@tanstack/query-devtools/build/DevtoolsComponent/HO4MOOFI.js": {
+    "file": "assets/HO4MOOFI.js",
+    "name": "HO4MOOFI",
+    "src": "node_modules/@tanstack/query-devtools/build/DevtoolsComponent/HO4MOOFI.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_B4MFY5CR.js",
+      "_production.js",
+      "cartridges/bm_qlabs/cartridge/client/default/js/labs/main.jsx"
+    ]
+  },
+  "node_modules/@tanstack/query-devtools/build/DevtoolsPanelComponent/HUY7CZI3.js": {
+    "file": "assets/HUY7CZI3.js",
+    "name": "HUY7CZI3",
+    "src": "node_modules/@tanstack/query-devtools/build/DevtoolsPanelComponent/HUY7CZI3.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_B4MFY5CR.js",
+      "_production.js",
+      "cartridges/bm_qlabs/cartridge/client/default/js/labs/main.jsx"
+    ]
+  }
+}

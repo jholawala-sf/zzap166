@@ -1,0 +1,10 @@
+<div class="recommendations">
+    <h2 class="section-header">
+        ${Resource.msg('label.noresults.recommendations', 'search', null)}
+    </h2>
+    <div class="row mb-5">
+        <div class="carousel slot-carousel">
+            <isinclude template="components/products" />
+        </div>
+    </div>
+</div>

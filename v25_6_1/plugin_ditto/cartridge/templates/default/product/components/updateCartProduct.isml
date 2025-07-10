@@ -1,0 +1,19 @@
+<div class="cart-and-ipay" data-ipay-enabled="${pdict.enabledPlugins.ApplePay}">
+    <div class="d-flex">
+        <input type="hidden" class="update-cart-url" value="${pdict.updateCartUrl}"
+            data-selected-quantity="${pdict.selectedQuantity}" data-selected-option="${pdict.selectedOptionValueId}"
+            data-uuid="${pdict.uuid}" />
+        <button class="update-cart-product-global btn btn-primary flex-grow-1" data-pid="${product.id}"
+            ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            <i class="fa fa-shopping-bag"></i>
+            ${Resource.msg('button.update', 'common', null)}
+        </button>
+    </div>
+    <isif
+        condition="${(session.custom.applepaysession === 'yes') && (product.available && product.readyToOrder) && pdict.enabledPlugins
+                   .ApplePay}">
+        <div class="pdp-apple-pay-button">
+            <isapplepay class="apple-pay-pdp btn" sku="${product.id}"></isapplepay>
+        </div>
+    </isif>
+</div>

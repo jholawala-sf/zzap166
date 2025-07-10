@@ -1,0 +1,47 @@
+{
+    "name": "Theme",
+    "description": "For defining ditto themes",
+    "region_definitions": [
+        {
+            "id": "logo",
+            "name": "Logo Region",
+            "max_components": 1,
+            "component_type_inclusions": [
+                {
+                    "type_id": "assets.themeLogo"
+                }
+            ]
+        },
+
+        {
+            "id": "mobileLogo",
+            "name": "Mobile Logo Region",
+            "max_components": 1,
+            "component_type_inclusions": [
+                {
+                    "type_id": "assets.themeLogo"
+                }
+            ]
+        },
+        {
+            "id": "main",
+            "name": "Main Region",
+            "max_components": 1,
+            "component_type_inclusions": [
+                {
+                    "type_id": "assets.theme"
+                }
+            ]
+        },
+        {
+            "id": "footerLogo",
+            "name": "Footer Logo Region",
+            "max_components": 1,
+            "component_type_inclusions": [
+                {
+                    "type_id": "assets.themeLogo"
+                }
+            ]
+        }
+    ]
+}

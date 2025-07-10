@@ -1,0 +1,356 @@
+$checkout-font-weight: 600;
+
+$receipt-font-size: 0.875rem;
+$receipt-spacing: 0.635rem;
+$receipt-spacing-top: $receipt-spacing;
+$receipt-spacing-bottom: $receipt-spacing + 1rem;
+$stored-payment-spacing: 1rem;
+
+.checkout-card-header {
+    font-size: 1.25rem;
+    font-weight: $checkout-font-weight;
+}
+
+.grand-total-price {
+    float: right;
+    font-weight: $checkout-font-weight;
+}
+
+.grand-total-label {
+    font-weight: $checkout-font-weight;
+}
+
+.grand-total {
+    font-size: 1.125rem !important;
+    font-weight: 600;
+}
+
+.order-receipt-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-summary {
+    .row {
+        @include mb(1);
+    }
+}
+
+.product-divider {
+    margin-left: -$receipt-spacing;
+    margin-right: -$receipt-spacing;
+
+    hr {
+        border-top: dashed 0.063rem;
+    }
+}
+
+.product-line-item + .product-line-item::before,
+.multi-shipping + .product-line-item::before {
+    border-bottom: 0.063em dashed $border-color;
+    content: "";
+    display: block;
+    margin: $receipt-spacing-top -0.625rem $receipt-spacing-bottom -0.625rem;
+
+    @include media-breakpoint-up(lg) {
+        margin: $receipt-spacing-top -1.225rem $receipt-spacing-bottom -1.225rem;
+    }
+}
+
+.shipment-block + .shipment-block::before {
+    border-bottom: 0.063em dashed $border-color;
+    content: "";
+    display: block;
+    margin: $receipt-spacing -0.625rem;
+
+    @include media-breakpoint-up(lg) {
+        margin: $receipt-spacing -1.225rem;
+    }
+}
+
+.shipping-method {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-summary-block {
+    margin: 1rem 0;
+
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+.summary-details {
+    font-size: 0.938rem;
+
+    @include mb(3);
+}
+
+.summary-details .address-summary {
+    margin-bottom: 0.5em;
+}
+
+.summary-section-label {
+    font-size: 1rem;
+    font-weight: $checkout-font-weight;
+
+    @include media-breakpoint-up(lg) {
+        font-weight: 500;
+    }
+}
+
+.add-payment {
+    margin-top: $stored-payment-spacing;
+}
+
+.saved-payment-instrument-header {
+    border-bottom: 1px solid #ddd;
+
+    @include p(2);
+}
+
+.saved-payment-instrument {
+    .card-image {
+        height: auto;
+        width: 30px;
+    }
+
+    .card-info {
+        align-items: center;
+        display: flex;
+    }
+
+    .security-code-input {
+        display: flex;
+
+        .invalid-feedback {
+            align-self: center;
+
+            @include ml(2);
+        }
+    }
+
+    .saved-payment-security-code {
+        height: 2rem;
+        padding: 0;
+        width: 80px;
+    }
+
+    .saved-credit-card-type {
+        font-weight: 600;
+    }
+}
+
+.payment-information {
+    margin-bottom: $stored-payment-spacing;
+}
+
+.cancel-new-payment {
+    margin-top: $stored-payment-spacing;
+}
+
+.form-check.start-lines {
+    padding-left: 1.5rem;
+}
+
+.multi-ship .single-shipping .shipping-content {
+    display: none;
+}
+
+.multi-ship .shipping-summary .single-shipping {
+    display: none;
+}
+
+.gift-message-block {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.summary-section-label {
+    font-weight: $font-weight-bold;
+
+    .svg-inline--fa {
+        @include mr(2);
+    }
+
+    @include mb(2);
+}
+
+.confirm-details .shipping-method,
+.confirm-details .shipping-method-price {
+    margin-bottom: 0;
+}
+
+.multi-ship .confirm-details .single-shipping {
+    display: none;
+}
+
+.multi-shipping {
+    display: none;
+}
+
+.payment-options {
+    border-width: 1px;
+
+    .nav-link {
+        box-shadow: none;
+    }
+
+    .svg-inline--fa {
+        height: calculate-rem(16px);
+    }
+}
+
+.view-address-block h3,
+.shipping-address-block h3,
+.shipping-method-block h3 {
+    font-size: 1.25rem;
+}
+
+.order-confirmation-messages {
+    text-align: center;
+
+    .order-thank-you-msg {
+        @include font-size(48px);
+        @include mb(4);
+    }
+
+    .order-placed-msg {
+        @include font-size(32px);
+        @include my(3);
+
+        .order-number {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    .order-thank-you-email-msg {
+        @include font-size(18px);
+        @include my(3);
+
+        .email-address {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    .summary-details {
+        @include my(3);
+    }
+
+    .order-number-label,
+    .order-date-label {
+        font-weight: $font-weight-bold;
+
+        @include mr(1);
+    }
+
+    .order-number {
+        @include mr(3);
+    }
+    .order-print {
+        @include ml(3);
+    }
+}
+
+.order-details {
+    border: 1px solid $border-color;
+    margin-left: 0;
+    margin-right: 0;
+
+    .col-12:nth-child(2) {
+        border-left: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+    }
+}
+
+.order-list,
+.order-summary {
+    .summary-section-label {
+        border-bottom: 1px solid $border-color;
+
+        @include pb(2);
+        @include mb(3);
+        @include font-size(22px);
+    }
+}
+
+.order-summary + .order-list {
+    margin-top: -1px;
+}
+
+.order-summary {
+    border: 1px solid $border-color;
+
+    @include p(3);
+}
+
+.product-line-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.receipt {
+    .card {
+        border: 0;
+
+        .card-body {
+            padding: 0;
+        }
+    }
+}
+
+.order-confirm-create-account {
+    .checkout-registration {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.purchase-order-details {
+    .purchase-order-payment-details {
+        margin-top: 1rem;
+    }
+    .po-summary-details {
+        font-size: 0.8125rem;
+        .remove-btn {
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}
+
+.commercepayments {
+    .purchase-order.card {
+        .card-header-custom {
+            font-size: 1.75rem;
+        }
+    }
+}
+
+.gift-certificates-applied-total,
+.purchase-order-applied-total {
+    color: $success;
+}
+
+.remaining-order-total {
+    font-size: 1.125rem !important;
+    font-weight: 600;
+}
+
+.receipt {
+    .remaining-order-total {
+        display: none;
+    }
+}
+
+.hide-purchase-order-applied,
+.hide-remaining-total {
+    display: none;
+}
+
+.no-bottom-border {
+    border-bottom: none !important;
+}

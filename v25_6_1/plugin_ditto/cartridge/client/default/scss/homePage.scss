@@ -1,0 +1,45 @@
+@import "variables";
+@import "~base/homePage";
+
+.hero {
+    height: 35vw;
+}
+
+.category-item {
+    margin: 0;
+    padding: 0;
+}
+
+.category-tile {
+    border: 0;
+}
+
+.homepage-products-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    position: relative;
+    text-align: center;
+
+    h2 {
+        background: $gray-300;
+        border: 1px solid $gray-900;
+        color: $gray-900;
+        display: inline-block;
+        margin: 0;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &::after {
+        background: $gray-900;
+        content: "";
+        height: 1px;
+        left: 0;
+        margin-top: -1px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+}

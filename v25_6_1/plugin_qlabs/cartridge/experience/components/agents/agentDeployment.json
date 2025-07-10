@@ -1,0 +1,66 @@
+{
+  "name": "Agent Deployment",
+  "description": "QLabs Agent deployment with context",
+  "group": "Agents",
+  "attribute_definition_groups": [
+    {
+      "id": "agent",
+      "name": "Agent",
+      "attribute_definitions": [
+        {
+          "id": "agent",
+          "name": "Agent Deployment Config",
+          "type": "custom",
+          "editor_definition": {
+            "type": "react.agentEditor"
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "container",
+      "name": "Container",
+      "attribute_definitions": [
+        {
+          "id": "__containerStyles",
+          "name": "Container Style Config",
+          "type": "custom",
+          "editor_definition": {
+            "type": "react.styleEditor"
+          },
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": [
+    {
+      "id": "children",
+      "name": "Children",
+      "component_type_inclusions": [
+        {
+          "type_id": "agents.chatInput"
+        },
+        {
+          "type_id": "agents.messages"
+        },
+        {
+          "type_id": "agents.template"
+        },
+        {
+          "type_id": "agents.productTile"
+        },
+        {
+          "type_id": "agents.query"
+        },
+        {
+          "type_id": "agents.shopperSearchAgent"
+        },
+        {
+          "type_id": "agents.shopperAgentModal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<isset name="activeNavigation" value="addresses" scope="page" />
+
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/addressBook.js');
+        assets.addCss('/css/account/addressBook.css');
+    </isscript>
+
+    <isinclude template="account/deleteAddressModal" />
+
+    <div class="container">
+        <div class="account-header">
+            <h2>${Resource.msg('label.addressbook', 'account', null)}</h2>
+            <a href="${URLUtils.url('Address-AddAddress')}" class="btn btn-link">
+                ${Resource.msg('label.addressbook.addnewaddress', 'account', null)}
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-12 ${pdict.addressBook.length !== 0 ? 'd-none' : ''}">
+                <div class="no-addresses-msg">
+                    ${Resource.msg('msg.no.saved.addresses', 'address', null)}
+                </div>
+            </div>
+            <div class="col-12">
+                <!-- Rows for addresses in the Address Book -->
+                <div class="list-group list-group-flush">
+                    <isloop items="${pdict.addressBook}" var="address">
+                        <div id="uuid-${address.address.UUID}" class="list-group-item">
+                            <div class="row justify-content-between">
+                                <div class="address-summary">
+                                    <div class="address-id">
+                                        <span class="font-weight-bold">${address.address.ID}</span>
+                                        <isif condition="${address.address.ID === pdict.addressBook[0].address.ID}">
+                                            (${Resource.msg('label.addressbook.defaultaddress', 'account', null)})
+                                        </isif>
+                                    </div>
+                                    <div>${address.address.firstName} ${address.address.lastName}</div>
+                                    <div>${address.address.address1}</div>
+                                    <isif condition="${address.address.address2 !== null}">
+                                        <div>${address.address.address2}</div>
+                                    </isif>
+                                    <div>${address.address.city}, ${address.address.stateCode}
+                                        ${address.address.postalCode}
+                                    </div>
+                                    <div>${address.address.phone}</div>
+                                </div>
+                                <div class="modify-address">
+                                    <isif condition="${address.address.ID !== pdict.addressBook[0].address.ID}">
+                                        <a href="${URLUtils.url('Address-SetDefault', 'addressId', address.address.ID)}"
+                                            class="btn btn-link make-default-address"
+                                            aria-label="${Resource.msg('label.addressbook.makedefaultaddress', 'account', null)}">
+                                            ${Resource.msg('link.addressbook.makedefault', 'account', null)}</a>
+                                    </isif>
+                                    <a href="${URLUtils.url('Address-EditAddress', 'addressId', address.address.ID)}"
+                                        class="btn btn-link"
+                                        aria-label="${Resource.msg('label.addressbook.editaddress', 'account', null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID + ' (' + Resource.msg(
+                                                                                                                        'label.addressbook.defaultaddress', 'account', null) + ')' : address.address.ID}">
+                                        ${Resource.msg('link.edit', 'account', null)}</a>
+                                    <button type="button" class="remove-address btn btn-link" data-toggle="modal"
+                                        data-target="#deleteAddressModal" data-id="${address.address.ID}"
+                                        data-url="${pdict.actionUrls.deleteActionUrl}"
+                                        aria-label="${Resource.msg('label.addressbook.deleteaddress', 'account', null)}"
+                                        ${address.address.ID == pdict.addressBook[0].address.ID ? 'data-default="true"' :
+                                        ''}>
+                                        ${Resource.msg('label.addressbook.delete', 'account', null)}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

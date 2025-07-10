@@ -1,0 +1,234 @@
+@import "../variables";
+
+.site-footer {
+    .site-footer_content {
+        @include mb(3);
+
+        @include media-breakpoint-up(lg) {
+            @include mb(5);
+        }
+    }
+
+    .site-footer_marketing {
+        @include media-breakpoint-up(lg) {
+            @include pb(5);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include pr(5);
+            border-right: 1px solid rgba($white, 0.4);
+        }
+    }
+
+    .email-signup {
+        @include mb(3);
+
+        @include media-breakpoint-up(lg) {
+            @include mb(5);
+        }
+
+        p {
+            color: $white;
+            @include font-size(12px);
+        }
+
+        .input-group-text {
+            border-right: none;
+            color: $primary;
+        }
+
+        .input-group {
+            background-color: $white;
+
+            @include pl(2);
+        }
+
+        .form-control {
+            border-left: none;
+            box-shadow: none;
+            padding-left: 0;
+        }
+    }
+
+    .notice {
+        background-color: $site-footer-notice-bg;
+        color: $site-footer-notice-text;
+        font-size: 0.75rem;
+
+        a {
+            color: $site-footer-notice-link;
+        }
+
+        .list-inline {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-down(sm) {
+            & {
+                @include px(3);
+            }
+        }
+    }
+
+    .back-to-top {
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 0;
+        bottom: 30px;
+        color: $primary;
+        cursor: pointer;
+        opacity: 0;
+        position: fixed;
+        right: 20px;
+        transition: opacity 0.2s ease-out;
+        z-index: 99;
+
+        .fa-stack {
+            border-radius: 50%;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+            width: 2em;
+        }
+
+        &.show {
+            opacity: 1;
+        }
+
+        @include media-breakpoint-down(md) {
+            bottom: calculate-rem(20px);
+            right: 0;
+        }
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    @include toggle($site-footer-link);
+}
+
+.site-footer__inner-container {
+    background-color: $site-footer-bg;
+}
+
+.site-footer-social {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .site-footer-social__item {
+        @include mx(2);
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        a {
+            color: $site-footer-social;
+            display: block;
+            height: 100%;
+            opacity: 0.6;
+            text-align: center;
+            transition: opacity 0.2s ease-out;
+            width: 100%;
+
+            @include font-size(12px);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.site-footer__brand {
+    img {
+        height: $footer-logo-height;
+    }
+}
+
+.site-footer__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer__header,
+.site-footer__menu-header {
+    color: $site-footer-header;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    @include font-size(12px);
+}
+
+.site-footer__sflogo {
+    padding-right: 3rem;
+    text-align: center;
+    border-right: 0;
+    @include media-breakpoint-up(md) {
+        text-align: right;
+        border-right: 1px solid rgba(255, 255, 255, 0.4);
+    }
+}
+
+a.site-footer__menu-link {
+    color: $site-footer-link;
+
+    @include font-size(14px);
+}
+
+.consent-tracking {
+    background-color: $consent-tracking-bg;
+    bottom: 20px;
+    color: $consent-tracking-text;
+    font-size: 0.75rem;
+    left: 20px;
+    position: fixed;
+    right: auto;
+    width: 320px;
+    z-index: 2000;
+
+    .consent-tracking_close {
+        color: $consent-tracking-text;
+        margin-left: 1rem;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .site-footer__menu {
+        .collapse {
+            display: block;
+            height: auto !important;
+            visibility: visible;
+        }
+    }
+
+    .site-footer__menu-item {
+        line-height: 1.25rem;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .site-footer__menu-header {
+        cursor: pointer;
+    }
+
+    .site-footer__menu-header,
+    .site-footer__menu-item {
+        color: $site-footer-link;
+        padding: 0.25rem 0;
+    }
+
+    .consent-tracking {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}

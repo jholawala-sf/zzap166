@@ -1,0 +1,140 @@
+{
+    "name": "Content Tile",
+    "description": "Content tile component.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "pageSelection",
+            "name": "Page Selection",
+            "description": "Select a page to render.",
+            "attribute_definitions": [
+                {
+                    "id": "page",
+                    "name": "Page",
+                    "description": "Represents the page to render in the tile.",
+                    "type": "page",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "tileConfiguration",
+            "name": "Tile Configuration",
+            "description": "Content tile configuration.",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Image",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "titleOverride",
+                    "name": "Title Override",
+                    "description": "Override the page title.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.wysiwyg",
+                        "configuration": {
+                            "editorHeight": 300,
+                            "plugins": ["lists", "directionality"],
+                            "toolbar": "styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | ltr rtl"
+                        }
+                    },
+                    "required": false
+                },
+                {
+                    "id": "descriptionOverride",
+                    "name": "Description Override",
+                    "description": "Override the page description.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.wysiwyg",
+                        "configuration": {
+                            "editorHeight": 300,
+                            "plugins": ["lists", "directionality"],
+                            "toolbar": "styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | ltr rtl"
+                        }
+                    },
+                    "required": false
+                },
+                {
+                    "id": "overlayPosition",
+                    "name": "Overlay Position",
+                    "type": "enum",
+                    "values": [
+                        "Top Left",
+                        "Top Center",
+                        "Top Right",
+                        "Middle Left",
+                        "Middle Center",
+                        "Middle Right",
+                        "Bottom Left",
+                        "Bottom Center",
+                        "Bottom Right"
+                    ],
+                    "default_value": "Top Left",
+                    "required": false
+                },
+                {
+                    "id": "overlayColor",
+                    "name": "Overlay Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "overlayOpacity",
+                    "name": "Overlay Opacity",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "assets.slider",
+                        "configuration": {
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        }
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

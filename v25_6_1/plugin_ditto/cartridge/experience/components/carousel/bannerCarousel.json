@@ -1,0 +1,118 @@
+{
+    "name": "Banner Carousel",
+    "group": "Carousel",
+    "attribute_definition_groups": [
+        {
+            "id": "size",
+            "name": "Size",
+            "attribute_definitions": [
+                {
+                    "id": "isFullWidth",
+                    "name": "Display Full Width",
+                    "description": "Whether or not the region should be rendered the full width of the page.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "configurations",
+            "name": "Configure Carousel",
+            "attribute_definitions": [
+                {
+                    "id": "infiniteScroll",
+                    "name": "Enable Infinite Scroll",
+                    "description": "Enable infinite scrolling for the carousel.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                },
+                {
+                    "id": "autoplay",
+                    "name": "Enable Autoplay",
+                    "description": "Enable autoplay for the carousel.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                },
+                {
+                    "id": "autoplaySpeed",
+                    "name": "Autoplay Speed",
+                    "description": "The time to display each banner.",
+                    "type": "integer",
+                    "default_value": 5,
+                    "required": false
+                },
+                {
+                    "id": "arrows",
+                    "name": "Display Arrows",
+                    "description": "Enable displaying navigation arrows.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                },
+                {
+                    "id": "dots",
+                    "name": "Enable Pagination",
+                    "description": "Enable pagination for the carousel.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "backgroundColor",
+                    "name": "Background Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "border",
+                    "name": "Border",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.border"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id": "banners",
+            "name": "Banners",
+            "component_type_exclusions": [
+                { "type_id": "layouts.1_column" },
+                { "type_id": "layouts.2_column" },
+                { "type_id": "layouts.3_column" },
+                { "type_id": "layouts.4_column" },
+                { "type_id": "layouts.bannerCarousel" },
+                { "type_id": "assets.categoryTile" },
+                { "type_id": "assets.contentTile" },
+                { "type_id": "assets.instagram" },
+                { "type_id": "assets.markup" },
+                { "type_id": "assets.productTile" },
+                { "type_id": "assets.video" }
+            ]
+        }
+    ]
+}

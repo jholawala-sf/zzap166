@@ -1,0 +1,126 @@
+.App {
+    text-align: center;
+}
+
+.App .intro {
+    height: 100vh;
+}
+
+.App .intro video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.App .intro .opacity-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.App .intro .body-container{
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App .intro .body-container img{
+    max-width: 560px;
+    width: 75%;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+
+
+.intro h1{
+    font-size: 4.25vw;
+    text-transform: uppercase;
+    margin: 5rem 0px 0px 0px;
+}
+
+.intro h2{
+    font-size: 3.5vw;
+    margin: 2rem 0px 0px 0px;
+}
+
+.button-start{
+    padding: 1rem 5rem;
+    font-size: 2.2vw;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    color: black;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.button-start a{
+    text-decoration: none;
+    color: black;
+}
+
+.button-start:hover{
+    background-color: lightgray;
+}
+
+/* Intrustctions Page */
+.App .instructions {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructions .left{
+    flex: 1 1;
+    height: 100%;
+    width: 50%;
+}
+
+.instructions .left .container2{
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 10rem;
+}
+
+
+
+.instructions .right{
+    flex: 1;
+    height: 100%;
+    width: 50%;
+}
+
+.instructions .right .container3{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right button {
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 16px;
+}

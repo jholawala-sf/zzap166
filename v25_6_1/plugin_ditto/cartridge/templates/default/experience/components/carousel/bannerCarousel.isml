@@ -1,0 +1,6 @@
+<div class="${pdict.wrapperClasses}">
+    <isprint value="${pdict.regions.banners
+                    .setClassName('banner-carousel')
+                    .setAttribute('data-slick', pdict.slickConfig)
+                    .render()}" encoding="off" />
+</div>

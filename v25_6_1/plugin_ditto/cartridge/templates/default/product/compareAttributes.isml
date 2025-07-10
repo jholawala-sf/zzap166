@@ -1,0 +1,31 @@
+<table class="table">
+    <colgroup>
+        <col style="width:${100 / (pdict.pids.length + 1)}%" />
+        <isloop items="${pdict.pids}" var="productId">
+            <col style="width:${100 / (pdict.pids.length + 1)}%" />
+        </isloop>
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <isloop items="${pdict.pids}" var="productId">
+                <td class="product-header">
+                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', productId, 'swatches', false, 'ratings', true, 'compare', false, 'showBottomButton',
+                                    true, 'showQuickView', false)}" />
+                </td>
+            </isloop>
+        </tr>
+    </thead>
+    <tbody>
+        <isloop items="${pdict.attributes}" var="attribute" status="loopState">
+            <tr>
+                <th scope="col">${attribute.displayName}</th>
+                <isloop items="${pdict.attributes[loopState.index].values}" var="attrs">
+                    <td style="width:${100 / (pdict.pids.length + 1)}%">
+                        <isprint value="${attrs.values}" encoding="off" />
+                    </td>
+                </isloop>
+            </tr>
+        </isloop>
+    </tbody>
+</table>

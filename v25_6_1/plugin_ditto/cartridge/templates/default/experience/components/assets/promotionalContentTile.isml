@@ -1,0 +1,32 @@
+<div class="promo-content-tile m-2 mt-4">
+    <div class="image-component ${pdict.componentClasses}t" style="${pdict.componentStyles}">
+        <isif condition="${pdict.link}">
+            <a class="text-reset" href="${pdict.link}">
+        </isif>
+        <div class="image-wrapper align-self-start">
+            <isif condition="${pdict.image}">
+                <picture>
+                    <source srcset="${pdict.image.src.desktop}" media="(min-width: 48rem)" />
+                    <source srcset="${pdict.image.src.mobile}" media="(min-width: 20rem)" />
+                    <img src="${pdict.image.src.mobile}" class="img-fluid object-fit_none"
+                        style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                        ${pdict.image.alt ? 'alt="' + pdict.image.alt + '" title="' + pdict.image.alt + '"' : ''} />
+                </picture>
+            </isif>
+        </div>
+        <div class="image-overlay-wrapper">
+            <div class="image-overlay container d-flex ${pdict.overlayPosition}">
+                <div class="image-overlay-inner">
+                    <isif condition="${pdict.content}">
+                        <div class="image-content">
+                            <isprint value="${pdict.content}" encoding="off" />
+                        </div>
+                    </isif>
+                </div>
+            </div>
+        </div>
+        <isif condition="${pdict.link}">
+            </a>
+        </isif>
+    </div>
+</div>

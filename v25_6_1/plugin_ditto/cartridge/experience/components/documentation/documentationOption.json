@@ -1,0 +1,40 @@
+{
+    "name": "Documentation Option",
+    "description": "Option for line item documentation",
+    "group": "Documentation",
+    "attribute_definition_groups": [
+        {
+            "id": "options",
+            "name": "Options",
+            "description": "The interaction options for this option",
+            "attribute_definitions": [
+                {
+                    "id": "id",
+                    "name": "ID",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "name",
+                    "name": "Display Name",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "isFilePicker",
+                    "name": "Is File Option",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id":"content",
+            "name":"Option Content",
+            "component_type_exclusions": [
+                {"type_id": "documentation.documentationOption"}
+            ]
+        }
+    ]
+}

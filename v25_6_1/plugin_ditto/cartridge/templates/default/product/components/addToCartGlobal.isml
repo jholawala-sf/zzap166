@@ -1,0 +1,27 @@
+<div class="cart-and-ipay" data-ipay-enabled="${pdict.enabledPlugins.ApplePay}">
+    <span class="product-id d-none">${product.id}</span>
+    <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />
+    <div class="pdp-checkout-button d-flex">
+        <button class="add-to-cart-global btn btn-primary flex-grow-1"
+                data-pid="${product.id}"
+                ${!product.readyToOrder || !product.available ? 'disabled' : ''}>
+            <i class="fa fa-shopping-bag"></i>
+            <isif condition="${product.productType === 'set' || product.productType === 'bundle'}">
+                &nbsp;${Resource.msg('button.addalltocart', 'common', null)}
+            <iselse/>
+                &nbsp;${Resource.msg('button.addtocart', 'common', null)}
+            </isif>
+        </button>
+        <isif condition="${pdict.enabledPlugins.Wishlist}">
+            <isinclude template="wishlist/components/addToWishListButton" />
+        </isif>
+    </div>
+
+    <isif
+        condition="${(session.custom.applepaysession === 'yes') && (product.available && product.readyToOrder) && pdict.enabledPlugins
+                   .ApplePay}">
+        <div class="pdp-apple-pay-button">
+            <isapplepay class="apple-pay-pdp btn" sku="${product.id}"></isapplepay>
+        </div>
+    </isif>
+</div>

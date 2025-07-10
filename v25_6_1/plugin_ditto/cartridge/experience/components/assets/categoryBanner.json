@@ -1,0 +1,104 @@
+{
+    "name": "Category Banner",
+    "description": "Image with optional text/button overlay for category pages.",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "background",
+            "name": "Background",
+            "description": "The visual display of the background.",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Image",
+                    "type": "image",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "overlay",
+            "name": "Overlay",
+            "description": "The overlay on top of the banner image.",
+            "attribute_definitions": [
+                {
+                    "id": "heading",
+                    "name": "Heading",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "headingColor",
+                    "name": "Heading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "subheading",
+                    "name": "Subheading",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "subheadingColor",
+                    "name": "Subheading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "buttonText",
+                    "name": "Button Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonLink",
+                    "name": "Button Link",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "buttonType",
+                    "name": "Button Type",
+                    "type": "enum",
+                    "values": ["Primary", "Primary - Outline", "Secondary", "Secondary - Outline"],
+                    "default_value": "Primary",
+                    "required": false
+                },
+                {
+                    "id": "overlayPosition",
+                    "name": "Overlay Position",
+                    "type": "enum",
+                    "values": [
+                        "Top Left",
+                        "Top Center",
+                        "Top Right",
+                        "Middle Left",
+                        "Middle Center",
+                        "Middle Right",
+                        "Bottom Left",
+                        "Bottom Center",
+                        "Bottom Right"
+                    ],
+                    "default_value": "Top Left",
+                    "required": false
+                },
+                {
+                    "id": "overlayAlignment",
+                    "name": "Overlay Alignment",
+                    "type": "enum",
+                    "values": ["Left", "Center", "Right"],
+                    "default_value": "Left",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

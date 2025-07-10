@@ -1,0 +1,72 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/giftRegistry.js');
+        assets.addCss('/css/giftRegistry.css');
+    </isscript>
+
+    <isslot id="gift-registry-landing-banner-m" description="Banner for the gift regisry landing" context="global" />
+
+    <div class="container_sm gift-registry-landing-page">
+        <isinclude template="giftRegistry/components/giftRegistryBreadcrumbs" />
+
+        <div class="row">
+            <div class="col-12 col-md-4 order-last order-md-first">
+                <div class="card gr-landing-block">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            ${Resource.msg('heading.search', 'giftRegistry', null)}
+                        </h4>
+                        <isinclude template="giftRegistry/forms/searchForm" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card gr-landing-block">
+                    <div class="card-body">
+                        <div class="">
+                            <h4 class="card-title">
+                                ${Resource.msg('heading.create', 'giftRegistry', null)}
+                            </h4>
+                            <div class="card-text">
+                                <iscontentasset aid="gift-registry-landing-create" />
+                            </div>
+                        </div>
+                        <a href="${pdict.urlCreateGR}" class="btn btn-primary btn-block">
+                            ${Resource.msg('link.search.gr.create', 'giftRegistry', null)}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card gr-landing-block">
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title">
+                                ${Resource.msg('heading.manage', 'giftRegistry', null)}
+                            </h4>
+                            <div class="card-text">
+                                <iscontentasset aid="gift-registry-landing-manage" />
+                            </div>
+                        </div>
+                        <a href="${pdict.urlManageGR}" class="btn btn-primary btn-block">
+                            ${Resource.msg('link.search.gr.manage', 'giftRegistry', null)}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mt-md-5">
+            <div class="response col-12" data-first-name="" data-last-name="" data-month="" data-year="" data-email=""
+                data-name="" data-city="" data-state="" data-country="" data-page-size="<isprint value="
+                ${pdict.pageSize}" formatter="##" />"
+            data-page-number="1"
+            data-total=""
+            data-url="${pdict.moreButtonUrl}"
+            >
+            <isinclude template="giftRegistry/components/searchResults" />
+        </div>
+    </div>
+</isdecorate>

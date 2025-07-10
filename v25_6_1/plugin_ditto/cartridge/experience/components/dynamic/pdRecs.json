@@ -1,0 +1,34 @@
+{
+    "name": "Product Detail Recommendations",
+    "description": "Product Detail Recommendations",
+    "group": "Dynamic",
+    "attribute_definition_groups": [
+        {
+            "id": "productDetail",
+            "name": "Product Detail Settings",
+            "description": "Product Detail Settings",
+            "attribute_definitions": [
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "type": "product",
+                    "required": true,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "product"
+                    }
+                },
+                {
+                    "id": "bgCol",
+                    "name": "Row Background Colour",
+                    "description": "Select transparent for default grey",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

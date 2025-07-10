@@ -1,0 +1,8 @@
+<div class="section-header text-center ${pdict.componentClasses}" style="${pdict.componentStyles}">
+    <h2 class="header ${pdict.showDesignElement ? 'show-design-element' : ''}" style="${pdict.headingStyles}">
+        ${pdict.heading}
+    </h2>
+    <isif condition="${pdict.subheading}">
+        <p class="subheader" style="${pdict.subheadingStyles}">${pdict.subheading}</p>
+    </isif>
+</div>

@@ -1,0 +1,65 @@
+<div class="search-results ${!pdict.productSearch.isCategorySearch ? 'my-4' : ''}">
+    <isinclude template="search/resultsCount" />
+    <div class="tab-content">
+        <div class="tab-pane active" id="product-search-results" role="tabpanel" aria-labelledby="product-tab" data-plp-back-title="${pdict.pushStateTitle}">
+            <isif condition="${pdict.productSearch.count > 0}">
+                <div class="d-flex d-md-none m-3">
+                    <div class="flex-even mr-1">
+                        <button type="button" class="btn btn-primary btn-block h-100 filter-results">
+                            ${Resource.msg('button.filter', 'search', null)}
+                        </button>
+                    </div>
+                    <div class="flex-even ml-1">
+                        <isinclude template="search/sortOrderMenu" />
+                    </div>
+                </div>
+            </isif>
+
+            <isif condition="${pdict.productSearch.count > 0}">
+                <!--- Selected filters bar --->
+                <div class="filter-actions px-md-5 d-none d-md-flex justify-content-between">
+                    <div
+                        class="refinement-bar-toggle d-flex justify-content-end align-items-center position-relative py-3">
+                        <span class="refinement-bar-toggle-label">${Resource.msg('button.hideFilter', 'search', null)}
+                        </span>
+                        <i class="far fa-sliders-h fa-lg"></i>
+                    </div>
+                    <div class="filter-bar flex-grow-1 mx-3">
+                        <isinclude template="search/filterBar" />
+                    </div>
+                    <div class="sort d-inline-flex align-items-center">
+                        <isinclude template="search/sortOrderMenu" />
+                    </div>
+                </div>
+
+                <!-- used to display no results after ajax call -->
+                <div class="grid-header"></div>
+
+                <div class="mx-3 mx-md-5 mt-4 d-flex">
+                    <!--- Refinement bar --->
+                    <div class="refinement-bar-container">
+                        <div class="refinement-bar">
+                            <isinclude template="search/searchRefineBar" />
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 product-grid-container">
+                        <!--- Product Grid --->
+                        <div class="product-grid d-flex flex-wrap" itemtype="http://schema.org/SomeProducts"
+                            itemid="#product">
+                            <isinclude template="search/productGrid" />
+                        </div>
+                    </div>
+                </div>
+            <iselse/>
+                <div class="filter-bar flex-grow-1 mx-3">
+                    <ul class="filter-items d-flex align-items-center mx-2">
+                        <button class="btn" data-href="${pdict.productSearch.resetLink}">
+                            ${Resource.msg('link.reset', 'search', null)}
+                        </button>
+                    </ul>
+                </div>
+                <isinclude template="search/noResultsProduct" />
+            </isif>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<form action="${URLUtils.url('Loyalty-SaveOptin')}" class="edit-loyalty-form" method="POST" <isprint value="${pdict.profileForm.attributes}" encoding="off" />>
+
+    <div class="b2c-loyalty-integration-asset-about-loyalty-program">
+        <a href="${URLUtils.url('Page-Show', 'cid', 'b2cloyalty_registered_about_loyalty')}" target="_blank">
+            ${Resource.msg('registerform.loyalty.aboutloyaltyprogram', 'loyalty', null)}
+        </a>
+    </div>
+
+    <div class="form-group required custom-control custom-checkbox">
+        <input
+                type="checkbox"
+                class="custom-control-input"
+                id="b2c-loyalty-opt-in-status"
+                aria-describedby="form-opt-in-error"
+        <isprint value=${pdict.profileForm.loyalty.b2cloyaltyoptinstatus.attributes} encoding="off" />
+        >
+        <label class="custom-control-label" for="b2c-loyalty-opt-in-status">
+            <isprint value="${pdict.profileForm.loyalty.b2cloyaltyoptinstatus.label}" encoding="htmlcontent" />
+        </label>
+        <div class="invalid-feedback" id="form-opt-in-error"></div>
+    </div>
+
+    <div class="b2c-loyalty-integration-asset-about-loyalty-terms-and-conditions-head">
+        <div>
+            <h6>${Resource.msg('registerform.loyalty.termsandconditions', 'loyalty', null)}</h6>
+        </div>
+    </div>
+
+    <div class="b2c-loyalty-integration-asset-about-loyalty-terms-and-conditions-body">
+        <isinclude url="${URLUtils.url('Page-Include', 'cid', 'b2cloyalty_short_terms_and_conditions')}"/>
+    </div>
+
+    <input name="${pdict.csrf.tokenName}" type="hidden" value="${pdict.csrf.token}"/>
+
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-block btn-outline-primary"
+               href="${URLUtils.url('Account-Show')}">${Resource.msg('profile.loyalty.form.cta.cancel', 'loyalty', null)}</a>
+        </div>
+        <div class="col">
+            <button class="btn btn-save btn-block btn-primary" name="save" type="submit">
+                ${Resource.msg('profile.loyalty.status.cta.optin', 'loyalty', null)}
+            </button>
+        </div>
+    </div>
+
+</form>

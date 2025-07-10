@@ -1,0 +1,82 @@
+// support scss for dittoTheme functionality
+
+// swatch editor display
+.ditto-theme-editor--swatch-container {
+    display: flex;
+    align-items: center;
+
+    .ditto-theme-editor--swatch-color {
+        order-radius: 3px;
+        width: 3rem;
+        height: 3rem;
+        box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06);
+        margin-right: 5px;
+    }
+    .ditto-theme-editor--swatch-info {
+
+    }
+}
+
+// Buttons require a careful cascade to ensure the normal colors work
+.btn-primary {
+    color: var(--toolkit-btn-primary-text, #{$white});
+    background-color: var(--toolkit-btn-primary, var(--toolkit-primary, #{$primary}));
+    border-color: var(--toolkit-btn-primary, var(--toolkit-primary, #{$primary}));
+
+    &:hover {
+        color: var(--toolkit-btn-primary-text, #{$white});
+        background-color: var(--toolkit-btn-primary-hover, var(--toolkit-btn-primary, var(--toolkit-primary, #{darken($primary, 7.5%)})));
+        border-color: var(--toolkit-btn-primary-hover, var(--toolkit-btn-primary, var(--toolkit-primary, #{darken($primary, 7.5%)})));
+    }
+}
+
+.btn-secondary {
+    color: var(--toolkit-btn-secondary-text, #{$gray-900});
+    background-color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{$secondary}));
+    border-color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{$secondary}));
+    &:hover {
+        color: var(--toolkit-btn-secondary-text, #{$gray-900});
+        background-color: var(--toolkit-btn-secondary-hover, var(--toolkit-btn-secondary, var(--toolkit-secondary, #{darken($secondary, 7.5%)})));
+        border-color: var(--toolkit-btn-secondary-hover, var(--toolkit-btn-secondary, var(--toolkit-secondary, #{darken($secondary, 7.5%)})));
+    }
+}
+
+.btn-outline-primary {
+    color: var(--toolkit-btn-primary, var(--toolkit-primary, #{$primary}));
+    border-color: var(--toolkit-btn-primary, var(--toolkit-primary, #{$primary}));
+    &:hover {
+        border-color: var(--toolkit-btn-primary, var(--toolkit-primary, #{darken($primary, 7.5%)}));
+        background-color: var(--toolkit-btn-primary, var(--toolkit-primary, #{darken($primary, 7.5%)}));
+    }
+}
+
+.btn-outline-secondary {
+    color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{$secondary}));
+    border-color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{$secondary}));
+    &:hover {
+        border-color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{darken($secondary, 7.5%)}));
+        background-color: var(--toolkit-btn-secondary, var(--toolkit-secondary, #{darken($secondary, 7.5%)}));
+    }
+}
+
+// set a "default" verson of the css var here for use in the editor when an value is not set for a color
+// we can display what the base theme uses
+// primary/secondary are required so not present here
+:root {
+    --toolkit-text-color-default: #{$body-color};
+    --toolkit-site-footer-bg-default: #{$site-footer-bg};
+
+    // NOTE bootstrap uses light/dark and those correspond to $white or $gray-900 (which is why these two get used quite a bit)
+    // Given that we cannot calculate light/dark with custom colors as bootstrap does we assume based off NTO colors
+    // custom brands can then override if they don't match those conventions
+    --toolkit-btn-primary-text-default: #{$white};
+    --toolkit-btn-secondary-text-default: #{$gray-900};
+
+    --toolkit-product-ratings-color-default: #{$product-rating};
+}
+.bg-primary {
+    background-color: var(--toolkit-bg-primary, var(--toolkit-primary, #{$primary})) !important;
+}
+.bg-secondary {
+    background-color: var(--toolkit-bg-secondary, var(--toolkit-secondary, #{$secondary})) !important;
+}

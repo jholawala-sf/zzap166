@@ -1,0 +1,7 @@
+<isif condition="${pdict.name !== null}">
+    <ul role="menu" aria-label="${Resource.msg('label.profile.myaccountlink', 'account', null)}" aria-hidden="true">
+        <li class="nav-item" role="presentation"><a href="${URLUtils.https('Account-Show')}" role="menuitem" tabindex="-1">${Resource.msg('link.header.myaccount', 'account', null)}</a></li>
+        <li class="nav-item" role="presentation"><a href="${URLUtils.url('Order-History')}" role="menuitem" tabindex="-1">${Resource.msg('label.myorders', 'account', null)}</a></li>
+        <li class="nav-item" role="presentation"><a href="${URLUtils.url('Login-Logout')}" role="menuitem" tabindex="-1">${Resource.msg('link.header.logout', 'account', null)}</a></li>
+    </ul>
+</isif>

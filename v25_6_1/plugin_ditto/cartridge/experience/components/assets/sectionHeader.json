@@ -1,0 +1,67 @@
+{
+    "name": "Section Header",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "content",
+            "name": "Content",
+            "attribute_definitions": [
+                {
+                    "id": "heading",
+                    "name": "Heading",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "headingColor",
+                    "name": "Heading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "subheading",
+                    "name": "Subheading",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "subheadingColor",
+                    "name": "Subheading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "styling",
+            "name": "Styling",
+            "attribute_definitions": [
+                {
+                    "id": "showDesignElement",
+                    "name": "Show Design Element",
+                    "description": "Whether or not to show a the design element.",
+                    "type": "boolean",
+                    "default_value": true,
+                    "required": false
+                },
+                {
+                    "id": "spacing",
+                    "name": "Spacing",
+                    "description": "Manage row's spacing. Note: Margin/padding can only be a value between 1-5.",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.spacing"
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

@@ -1,0 +1,8 @@
+<isset name="refinementId" value="${refinementValue.displayValue.replace(/[\W_]+/g, " -")}" scope="page" />
+<li class="attribute">
+    <div class="refinement-link custom-control custom-checkbox" data-href="${refinementValue.url}" data-seo-href="${refinementValue.seoRefineUrl || refinementValue.url}">
+        <input type="checkbox" id="${refinementId}" class="custom-control-input" ${refinementValue.selectable ? '' :
+                                                                                 'disabled'} ${refinementValue.selected ? 'checked' : ''} />
+        <label class="custom-control-label" for="${refinementId}">${refinementValue.displayValue}</label>
+    </div>
+</li>

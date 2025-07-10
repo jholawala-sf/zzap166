@@ -1,0 +1,11 @@
+@import '../variables';
+@import '~base/components/pricing';
+
+.price {
+  .strike-through {
+    color: $strikethrough-text-color;
+    text-decoration: line-through;
+
+    @include mr(1);
+  }
+}

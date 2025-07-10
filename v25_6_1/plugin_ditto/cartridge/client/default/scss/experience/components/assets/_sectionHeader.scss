@@ -1,0 +1,25 @@
+.section-header {
+    .header {
+        border-collapse: separate;
+        border-spacing: 16px 0;
+        border-spacing: 1rem 0;
+        display: table;
+        margin: 1em 0 0.5em;
+        table-layout: auto;
+        text-align: center; 
+        width: 100%;
+
+
+        &.show-design-element::before,
+        &.show-design-element::after {
+            border-top: 1px solid currentColor;
+            content: "";
+            display: table-cell;
+            width: 50%;
+        }
+    }
+
+    .subheader {
+        @include font-size(18px);
+    }
+}

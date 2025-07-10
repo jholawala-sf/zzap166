@@ -1,0 +1,73 @@
+@import "./variables";
+@import "./storeLocator/storeLocator";
+
+.map-marker {
+    position: relative;
+    @include mr(1);
+
+    .map-marker-label {
+        color: $white;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+    }
+
+    .fa-map-marker {
+        color: $primary;
+    }
+}
+
+.gm-style-iw {
+    .store-details {
+        font-family: $font-family-sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.5;
+        margin-left: 0;
+    }
+
+    a {
+        color: $primary;
+    }
+}
+
+.map-canvas {
+    display: none;
+
+    @include media-breakpoint-up(sm) {
+        display: block;
+        height: 28.125em;
+    }
+}
+
+.store-name {
+    font-weight: 600;
+}
+
+.store-details {
+    display: block;
+    margin-left: 3.125em;
+}
+
+.store-locator-no-apiKey {
+    display: none;
+}
+
+.store-locator-no-results {
+    display: none;
+
+    @include py(3);
+}
+
+.results {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+        margin-right: -0.938em;
+        max-height: 21.875em;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

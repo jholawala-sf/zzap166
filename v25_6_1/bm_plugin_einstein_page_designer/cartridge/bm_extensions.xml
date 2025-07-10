@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+    <menuaction id="NoPermissionCheck" site="false">
+        <name xml:lang="x-default">EGPT Controllers</name>
+        <short_description xml:lang="x-default">Enable Einstein Assisted Page Designer Controllers</short_description>
+        <description xml:lang="x-default">Enable Einstein Assisted Page Designer Controllers</description>
+        <sub-pipelines>
+            <pipeline name="ChatSessions-CreateSession" />
+            <pipeline name="ChatSessions-GetSession" />
+            <pipeline name="ChatSessions-EndSession" />
+            <pipeline name="Embeddings-CreateEmbedding" />
+            <pipeline name="Generations-ChatGenerations" />
+            <pipeline name="Generations-ChatMessages" />
+            <pipeline name="Generations-GenerateResponse" />
+            <pipeline name="Generations-PluginResponse" />
+            <pipeline name="Generations-RegisterFeedback" />
+            <pipeline name="LLM-GetModels" />
+            <pipeline name="LLM-GetProviders" />
+            <pipeline name="SavedComponents-List" />
+            <pipeline name="SavedComponents-UpdateOrCreate" />
+            <pipeline name="SavedComponents-Delete" />
+        </sub-pipelines>
+    </menuaction>
+</extensions>

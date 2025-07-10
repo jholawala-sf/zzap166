@@ -1,0 +1,31 @@
+.fullWidth {
+    width: 100vw; 
+    margin-left: calc(50% - 50vw) !important; 
+    margin-right: calc(50% - 50vw) !important; 
+    max-width: 100vw; 
+    border: none;   
+}
+
+.fullWidth .region.col-12.col-md-12.px-2 {
+    padding: 0 !important;
+}
+
+.spacerRow {
+    display: block;
+    width:100%;
+}
+
+.spacerRowMob {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .spacerRow {
+        display: none;
+    }
+
+    .spacerRowMob {
+        display: block;
+        width:100%;
+    }
+}

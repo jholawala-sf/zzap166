@@ -1,0 +1,5 @@
+<img class="logo" src="${URLUtils.staticURL('/images/logo.svg')}"
+     alt="${Resource.msg('global.storename', 'common', null)}" />
+<img class="logo-alt" src="${URLUtils.staticURL('/images/logo-alt.svg')}"
+     alt="${Resource.msg('global.storename', 'common', null)}" />
+

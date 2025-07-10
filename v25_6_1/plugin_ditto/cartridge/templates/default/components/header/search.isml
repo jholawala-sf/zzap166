@@ -1,0 +1,24 @@
+<div class="site-search d-flex align-items-center">
+    <span class="search d-none d-lg-inline"></span>
+    <form role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch" class="w-100">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="far fa-xs fa-search" aria-hidden="true"></i>
+                </span>
+            </div>
+            <input class="form-control search-field" type="search" name="q" value=""
+                placeholder="${Resource.msg('label.header.searchwatermark', 'common', null)}"
+                aria-label="${Resource.msg('label.header.searchwatermark', 'common', null)}" autocomplete="off" />
+            <div class="input-group-append d-lg-none">
+                <span class="input-group-text">
+                    <button class="btn" type="button">
+                        <i class="far fa-sm fa-times" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="suggestions-wrapper" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
+        <input type="hidden" value="${pdict.locale}" name="lang" />
+    </form>
+</div>

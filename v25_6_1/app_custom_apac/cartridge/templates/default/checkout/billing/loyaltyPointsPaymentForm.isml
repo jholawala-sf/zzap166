@@ -1,0 +1,54 @@
+<isset name="loyaltyPointsPaymentFields" value="${pdict.forms.billingForm.loyaltyPaymentFields.points}" scope="page" />
+<div class="row sfpp-payment-method-name">
+    <div class="col-8">
+        <div
+            class="form-group ${!!loyaltyPointsPaymentFields.amount.mandatory ? 'required' : ''} ${loyaltyPointsPaymentFields.amount.htmlName}">
+            <label class="form-control-label" for="amount">
+                <isprint value="${Resource.msg('payments.loyalty.msg.points.amount', 'loyalty', null)}" />
+            </label>
+            <input type="text" class="form-control" id="amount" value="" <isprint
+                value=${loyaltyPointsPaymentFields.amount.attributes} encoding="off" /> />
+            <div class="invalid-feedback" id="loyaltyPointsPaymentInvalidMessage"></div>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        </div>
+    </div>
+    <div class="col-4 submit-loyalty-points-payment-button">
+        <div class="mb-sm-3">
+            <div class="form-group">
+                <label class="form-control-label" aria-hidden="true"> &nbsp; </label>
+                <button class="btn btn-outline-primary btn-block submit-loyalty-points-payment" id="submit-loyalty-points-payment"
+                    type="submit" data-refresh-summary-url="${URLUtils.url('CheckoutServices-UpdateOrderSummary')}"
+                    name="submit" value="submit-loyalty-points-payment">
+                    <isprint value="${Resource.msg('payments.loyalty.button.points.pay', 'loyalty', null)}" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<isset name="chain" value="${require('*/cartridge/scripts/helpers/chain')}" scope="page" />
+<isset name="loyaltyPayment"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS', null)}"
+       scope="page" />
+
+<div
+    class="row loyalty-points-amount-info-section ${(empty(loyaltyPayment) || loyaltyPayment.value <= 0) ? 'checkout-hidden' : ''}">
+    <div class="col-8 pt-2">
+        <p class="summary-section-label loyalty-amount-added-label">
+            <i class="text-success fa fa-check-circle"></i>
+            <span class="loyalty-points-applied">
+                <isprint value="${chain.safeGet(pdict, 'order.billing.payment.totalLoyaltyPointsApplied', '')}" />
+            </span>
+            <isprint value="${Resource.msg('payments.loyalty.label.points.applied', 'loyalty', null)}" />
+            <span class="loyalty-points-money-amount-applied">
+                <isprint value="${chain.safeGet(loyaltyPayment, 'formatted', '')}" />
+            </span>
+        </p>
+    </div>
+    <div class="col-4 text-right">
+        <button class="btn btn-link text-primary remove-loyalty-points-payment" id="remove-loyalty-points-payment" type="submit"
+            name="submit" value="remove-loyalty-points-payment">
+            <isprint value="${Resource.msg('payments.loyalty.button.points.remove', 'loyalty', null)}" />
+        </button>
+    </div>
+</div>

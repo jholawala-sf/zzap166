@@ -1,0 +1,88 @@
+{
+    "name": "Dynamic Category Banner",
+    "description": "Banner for category or product pages",
+    "group": "Dynamic",
+    "attribute_definition_groups": [
+        {
+            "id": "dynamicCategory",
+            "description": "Determines banner content",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "type": "category",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "category"
+                    }
+                },
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "type": "product",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "product"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "overrideContent",
+            "name": "Override Content",
+            "description": "You can define content to override the defaults configured in Business Manager",
+            "attribute_definitions": [
+                {
+                    "id": "image",
+                    "name": "Banner Image",
+                    "description": "Overrides the default image configured in Business Manager",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "heading",
+                    "name": "Heading",
+                  "description": "Overrides the category display name configured in Business Manager",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "headingColor",
+                    "name": "Heading Color",
+                    "type": "custom",
+                    "editor_definition": {
+                        "type": "styling.colorPicker"
+                    },
+                    "required": false
+                },
+                {
+                    "id": "overlayPosition",
+                    "name": "Overlay Position",
+                    "type": "enum",
+                    "values": [
+                        "Top Left",
+                        "Top Center",
+                        "Top Right",
+                        "Middle Left",
+                        "Middle Center",
+                        "Middle Right",
+                        "Bottom Left",
+                        "Bottom Center",
+                        "Bottom Right"
+                    ],
+                    "default_value": "Top Left",
+                    "required": false
+                },
+                {
+                    "id": "overlayAlignment",
+                    "name": "Overlay Alignment",
+                    "type": "enum",
+                    "values": ["Left", "Center", "Right"],
+                    "default_value": "Left",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

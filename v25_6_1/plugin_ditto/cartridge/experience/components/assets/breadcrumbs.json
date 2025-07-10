@@ -1,0 +1,32 @@
+{
+    "name": "Breadcrumbs",
+    "description": "Breadcrumbs for category or product pages",
+    "group": "Components",
+    "attribute_definition_groups": [
+        {
+            "id": "dynamicCategory",
+            "description": "Determines banner content",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "type": "category",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "category"
+                    }
+                },
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "type": "product",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "product"
+                    }
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

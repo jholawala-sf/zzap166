@@ -1,0 +1,43 @@
+@import "bootstrap/scss/mixins/breakpoints";
+
+.category-slot {
+  width: 100%;
+}
+
+.category-item {
+  margin-bottom: 15px;
+
+  a {
+    display: block;
+  }
+}
+
+.category-tile {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  position: relative;
+  width: 100%;
+
+  h3 {
+    bottom: 1.875rem;
+    color: $white;
+    left: 1.875rem;
+    position: absolute;
+  }
+
+  .category-overlay {
+    bottom: 0;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 1s;
+
+    &:hover {
+      opacity: 0;
+    }
+  }
+}

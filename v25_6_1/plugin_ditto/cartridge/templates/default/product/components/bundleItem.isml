@@ -1,0 +1,117 @@
+<div class="container product-detail bundle-item mt-2 mb-3" data-pid="${product.id}">
+
+    <div class="row">
+        <div class="col-12">
+            <!---Breadcrumbs--->
+            <div class="product-breadcrumb bundles d-md-none">
+                <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            </div>
+
+            <!-- Product Name -->
+            <div class="row">
+                <div class="d-md-none col-sm-12">
+                    <h1 class="product-name">${product.productName}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bundle-item-info">
+
+        <!-- carousel -->
+        <iscomment>
+            <div class="col-12">
+                <div class="col carousel-container">
+
+                    <isif condition="${product.images.small.length > 1}">
+                        <div class="d-none slick-paging">
+                            <isloop items="${product.images.small}" var="image" status="loopStatus">
+                                <button class="slick-paging-btn ${loopStatus.first ? 'active' : ''}">
+                                    <div class="slick-paging-image-container">
+                                        <img src="${image.url}" alt="${image.alt} image number ${image.index}"
+                                            class="img-fluid" itemprop="image" />
+                                    </div>
+                                </button>
+                            </isloop>
+                        </div>
+                    </isif>
+                    <div class="product-carousel">
+                        <isloop items="${product.images.large}" var="image" status="loopStatus">
+                            <div class="carousel-item">
+                                <img src="${image.url}" alt="${image.alt} image number ${image.index}" class="img-fluid"
+                                    itemprop="image" />
+                            </div>
+                        </isloop>
+                    </div>
+                </div>
+            </div>
+        </iscomment>
+
+        <div class="pdp-primary-info d-flex justify-content-between">
+
+            <!-- Product Image -->
+            <div class="image-container d-flex">
+                <img src="${product.images.large[0].url}"
+                    alt="${product.images.large[0].alt} image number ${product.images.large[0].index}"
+                    class="img-fluid mr-3" />
+
+                <!-- Product Name -->
+                <a href="${URLUtils.url('Product-Show', 'pid', product.id)}">
+                    <div class="product-name hidden-sm-down mr-3">${product.productName}</div>
+                </a>
+
+            </div>
+
+            <div class="col d-none">
+                <isinclude template="product/components/pidRating" />
+            </div>
+
+            <div class="attributes d-flex">
+                <!-- Attributes and Quantity -->
+                <isinclude template="product/components/mainAttributes" />
+
+                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                    <div data-attr="${attr.id}" class="row swatch color">
+                        <isinclude template="product/components/variationAttribute" />
+                    </div>
+                </isloop>
+
+                <!-- Size Chart -->
+                <isif condition="${product.variationAttributes && product.sizeChartId}">
+                    <div class="row">
+                        <span class="col-12 col-md-10 size-chart">
+                            <isinclude template="product/components/sizeChart" />
+                        </span>
+                    </div>
+                </isif>
+
+                <!-- Product Options -->
+                <isif condition="${product.options.length}">
+                    <isloop items="${product.options}" var="option">
+                        <div class="row">
+                            <div class="col">
+                                <isif condition="${option.selectedValueId !== ''}">
+                                    <isinclude template="product/components/optionStatic" />
+                                </isif>
+                            </div>
+                        </div>
+                    </isloop>
+                </isif>
+
+                <div class="d-none">
+                    <!-- Product Availability -->
+                    <isinclude template="product/components/productAvailability" />
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <isinclude template="product/components/quantityStatic" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

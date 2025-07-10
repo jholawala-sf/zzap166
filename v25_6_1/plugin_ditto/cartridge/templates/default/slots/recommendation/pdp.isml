@@ -1,0 +1,10 @@
+<isif condition="${slotcontent}">
+    <h2 class="section-header">
+        <isprint value="${slotcontent.calloutMsg}" encoding="on" />
+    </h2>
+    <div class="row mb-5">
+        <div class="carousel slot-carousel">
+            <isinclude template="components/products" />
+        </div>
+    </div>
+</isif>

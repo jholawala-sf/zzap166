@@ -1,0 +1,15 @@
+<isif condition="${pdict.isInEditMode}">
+    <isdecorate template="common/layout/page">
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets');
+        </isscript>
+        <isprint value="${pdict.regions.main.render()}" encoding="off" />
+        <div style="display: flex; justify-content: center">
+            <div class="order-details-region-edit-mode" style="width: 900px; min-height:200px; background-color: #eee">
+                <h1>Original Order Details Will Render Here</h1>
+            </div>
+        </div>
+    </isdecorate>
+<iselse/>
+    <isprint value="${pdict.regions.main.render()}" encoding="off" />
+</isif>

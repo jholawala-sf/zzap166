@@ -1,0 +1,17 @@
+<div class="row highlights">
+    <div class="container">
+        <isinclude template="product/components/description" />
+        <isinclude template="product/components/features" />
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5 prod-details">
+            <isinclude template="product/components/details" />
+        </div>
+        <div class="col-12 col-md-5 prod-details">
+            <isinclude template="product/components/specifications" />
+        </div>
+    </div>
+</div>

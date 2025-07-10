@@ -1,0 +1,59 @@
+.social-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.9375em;
+}
+
+.share-label {
+    color: $social-links;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    @include font-size(13px);
+    @include pr(2);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+    @include font-size(23px);
+
+    li {
+        @include pr(2);
+    }
+
+    a {
+        color: $social-links;
+    }
+}
+
+.svg-inline--fa {
+    transition: color 0.3s linear;
+}
+
+.fa-pinterest {
+    &:hover {
+        color: $social-pinterest;
+    }
+}
+.fa-facebook {
+    &:hover {
+        color: $social-facebook;
+    }
+}
+.fa-twitter {
+    &:hover {
+        color: $social-twitter;
+    }
+}
+.fa-link {
+    &:hover {
+        color: $social-link;
+    }
+}

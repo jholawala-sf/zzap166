@@ -1,0 +1,127 @@
+<div class="container-fluid product-detail product-wrapper pt-3 product-template2" data-pid="${product.id}" data-master-pid="${product.parentId}" data-product-template="2">
+    <div class="row d-block d-md-none">
+        <!-- Product Name -->
+        <div class="col-12">
+            <h1 class="product-name">${product.productName}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="w-100 template2-container">
+            <div class="row justify-content-start">
+                <div class="col-12 col-sm-9">
+                    <!-- Product Images Grid -->
+                    <div class="col carousel-container">
+                        <isinclude template="product/components/imageCarousel" />
+                    </div>
+                </div>
+
+                <div class="pdp-primary-info col-12 col-md-2 col-xl-2">
+                    <!-- Product Name -->
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="product-name d-none d-md-block">${product.productName}</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col d-flex flex-wrap justify-content-between align-items-center pb-2">
+                            <!-- Prices -->
+                            <div class="prices">
+                                <isset name="price" value="${product.price}" scope="page" />
+                                <isinclude template="product/components/pricing/main" />
+                            </div>
+                            <isif condition="${pdict.hideRatings === true}">
+                                <iscomment> hide but don't remove as breaks add to cart </iscomment>
+                                <div class="invisible">
+                                    <isinclude template="product/components/pidRating" />
+                                </div>
+                            <iselse/>
+                                <isinclude template="product/components/pidRating" />
+                            </isif>
+                        </div>
+                    </div>
+
+                    <!-- Product Availability -->
+                    <isinclude template="product/components/productAvailability" />
+
+                    <!-- Applicable Promotions -->
+                    <div class="row">
+                        <div class="col-12 promotions">
+                            <isinclude template="product/components/promotions" />
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="attributes">
+                        <!-- Attributes and Quantity -->
+                        <isset name="isBundle" value="${false}" scope="page" />
+                        <isset name="loopState" value="{count: 1}" scope="page" />
+                        <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                            <div data-attr="${attr.id}">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+
+                            <isif condition="${attributeStatus.last && !isBundle}">
+                                <!-- Quantity Drop Down Menu -->
+                                <div class="attribute quantity">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </isif>
+                        </isloop>
+
+                        <isif condition="${!product.variationAttributes}">
+                            <div class="simple-quantity">
+                                <isinclude template="product/components/quantity" />
+                            </div>
+                        </isif>
+
+
+                        <div class="product-options">
+                            <isif condition="${product.options && product.options.length > 0}">
+                                    <isinclude template="product/components/options" />
+                            </isif>
+                        </div>
+
+                        <!-- Size Chart -->
+                        <isif condition="${product.variationAttributes && product.sizeChartId}">
+                            <div class="size-chart">
+                                <isinclude template="product/components/sizeChart" />
+                            </div>
+                        </isif>
+                    </div>
+
+                    <div class="prices-add-to-cart-actions mt-sm-4">
+                        <!-- Cart and [Optionally] Apple Pay -->
+                        <isinclude template="product/components/addToCartProduct" />
+                    </div>
+                    <!-- Social Sharing Icons -->
+                    <isif condition="${pdict.hideSocials === false}">
+                        <div class="row">
+                            <isinclude template="product/components/socialIcons" />
+                        </div>
+                    </isif>
+
+                    <isif condition="${pdict.hideRecs === false}">
+                        <isset name="showMiniCarousel" value="${true}" scope="page" />
+                        <div class="row recommendations mini-recs">
+                            <div class="container">
+                                <isslot id="product-recommendations-1-m" description="Product Recommendations 1" context="global"
+                                    context-object="${product.raw}" />
+                                <isslot id="product-recommendations-2-m" description="Product Recommendations 2" context="global"
+                                    context-object="${product.raw}" />
+                                <isproductrecommendations product="${product}" />
+                            </div>
+                        </div>
+                    </isif>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <isset name="loopState" value="{count: 1}" scope="page" />
+    <isif condition="${pdict.hideDesc === false}">
+        <isinclude template="product/components/descriptionAndDetails" />
+    </isif>
+</div>

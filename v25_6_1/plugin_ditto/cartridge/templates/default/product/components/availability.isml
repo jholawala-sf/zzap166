@@ -1,0 +1,13 @@
+<div class="col-12">
+    <ul class="list-unstyled availability-msg">
+        <li>
+            <isif condition="${!product.readyToOrder}">
+                <div>${Resource.msg('info.selectforstock', 'product', 'Select styles to see availability')}</div>
+            <iselse/>
+                <isloop items="${product.availability.messages}" var="message">
+                    <div class="${message.replace(/\s+/g, '-').toLowerCase()}">${message}</div>
+                </isloop>
+            </isif>
+        </li>
+    </ul>
+</div>

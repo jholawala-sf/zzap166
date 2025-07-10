@@ -1,0 +1,8 @@
+<li class="size-attribute mr-2 mb-2">
+    <a href="${'#'}" data-href="${refinementValue.url}" data-seo-href="${refinementValue.seoRefineUrl || refinementValue.url}"
+        class="refinement-link size-box d-flex justify-content-center align-items-center text-center ${!refinementValue.selectable ? 'disabled' : ''} ${refinementValue.selected && refinementValue.selectable ? 'selected' : ''}"
+        ${!refinementValue.selectable ? 'disabled' : ''}>
+        <div class="${'size-' + refinementValue.displayValue.toLowerCase().replace(/[\W_]+/g, '-')}">
+            ${refinementValue.displayValue}</div>
+    </a>
+</li>

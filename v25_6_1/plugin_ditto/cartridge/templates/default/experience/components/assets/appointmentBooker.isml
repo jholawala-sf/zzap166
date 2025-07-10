@@ -1,0 +1,301 @@
+
+<style>
+    .month-year{
+        background-color:${pdict.app.headColour};
+    }
+
+    .timepicker-container{
+        background-color: ${pdict.app.bgColour};
+    }
+
+    .showBtn, .showBtn.btn.btn-outline-primary:hover{
+         background-color: ${pdict.app.btnColour}!important;
+         border-color: ${pdict.app.btnColour}!important;
+         color: ${pdict.app.btnText};
+    }
+
+    .showBtn:hover{
+        background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+        color: ${pdict.app.btnText}!important;
+    }
+
+    .showBtn.btn.btn-outline-primary{
+        background-color:white!important;
+        color: ${pdict.app.btnColour};
+    }
+
+    .dp-date,.timepicker-time{
+        background-color:${pdict.app.dateColour};
+    }
+
+    .datepicker-container,.time-confirmation-info{
+        background-color:${pdict.app.bgColour};
+    }
+
+    .booker-container{
+        color: ${pdict.app.textColour};
+    }
+
+    .month-arrows{
+        color: ${pdict.app.textColour};
+    }
+
+    .dp-date{
+        border: 1rem solid ${pdict.app.bgColour};
+    }
+
+    .arrow-up:after{
+        border-bottom: 1.5rem solid ${pdict.app.bgColour};
+    }
+
+    .dp-date-selected,
+    .tp-time-selected{
+        background-color: ${pdict.app.selectedDateColour};
+        color: ${pdict.app.selectedDateTextColour};
+    }
+
+    .dp-date-passed{
+        color: ${pdict.app.datePassedColour};
+    }
+
+    .datepicker-head{
+        color: ${pdict.app.daysTextColour};
+    }
+
+
+</style>
+
+<div class="containerFont">
+
+    <div id="booking-btn" class="booking-btn">
+        <button class="showBtn btn btn-primary" onclick="displayDatePicker('${pdict.app.textColour}','${pdict.app.datePassedColour}','${pdict.app.bgColour}','${pdict.app.dateColour}','${pdict.app.selectedDateColour}','${pdict.app.selectedDateTextColour}','${pdict.app.daysTextColour}')">
+            ${pdict.openCalButtonText}
+        </button>
+    </div>
+
+    <div id="booker-container" class="booker-container">
+        <div id="datepicker-container" class="datepicker-container" style="display:none">
+
+            <div class="datepicker-title">
+
+                <div class="month-year">
+                    <a class="month-arrows" onclick="lastMonth()" title="Prev">
+                        <span class="fa fa-angle-left"></span>
+                    </a>
+                    <span class="month-text" id="monthAndYear"></span>
+                    <a class="month-arrows" onclick="nextMonth()" title="Next">
+                        <span class="fa fa-angle-right"></span>
+                    </a>
+                </div>
+            </div>
+            <table class="datepicker-tbl">
+                <thead class="datepicker-head">
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="datepicker-body" class="datepicker-body">   
+                </tbody>
+            </table>
+        </div>
+
+        <div id="timepicker" class="timepicker" style="display:none">
+            <div class="arrow-up"></div>
+            <div class="timepicker-container">
+                <div class="timpepicker-header">
+                    Available Times
+                </div>
+                <div id="timepicker-body" class="timepicker-body">
+                </div>
+            </div>
+        </div>
+
+        <div id="time-confirmation" class="confirmation-popup" style="display:none;">
+            <div class="time-confirmation-info">
+               <h4> Are you sure you want to book for <span id="book-date"></span> at <span id="book-time"></span>?</h4>
+                <div>
+                    <button class="showBtn btn btn-primary"  onclick="confirmBooking()">Confirm</button>
+                    <button class="showBtn btn btn-outline-primary" onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-confirmation" class="booking-confirmation" style="display:none;">
+        <div class="booking-confirmation-info">
+            <h4>${pdict.confirmText1} <span id="booked-date"></span> at <span id="booked-time"></span>. ${pdict.confirmText2}</h4>
+        </div>
+    </div>
+</div>
+
+<script>
+
+let today = new Date();
+let currentMonth = today.getMonth(),
+    currentYear = today.getFullYear(),
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    selectedMonth = "",
+    bookedDate = "",
+    bookedTime = "";
+
+function displayDatePicker(dateColour){
+ 
+    showCalendar(currentMonth, currentYear, dateColour);
+    document.getElementById('datepicker-container').style.display = 'block';
+    document.getElementById('booking-btn').style.display = 'none';
+}
+
+function nextMonth() {
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    showCalendar(currentMonth, currentYear);
+}
+
+function lastMonth() {
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    showCalendar(currentMonth, currentYear);
+}
+
+function showCalendar(month, year) {
+    var firstDay = (new Date(year, month)).getDay(),
+        daysInMonth = 32 - new Date(year, month, 32).getDate(),
+        tbl = document.getElementById('datepicker-body'),
+        date = 1; 
+
+    tbl.innerHTML = '';
+
+    document.getElementById('monthAndYear').innerHTML = months[month] + " " + year;
+
+    selectedMonth = months[month];
+
+    for (var i = 0; i < 6; i++) {
+        var row = document.createElement('tr');
+
+        for (var j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                var cell = document.createElement('td'),
+                    cellText = document.createTextNode('');
+                cell.appendChild(cellText);
+                cell.classList.add('dp-date', 'dp-no-date');
+                row.appendChild(cell);
+            }
+            else if (date > daysInMonth) {
+                break;
+            }
+            else {
+                var cell = document.createElement('td'),
+                    cellText = document.createTextNode(date);
+                cell.classList.add('dp-date');
+
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.onclick= function(){
+                        selectDate(this);
+                    }
+                } else if((date < today.getDate() && year === today.getFullYear() && month === today.getMonth())||( year === today.getFullYear() && month < today.getMonth())|| year < today.getFullYear()) {
+                    cell.classList.add('dp-date-passed');
+                } else{
+                    cell.onclick= function(){
+                        selectDate(this);
+                    }
+                }
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                
+                date++;
+            }
+        }
+        tbl.appendChild(row);
+    }
+}
+
+function selectDate(tableCell) {
+    var oldSelected = document.getElementsByClassName('dp-date-selected'),
+        times = [["9am","10am","12pm","4pm","5pm"],["11am"],["10am", "1pm", "3pm", "4pm"],["9am","5pm"],["2pm","3pm","4pm"],["10am","11am","12pm","2pm","5pm"]],
+        timepickerBody = document.getElementById("timepicker-body"),
+        timeList= times[Math.floor(Math.random() * 6)],
+        timeDiv;
+
+    // clear previous selections
+    if(oldSelected.length > 0){
+        oldSelected[0].classList.remove('dp-date-selected');
+    }
+    while (timepickerBody.firstChild) {
+        timepickerBody.removeChild(timepickerBody.firstChild);
+    }
+
+    // make new selection
+    tableCell.classList.add('dp-date-selected');
+
+    for(var i = 0; i < timeList.length; i++){
+        timeDiv = document.createElement('div');
+        timeDiv.classList.add('timepicker-time');
+        timeDiv.innerHTML = timeList[i];
+
+        timeDiv.onclick= function(){
+            selectTime(this,tableCell);
+        }
+        timepickerBody.appendChild(timeDiv);
+    } 
+
+    document.getElementById('timepicker').style.display= 'block';
+}
+
+function selectTime(timeDiv, dateCell) {
+    var oldSelected = document.getElementsByClassName('tp-time-selected');
+
+    // clear previous selections
+    if(oldSelected.length > 0){
+        oldSelected[0].classList.remove('tp-time-selected');
+    }
+    // make new selection
+    timeDiv.classList.add('tp-time-selected');
+
+    // display time confirmation message
+    bookedTime = timeDiv.innerHTML;
+    document.getElementById('book-time').innerHTML = bookedTime;
+    bookedDate = dateNth(dateCell.innerHTML) + ' ' + selectedMonth;
+    document.getElementById('book-date').innerHTML = bookedDate;
+    document.getElementById('time-confirmation').style.display = 'block';
+}
+
+function dateNth(date) {
+    if(date>3 && date<21) return date+'th';
+    switch (date % 10) {
+        case 1:  return date+"st";
+        case 2:  return date+"nd";
+        case 3:  return date+"rd";
+        default: return date+"th";
+    }
+} 
+
+function confirmBooking(){
+    document.getElementById('booker-container').setAttribute('style','display:none');
+    document.getElementById('booked-time').innerHTML = bookedTime;
+    document.getElementById('booked-date').innerHTML = bookedDate;
+    document.getElementById('booking-confirmation').style.display = 'block';
+}
+
+function closePopup(){
+    var timeSelected = document.getElementsByClassName('tp-time-selected'),
+        dateSelected = document.getElementsByClassName('dp-date-selected');
+
+    document.getElementById('time-confirmation').style.display = 'none';
+
+    // clear previous selections
+    if(timeSelected.length > 0){
+        timeSelected[0].classList.remove('tp-time-selected');
+    }
+    if(dateSelected.length > 0){
+        dateSelected[0].classList.remove('dp-date-selected');
+    }
+}
+
+</script>
+

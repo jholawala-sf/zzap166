@@ -1,0 +1,1 @@
+<isinclude url="${URLUtils.url('Tile-Show', 'pid', pdict.product.ID, 'swatches', pdict.swatches, 'ratings', pdict.ratings, 'showQuickView', pdict.quickView)}" />

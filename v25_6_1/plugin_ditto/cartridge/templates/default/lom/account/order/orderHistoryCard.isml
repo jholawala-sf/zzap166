@@ -1,0 +1,51 @@
+<div class="list-group-item">
+  <div class="row">
+    <div class="col-10">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <img class="img-fluid" src="${order.firstLineItem.imageURL}" alt="${order.firstLineItem.alt}"
+            title="${order.firstLineItem.title}" />
+        </div>
+        <div class="col-9 d-flex flex-column">
+          <div>
+            <span class="font-weight-bold">
+              ${Resource.msg('label.orderhistory.orderstatus', 'account', null)}
+            </span>
+            ${order.orderStatus}
+          </div>
+          <div>
+            <span class="font-weight-bold">
+              ${Resource.msg('label.orderhistory.dateordered', 'account', null)}
+            </span>
+            <isprint value="${order.creationDate}" />
+          </div>
+          <div>
+            <span class="font-weight-bold">
+              ${Resource.msg('label.orderhistory.ordernumber', 'account', null)}
+            </span>
+            <isprint value="${order.orderNumber}" />
+          </div>
+          <div>
+            <span class="font-weight-bold">
+              ${Resource.msg('label.orderhistory.totalitems', 'account', null)}
+            </span>
+            <isprint value="${order.productQuantityTotal}" formatter="#" />
+          </div>
+          <div>
+            <span class="font-weight-bold">
+              ${Resource.msg('label.orderhistory.ordertotal', 'account', null)}
+            </span>
+            ${order.priceTotal}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <a href="${URLUtils.url('LomOrder-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
+        class="btn btn-outline-primary btn-block"
+        aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">
+        ${Resource.msg('link.order.details', 'account', null)}
+      </a>
+    </div>
+  </div>
+</div>

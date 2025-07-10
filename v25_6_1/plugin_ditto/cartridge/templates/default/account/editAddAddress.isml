@@ -1,0 +1,24 @@
+<isset name="activeNavigation" value="addresses" scope="page" />
+
+<isdecorate template="common/layout/account">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/profile.css');
+        assets.addJs('/js/addressBook.js');
+    </isscript>
+    <div class="container">
+        <div class="account-header">
+            <isif condition="${pdict.addressId}">
+                <h2>${Resource.msg('label.addressbook.editaddress', 'account', null)}</h2>
+            <iselse/>
+                <h2>${Resource.msg('label.addressbook.addnewaddress', 'account', null)}</h2>
+            </isif>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <isinclude template="account/addressForm" />
+            </div>
+        </div>
+    </div>
+</isdecorate>

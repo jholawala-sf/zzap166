@@ -1,0 +1,26 @@
+<form class="search-for-gr" method="POST" name="search-for-gr">
+    <div class="form-group required">
+        <label class="form-control-label" for="searchFirstName">
+            ${Resource.msg('field.registrant.first.name', 'giftRegistry', null)}
+        </label>
+        <input type="text" required class="form-control search-first-name" id="searchFirstName" name="searchFirstName"
+            data-missing-msg="${Resource.msg('error.registrant.missing.field', 'giftRegistry', null)}" />
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="searchLastName">
+            ${Resource.msg('field.registrant.last.name', 'giftRegistry', null)}
+        </label>
+        <input type="text" required class="form-control search-last-name" id="searchLastName" name="searchLastName"
+            data-missing-msg="${Resource.msg('error.registrant.missing.field', 'giftRegistry', null)}" />
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group mb-0">
+        <button class="btn btn-block btn-primary search-registries" type="submit" name="submit" value="submit"
+            data-url="${pdict.urlSearchGR}">
+            ${Resource.msg('button.find.list', 'giftRegistry', null)}
+        </button>
+    </div>
+</form>

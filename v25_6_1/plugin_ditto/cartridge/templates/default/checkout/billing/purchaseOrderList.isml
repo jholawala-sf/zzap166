@@ -1,0 +1,34 @@
+<isset name="purchaseOrderPaymentMethodId" value="${require('*/cartridge/scripts/helpers/purchaseOrderHelpers').PURCHASE_ORDER_PAYMENT_METHOD_ID}" scope="page" />
+
+<isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+    <isif condition="${payment.paymentMethod === purchaseOrderPaymentMethodId}">
+        <div class="po-summary-details purchase-order-details-${payment.UUID}">
+            <div class="po-summary-section-label">
+                <isprint value="${pdict.purchaseOrderDetails.labels.listHeader}" encoding="off" />
+            </div>
+
+            <div class="row leading-lines">
+                <div class="col-8 start-lines">
+                    <div class="purchase-order">
+                        <span>
+                            <a href="${'#'}"
+                               class="remove-btn remove-purchase-order"
+                               data-action="${payment.removePurchaseOrderUrl}"
+                               aria-label="${pdict.purchaseOrderDetails.labels.removeLinkTitle}"
+                               title="${pdict.purchaseOrderDetails.labels.removeLinkTitle}">
+                                [${Resource.msg('link.remove.purchaseOrder', 'payment', null)}]
+                            </a>
+                        </span>
+                        <span class="purchase-order-number">
+                            <isprint value="${pdict.purchaseOrderDetails.labels.listLabel}" encoding="off" />&nbsp;${payment.purchaseOrderNumber}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-4 end-lines">
+                    <div class="text-right purchase-order-amount">${payment.formattedAmount}</div>
+                </div>
+            </div>
+        </div>
+        <isbreak/>
+    </isif>
+</isloop>

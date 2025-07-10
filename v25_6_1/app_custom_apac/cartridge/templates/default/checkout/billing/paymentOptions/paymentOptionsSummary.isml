@@ -1,0 +1,35 @@
+<iscomment>
+    Description: Override SFRA cartridges/app_storefront_base/cartridge/templates/default/checkout/billing/paymentOptions/paymentOptionsSummary.isml
+    with Loyalty functional logic to support Loyalty Management integration.
+</iscomment>
+<div class="payment-details">
+
+    <iscomment>
+        START: Loyalty B2C Commerce Cloud Integration
+    </iscomment>
+
+    <isinclude template="checkout/billing/paymentOptions/loyaltyVouchersPaymentSummary" />
+    <isinclude template="checkout/billing/paymentOptions/loyaltyPointsPaymentSummary" />
+
+    <iscomment>
+        END: Loyalty B2C Commerce Cloud Integration
+    </iscomment>
+
+    <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+        <isif condition="${payment.paymentMethod === 'CREDIT_CARD'}">
+            <isinclude template="checkout/billing/paymentOptions/creditCardSummary" />
+        </isif>
+    </isloop>
+</div>
+
+<iscomment>
+    START: Loyalty B2C Commerce Cloud Integration
+</iscomment>
+
+
+<isinclude template="checkout/billing/paymentOptions/loyaltyVouchersPaymentSummaryTemplate" />
+<isinclude template="checkout/billing/paymentOptions/loyaltyPointsPaymentSummaryTemplate" />
+
+<iscomment>
+    END: Loyalty B2C Commerce Cloud Integration
+</iscomment>

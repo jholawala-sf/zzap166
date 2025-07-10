@@ -1,0 +1,8 @@
+{
+    "name": "AI Prompt",
+    "description": "Allows you to generate Chakra UI using OpenAI.",
+    "resources": {
+        "styles": [""],
+        "scripts": ["/experience/editors/gptAssisted.js"]
+    }
+}

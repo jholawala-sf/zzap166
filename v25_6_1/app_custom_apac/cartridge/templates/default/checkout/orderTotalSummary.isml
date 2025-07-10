@@ -1,0 +1,106 @@
+<iscomment>
+    Description: Override SFRA cartridges/app_storefront_base/cartridge/templates/default/checkout/orderTotalSummary.isml
+    with Loyalty functional logic to support Loyalty Management integration.
+</iscomment>
+
+<!--- Subtotal --->
+<div class="row leading-lines subtotal-item">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.order.subtotal','confirmation', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="sub-total">${pdict.order.totals.subTotal}</span></p>
+    </div>
+</div>
+
+<!--- Order Discount --->
+<div class="row leading-lines order-discount <isif condition="${pdict.order.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount</isif>">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.order.discount', 'common', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="order-discount-total">- ${pdict.order.totals.orderLevelDiscountTotal.formatted}</span></p>
+    </div>
+</div>
+
+<!--- Shipping Cost --->
+<div class="row leading-lines shipping-item">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.order.shipping.cost','confirmation', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span></p>
+    </div>
+</div>
+
+<!--- Shipping Discount --->
+<div class="row leading-lines shipping-discount <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.shipping.discount', 'common', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="shipping-discount-total">- ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
+    </div>
+</div>
+
+<!--- Sales Tax --->
+<div class="row leading-lines sales-tax-item">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.order.sales.tax','confirmation', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="tax-total">${pdict.order.totals.totalTax}</span></p>
+    </div>
+</div>
+
+<iscomment>
+    START: Loyalty B2C Commerce Cloud Integration
+
+    Description: With safeGet method from chain helper we can safely use bellow functionality for loyalty and non-loyalty flows
+</iscomment>
+
+<isset name="chain" value="${require('*/cartridge/scripts/helpers/chain')}" scope="page" />
+<!--- Loyalty Points --->
+<isset name="loyaltyPointsPayment"
+       scope="page"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS', null)}"/>
+<div class="row leading-lines loyalty-points-order-summary-item ${(empty(loyaltyPointsPayment) || loyaltyPointsPayment.value <= 0) ? 'd-none' : ''}">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label">
+            <span>${Resource.msg('confirmation.loyalty.label.order.points.total', 'loyalty', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right">
+            <span class="loyalty-points-order-summary-item-amount">-<isprint value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_POINTS.formatted', null)}"/></span>
+        </p>
+    </div>
+</div>
+
+<!--- Loyalty Vouchers --->
+<isset name="loyaltyVouchersPayment"
+       scope="page"
+       value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_VOUCHERS', null)}"/>
+<div class="row leading-lines loyalty-vouchers-order-summary-item ${(empty(loyaltyVouchersPayment) || loyaltyVouchersPayment.value <= 0) ? 'd-none' : ''}">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label">
+            <span>${Resource.msg('confirmation.loyalty.label.order.vouchers.total', 'loyalty', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="loyalty-vouchers-order-summary-item-amount">-<isprint value="${chain.safeGet(pdict, 'order.billing.payment.totalByPaymentMethod.LOYALTY_VOUCHERS.formatted', null)}"/></span>
+        </p>
+    </div>
+</div>
+
+<!--- Grand Total. Loyalty has changed this section - it now only shows the remainder - not grand total --->
+<div class="row grand-total leading-lines">
+    <div class="col-6 start-lines">
+        <p class="order-receipt-label"><span>${Resource.msg('label.order.grand.total','confirmation', null)}</span></p>
+    </div>
+    <div class="col-6 end-lines">
+        <p class="text-right"><span class="grand-total-sum"><isprint value="${chain.safeGet(pdict, 'order.billing.payment.totalExcludingLoyaltyBasedPaymentMethods.formatted', null)}" /></span></p>
+    </div>
+</div>
+
+<iscomment>
+    END: Loyalty B2C Commerce Cloud Integration
+</iscomment>

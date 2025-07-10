@@ -1,0 +1,62 @@
+<isloop items="${orderItems}" var="orderItem" status="itemsLoopState">
+    <isif condition="${pdict.orderCardContext === 'account' && itemsLoopState.count > 5}">
+        <isbreak/>
+    </isif>
+    <isset name="quantity" value="${orderItem.quantityOrdered}" scope="page"/>
+    <isif condition="${groupedItem.status === somPreferences.statusReturnInitiated}">
+        <isset name="quantity" value="${orderItem.quantityReturnInitiated}" scope="page"/>
+    <iselseif condition="${groupedItem.status === somPreferences.statusReturned}"/>
+        <isset name="quantity" value="${orderItem.quantityReturned}" scope="page"/>
+    <iselseif condition="${groupedItem.status === somPreferences.statusCancelled}"/>
+        <isset name="quantity" value="${orderItem.quantityCancelled}" scope="page"/>
+    </isif>
+    <isset name="totalPrice" value="${new dw.value.Money(quantity * orderItem.price, orderItem.currencyCode).toFormattedString()}" scope="page"/>
+
+    <isscript>
+        var productUrl = null;
+        var product = dw.catalog.ProductMgr.getProduct(orderItem.sfccProductId);
+        if (product) {
+            if (product.variant) {
+                productUrl = URLUtils.url('Product-Show', 'pid', product.masterProduct.ID)
+            } else {
+                productUrl = URLUtils.url('Product-Show', 'pid', product.ID)
+            }
+        }
+    </isscript>
+    <isif condition="${empty(product)}">
+        <iscontinue/>
+    </isif>
+    <div class="row order-history-card-details">
+        <div class="col-2">
+            <img class="img-fluid" src="${orderItem.images.small[0].url}"
+                alt="${orderItem.images.small[0].alt}"
+                title="${orderItem.images.small[0].title}">
+        </div>
+        <div class="col-10 item-details">
+            <p class="item-detail">
+                <!-- ${JSON.stringify(orderItem)} -->
+                <isif condition="${productUrl}">
+                    <a href="${URLUtils.url('Product-Show', 'pid', orderItem.sfccProductId)}"><isprint value="${orderItem.productName}"/></a>
+                <iselse/>
+                    <isprint value="${orderItem.productName}"/>
+                </isif>
+                <isif condition="${orderItem.quantity > 1}">
+                    (x<isprint value="${orderItem.quantity}" formatter="#"/>)
+                </isif>
+            </p>
+
+            <p class="item-detail"> ${orderItem.totalPrice} </p>
+
+            <isloop items="${orderItem.variationAttributes}" var="attribute">
+                <p class="line-item-attributes item-details">${attribute.displayName}: ${attribute.displayValue}</p>
+            </isloop>
+        </div>
+        <isif condition="${typeof orderItemsOptions !== 'undefined' && orderItemsOptions}">
+            <div class="col-12">
+                <div class="return-quantity"><span>${Resource.msg('label.order.return.number','orderReturn',null)}:</span> ${orderItem.quantity} of ${orderItem.qMax}</div>
+                <div class="return-reason"><span>${Resource.msg('label.order.return.reason','orderReturn',null)}:</span> ${orderItem.reason} </div>
+                <div class="return-amount"><span>${Resource.msg('label.order.return.amount','orderReturn',null)}:</span> ${orderItem.totalPrice}</div>
+            </div>
+        </isif>
+    </div>
+</isloop>

@@ -1,0 +1,36 @@
+<isif condition="${pdict.product.productType === 'bundle' && product.bundledProducts}">
+    <isif condition="${product.shortDescription}">
+        <div class="row highlights">
+            <div class="container">
+                <isinclude template="product/components/description" />
+            </div>
+        </div>
+    </isif>
+
+    <isif condition="${product.bundleEnableBundledProductsDetails}">
+        <isset name="bundleProduct" value="${product}" scope="page" />
+        <isloop items="${product.bundledProducts}" var="productItem" status="loopState">
+            <isset name="product" value="${productItem}" scope="page" />
+            <isif condition="${product.longDescription || product.specifications}">
+                <div class="container mb-5">
+                    <div class="row">
+                        <h3><isprint value="${product.productName}" encoding="off" /></h3>
+                    </div>
+                    <div class="row">
+                        <isif condition="${product.longDescription}">
+                            <div class="col-12 col-md-5">
+                                <isinclude template="product/components/details" />
+                            </div>
+                        </isif>
+                        <isif condition="${product.specifications}">
+                            <div class="col-12 col-md-5">
+                                <isinclude template="product/components/specifications" />
+                            </div>
+                        </isif>
+                    </div>
+                </div>
+            </isif>
+        </isloop>
+        <isset name="product" value="${bundleProduct}" scope="page" />
+    </isif>
+</isif>

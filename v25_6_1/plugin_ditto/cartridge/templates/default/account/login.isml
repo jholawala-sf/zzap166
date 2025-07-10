@@ -1,0 +1,44 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/login.js');
+    </isscript>
+
+    <isslot id="login-banner-m" description="Banner for login" context="global" />
+
+    <div class="container login-page mt-5">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-center account-auth_col">
+                <div class="account-auth_content">
+                    <h2 class="mb-3">${Resource.msg('header.login.module', 'login', null)}</h2>
+                    <div class="mb-3">
+                        <iscontentasset aid="account-auth-login-content" />
+                    </div>
+                    <isinclude template="account/components/loginForm" />
+                    <isinclude template="account/password/requestPasswordResetModal" />
+                    <h4 class="decorated py-3"><span>${Resource.msg('label.or', 'common', 'OR')}</span></h4>
+                    <isif condition="${require('*/cartridge/scripts/helpers/siteHelpers').getSitePreference('enablePasswordlessLogin')}">
+                        <isinclude template="account/components/passwordlessLoginButton" />
+                    </isif>
+                    <isinclude template="account/components/oauth" />
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center account-auth_col">
+                <div class="account-auth_content">
+                    <h2 class="mb-3">${Resource.msg('header.register.module', 'login', null)}</h2>
+                    <div class="mb-5">
+                        <iscontentasset aid="account-auth-create-account-content-m" />
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-outline-primary btn-block" href="${URLUtils.https('Login-Register')}">
+                            ${Resource.msg('button.createaccount.registration', 'registration', null)}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

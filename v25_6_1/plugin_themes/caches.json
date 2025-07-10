@@ -1,0 +1,8 @@
+{
+    "caches": [
+      {
+        "id": "categoryRefinements",
+        "expireAfterSeconds": 3600
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+<isif condition="${session.userAuthenticated}">
+    <div class="service-cloud-banner d-flex align-items-center justify-content-center">
+        <div class="service-cloud-banner-message">
+            ${Resource.msg('info.service.agent', 'common', null)}
+            <strong>
+                <isprint value="${session.userName}">
+            </strong> ${Resource.msg('info.service.loggedInAs', 'common', null)}
+            <isif condition="${session.customerAuthenticated}">
+                ${Resource.msg('info.service.customer', 'common', null)}
+                <strong>
+                    <isprint value="${customer.profile.firstName + ' ' + customer.profile.lastName}" />
+                </strong>
+            <iselse/>
+                ${Resource.msg('info.service.an', 'common', null)}
+                <strong>${Resource.msg('info.service.unregistered', 'common', null)}</strong>
+            </isif>
+        </div>
+    </div>
+</isif>
