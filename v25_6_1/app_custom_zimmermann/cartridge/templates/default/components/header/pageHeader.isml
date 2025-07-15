@@ -1,0 +1,124 @@
+<isset name="communityLink" value="${'#'}" scope="page">
+<isif condition="${'DittoHeaderCommunityLink' in dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom
+                 .DittoHeaderCommunityLink != ''}">
+    <isset name="communityLink" value="${dw.system.Site.current.preferences.custom.DittoHeaderCommunityLink}" scope="page" />
+</isif>
+<isset name="helpLink" value="${'#'}" scope="page">
+<isif condition="${'DittoHeaderHelpLink' in dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom
+                 .DittoHeaderHelpLink != ''}">
+    <isset name="helpLink" value="${dw.system.Site.current.preferences.custom.DittoHeaderHelpLink}" scope="page" />
+</isif>
+<isset name="headerTemplate" value="${'template1'}" scope="page">
+<isif condition="${'DittoHeaderTemplate' in dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom
+                 .DittoHeaderTemplate != ''}">
+    <isset name="headerTemplate" value="${dw.system.Site.current.preferences.custom.DittoHeaderTemplate}" scope="page" />
+</isif>
+
+<isif condition="${headerTemplate == 'template5'}">
+    <isinclude template="components/header/headerTemplate5" />
+<iselse/>
+    <isif condition="${headerTemplate == 'template2' || headerTemplate == 'template3' || headerTemplate == 'template4'}">
+    <div class="minify-header oneRowHead">
+    </isif>
+    <header class="site-header ${headerTemplate.value}">
+        <isinclude template="components/header/serviceCloudBanner" />
+        <section class="preheader d-none d-lg-block">
+            <nav class="h-100 d-flex align-items-center justify-content-between">
+                <section class="d-flex align-items-center">
+                    <div class="pl-3">
+                        <isinclude url="${URLUtils.url('Page-Locale')}" />
+                    </div>
+                    <div class="d-none d-md-inline-block mr-3">
+                        <a href="${URLUtils.url('Stores-Find', 'showMap', true, 'horizontalView', true)}"
+                            title="${Resource.msg('global.header.storelocator.label', 'common', null)}">
+                            <i class="far fa-map-marker-alt mr-1" aria-hidden="true"></i>
+                            ${Resource.msg('global.header.storelocator.label', 'common', null)}
+                        </a>
+                    </div>
+                    <div class="d-none d-md-inline-block">
+                        <a href="${communityLink}" target="_blank"
+                            title="${Resource.msg('global.header.community', 'common', null)}">
+                            <i class="far fa-users fa-lg mr-1" fa-lg aria-hidden="true"></i>
+                            ${Resource.msg('global.header.community', 'common', null)}
+                        </a>
+                    </div>
+                </section>
+                <section class="promo-banner">
+                    <isslot id="header-promo-banner-m" description="Slot above the site header" context="global" />
+                </section>
+                <section class="d-flex align-items-center">
+                    <isinclude url="${URLUtils.url('Account-Header')}" />
+                    <div class="d-none d-md-inline-block mr-3">
+                        <a href="${helpLink}"
+                            title="${Resource.msg('global.header.help', 'common', null)}">
+                            <i class="far fa-question-circle fa-lg mr-1" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="d-none d-md-inline-block">
+                        <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                            <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                        </div>
+                    </div>
+                </section>
+            </nav>
+        </section>
+        <section>
+         <div class="navbar-brand text-center py-3 py-md-5 main-brand mr-md-3">
+            <a class="text-center" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                                        'global.home', 'common', null))}">
+                <isif condition="${require('*/cartridge/scripts/theme/theme.js').available()}">
+                    <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderLogo()}" encoding="off"/>
+                    <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderMobileLogo()}" encoding="off"/>
+                <iselse/>
+                    <isinclude template="components/header/logo" />
+                </isif>
+            </a>
+        </div>
+        </section>
+        <section class="main-menu">
+            <nav class="navbar navbar-light navbar-expand-lg">
+                <div class="navbar-inner d-flex align-items-center justify-content-between w-100 px-lg-3">
+                   
+                    <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
+                    <div class="navbar-brand temp4-brand mr-md-3">
+                        <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target=".main-menu"
+                            aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-bars mr-1" aria-hidden="true"></i>
+                        </button>
+                        <a href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                                                    'global.home', 'common', null))}">
+                            <isif condition="${require('*/cartridge/scripts/theme/theme.js').available()}">
+                                <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderLogo()}" encoding="off"/>
+                                <isprint value="${require('*/cartridge/scripts/theme/theme.js').renderMobileLogo()}" encoding="off"/>
+                            
+                            </isif>
+                        </a>
+                    </div>
+                    <div class="right-nav">
+                        <isinclude template="components/header/search" />
+                        <div class="right-nav-minified">
+                            <isinclude url="${URLUtils.url('Account-Header')}" />
+                            <div class="d-none d-md-inline-block">
+                                <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                                    <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex d-lg-none">
+                        <a href="#" class="mobile-search_btn">
+                            <i class="far fa-lg fa-search" aria-hidden="true"></i>
+                        </a>
+                        <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                            <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <div class="minicart-container d-flex flex-column"></div>
+    </header>
+    <isif condition="${headerTemplate == 'template2' || headerTemplate == 'template3' || headerTemplate == 'template4'}">
+    </div>
+    </isif>
+</isif>

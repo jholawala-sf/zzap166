@@ -1,0 +1,28 @@
+<isinclude template="/components/modules" />
+<isif condition="${slotcontent}">
+    <div class="homepage-product-listing row" style="text-align: center;">
+        <h2 class="col-sm-12 col-md-4 col-lg-3 title" style="flex: 0 0 100%; max-width: 100%;">${slotcontent.calloutMsg}</h2>
+    </div>
+
+   <div class="homepage-product-listing row">
+    
+    <isloop items="${slotcontent.content}" var="product" status="loopState">
+
+        <div class="col-6 col-sm-3">
+            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', true)}"/>
+        </div>
+
+    </isloop>
+</div>
+</isif>
+
+
+
+
+
+
+
+
+
+
+

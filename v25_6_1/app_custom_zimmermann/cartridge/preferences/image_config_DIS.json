@@ -1,0 +1,29 @@
+{
+    "viewTypeMapping": {
+        "large": "hi-res",
+        "medium": "hi-res",
+        "small": "hi-res",
+        "swatch": "hi-res"
+    },
+    "large": {
+        "scaleWidth": 856,
+        "scaleHeight": 1200
+    },
+    "medium": {
+        "scaleWidth": 225,
+        "scaleHeight": 350
+    },
+    "small": {
+        "scaleWidth": 100,
+        "scaleHeight": 135
+    },
+    "swatch": {
+        "scaleWidth": 20,
+        "scaleHeight": 100
+    },
+    "missingImages": {
+        "large": "large-missing.jpg",
+        "medium": "medium-missing.jpg",
+        "small": "small-missing.jpg"
+    }
+}
